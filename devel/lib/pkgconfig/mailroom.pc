@@ -1,0 +1,8 @@
+prefix=/home/attclinic/software/drone_ws/devel
+
+Name: mailroom
+Description: Description of mailroom
+Version: 0.0.0
+Cflags: -I/home/attclinic/software/drone_ws/devel/include
+Libs: -L/home/attclinic/software/drone_ws/devel/lib 
+Requires: message_runtime roscpp rospy std_msgs

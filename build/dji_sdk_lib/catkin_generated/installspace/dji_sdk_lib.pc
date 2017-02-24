@@ -1,0 +1,8 @@
+prefix=/home/attclinic/software/drone_ws/install
+
+Name: dji_sdk_lib
+Description: Description of dji_sdk_lib
+Version: 0.1.9
+Cflags: -I/home/attclinic/software/drone_ws/install/include
+Libs: -L/home/attclinic/software/drone_ws/install/lib -ldji_sdk_lib
+Requires: 

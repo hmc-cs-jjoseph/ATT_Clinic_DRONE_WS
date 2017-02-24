@@ -1,0 +1,8 @@
+prefix=/home/attclinic/software/drone_ws/devel
+
+Name: tuner
+Description: Description of tuner
+Version: 0.0.0
+Cflags: 
+Libs: -L/home/attclinic/software/drone_ws/devel/lib 
+Requires: 
