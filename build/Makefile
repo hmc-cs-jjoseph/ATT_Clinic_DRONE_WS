@@ -2271,6 +2271,19 @@ _dji_sdk_generate_messages_check_deps_MissionStatusFollowme/fast:
 	$(MAKE) -f dji_sdk/CMakeFiles/_dji_sdk_generate_messages_check_deps_MissionStatusFollowme.dir/build.make dji_sdk/CMakeFiles/_dji_sdk_generate_messages_check_deps_MissionStatusFollowme.dir/build
 .PHONY : _dji_sdk_generate_messages_check_deps_MissionStatusFollowme/fast
 
+#=============================================================================
+# Target rules for targets named wheredoigo_node
+
+# Build rule for target.
+wheredoigo_node: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 wheredoigo_node
+.PHONY : wheredoigo_node
+
+# fast build rule for target.
+wheredoigo_node/fast:
+	$(MAKE) -f wheredoigo/CMakeFiles/wheredoigo_node.dir/build.make wheredoigo/CMakeFiles/wheredoigo_node.dir/build
+.PHONY : wheredoigo_node/fast
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -2446,6 +2459,7 @@ help:
 	@echo "... _dji_sdk_generate_messages_check_deps_GimbalAngleControl"
 	@echo "... _dji_sdk_generate_messages_check_deps_GlobalPositionNavigationActionFeedback"
 	@echo "... _dji_sdk_generate_messages_check_deps_MissionStatusFollowme"
+	@echo "... wheredoigo_node"
 .PHONY : help
 
 

@@ -216,3 +216,4 @@
 /home/attclinic/software/drone_ws/build/wheredoigo/CMakeFiles/list_install_components.dir
 /home/attclinic/software/drone_ws/build/wheredoigo/CMakeFiles/install.dir
 /home/attclinic/software/drone_ws/build/wheredoigo/CMakeFiles/install/local.dir
+/home/attclinic/software/drone_ws/build/wheredoigo/CMakeFiles/wheredoigo_node.dir

@@ -343,6 +343,9 @@ lib:FILEPATH=/home/attclinic/ros_catkin_ws_kinetic/install_isolated/lib/libxmlrp
 //Value Computed by CMake
 mailroom_BINARY_DIR:STATIC=/home/attclinic/software/drone_ws/build/mailroom
 
+//The directory containing a CMake configuration file for mailroom.
+mailroom_DIR:PATH=/home/attclinic/software/drone_ws/devel/share/mailroom/cmake
+
 //Value Computed by CMake
 mailroom_SOURCE_DIR:STATIC=/home/attclinic/software/drone_ws/src/mailroom
 

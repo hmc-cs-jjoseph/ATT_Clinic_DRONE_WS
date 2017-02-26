@@ -165,6 +165,48 @@ depend:
 	cd /home/attclinic/software/drone_ws/build && $(CMAKE_COMMAND) -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
 .PHONY : depend
 
+# Convenience name for target.
+wheredoigo/CMakeFiles/wheredoigo_node.dir/rule:
+	cd /home/attclinic/software/drone_ws/build && $(MAKE) -f CMakeFiles/Makefile2 wheredoigo/CMakeFiles/wheredoigo_node.dir/rule
+.PHONY : wheredoigo/CMakeFiles/wheredoigo_node.dir/rule
+
+# Convenience name for target.
+wheredoigo_node: wheredoigo/CMakeFiles/wheredoigo_node.dir/rule
+
+.PHONY : wheredoigo_node
+
+# fast build rule for target.
+wheredoigo_node/fast:
+	cd /home/attclinic/software/drone_ws/build && $(MAKE) -f wheredoigo/CMakeFiles/wheredoigo_node.dir/build.make wheredoigo/CMakeFiles/wheredoigo_node.dir/build
+.PHONY : wheredoigo_node/fast
+
+src/wheredoigo.o: src/wheredoigo.cpp.o
+
+.PHONY : src/wheredoigo.o
+
+# target to build an object file
+src/wheredoigo.cpp.o:
+	cd /home/attclinic/software/drone_ws/build && $(MAKE) -f wheredoigo/CMakeFiles/wheredoigo_node.dir/build.make wheredoigo/CMakeFiles/wheredoigo_node.dir/src/wheredoigo.cpp.o
+.PHONY : src/wheredoigo.cpp.o
+
+src/wheredoigo.i: src/wheredoigo.cpp.i
+
+.PHONY : src/wheredoigo.i
+
+# target to preprocess a source file
+src/wheredoigo.cpp.i:
+	cd /home/attclinic/software/drone_ws/build && $(MAKE) -f wheredoigo/CMakeFiles/wheredoigo_node.dir/build.make wheredoigo/CMakeFiles/wheredoigo_node.dir/src/wheredoigo.cpp.i
+.PHONY : src/wheredoigo.cpp.i
+
+src/wheredoigo.s: src/wheredoigo.cpp.s
+
+.PHONY : src/wheredoigo.s
+
+# target to generate assembly for a file
+src/wheredoigo.cpp.s:
+	cd /home/attclinic/software/drone_ws/build && $(MAKE) -f wheredoigo/CMakeFiles/wheredoigo_node.dir/build.make wheredoigo/CMakeFiles/wheredoigo_node.dir/src/wheredoigo.cpp.s
+.PHONY : src/wheredoigo.cpp.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -178,6 +220,10 @@ help:
 	@echo "... list_install_components"
 	@echo "... install"
 	@echo "... install/local"
+	@echo "... wheredoigo_node"
+	@echo "... src/wheredoigo.o"
+	@echo "... src/wheredoigo.i"
+	@echo "... src/wheredoigo.s"
 .PHONY : help
 
 

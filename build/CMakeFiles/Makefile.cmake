@@ -161,7 +161,10 @@ set(CMAKE_MAKEFILE_DEPENDS
   "/home/attclinic/software/drone_ws/devel/share/dji_sdk/cmake/dji_sdk-msg-paths.cmake"
   "/home/attclinic/software/drone_ws/devel/share/dji_sdk_lib/cmake/dji_sdk_libConfig-version.cmake"
   "/home/attclinic/software/drone_ws/devel/share/dji_sdk_lib/cmake/dji_sdk_libConfig.cmake"
+  "/home/attclinic/software/drone_ws/devel/share/mailroom/cmake/mailroom-msg-extras.cmake"
   "/home/attclinic/software/drone_ws/devel/share/mailroom/cmake/mailroom-msg-paths.cmake"
+  "/home/attclinic/software/drone_ws/devel/share/mailroom/cmake/mailroomConfig-version.cmake"
+  "/home/attclinic/software/drone_ws/devel/share/mailroom/cmake/mailroomConfig.cmake"
   "/home/attclinic/software/drone_ws/src/CMakeLists.txt"
   "/home/attclinic/software/drone_ws/src/dji_sdk/CMakeLists.txt"
   "/home/attclinic/software/drone_ws/src/dji_sdk/action/DroneTask.action"
@@ -403,4 +406,5 @@ set(CMAKE_DEPEND_INFO_FILES
   "dji_sdk/CMakeFiles/_dji_sdk_generate_messages_check_deps_GimbalAngleControl.dir/DependInfo.cmake"
   "dji_sdk/CMakeFiles/_dji_sdk_generate_messages_check_deps_GlobalPositionNavigationActionFeedback.dir/DependInfo.cmake"
   "dji_sdk/CMakeFiles/_dji_sdk_generate_messages_check_deps_MissionStatusFollowme.dir/DependInfo.cmake"
+  "wheredoigo/CMakeFiles/wheredoigo_node.dir/DependInfo.cmake"
   )

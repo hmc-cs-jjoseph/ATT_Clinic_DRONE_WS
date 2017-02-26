@@ -6,8 +6,8 @@ project(wheredoigo)
 ## is used, also find other catkin packages
 find_package(catkin REQUIRED COMPONENTS
   roscpp
-  rospy
   std_msgs
+	mailroom
 )
 
 ## System dependencies are found with CMake's conventions
@@ -128,16 +128,16 @@ include_directories(
 # add_dependencies(wheredoigo ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
 
 ## Declare a C++ executable
-# add_executable(wheredoigo_node src/wheredoigo_node.cpp)
+add_executable(wheredoigo_node src/wheredoigo.cpp)
 
 ## Add cmake target dependencies of the executable
 ## same as for the library above
-# add_dependencies(wheredoigo_node ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
+add_dependencies(wheredoigo_node ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
 
 ## Specify libraries to link a library or executable target against
-# target_link_libraries(wheredoigo_node
-#   ${catkin_LIBRARIES}
-# )
+target_link_libraries(wheredoigo_node
+  ${catkin_LIBRARIES}
+)
 
 #############
 ## Install ##
