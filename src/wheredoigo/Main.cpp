@@ -11,9 +11,9 @@
 #include <mailroom/drone_telemetry.h> // long, lat, h, angle
 
 // include header file generated from srv file
-#include <tuner/GetSignalStatus.h> // channels[] ; ATSCsignal[] 
+// #include <tuner/GetSignalStatus.h> // channels[] ; ATSCsignal[] 
 
-ros::ServiceClient client = n.serviceClient<tuner::GetSignalStatus>("getSignalStatus");
+// ros::ServiceClient client = n.serviceClient<tuner::GetSignalStatus>("getSignalStatus");
 ros::ServiceServer service = n.advertiseService("getSignalStatus", getSignalData);
 
 ros::Publisher takeOffPub = n.advertise<std_msgs::String>("takeOff", 10); // takes in any string
@@ -28,7 +28,7 @@ ros::Subscriber signalSub = n.subscribe("signal", 10, signalCallback);
 
 const std::string deviceID = "104689B9-0";
 const std::vector<char> chans = {7, 11, 36, 43};
-Tuner tuner = new Tuner(deviceID, chans);
+// Tuner tuner = new Tuner(deviceID, chans);
 
 using namespace DJI::onboardSDK;
 
@@ -40,22 +40,22 @@ void landCallback(const std_msgs::StringConstPtr& msg) {
     drone->landing();
 } 
 
-bool getSignalData (tuner::GetSignalStatus::Request &req, tuner::GetSignalStatus::Response &res) {
-    // req is array of channels, res is array of ATSCsignals
-    // use Tuner methods to get SS and SNQ values to form ATSCsignal messages
+// bool getSignalData (tuner::GetSignalStatus::Request &req, tuner::GetSignalStatus::Response &res) {
+//     // req is array of channels, res is array of ATSCsignals
+//     // use Tuner methods to get SS and SNQ values to form ATSCsignal messages
 
-    mailroom::ATSCSignal sigs[sizeof(req.channels)];
+//     mailroom::ATSCSignal sigs[sizeof(req.channels)];
 
-    for (int i = 0; i < sizeof(req.channels); i++) {
-        SSval = tuner.getSignalStrengthOfChannel(req.channels[i]);
-        SNQval = tuner.getSNQOfChannel(req.channels[i]);
-        sigs[i].channel = chans[channels[i]];
-        sigs[i].SS = SSval;
-        sigs[i].SNQ = SNQval;
-    }
+//     for (int i = 0; i < sizeof(req.channels); i++) {
+//         SSval = tuner.getSignalStrengthOfChannel(req.channels[i]);
+//         SNQval = tuner.getSNQOfChannel(req.channels[i]);
+//         sigs[i].channel = chans[channels[i]];
+//         sigs[i].SS = SSval;
+//         sigs[i].SNQ = SNQval;
+//     }
 
-    res.signals = sigs;
-}
+//     res.signals = sigs;
+// }
 
 void moveCallback(const mailroom:drone_cmd& msg) {
     // parse message
@@ -69,24 +69,24 @@ void moveCallback(const mailroom:drone_cmd& msg) {
     // https://developer.dji.com/onboard-sdk/documentation/appendix/index.html 
     drone->local_position_control(x, y, h, yaw);
 
-    numOfSamples = 5;
-    if (!channels.empty()) {
-        tuner::GetSignalStatus srv = new tuner::GetSignalStatus();
-        srv.request.channels = channels;
+//     numOfSamples = 5;
+//     if (!channels.empty()) {
+//         tuner::GetSignalStatus srv = new tuner::GetSignalStatus();
+//         srv.request.channels = channels;
 
-        for (int i = 0; i < numOfSamples; i++) {
-            client.call(srv);
+//         for (int i = 0; i < numOfSamples; i++) {
+//             client.call(srv);
 
-            mailroom::drone_status stat = new mailroom::drone_status();
-            mailroom::ATSCsignal[] msgs = srv.response.signals;
+//             mailroom::drone_status stat = new mailroom::drone_status();
+//             mailroom::ATSCsignal[] msgs = srv.response.signals;
 
-            stat.telemetry = msg.telemetry;
-            stat.signals = msgs;
-            signalPub.publish(stat);
+//             stat.telemetry = msg.telemetry;
+//             stat.signals = msgs;
+//             signalPub.publish(stat);
 
 
-        }
-    }
+//         }
+//     }
 } 
 
 
