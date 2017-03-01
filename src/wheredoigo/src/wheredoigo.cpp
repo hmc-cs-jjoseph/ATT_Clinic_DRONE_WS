@@ -14,23 +14,10 @@
 // include header file generated from srv file
 // #include <tuner/GetSignalStatus.h> // channels[] ; ATSCsignal[] 
 
-// ros::ServiceClient client = n.serviceClient<tuner::GetSignalStatus>("getSignalStatus");
-ros::ServiceServer service = n.advertiseService("getSignalStatus", getSignalData);
-
-ros::Publisher takeOffPub = n.advertise<std_msgs::String>("takeOff", 10); // takes in any string
-ros::Publisher landPub = n.advertise<std_msgs::String>("land", 10); // takes in any string
-ros::Publisher actionPub = n.advertise<std_msgs::String>("action", 10); // takes in a string to indicate what sequence of actions drone shold do
-ros::Publisher movePub = n.advertise<mailroom:drone_cmd>("move", 10);
-ros::Publisher signalPub = n.advertise<mailroom::ATSCsignal[]>("signal", 10);
-
-ros::Subscriber takeOffSub = n.subscribe("takeOff", 10, takeOffCallback);
-ros::Subscriber landSub = n.subscribe("land", 10, landCallback);
-ros::Subscriber actionSub = n.subscribe("action", 10, actionCallback);
-ros::Subscriber moveSub = n.subscribe("move", 10, moveCallback);
-ros::Subscriber signalSub = n.subscribe("signal", 10, signalCallback);
+DJIDrone* drone = new DJIDrone(n);
 
 const std::string deviceID = "104689B9-0";
-const std::vector<char> chans = {7, 11, 36, 43};
+const uint8_t chans[] = {7, 11, 36, 43};
 // Tuner tuner = new Tuner(deviceID, chans);
 
 using namespace DJI::onboardSDK;
@@ -60,13 +47,13 @@ void landCallback(const std_msgs::String msg) {
 //     res.signals = sigs;
 // }
 
-void moveCallback(const mailroom:drone_cmd& msg) {
+void moveCallback(const mailroom::drone_cmd& msg) {
     // parse message
     double lat = msg.telemetry.longitude;
     double lon = msg.telemetry.latitude;
     float h = msg.telemetry.height;
     float yaw = msg.telemetry.az_angle;
-    uint8[] channels = msg.channels; // channels should be array of channel indices
+    uint8_t channels[] = msg.channels; // channels should be array of channel indices
     
     // pos in meters, angle in degrees: 
     // https://developer.dji.com/onboard-sdk/documentation/appendix/index.html 
@@ -93,11 +80,13 @@ void moveCallback(const mailroom:drone_cmd& msg) {
 } 
 
 void actionCallback(const std_msgs::String msg) {
-    if (msg=="Up and Down") {
-        mailroom::drone_cmd message = new mailroom::drone_cmd();
-        message.telemetry.longitude = longitude;
-        message.telemetry.latitude = latitude;
-        message.channels = channels;
+    string id = msg.data;
+    if (id.compare("Up and Down")) {
+        mailroom::drone_cmd message;
+        message.telemetry.longitude = msg.longitude;
+        message.telemetry.latitude = msg.latitude;
+        message.channels = msg.channels;
+        heights = msg.heights;
 
         for (int i = 0; i < heights.size(); i++) {
             int yaw = -180;
@@ -118,14 +107,12 @@ int main(int argc, char *argv[])
     ros::init(argc, argv, "sdk_client"); // 3rd arg - name of node created
     ros::NodeHandle n; // main access point to communications with ROS system
 
-    DJIDrone* drone = new DJIDrone(n);
+    //int heights[]; // TODO: get from user
+    //int x = ; // TODO: get from user
+    //int y = ; // TODO: get from user
+    //uint8_t channels[]; // TODO: get from user
 
-    std::vector<int> heights = {}; // TODO: get from user
-    int x = ; // TODO: get from user
-    int y = ; // TODO: get from user
-    uint8[] channels = {}; // TODO: get from user
-
-    ros:spin();
+    ros::spin();
     
     // takeOffPub.publish("launch"); // publish to takeoff topic
 
@@ -134,3 +121,18 @@ int main(int argc, char *argv[])
     return 0;
 }
 
+// ros::ServiceClient client = n.serviceClient<tuner::GetSignalStatus>("getSignalStatus");
+ros::ServiceServer service = n.advertiseService("getSignalStatus", getSignalData);
+
+ros::Publisher takeOffPub = n.advertise<std_msgs::String>("takeOff", 10); // takes in any string
+ros::Publisher landPub = n.advertise<std_msgs::String>("land", 10); // takes in any string
+ros::Publisher actionPub = n.advertise<std_msgs::String>("action", 10); // takes in a string to indicate what sequence of actions drone shold do
+ros::Publisher movePub = n.advertise<mailroom::drone_cmd>("move", 10);
+ros::Publisher signalPub = n.advertise<mailroom::ATSCsignal[]>("signal", 10);
+
+
+ros::Subscriber takeOffSub = n.subscribe("takeOff", 10, takeOffCallback);
+ros::Subscriber landSub = n.subscribe("land", 10, landCallback);
+ros::Subscriber actionSub = n.subscribe("action", 10, actionCallback);
+ros::Subscriber moveSub = n.subscribe("move", 10, moveCallback);
+ros::Subscriber signalSub = n.subscribe("signal", 10, signalCallback);
