@@ -19,11 +19,13 @@ ros::ServiceServer service = n.advertiseService("getSignalStatus", getSignalData
 
 ros::Publisher takeOffPub = n.advertise<std_msgs::String>("takeOff", 10); // takes in any string
 ros::Publisher landPub = n.advertise<std_msgs::String>("land", 10); // takes in any string
+ros::Publisher actionPub = n.advertise<std_msgs::String>("action", 10); // takes in a string to indicate what sequence of actions drone shold do
 ros::Publisher movePub = n.advertise<mailroom:drone_cmd>("move", 10);
 ros::Publisher signalPub = n.advertise<mailroom::ATSCsignal[]>("signal", 10);
 
 ros::Subscriber takeOffSub = n.subscribe("takeOff", 10, takeOffCallback);
 ros::Subscriber landSub = n.subscribe("land", 10, landCallback);
+ros::Subscriber actionSub = n.subscribe("action", 10, actionCallback);
 ros::Subscriber moveSub = n.subscribe("move", 10, moveCallback);
 ros::Subscriber signalSub = n.subscribe("signal", 10, signalCallback);
 
@@ -33,11 +35,11 @@ const std::vector<char> chans = {7, 11, 36, 43};
 
 using namespace DJI::onboardSDK;
 
-void takeOffCallback(const std_msgs::StringConstPtr& msg) {
+void takeOffCallback(const std_msgs::String msg) {
     drone->takeoff();
 } 
 
-void landCallback(const std_msgs::StringConstPtr& msg) {
+void landCallback(const std_msgs::String msg) {
     drone->landing();
 } 
 
@@ -60,15 +62,15 @@ void landCallback(const std_msgs::StringConstPtr& msg) {
 
 void moveCallback(const mailroom:drone_cmd& msg) {
     // parse message
-    float x = msg.telemetry.longitude;
-    float y = msg.telemetry.latitude;
+    double lat = msg.telemetry.longitude;
+    double lon = msg.telemetry.latitude;
     float h = msg.telemetry.height;
     float yaw = msg.telemetry.az_angle;
-    std::vector<char> channels = msg.channels; // channels should be array of channel indices
+    uint8[] channels = msg.channels; // channels should be array of channel indices
     
     // pos in meters, angle in degrees: 
     // https://developer.dji.com/onboard-sdk/documentation/appendix/index.html 
-    drone->local_position_control(x, y, h, yaw);
+    drone->global_position_control(lat, lon, h, yaw);
 
 //     numOfSamples = 5;
 //     if (!channels.empty()) {
@@ -90,45 +92,44 @@ void moveCallback(const mailroom:drone_cmd& msg) {
 //     }
 } 
 
+void actionCallback(const std_msgs::String msg) {
+    if (msg=="Up and Down") {
+        mailroom::drone_cmd message = new mailroom::drone_cmd();
+        message.telemetry.longitude = longitude;
+        message.telemetry.latitude = latitude;
+        message.channels = channels;
+
+        for (int i = 0; i < heights.size(); i++) {
+            int yaw = -180;
+            message.telemetry.height = heights[i]; 
+
+            for (int j = 0; j < 12; j++) {
+                message.telemetry.az_angle = yaw;
+                movePub.publish(message); // publish location/orientation to move topic
+
+                yaw = yaw + 30;
+            }
+        } 
+    }
+}
 
 int main(int argc, char *argv[])
 {
-    ros::Rate r(10); // establish ROS rate to 10 Hz
-    ros::spinOnce(); // clear callback queue
-
     ros::init(argc, argv, "sdk_client"); // 3rd arg - name of node created
     ros::NodeHandle n; // main access point to communications with ROS system
 
     DJIDrone* drone = new DJIDrone(n);
 
     std::vector<int> heights = {}; // TODO: get from user
-    float longitude = ; // TODO: get from user
-    float latitude = ; // TODO: get from user
-    std::vector<char> channels = ; // TODO: get from user
+    int x = ; // TODO: get from user
+    int y = ; // TODO: get from user
+    uint8[] channels = {}; // TODO: get from user
 
-    takeOffPub.publish("launch"); // publish to takeoff topic
-    ros::spinOnce();
+    ros:spin();
+    
+    // takeOffPub.publish("launch"); // publish to takeoff topic
 
-    mailroom::drone_cmd msg = new mailroom::drone_cmd();
-    msg.telemetry.longitude = longitude;
-    msg.telemetry.latitude = latitude;
-    msg.channels = channels;
-
-    for (int i = 0; i < heights.size(); i++) {
-        float yaw = -180;
-        msg.telemetry.height = heights[i]; 
-
-        for (int j = 0; j < 12; j++) {
-            msg.telemetry.az_angle = yaw;
-            movePub.publish(msg); // publish location/orientation to move topic
-            ros::spinOnce();
-
-            yaw = yaw + 30;
-        }
-    }
-
-    takeOffPub.publish("land"); // publish to land topic
-    ros::spinonce();
+    // takeOffPub.publish("land"); // publish to land topic
 
     return 0;
 }
