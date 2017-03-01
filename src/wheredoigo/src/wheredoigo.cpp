@@ -63,8 +63,9 @@ void moveCallback(const mailroom::drone_cmd& msg) {
     double lon = msg.telemetry.latitude;
     float h = msg.telemetry.height;
     float yaw = msg.telemetry.az_angle;
-    int numChans = sizeOf(msg.channels);
-    uint8_t channels[numChans] = msg.channels; // channels should be array of channel indices
+    int numChans = sizeof(msg.channels);
+    uint8_t channels[numChans]; // channels should be array of channel indices
+    channels = msg.channels;
     
     // pos in meters, angle in degrees: 
     // https://developer.dji.com/onboard-sdk/documentation/appendix/index.html 
@@ -92,7 +93,7 @@ void moveCallback(const mailroom::drone_cmd& msg) {
 
 // TODO: replace this msg with new msg with command id 
 void actionCallback(const std_msgs::String msg) {
-    string id = msg.data;
+    std::string id = msg.data;
     if (id.compare("Up and Down")) {
         mailroom::drone_cmd message;
         message.telemetry.longitude = msg.longitude; // TODO: don't know why it thinks telemetry does not have long/lat?
@@ -100,7 +101,7 @@ void actionCallback(const std_msgs::String msg) {
         message.channels = msg.channels;
         int heights[] = msg.heights;
 
-        for (int i = 0; i < heights.size(); i++) {
+        for (int i = 0; i < sizeof(heights); i++) {
             int yaw = -180;
             message.telemetry.height = heights[i]; 
 
@@ -133,7 +134,7 @@ int main(int argc, char *argv[])
 }
 
 // ros::ServiceClient client = n.serviceClient<tuner::GetSignalStatus>("getSignalStatus");
-ros::ServiceServer service = n.advertiseService("getSignalStatus", getSignalData);
+// ros::ServiceServer service = n.advertiseService("getSignalStatus", getSignalData);
 
 ros::Subscriber takeOffSub = n.subscribe("takeOff", 10, takeOffCallback);
 ros::Subscriber landSub = n.subscribe("land", 10, landCallback);
