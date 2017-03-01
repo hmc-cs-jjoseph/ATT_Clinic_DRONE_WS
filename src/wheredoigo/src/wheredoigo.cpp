@@ -1,7 +1,7 @@
 // include files
 #include <ros/ros.h>
 #include <stdio.h>
-#include <dji_drone.h>
+#include <ATT_Clinic_DRONE_WS/src/dji_sdk/include/dji_sdk/dji_drone.h>
 #include <std_msgs/String.h>
 // #include <tuner/Tuner.h>
 
