@@ -8,6 +8,8 @@ find_package(catkin REQUIRED COMPONENTS
   roscpp
   std_msgs
 	mailroom
+	dji_sdk
+	dji_sdk_lib
 )
 
 ## System dependencies are found with CMake's conventions
