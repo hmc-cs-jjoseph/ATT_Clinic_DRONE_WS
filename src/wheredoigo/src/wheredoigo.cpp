@@ -1,5 +1,6 @@
 // include files
 #include <ros/ros.h>
+#include <string>
 #include <stdio.h>
 #include <dji_sdk/dji_drone.h>
 #include <std_msgs/String.h>
@@ -10,9 +11,18 @@
 #include <mailroom/drone_cmd.h> // drone_telemetry, channels[] 
 #include <mailroom/drone_status.h> // drone_telemetry, ATSCsignal[]
 #include <mailroom/drone_telemetry.h> // long, lat, h, angle
+//include message containing command id, heights, global lat/long, heights
 
 // include header file generated from srv file
 // #include <tuner/GetSignalStatus.h> // channels[] ; ATSCsignal[] 
+
+ros::NodeHandle n; // main access point to communications with ROS system
+
+ros::Publisher takeOffPub = n.advertise<std_msgs::String>("takeOff", 10); // takes in any string
+ros::Publisher landPub = n.advertise<std_msgs::String>("land", 10); // takes in any string
+ros::Publisher actionPub = n.advertise<std_msgs::String>("action", 10); // takes in a string to indicate what sequence of actions drone shold do
+ros::Publisher movePub = n.advertise<mailroom::drone_cmd>("move", 10);
+ros::Publisher signalPub = n.advertise<mailroom::ATSCsignal[]>("signal", 10);
 
 DJIDrone* drone = new DJIDrone(n);
 
@@ -53,7 +63,8 @@ void moveCallback(const mailroom::drone_cmd& msg) {
     double lon = msg.telemetry.latitude;
     float h = msg.telemetry.height;
     float yaw = msg.telemetry.az_angle;
-    uint8_t channels[] = msg.channels; // channels should be array of channel indices
+    int numChans = sizeOf(msg.channels);
+    uint8_t channels[numChans] = msg.channels; // channels should be array of channel indices
     
     // pos in meters, angle in degrees: 
     // https://developer.dji.com/onboard-sdk/documentation/appendix/index.html 
@@ -79,14 +90,15 @@ void moveCallback(const mailroom::drone_cmd& msg) {
 //     }
 } 
 
+// TODO: replace this msg with new msg with command id 
 void actionCallback(const std_msgs::String msg) {
     string id = msg.data;
     if (id.compare("Up and Down")) {
         mailroom::drone_cmd message;
-        message.telemetry.longitude = msg.longitude;
+        message.telemetry.longitude = msg.longitude; // TODO: don't know why it thinks telemetry does not have long/lat?
         message.telemetry.latitude = msg.latitude;
         message.channels = msg.channels;
-        heights = msg.heights;
+        int heights[] = msg.heights;
 
         for (int i = 0; i < heights.size(); i++) {
             int yaw = -180;
@@ -105,7 +117,6 @@ void actionCallback(const std_msgs::String msg) {
 int main(int argc, char *argv[])
 {
     ros::init(argc, argv, "sdk_client"); // 3rd arg - name of node created
-    ros::NodeHandle n; // main access point to communications with ROS system
 
     //int heights[]; // TODO: get from user
     //int x = ; // TODO: get from user
@@ -124,15 +135,8 @@ int main(int argc, char *argv[])
 // ros::ServiceClient client = n.serviceClient<tuner::GetSignalStatus>("getSignalStatus");
 ros::ServiceServer service = n.advertiseService("getSignalStatus", getSignalData);
 
-ros::Publisher takeOffPub = n.advertise<std_msgs::String>("takeOff", 10); // takes in any string
-ros::Publisher landPub = n.advertise<std_msgs::String>("land", 10); // takes in any string
-ros::Publisher actionPub = n.advertise<std_msgs::String>("action", 10); // takes in a string to indicate what sequence of actions drone shold do
-ros::Publisher movePub = n.advertise<mailroom::drone_cmd>("move", 10);
-ros::Publisher signalPub = n.advertise<mailroom::ATSCsignal[]>("signal", 10);
-
-
 ros::Subscriber takeOffSub = n.subscribe("takeOff", 10, takeOffCallback);
 ros::Subscriber landSub = n.subscribe("land", 10, landCallback);
 ros::Subscriber actionSub = n.subscribe("action", 10, actionCallback);
 ros::Subscriber moveSub = n.subscribe("move", 10, moveCallback);
-ros::Subscriber signalSub = n.subscribe("signal", 10, signalCallback);
+//ros::Subscriber signalSub = n.subscribe("signal", 10, signalCallback);
