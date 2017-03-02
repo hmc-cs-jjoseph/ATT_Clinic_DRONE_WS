@@ -1,2 +1,5 @@
-mailroom/drone_telemetry telemetry
+float64 longitude
+float64 latitude
+uint8 height
+uint8 az_angle
 uint8[] channels
