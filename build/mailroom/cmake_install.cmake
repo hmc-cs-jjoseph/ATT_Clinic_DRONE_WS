@@ -36,6 +36,7 @@ if(NOT CMAKE_INSTALL_COMPONENT OR "${CMAKE_INSTALL_COMPONENT}" STREQUAL "Unspeci
   file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/mailroom/msg" TYPE FILE FILES
     "/home/attclinic/software/drone_ws/src/mailroom/msg/ATSCsignal.msg"
     "/home/attclinic/software/drone_ws/src/mailroom/msg/drone_cmd.msg"
+    "/home/attclinic/software/drone_ws/src/mailroom/msg/drone_move.msg"
     "/home/attclinic/software/drone_ws/src/mailroom/msg/drone_status.msg"
     "/home/attclinic/software/drone_ws/src/mailroom/msg/drone_telemetry.msg"
     )
