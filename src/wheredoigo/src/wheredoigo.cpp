@@ -20,8 +20,8 @@ ros::NodeHandle n; // main access point to communications with ROS system
 
 ros::Publisher takeOffPub = n.advertise<std_msgs::String>("takeOff", 10); // takes in any string
 ros::Publisher landPub = n.advertise<std_msgs::String>("land", 10); // takes in any string
-ros::Publisher actionPub = n.advertise<std_msgs::String>("action", 10); // takes in a string to indicate what sequence of actions drone shold do
-ros::Publisher movePub = n.advertise<mailroom::drone_cmd>("move", 10);
+ros::Publisher actionPub = n.advertise<mailroom::drone_cmd>("action", 10); // takes in a string to indicate what sequence of actions drone shold do
+ros::Publisher movePub = n.advertise<mailroom::drone_move>("move", 10);
 ros::Publisher signalPub = n.advertise<mailroom::ATSCsignal[]>("signal", 10);
 
 DJIDrone* drone = new DJIDrone(n);
@@ -57,19 +57,19 @@ void landCallback(const std_msgs::String msg) {
 //     res.signals = sigs;
 // }
 
-void moveCallback(const mailroom::drone_cmd& msg) {
+void moveCallback(const mailroom::drone_move& msg) {
     // parse message
-    double lat = msg.telemetry.longitude;
-    double lon = msg.telemetry.latitude;
-    float h = msg.telemetry.height;
-    float yaw = msg.telemetry.az_angle;
+    float x = msg.local_x;
+    float y = msg.local_y;
+    int h = msg.height;
+    int yaw = msg.az_angle;
     int numChans = sizeof(msg.channels);
-    uint8_t channels[numChans]; // channels should be array of channel indices
+    int channels[numChans]; // channels should be array of channel indices
     channels = msg.channels;
     
     // pos in meters, angle in degrees: 
     // https://developer.dji.com/onboard-sdk/documentation/appendix/index.html 
-    drone->global_position_control(lat, lon, h, yaw);
+    drone->local_position_control(x, y, h, yaw);
 
 //     numOfSamples = 5;
 //     if (!channels.empty()) {
@@ -79,11 +79,10 @@ void moveCallback(const mailroom::drone_cmd& msg) {
 //         for (int i = 0; i < numOfSamples; i++) {
 //             client.call(srv);
 
-//             mailroom::drone_status stat = new mailroom::drone_status();
-//             mailroom::ATSCsignal[] msgs = srv.response.signals;
-
-//             stat.telemetry = msg.telemetry;
-//             stat.signals = msgs;
+//             mailroom::drone_status stat;
+             
+//             TODO: may need to simplify drone_status message, but how to express array of msgs?
+    
 //             signalPub.publish(stat);
 
 
@@ -92,21 +91,21 @@ void moveCallback(const mailroom::drone_cmd& msg) {
 } 
 
 // TODO: replace this msg with new msg with command id 
-void actionCallback(const std_msgs::String msg) {
+void actionCallback(const mailroom::drone_cmd msg) {
     std::string id = msg.data;
-    if (id.compare("Up and Down")) {
-        mailroom::drone_cmd message;
-        message.telemetry.longitude = msg.longitude; // TODO: don't know why it thinks telemetry does not have long/lat?
-        message.telemetry.latitude = msg.latitude;
+    if (id.compare("UandD")) { // up and down
+        mailroom::drone_move message;
+        message.local_x = msg.local_x;
+        message.local_y = msg.local_y;
         message.channels = msg.channels;
         int heights[] = msg.heights;
 
         for (int i = 0; i < sizeof(heights); i++) {
             int yaw = -180;
-            message.telemetry.height = heights[i]; 
+            message.height = heights[i]; 
 
             for (int j = 0; j < 12; j++) {
-                message.telemetry.az_angle = yaw;
+                message.az_angle = yaw;
                 movePub.publish(message); // publish location/orientation to move topic
 
                 yaw = yaw + 30;
@@ -119,16 +118,7 @@ int main(int argc, char *argv[])
 {
     ros::init(argc, argv, "sdk_client"); // 3rd arg - name of node created
 
-    //int heights[]; // TODO: get from user
-    //int x = ; // TODO: get from user
-    //int y = ; // TODO: get from user
-    //uint8_t channels[]; // TODO: get from user
-
     ros::spin();
-    
-    // takeOffPub.publish("launch"); // publish to takeoff topic
-
-    // takeOffPub.publish("land"); // publish to land topic
 
     return 0;
 }
