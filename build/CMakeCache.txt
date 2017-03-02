@@ -192,6 +192,9 @@ DEBIAN_JESSIE:BOOL=TRUE
 //Path to a program.
 DOXYGEN_EXECUTABLE:FILEPATH=DOXYGEN_EXECUTABLE-NOTFOUND
 
+//Dependencies for target
+DroneCommander_LIB_DEPENDS:STATIC=
+
 //Path to a program.
 EMPY_EXECUTABLE:FILEPATH=/usr/bin/empy
 
@@ -270,6 +273,9 @@ cpp_common_DIR:PATH=/home/attclinic/ros_catkin_ws_kinetic/install_isolated/share
 //Value Computed by CMake
 dji_sdk_BINARY_DIR:STATIC=/home/attclinic/software/drone_ws/build/dji_sdk
 
+//The directory containing a CMake configuration file for dji_sdk.
+dji_sdk_DIR:PATH=/home/attclinic/software/drone_ws/devel/share/dji_sdk/cmake
+
 //Value Computed by CMake
 dji_sdk_SOURCE_DIR:STATIC=/home/attclinic/software/drone_ws/src/dji_sdk
 
@@ -338,7 +344,7 @@ gtest_force_shared_crt:BOOL=OFF
 gtest_main_LIB_DEPENDS:STATIC=general;-lpthread;general;gtest;
 
 //Path to a library.
-lib:FILEPATH=/home/attclinic/ros_catkin_ws_kinetic/install_isolated/lib/libxmlrpcpp.so
+lib:FILEPATH=/home/attclinic/ros_catkin_ws_kinetic/install_isolated/lib/libactionlib.so
 
 //Value Computed by CMake
 mailroom_BINARY_DIR:STATIC=/home/attclinic/software/drone_ws/build/mailroom
@@ -406,7 +412,7 @@ xmlrpcpp_DIR:PATH=/home/attclinic/ros_catkin_ws_kinetic/install_isolated/share/x
 ########################
 
 //catkin environment
-CATKIN_ENV:INTERNAL=/home/attclinic/software/drone_ws/build/catkin_generated/env_cached.sh
+CATKIN_ENV:INTERNAL=
 CATKIN_TEST_RESULTS_DIR:INTERNAL=/home/attclinic/software/drone_ws/build/test_results
 //ADVANCED property for variable: CMAKE_AR
 CMAKE_AR-ADVANCED:INTERNAL=1
@@ -502,7 +508,7 @@ CMAKE_MODULE_LINKER_FLAGS_RELWITHDEBINFO-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: CMAKE_NM
 CMAKE_NM-ADVANCED:INTERNAL=1
 //number of local generators
-CMAKE_NUMBER_OF_MAKEFILES:INTERNAL=8
+CMAKE_NUMBER_OF_MAKEFILES:INTERNAL=2
 //ADVANCED property for variable: CMAKE_OBJCOPY
 CMAKE_OBJCOPY-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: CMAKE_OBJDUMP

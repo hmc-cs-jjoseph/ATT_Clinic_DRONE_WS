@@ -10,17 +10,17 @@
   ((channel
     :reader channel
     :initarg :channel
-    :type cl:fixnum
+    :type cl:integer
     :initform 0)
    (SS
     :reader SS
     :initarg :SS
-    :type cl:fixnum
+    :type cl:integer
     :initform 0)
    (SNQ
     :reader SNQ
     :initarg :SNQ
-    :type cl:fixnum
+    :type cl:integer
     :initform 0))
 )
 
@@ -49,14 +49,32 @@
 (cl:defmethod roslisp-msg-protocol:serialize ((msg <ATSCsignal>) ostream)
   "Serializes a message object of type '<ATSCsignal>"
   (cl:write-byte (cl:ldb (cl:byte 8 0) (cl:slot-value msg 'channel)) ostream)
+  (cl:write-byte (cl:ldb (cl:byte 8 8) (cl:slot-value msg 'channel)) ostream)
+  (cl:write-byte (cl:ldb (cl:byte 8 16) (cl:slot-value msg 'channel)) ostream)
+  (cl:write-byte (cl:ldb (cl:byte 8 24) (cl:slot-value msg 'channel)) ostream)
   (cl:write-byte (cl:ldb (cl:byte 8 0) (cl:slot-value msg 'SS)) ostream)
+  (cl:write-byte (cl:ldb (cl:byte 8 8) (cl:slot-value msg 'SS)) ostream)
+  (cl:write-byte (cl:ldb (cl:byte 8 16) (cl:slot-value msg 'SS)) ostream)
+  (cl:write-byte (cl:ldb (cl:byte 8 24) (cl:slot-value msg 'SS)) ostream)
   (cl:write-byte (cl:ldb (cl:byte 8 0) (cl:slot-value msg 'SNQ)) ostream)
+  (cl:write-byte (cl:ldb (cl:byte 8 8) (cl:slot-value msg 'SNQ)) ostream)
+  (cl:write-byte (cl:ldb (cl:byte 8 16) (cl:slot-value msg 'SNQ)) ostream)
+  (cl:write-byte (cl:ldb (cl:byte 8 24) (cl:slot-value msg 'SNQ)) ostream)
 )
 (cl:defmethod roslisp-msg-protocol:deserialize ((msg <ATSCsignal>) istream)
   "Deserializes a message object of type '<ATSCsignal>"
     (cl:setf (cl:ldb (cl:byte 8 0) (cl:slot-value msg 'channel)) (cl:read-byte istream))
+    (cl:setf (cl:ldb (cl:byte 8 8) (cl:slot-value msg 'channel)) (cl:read-byte istream))
+    (cl:setf (cl:ldb (cl:byte 8 16) (cl:slot-value msg 'channel)) (cl:read-byte istream))
+    (cl:setf (cl:ldb (cl:byte 8 24) (cl:slot-value msg 'channel)) (cl:read-byte istream))
     (cl:setf (cl:ldb (cl:byte 8 0) (cl:slot-value msg 'SS)) (cl:read-byte istream))
+    (cl:setf (cl:ldb (cl:byte 8 8) (cl:slot-value msg 'SS)) (cl:read-byte istream))
+    (cl:setf (cl:ldb (cl:byte 8 16) (cl:slot-value msg 'SS)) (cl:read-byte istream))
+    (cl:setf (cl:ldb (cl:byte 8 24) (cl:slot-value msg 'SS)) (cl:read-byte istream))
     (cl:setf (cl:ldb (cl:byte 8 0) (cl:slot-value msg 'SNQ)) (cl:read-byte istream))
+    (cl:setf (cl:ldb (cl:byte 8 8) (cl:slot-value msg 'SNQ)) (cl:read-byte istream))
+    (cl:setf (cl:ldb (cl:byte 8 16) (cl:slot-value msg 'SNQ)) (cl:read-byte istream))
+    (cl:setf (cl:ldb (cl:byte 8 24) (cl:slot-value msg 'SNQ)) (cl:read-byte istream))
   msg
 )
 (cl:defmethod roslisp-msg-protocol:ros-datatype ((msg (cl:eql '<ATSCsignal>)))
@@ -67,21 +85,21 @@
   "mailroom/ATSCsignal")
 (cl:defmethod roslisp-msg-protocol:md5sum ((type (cl:eql '<ATSCsignal>)))
   "Returns md5sum for a message object of type '<ATSCsignal>"
-  "063ee36b89b5191f33facb8c16b0feb7")
+  "0a289453f346fcf5fbd110cae2a72009")
 (cl:defmethod roslisp-msg-protocol:md5sum ((type (cl:eql 'ATSCsignal)))
   "Returns md5sum for a message object of type 'ATSCsignal"
-  "063ee36b89b5191f33facb8c16b0feb7")
+  "0a289453f346fcf5fbd110cae2a72009")
 (cl:defmethod roslisp-msg-protocol:message-definition ((type (cl:eql '<ATSCsignal>)))
   "Returns full string definition for message of type '<ATSCsignal>"
-  (cl:format cl:nil "uint8 channel~%uint8 SS~%uint8 SNQ~%~%~%"))
+  (cl:format cl:nil "uint32 channel~%uint32 SS~%uint32 SNQ~%~%~%"))
 (cl:defmethod roslisp-msg-protocol:message-definition ((type (cl:eql 'ATSCsignal)))
   "Returns full string definition for message of type 'ATSCsignal"
-  (cl:format cl:nil "uint8 channel~%uint8 SS~%uint8 SNQ~%~%~%"))
+  (cl:format cl:nil "uint32 channel~%uint32 SS~%uint32 SNQ~%~%~%"))
 (cl:defmethod roslisp-msg-protocol:serialization-length ((msg <ATSCsignal>))
   (cl:+ 0
-     1
-     1
-     1
+     4
+     4
+     4
 ))
 (cl:defmethod roslisp-msg-protocol:ros-message-to-list ((msg <ATSCsignal>))
   "Converts a ROS message object to a list"

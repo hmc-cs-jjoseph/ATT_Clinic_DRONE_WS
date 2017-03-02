@@ -14,28 +14,28 @@
 
 (defclass mailroom::drone_telemetry
   :super ros::object
-  :slots (_longitude _latitude _height _az_angle ))
+  :slots (_local_x _local_y _height _az_angle ))
 
 (defmethod mailroom::drone_telemetry
   (:init
    (&key
-    ((:longitude __longitude) 0.0)
-    ((:latitude __latitude) 0.0)
+    ((:local_x __local_x) 0.0)
+    ((:local_y __local_y) 0.0)
     ((:height __height) 0)
     ((:az_angle __az_angle) 0)
     )
    (send-super :init)
-   (setq _longitude (float __longitude))
-   (setq _latitude (float __latitude))
+   (setq _local_x (float __local_x))
+   (setq _local_y (float __local_y))
    (setq _height (round __height))
    (setq _az_angle (round __az_angle))
    self)
-  (:longitude
-   (&optional __longitude)
-   (if __longitude (setq _longitude __longitude)) _longitude)
-  (:latitude
-   (&optional __latitude)
-   (if __latitude (setq _latitude __latitude)) _latitude)
+  (:local_x
+   (&optional __local_x)
+   (if __local_x (setq _local_x __local_x)) _local_x)
+  (:local_y
+   (&optional __local_y)
+   (if __local_y (setq _local_y __local_y)) _local_y)
   (:height
    (&optional __height)
    (if __height (setq _height __height)) _height)
@@ -45,9 +45,9 @@
   (:serialization-length
    ()
    (+
-    ;; float64 _longitude
+    ;; float64 _local_x
     8
-    ;; float64 _latitude
+    ;; float64 _local_y
     8
     ;; uint8 _height
     1
@@ -58,10 +58,10 @@
    (&optional strm)
    (let ((s (if strm strm
               (make-string-output-stream (send self :serialization-length)))))
-     ;; float64 _longitude
-       (sys::poke _longitude (send s :buffer) (send s :count) :double) (incf (stream-count s) 8)
-     ;; float64 _latitude
-       (sys::poke _latitude (send s :buffer) (send s :count) :double) (incf (stream-count s) 8)
+     ;; float64 _local_x
+       (sys::poke _local_x (send s :buffer) (send s :count) :double) (incf (stream-count s) 8)
+     ;; float64 _local_y
+       (sys::poke _local_y (send s :buffer) (send s :count) :double) (incf (stream-count s) 8)
      ;; uint8 _height
        (write-byte _height s)
      ;; uint8 _az_angle
@@ -70,10 +70,10 @@
      (if (null strm) (get-output-stream-string s))))
   (:deserialize
    (buf &optional (ptr- 0))
-   ;; float64 _longitude
-     (setq _longitude (sys::peek buf ptr- :double)) (incf ptr- 8)
-   ;; float64 _latitude
-     (setq _latitude (sys::peek buf ptr- :double)) (incf ptr- 8)
+   ;; float64 _local_x
+     (setq _local_x (sys::peek buf ptr- :double)) (incf ptr- 8)
+   ;; float64 _local_y
+     (setq _local_y (sys::peek buf ptr- :double)) (incf ptr- 8)
    ;; uint8 _height
      (setq _height (sys::peek buf ptr- :char)) (incf ptr- 1)
    ;; uint8 _az_angle
@@ -82,11 +82,11 @@
    self)
   )
 
-(setf (get mailroom::drone_telemetry :md5sum-) "67912beb69b5afc3f72f11f99217a1f2")
+(setf (get mailroom::drone_telemetry :md5sum-) "792f8e5647216f2868c34781b5225bcb")
 (setf (get mailroom::drone_telemetry :datatype-) "mailroom/drone_telemetry")
 (setf (get mailroom::drone_telemetry :definition-)
-      "float64 longitude
-float64 latitude
+      "float64 local_x
+float64 local_y
 uint8 height
 uint8 az_angle
 
@@ -94,6 +94,6 @@ uint8 az_angle
 
 
 
-(provide :mailroom/drone_telemetry "67912beb69b5afc3f72f11f99217a1f2")
+(provide :mailroom/drone_telemetry "792f8e5647216f2868c34781b5225bcb")
 
 

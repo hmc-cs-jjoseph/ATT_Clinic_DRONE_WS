@@ -27,11 +27,13 @@ struct drone_status_
 
   drone_status_()
     : telemetry()
-    , signal()  {
+    , signal()
+    , battery(0)  {
     }
   drone_status_(const ContainerAllocator& _alloc)
     : telemetry(_alloc)
-    , signal(_alloc)  {
+    , signal(_alloc)
+    , battery(0)  {
   (void)_alloc;
     }
 
@@ -42,6 +44,9 @@ struct drone_status_
 
    typedef std::vector< ::mailroom::ATSCsignal_<ContainerAllocator> , typename ContainerAllocator::template rebind< ::mailroom::ATSCsignal_<ContainerAllocator> >::other >  _signal_type;
   _signal_type signal;
+
+   typedef uint32_t _battery_type;
+  _battery_type battery;
 
 
 
@@ -120,12 +125,12 @@ struct MD5Sum< ::mailroom::drone_status_<ContainerAllocator> >
 {
   static const char* value()
   {
-    return "b484c2ff6abc5985d5ae3dd8f029ac81";
+    return "56e85cfc37e2764b4f83194b846ae01c";
   }
 
   static const char* value(const ::mailroom::drone_status_<ContainerAllocator>&) { return value(); }
-  static const uint64_t static_value1 = 0xb484c2ff6abc5985ULL;
-  static const uint64_t static_value2 = 0xd5ae3dd8f029ac81ULL;
+  static const uint64_t static_value1 = 0x56e85cfc37e2764bULL;
+  static const uint64_t static_value2 = 0x4f83194b846ae01cULL;
 };
 
 template<class ContainerAllocator>
@@ -146,19 +151,20 @@ struct Definition< ::mailroom::drone_status_<ContainerAllocator> >
   {
     return "mailroom/drone_telemetry telemetry\n\
 mailroom/ATSCsignal[] signal\n\
+uint32 battery\n\
 \n\
 ================================================================================\n\
 MSG: mailroom/drone_telemetry\n\
-float64 longitude\n\
-float64 latitude\n\
+float64 local_x\n\
+float64 local_y\n\
 uint8 height\n\
 uint8 az_angle\n\
 \n\
 ================================================================================\n\
 MSG: mailroom/ATSCsignal\n\
-uint8 channel\n\
-uint8 SS\n\
-uint8 SNQ\n\
+uint32 channel\n\
+uint32 SS\n\
+uint32 SNQ\n\
 ";
   }
 
@@ -179,6 +185,7 @@ namespace serialization
     {
       stream.next(m.telemetry);
       stream.next(m.signal);
+      stream.next(m.battery);
     }
 
     ROS_DECLARE_ALLINONE_SERIALIZER;
@@ -208,6 +215,8 @@ struct Printer< ::mailroom::drone_status_<ContainerAllocator> >
       s << indent;
       Printer< ::mailroom::ATSCsignal_<ContainerAllocator> >::stream(s, indent + "    ", v.signal[i]);
     }
+    s << indent << "battery: ";
+    Printer<uint32_t>::stream(s, indent + "  ", v.battery);
   }
 };
 

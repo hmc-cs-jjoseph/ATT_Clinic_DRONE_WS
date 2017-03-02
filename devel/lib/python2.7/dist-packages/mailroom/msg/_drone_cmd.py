@@ -5,24 +5,20 @@ python3 = True if sys.hexversion > 0x03000000 else False
 import genpy
 import struct
 
-import mailroom.msg
 
 class drone_cmd(genpy.Message):
-  _md5sum = "31c966da147198d7cc374657df64a44b"
+  _md5sum = "7b2b47fd3d9aeb75628a01f6c100e808"
   _type = "mailroom/drone_cmd"
   _has_header = False #flag to mark the presence of a Header object
-  _full_text = """mailroom/drone_telemetry telemetry
-uint8[] channels
-
-================================================================================
-MSG: mailroom/drone_telemetry
-float64 longitude
-float64 latitude
-uint8 height
+  _full_text = """string data
+float64 local_x
+float64 local_y
+uint8[] heights
 uint8 az_angle
+uint8[] channels
 """
-  __slots__ = ['telemetry','channels']
-  _slot_types = ['mailroom/drone_telemetry','uint8[]']
+  __slots__ = ['data','local_x','local_y','heights','az_angle','channels']
+  _slot_types = ['string','float64','float64','uint8[]','uint8','uint8[]']
 
   def __init__(self, *args, **kwds):
     """
@@ -32,7 +28,7 @@ uint8 az_angle
     changes.  You cannot mix in-order arguments and keyword arguments.
 
     The available fields are:
-       telemetry,channels
+       data,local_x,local_y,heights,az_angle,channels
 
     :param args: complete set of field values, in .msg order
     :param kwds: use keyword arguments corresponding to message field names
@@ -41,12 +37,24 @@ uint8 az_angle
     if args or kwds:
       super(drone_cmd, self).__init__(*args, **kwds)
       #message fields cannot be None, assign default values for those that are
-      if self.telemetry is None:
-        self.telemetry = mailroom.msg.drone_telemetry()
+      if self.data is None:
+        self.data = ''
+      if self.local_x is None:
+        self.local_x = 0.
+      if self.local_y is None:
+        self.local_y = 0.
+      if self.heights is None:
+        self.heights = b''
+      if self.az_angle is None:
+        self.az_angle = 0
       if self.channels is None:
         self.channels = b''
     else:
-      self.telemetry = mailroom.msg.drone_telemetry()
+      self.data = ''
+      self.local_x = 0.
+      self.local_y = 0.
+      self.heights = b''
+      self.az_angle = 0
       self.channels = b''
 
   def _get_types(self):
@@ -61,8 +69,22 @@ uint8 az_angle
     :param buff: buffer, ``StringIO``
     """
     try:
+      _x = self.data
+      length = len(_x)
+      if python3 or type(_x) == unicode:
+        _x = _x.encode('utf-8')
+        length = len(_x)
+      buff.write(struct.pack('<I%ss'%length, length, _x))
       _x = self
-      buff.write(_get_struct_2d2B().pack(_x.telemetry.longitude, _x.telemetry.latitude, _x.telemetry.height, _x.telemetry.az_angle))
+      buff.write(_get_struct_2d().pack(_x.local_x, _x.local_y))
+      _x = self.heights
+      length = len(_x)
+      # - if encoded as a list instead, serialize as bytes instead of string
+      if type(_x) in [list, tuple]:
+        buff.write(struct.pack('<I%sB'%length, length, *_x))
+      else:
+        buff.write(struct.pack('<I%ss'%length, length, _x))
+      buff.write(_get_struct_B().pack(self.az_angle))
       _x = self.channels
       length = len(_x)
       # - if encoded as a list instead, serialize as bytes instead of string
@@ -79,13 +101,29 @@ uint8 az_angle
     :param str: byte array of serialized message, ``str``
     """
     try:
-      if self.telemetry is None:
-        self.telemetry = mailroom.msg.drone_telemetry()
       end = 0
+      start = end
+      end += 4
+      (length,) = _struct_I.unpack(str[start:end])
+      start = end
+      end += length
+      if python3:
+        self.data = str[start:end].decode('utf-8')
+      else:
+        self.data = str[start:end]
       _x = self
       start = end
-      end += 18
-      (_x.telemetry.longitude, _x.telemetry.latitude, _x.telemetry.height, _x.telemetry.az_angle,) = _get_struct_2d2B().unpack(str[start:end])
+      end += 16
+      (_x.local_x, _x.local_y,) = _get_struct_2d().unpack(str[start:end])
+      start = end
+      end += 4
+      (length,) = _struct_I.unpack(str[start:end])
+      start = end
+      end += length
+      self.heights = str[start:end]
+      start = end
+      end += 1
+      (self.az_angle,) = _get_struct_B().unpack(str[start:end])
       start = end
       end += 4
       (length,) = _struct_I.unpack(str[start:end])
@@ -104,8 +142,22 @@ uint8 az_angle
     :param numpy: numpy python module
     """
     try:
+      _x = self.data
+      length = len(_x)
+      if python3 or type(_x) == unicode:
+        _x = _x.encode('utf-8')
+        length = len(_x)
+      buff.write(struct.pack('<I%ss'%length, length, _x))
       _x = self
-      buff.write(_get_struct_2d2B().pack(_x.telemetry.longitude, _x.telemetry.latitude, _x.telemetry.height, _x.telemetry.az_angle))
+      buff.write(_get_struct_2d().pack(_x.local_x, _x.local_y))
+      _x = self.heights
+      length = len(_x)
+      # - if encoded as a list instead, serialize as bytes instead of string
+      if type(_x) in [list, tuple]:
+        buff.write(struct.pack('<I%sB'%length, length, *_x))
+      else:
+        buff.write(struct.pack('<I%ss'%length, length, _x))
+      buff.write(_get_struct_B().pack(self.az_angle))
       _x = self.channels
       length = len(_x)
       # - if encoded as a list instead, serialize as bytes instead of string
@@ -123,13 +175,29 @@ uint8 az_angle
     :param numpy: numpy python module
     """
     try:
-      if self.telemetry is None:
-        self.telemetry = mailroom.msg.drone_telemetry()
       end = 0
+      start = end
+      end += 4
+      (length,) = _struct_I.unpack(str[start:end])
+      start = end
+      end += length
+      if python3:
+        self.data = str[start:end].decode('utf-8')
+      else:
+        self.data = str[start:end]
       _x = self
       start = end
-      end += 18
-      (_x.telemetry.longitude, _x.telemetry.latitude, _x.telemetry.height, _x.telemetry.az_angle,) = _get_struct_2d2B().unpack(str[start:end])
+      end += 16
+      (_x.local_x, _x.local_y,) = _get_struct_2d().unpack(str[start:end])
+      start = end
+      end += 4
+      (length,) = _struct_I.unpack(str[start:end])
+      start = end
+      end += length
+      self.heights = str[start:end]
+      start = end
+      end += 1
+      (self.az_angle,) = _get_struct_B().unpack(str[start:end])
       start = end
       end += 4
       (length,) = _struct_I.unpack(str[start:end])
@@ -144,9 +212,15 @@ _struct_I = genpy.struct_I
 def _get_struct_I():
     global _struct_I
     return _struct_I
-_struct_2d2B = None
-def _get_struct_2d2B():
-    global _struct_2d2B
-    if _struct_2d2B is None:
-        _struct_2d2B = struct.Struct("<2d2B")
-    return _struct_2d2B
+_struct_2d = None
+def _get_struct_2d():
+    global _struct_2d
+    if _struct_2d is None:
+        _struct_2d = struct.Struct("<2d")
+    return _struct_2d
+_struct_B = None
+def _get_struct_B():
+    global _struct_B
+    if _struct_B is None:
+        _struct_B = struct.Struct("<B")
+    return _struct_B

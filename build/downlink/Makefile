@@ -56,17 +56,6 @@ CMAKE_BINARY_DIR = /home/attclinic/software/drone_ws/build
 #=============================================================================
 # Targets provided globally by CMake.
 
-# Special rule for the target edit_cache
-edit_cache:
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "No interactive CMake dialog available..."
-	/usr/bin/cmake -E echo No\ interactive\ CMake\ dialog\ available.
-.PHONY : edit_cache
-
-# Special rule for the target edit_cache
-edit_cache/fast: edit_cache
-
-.PHONY : edit_cache/fast
-
 # Special rule for the target test
 test:
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running tests..."
@@ -78,16 +67,16 @@ test/fast: test
 
 .PHONY : test/fast
 
-# Special rule for the target install/local
-install/local: preinstall
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Installing only the local directory..."
-	/usr/bin/cmake -DCMAKE_INSTALL_LOCAL_ONLY=1 -P cmake_install.cmake
-.PHONY : install/local
+# Special rule for the target edit_cache
+edit_cache:
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "No interactive CMake dialog available..."
+	/usr/bin/cmake -E echo No\ interactive\ CMake\ dialog\ available.
+.PHONY : edit_cache
 
-# Special rule for the target install/local
-install/local/fast: install/local
+# Special rule for the target edit_cache
+edit_cache/fast: edit_cache
 
-.PHONY : install/local/fast
+.PHONY : edit_cache/fast
 
 # Special rule for the target list_install_components
 list_install_components:
@@ -98,6 +87,17 @@ list_install_components:
 list_install_components/fast: list_install_components
 
 .PHONY : list_install_components/fast
+
+# Special rule for the target install/local
+install/local: preinstall
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Installing only the local directory..."
+	/usr/bin/cmake -DCMAKE_INSTALL_LOCAL_ONLY=1 -P cmake_install.cmake
+.PHONY : install/local
+
+# Special rule for the target install/local
+install/local/fast: install/local
+
+.PHONY : install/local/fast
 
 # Special rule for the target rebuild_cache
 rebuild_cache:
@@ -226,21 +226,6 @@ roscpp_generate_messages_lisp/fast:
 .PHONY : roscpp_generate_messages_lisp/fast
 
 # Convenience name for target.
-downlink/CMakeFiles/uplink.dir/rule:
-	cd /home/attclinic/software/drone_ws/build && $(MAKE) -f CMakeFiles/Makefile2 downlink/CMakeFiles/uplink.dir/rule
-.PHONY : downlink/CMakeFiles/uplink.dir/rule
-
-# Convenience name for target.
-uplink: downlink/CMakeFiles/uplink.dir/rule
-
-.PHONY : uplink
-
-# fast build rule for target.
-uplink/fast:
-	cd /home/attclinic/software/drone_ws/build && $(MAKE) -f downlink/CMakeFiles/uplink.dir/build.make downlink/CMakeFiles/uplink.dir/build
-.PHONY : uplink/fast
-
-# Convenience name for target.
 downlink/CMakeFiles/roscpp_generate_messages_eus.dir/rule:
 	cd /home/attclinic/software/drone_ws/build && $(MAKE) -f CMakeFiles/Makefile2 downlink/CMakeFiles/roscpp_generate_messages_eus.dir/rule
 .PHONY : downlink/CMakeFiles/roscpp_generate_messages_eus.dir/rule
@@ -254,6 +239,21 @@ roscpp_generate_messages_eus: downlink/CMakeFiles/roscpp_generate_messages_eus.d
 roscpp_generate_messages_eus/fast:
 	cd /home/attclinic/software/drone_ws/build && $(MAKE) -f downlink/CMakeFiles/roscpp_generate_messages_eus.dir/build.make downlink/CMakeFiles/roscpp_generate_messages_eus.dir/build
 .PHONY : roscpp_generate_messages_eus/fast
+
+# Convenience name for target.
+downlink/CMakeFiles/std_msgs_generate_messages_py.dir/rule:
+	cd /home/attclinic/software/drone_ws/build && $(MAKE) -f CMakeFiles/Makefile2 downlink/CMakeFiles/std_msgs_generate_messages_py.dir/rule
+.PHONY : downlink/CMakeFiles/std_msgs_generate_messages_py.dir/rule
+
+# Convenience name for target.
+std_msgs_generate_messages_py: downlink/CMakeFiles/std_msgs_generate_messages_py.dir/rule
+
+.PHONY : std_msgs_generate_messages_py
+
+# fast build rule for target.
+std_msgs_generate_messages_py/fast:
+	cd /home/attclinic/software/drone_ws/build && $(MAKE) -f downlink/CMakeFiles/std_msgs_generate_messages_py.dir/build.make downlink/CMakeFiles/std_msgs_generate_messages_py.dir/build
+.PHONY : std_msgs_generate_messages_py/fast
 
 # Convenience name for target.
 downlink/CMakeFiles/roscpp_generate_messages_py.dir/rule:
@@ -301,34 +301,19 @@ std_msgs_generate_messages_cpp/fast:
 .PHONY : std_msgs_generate_messages_cpp/fast
 
 # Convenience name for target.
-downlink/CMakeFiles/std_msgs_generate_messages_py.dir/rule:
-	cd /home/attclinic/software/drone_ws/build && $(MAKE) -f CMakeFiles/Makefile2 downlink/CMakeFiles/std_msgs_generate_messages_py.dir/rule
-.PHONY : downlink/CMakeFiles/std_msgs_generate_messages_py.dir/rule
+downlink/CMakeFiles/downlink_node.dir/rule:
+	cd /home/attclinic/software/drone_ws/build && $(MAKE) -f CMakeFiles/Makefile2 downlink/CMakeFiles/downlink_node.dir/rule
+.PHONY : downlink/CMakeFiles/downlink_node.dir/rule
 
 # Convenience name for target.
-std_msgs_generate_messages_py: downlink/CMakeFiles/std_msgs_generate_messages_py.dir/rule
+downlink_node: downlink/CMakeFiles/downlink_node.dir/rule
 
-.PHONY : std_msgs_generate_messages_py
+.PHONY : downlink_node
 
 # fast build rule for target.
-std_msgs_generate_messages_py/fast:
-	cd /home/attclinic/software/drone_ws/build && $(MAKE) -f downlink/CMakeFiles/std_msgs_generate_messages_py.dir/build.make downlink/CMakeFiles/std_msgs_generate_messages_py.dir/build
-.PHONY : std_msgs_generate_messages_py/fast
-
-# Convenience name for target.
-downlink/CMakeFiles/downlink.dir/rule:
-	cd /home/attclinic/software/drone_ws/build && $(MAKE) -f CMakeFiles/Makefile2 downlink/CMakeFiles/downlink.dir/rule
-.PHONY : downlink/CMakeFiles/downlink.dir/rule
-
-# Convenience name for target.
-downlink: downlink/CMakeFiles/downlink.dir/rule
-
-.PHONY : downlink
-
-# fast build rule for target.
-downlink/fast:
-	cd /home/attclinic/software/drone_ws/build && $(MAKE) -f downlink/CMakeFiles/downlink.dir/build.make downlink/CMakeFiles/downlink.dir/build
-.PHONY : downlink/fast
+downlink_node/fast:
+	cd /home/attclinic/software/drone_ws/build && $(MAKE) -f downlink/CMakeFiles/downlink_node.dir/build.make downlink/CMakeFiles/downlink_node.dir/build
+.PHONY : downlink_node/fast
 
 # Convenience name for target.
 downlink/CMakeFiles/roscpp_generate_messages_cpp.dir/rule:
@@ -359,6 +344,21 @@ roscpp_generate_messages_nodejs: downlink/CMakeFiles/roscpp_generate_messages_no
 roscpp_generate_messages_nodejs/fast:
 	cd /home/attclinic/software/drone_ws/build && $(MAKE) -f downlink/CMakeFiles/roscpp_generate_messages_nodejs.dir/build.make downlink/CMakeFiles/roscpp_generate_messages_nodejs.dir/build
 .PHONY : roscpp_generate_messages_nodejs/fast
+
+# Convenience name for target.
+downlink/CMakeFiles/uplink_node.dir/rule:
+	cd /home/attclinic/software/drone_ws/build && $(MAKE) -f CMakeFiles/Makefile2 downlink/CMakeFiles/uplink_node.dir/rule
+.PHONY : downlink/CMakeFiles/uplink_node.dir/rule
+
+# Convenience name for target.
+uplink_node: downlink/CMakeFiles/uplink_node.dir/rule
+
+.PHONY : uplink_node
+
+# fast build rule for target.
+uplink_node/fast:
+	cd /home/attclinic/software/drone_ws/build && $(MAKE) -f downlink/CMakeFiles/uplink_node.dir/build.make downlink/CMakeFiles/uplink_node.dir/build
+.PHONY : uplink_node/fast
 
 # Convenience name for target.
 downlink/CMakeFiles/std_msgs_generate_messages_eus.dir/rule:
@@ -426,7 +426,7 @@ src/downlink.o: src/downlink.cpp.o
 
 # target to build an object file
 src/downlink.cpp.o:
-	cd /home/attclinic/software/drone_ws/build && $(MAKE) -f downlink/CMakeFiles/downlink.dir/build.make downlink/CMakeFiles/downlink.dir/src/downlink.cpp.o
+	cd /home/attclinic/software/drone_ws/build && $(MAKE) -f downlink/CMakeFiles/downlink_node.dir/build.make downlink/CMakeFiles/downlink_node.dir/src/downlink.cpp.o
 .PHONY : src/downlink.cpp.o
 
 src/downlink.i: src/downlink.cpp.i
@@ -435,7 +435,7 @@ src/downlink.i: src/downlink.cpp.i
 
 # target to preprocess a source file
 src/downlink.cpp.i:
-	cd /home/attclinic/software/drone_ws/build && $(MAKE) -f downlink/CMakeFiles/downlink.dir/build.make downlink/CMakeFiles/downlink.dir/src/downlink.cpp.i
+	cd /home/attclinic/software/drone_ws/build && $(MAKE) -f downlink/CMakeFiles/downlink_node.dir/build.make downlink/CMakeFiles/downlink_node.dir/src/downlink.cpp.i
 .PHONY : src/downlink.cpp.i
 
 src/downlink.s: src/downlink.cpp.s
@@ -444,7 +444,7 @@ src/downlink.s: src/downlink.cpp.s
 
 # target to generate assembly for a file
 src/downlink.cpp.s:
-	cd /home/attclinic/software/drone_ws/build && $(MAKE) -f downlink/CMakeFiles/downlink.dir/build.make downlink/CMakeFiles/downlink.dir/src/downlink.cpp.s
+	cd /home/attclinic/software/drone_ws/build && $(MAKE) -f downlink/CMakeFiles/downlink_node.dir/build.make downlink/CMakeFiles/downlink_node.dir/src/downlink.cpp.s
 .PHONY : src/downlink.cpp.s
 
 src/uplink.o: src/uplink.cpp.o
@@ -453,7 +453,7 @@ src/uplink.o: src/uplink.cpp.o
 
 # target to build an object file
 src/uplink.cpp.o:
-	cd /home/attclinic/software/drone_ws/build && $(MAKE) -f downlink/CMakeFiles/uplink.dir/build.make downlink/CMakeFiles/uplink.dir/src/uplink.cpp.o
+	cd /home/attclinic/software/drone_ws/build && $(MAKE) -f downlink/CMakeFiles/uplink_node.dir/build.make downlink/CMakeFiles/uplink_node.dir/src/uplink.cpp.o
 .PHONY : src/uplink.cpp.o
 
 src/uplink.i: src/uplink.cpp.i
@@ -462,7 +462,7 @@ src/uplink.i: src/uplink.cpp.i
 
 # target to preprocess a source file
 src/uplink.cpp.i:
-	cd /home/attclinic/software/drone_ws/build && $(MAKE) -f downlink/CMakeFiles/uplink.dir/build.make downlink/CMakeFiles/uplink.dir/src/uplink.cpp.i
+	cd /home/attclinic/software/drone_ws/build && $(MAKE) -f downlink/CMakeFiles/uplink_node.dir/build.make downlink/CMakeFiles/uplink_node.dir/src/uplink.cpp.i
 .PHONY : src/uplink.cpp.i
 
 src/uplink.s: src/uplink.cpp.s
@@ -471,7 +471,7 @@ src/uplink.s: src/uplink.cpp.s
 
 # target to generate assembly for a file
 src/uplink.cpp.s:
-	cd /home/attclinic/software/drone_ws/build && $(MAKE) -f downlink/CMakeFiles/uplink.dir/build.make downlink/CMakeFiles/uplink.dir/src/uplink.cpp.s
+	cd /home/attclinic/software/drone_ws/build && $(MAKE) -f downlink/CMakeFiles/uplink_node.dir/build.make downlink/CMakeFiles/uplink_node.dir/src/uplink.cpp.s
 .PHONY : src/uplink.cpp.s
 
 # Help Target
@@ -480,24 +480,24 @@ help:
 	@echo "... all (the default if no target is provided)"
 	@echo "... clean"
 	@echo "... depend"
+	@echo "... test"
 	@echo "... edit_cache"
 	@echo "... rosgraph_msgs_generate_messages_lisp"
 	@echo "... rosgraph_msgs_generate_messages_cpp"
 	@echo "... rosgraph_msgs_generate_messages_eus"
 	@echo "... roscpp_generate_messages_lisp"
-	@echo "... test"
-	@echo "... uplink"
 	@echo "... roscpp_generate_messages_eus"
+	@echo "... list_install_components"
+	@echo "... std_msgs_generate_messages_py"
 	@echo "... install/local"
 	@echo "... roscpp_generate_messages_py"
 	@echo "... rosgraph_msgs_generate_messages_nodejs"
 	@echo "... std_msgs_generate_messages_cpp"
-	@echo "... list_install_components"
-	@echo "... std_msgs_generate_messages_py"
-	@echo "... downlink"
+	@echo "... downlink_node"
 	@echo "... rebuild_cache"
 	@echo "... roscpp_generate_messages_cpp"
 	@echo "... roscpp_generate_messages_nodejs"
+	@echo "... uplink_node"
 	@echo "... std_msgs_generate_messages_eus"
 	@echo "... std_msgs_generate_messages_lisp"
 	@echo "... std_msgs_generate_messages_nodejs"

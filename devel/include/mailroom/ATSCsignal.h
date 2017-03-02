@@ -37,13 +37,13 @@ struct ATSCsignal_
 
 
 
-   typedef uint8_t _channel_type;
+   typedef uint32_t _channel_type;
   _channel_type channel;
 
-   typedef uint8_t _SS_type;
+   typedef uint32_t _SS_type;
   _SS_type SS;
 
-   typedef uint8_t _SNQ_type;
+   typedef uint32_t _SNQ_type;
   _SNQ_type SNQ;
 
 
@@ -123,12 +123,12 @@ struct MD5Sum< ::mailroom::ATSCsignal_<ContainerAllocator> >
 {
   static const char* value()
   {
-    return "063ee36b89b5191f33facb8c16b0feb7";
+    return "0a289453f346fcf5fbd110cae2a72009";
   }
 
   static const char* value(const ::mailroom::ATSCsignal_<ContainerAllocator>&) { return value(); }
-  static const uint64_t static_value1 = 0x063ee36b89b5191fULL;
-  static const uint64_t static_value2 = 0x33facb8c16b0feb7ULL;
+  static const uint64_t static_value1 = 0x0a289453f346fcf5ULL;
+  static const uint64_t static_value2 = 0xfbd110cae2a72009ULL;
 };
 
 template<class ContainerAllocator>
@@ -147,9 +147,9 @@ struct Definition< ::mailroom::ATSCsignal_<ContainerAllocator> >
 {
   static const char* value()
   {
-    return "uint8 channel\n\
-uint8 SS\n\
-uint8 SNQ\n\
+    return "uint32 channel\n\
+uint32 SS\n\
+uint32 SNQ\n\
 ";
   }
 
@@ -190,11 +190,11 @@ struct Printer< ::mailroom::ATSCsignal_<ContainerAllocator> >
   template<typename Stream> static void stream(Stream& s, const std::string& indent, const ::mailroom::ATSCsignal_<ContainerAllocator>& v)
   {
     s << indent << "channel: ";
-    Printer<uint8_t>::stream(s, indent + "  ", v.channel);
+    Printer<uint32_t>::stream(s, indent + "  ", v.channel);
     s << indent << "SS: ";
-    Printer<uint8_t>::stream(s, indent + "  ", v.SS);
+    Printer<uint32_t>::stream(s, indent + "  ", v.SS);
     s << indent << "SNQ: ";
-    Printer<uint8_t>::stream(s, indent + "  ", v.SNQ);
+    Printer<uint32_t>::stream(s, indent + "  ", v.SNQ);
   }
 };
 

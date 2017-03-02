@@ -6,7 +6,7 @@
 serialib serial;
 
 int main(int argc, char **argv) {
-	ros::init(argc, argv, "downlink");
+	ros::init(argc, argv, "downlink_node");
 	ros::NodeHandle nh;
 	ros::Subscriber dlDown = nh.subscribe("dl_down", 1000, sendToBase);
 

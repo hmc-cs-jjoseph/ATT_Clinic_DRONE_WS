@@ -8,27 +8,28 @@ import struct
 import mailroom.msg
 
 class drone_status(genpy.Message):
-  _md5sum = "b484c2ff6abc5985d5ae3dd8f029ac81"
+  _md5sum = "56e85cfc37e2764b4f83194b846ae01c"
   _type = "mailroom/drone_status"
   _has_header = False #flag to mark the presence of a Header object
   _full_text = """mailroom/drone_telemetry telemetry
 mailroom/ATSCsignal[] signal
+uint32 battery
 
 ================================================================================
 MSG: mailroom/drone_telemetry
-float64 longitude
-float64 latitude
+float64 local_x
+float64 local_y
 uint8 height
 uint8 az_angle
 
 ================================================================================
 MSG: mailroom/ATSCsignal
-uint8 channel
-uint8 SS
-uint8 SNQ
+uint32 channel
+uint32 SS
+uint32 SNQ
 """
-  __slots__ = ['telemetry','signal']
-  _slot_types = ['mailroom/drone_telemetry','mailroom/ATSCsignal[]']
+  __slots__ = ['telemetry','signal','battery']
+  _slot_types = ['mailroom/drone_telemetry','mailroom/ATSCsignal[]','uint32']
 
   def __init__(self, *args, **kwds):
     """
@@ -38,7 +39,7 @@ uint8 SNQ
     changes.  You cannot mix in-order arguments and keyword arguments.
 
     The available fields are:
-       telemetry,signal
+       telemetry,signal,battery
 
     :param args: complete set of field values, in .msg order
     :param kwds: use keyword arguments corresponding to message field names
@@ -51,9 +52,12 @@ uint8 SNQ
         self.telemetry = mailroom.msg.drone_telemetry()
       if self.signal is None:
         self.signal = []
+      if self.battery is None:
+        self.battery = 0
     else:
       self.telemetry = mailroom.msg.drone_telemetry()
       self.signal = []
+      self.battery = 0
 
   def _get_types(self):
     """
@@ -68,12 +72,13 @@ uint8 SNQ
     """
     try:
       _x = self
-      buff.write(_get_struct_2d2B().pack(_x.telemetry.longitude, _x.telemetry.latitude, _x.telemetry.height, _x.telemetry.az_angle))
+      buff.write(_get_struct_2d2B().pack(_x.telemetry.local_x, _x.telemetry.local_y, _x.telemetry.height, _x.telemetry.az_angle))
       length = len(self.signal)
       buff.write(_struct_I.pack(length))
       for val1 in self.signal:
         _x = val1
-        buff.write(_get_struct_3B().pack(_x.channel, _x.SS, _x.SNQ))
+        buff.write(_get_struct_3I().pack(_x.channel, _x.SS, _x.SNQ))
+      buff.write(_get_struct_I().pack(self.battery))
     except struct.error as se: self._check_types(struct.error("%s: '%s' when writing '%s'" % (type(se), str(se), str(locals().get('_x', self)))))
     except TypeError as te: self._check_types(ValueError("%s: '%s' when writing '%s'" % (type(te), str(te), str(locals().get('_x', self)))))
 
@@ -91,7 +96,7 @@ uint8 SNQ
       _x = self
       start = end
       end += 18
-      (_x.telemetry.longitude, _x.telemetry.latitude, _x.telemetry.height, _x.telemetry.az_angle,) = _get_struct_2d2B().unpack(str[start:end])
+      (_x.telemetry.local_x, _x.telemetry.local_y, _x.telemetry.height, _x.telemetry.az_angle,) = _get_struct_2d2B().unpack(str[start:end])
       start = end
       end += 4
       (length,) = _struct_I.unpack(str[start:end])
@@ -100,9 +105,12 @@ uint8 SNQ
         val1 = mailroom.msg.ATSCsignal()
         _x = val1
         start = end
-        end += 3
-        (_x.channel, _x.SS, _x.SNQ,) = _get_struct_3B().unpack(str[start:end])
+        end += 12
+        (_x.channel, _x.SS, _x.SNQ,) = _get_struct_3I().unpack(str[start:end])
         self.signal.append(val1)
+      start = end
+      end += 4
+      (self.battery,) = _get_struct_I().unpack(str[start:end])
       return self
     except struct.error as e:
       raise genpy.DeserializationError(e) #most likely buffer underfill
@@ -116,12 +124,13 @@ uint8 SNQ
     """
     try:
       _x = self
-      buff.write(_get_struct_2d2B().pack(_x.telemetry.longitude, _x.telemetry.latitude, _x.telemetry.height, _x.telemetry.az_angle))
+      buff.write(_get_struct_2d2B().pack(_x.telemetry.local_x, _x.telemetry.local_y, _x.telemetry.height, _x.telemetry.az_angle))
       length = len(self.signal)
       buff.write(_struct_I.pack(length))
       for val1 in self.signal:
         _x = val1
-        buff.write(_get_struct_3B().pack(_x.channel, _x.SS, _x.SNQ))
+        buff.write(_get_struct_3I().pack(_x.channel, _x.SS, _x.SNQ))
+      buff.write(_get_struct_I().pack(self.battery))
     except struct.error as se: self._check_types(struct.error("%s: '%s' when writing '%s'" % (type(se), str(se), str(locals().get('_x', self)))))
     except TypeError as te: self._check_types(ValueError("%s: '%s' when writing '%s'" % (type(te), str(te), str(locals().get('_x', self)))))
 
@@ -140,7 +149,7 @@ uint8 SNQ
       _x = self
       start = end
       end += 18
-      (_x.telemetry.longitude, _x.telemetry.latitude, _x.telemetry.height, _x.telemetry.az_angle,) = _get_struct_2d2B().unpack(str[start:end])
+      (_x.telemetry.local_x, _x.telemetry.local_y, _x.telemetry.height, _x.telemetry.az_angle,) = _get_struct_2d2B().unpack(str[start:end])
       start = end
       end += 4
       (length,) = _struct_I.unpack(str[start:end])
@@ -149,9 +158,12 @@ uint8 SNQ
         val1 = mailroom.msg.ATSCsignal()
         _x = val1
         start = end
-        end += 3
-        (_x.channel, _x.SS, _x.SNQ,) = _get_struct_3B().unpack(str[start:end])
+        end += 12
+        (_x.channel, _x.SS, _x.SNQ,) = _get_struct_3I().unpack(str[start:end])
         self.signal.append(val1)
+      start = end
+      end += 4
+      (self.battery,) = _get_struct_I().unpack(str[start:end])
       return self
     except struct.error as e:
       raise genpy.DeserializationError(e) #most likely buffer underfill
@@ -160,15 +172,15 @@ _struct_I = genpy.struct_I
 def _get_struct_I():
     global _struct_I
     return _struct_I
-_struct_3B = None
-def _get_struct_3B():
-    global _struct_3B
-    if _struct_3B is None:
-        _struct_3B = struct.Struct("<3B")
-    return _struct_3B
 _struct_2d2B = None
 def _get_struct_2d2B():
     global _struct_2d2B
     if _struct_2d2B is None:
         _struct_2d2B = struct.Struct("<2d2B")
     return _struct_2d2B
+_struct_3I = None
+def _get_struct_3I():
+    global _struct_3I
+    if _struct_3I is None:
+        _struct_3I = struct.Struct("<3I")
+    return _struct_3I

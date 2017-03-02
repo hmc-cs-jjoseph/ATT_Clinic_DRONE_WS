@@ -40,48 +40,48 @@
   (:serialization-length
    ()
    (+
-    ;; uint8 _channel
-    1
-    ;; uint8 _SS
-    1
-    ;; uint8 _SNQ
-    1
+    ;; uint32 _channel
+    4
+    ;; uint32 _SS
+    4
+    ;; uint32 _SNQ
+    4
     ))
   (:serialize
    (&optional strm)
    (let ((s (if strm strm
               (make-string-output-stream (send self :serialization-length)))))
-     ;; uint8 _channel
-       (write-byte _channel s)
-     ;; uint8 _SS
-       (write-byte _SS s)
-     ;; uint8 _SNQ
-       (write-byte _SNQ s)
+     ;; uint32 _channel
+       (write-long _channel s)
+     ;; uint32 _SS
+       (write-long _SS s)
+     ;; uint32 _SNQ
+       (write-long _SNQ s)
      ;;
      (if (null strm) (get-output-stream-string s))))
   (:deserialize
    (buf &optional (ptr- 0))
-   ;; uint8 _channel
-     (setq _channel (sys::peek buf ptr- :char)) (incf ptr- 1)
-   ;; uint8 _SS
-     (setq _SS (sys::peek buf ptr- :char)) (incf ptr- 1)
-   ;; uint8 _SNQ
-     (setq _SNQ (sys::peek buf ptr- :char)) (incf ptr- 1)
+   ;; uint32 _channel
+     (setq _channel (sys::peek buf ptr- :integer)) (incf ptr- 4)
+   ;; uint32 _SS
+     (setq _SS (sys::peek buf ptr- :integer)) (incf ptr- 4)
+   ;; uint32 _SNQ
+     (setq _SNQ (sys::peek buf ptr- :integer)) (incf ptr- 4)
    ;;
    self)
   )
 
-(setf (get mailroom::ATSCsignal :md5sum-) "063ee36b89b5191f33facb8c16b0feb7")
+(setf (get mailroom::ATSCsignal :md5sum-) "0a289453f346fcf5fbd110cae2a72009")
 (setf (get mailroom::ATSCsignal :datatype-) "mailroom/ATSCsignal")
 (setf (get mailroom::ATSCsignal :definition-)
-      "uint8 channel
-uint8 SS
-uint8 SNQ
+      "uint32 channel
+uint32 SS
+uint32 SNQ
 
 ")
 
 
 
-(provide :mailroom/ATSCsignal "063ee36b89b5191f33facb8c16b0feb7")
+(provide :mailroom/ATSCsignal "0a289453f346fcf5fbd110cae2a72009")
 
 

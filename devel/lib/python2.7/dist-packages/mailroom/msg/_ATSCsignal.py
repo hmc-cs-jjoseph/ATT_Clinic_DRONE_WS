@@ -7,15 +7,15 @@ import struct
 
 
 class ATSCsignal(genpy.Message):
-  _md5sum = "063ee36b89b5191f33facb8c16b0feb7"
+  _md5sum = "0a289453f346fcf5fbd110cae2a72009"
   _type = "mailroom/ATSCsignal"
   _has_header = False #flag to mark the presence of a Header object
-  _full_text = """uint8 channel
-uint8 SS
-uint8 SNQ
+  _full_text = """uint32 channel
+uint32 SS
+uint32 SNQ
 """
   __slots__ = ['channel','SS','SNQ']
-  _slot_types = ['uint8','uint8','uint8']
+  _slot_types = ['uint32','uint32','uint32']
 
   def __init__(self, *args, **kwds):
     """
@@ -58,7 +58,7 @@ uint8 SNQ
     """
     try:
       _x = self
-      buff.write(_get_struct_3B().pack(_x.channel, _x.SS, _x.SNQ))
+      buff.write(_get_struct_3I().pack(_x.channel, _x.SS, _x.SNQ))
     except struct.error as se: self._check_types(struct.error("%s: '%s' when writing '%s'" % (type(se), str(se), str(locals().get('_x', self)))))
     except TypeError as te: self._check_types(ValueError("%s: '%s' when writing '%s'" % (type(te), str(te), str(locals().get('_x', self)))))
 
@@ -71,8 +71,8 @@ uint8 SNQ
       end = 0
       _x = self
       start = end
-      end += 3
-      (_x.channel, _x.SS, _x.SNQ,) = _get_struct_3B().unpack(str[start:end])
+      end += 12
+      (_x.channel, _x.SS, _x.SNQ,) = _get_struct_3I().unpack(str[start:end])
       return self
     except struct.error as e:
       raise genpy.DeserializationError(e) #most likely buffer underfill
@@ -86,7 +86,7 @@ uint8 SNQ
     """
     try:
       _x = self
-      buff.write(_get_struct_3B().pack(_x.channel, _x.SS, _x.SNQ))
+      buff.write(_get_struct_3I().pack(_x.channel, _x.SS, _x.SNQ))
     except struct.error as se: self._check_types(struct.error("%s: '%s' when writing '%s'" % (type(se), str(se), str(locals().get('_x', self)))))
     except TypeError as te: self._check_types(ValueError("%s: '%s' when writing '%s'" % (type(te), str(te), str(locals().get('_x', self)))))
 
@@ -100,8 +100,8 @@ uint8 SNQ
       end = 0
       _x = self
       start = end
-      end += 3
-      (_x.channel, _x.SS, _x.SNQ,) = _get_struct_3B().unpack(str[start:end])
+      end += 12
+      (_x.channel, _x.SS, _x.SNQ,) = _get_struct_3I().unpack(str[start:end])
       return self
     except struct.error as e:
       raise genpy.DeserializationError(e) #most likely buffer underfill
@@ -110,9 +110,9 @@ _struct_I = genpy.struct_I
 def _get_struct_I():
     global _struct_I
     return _struct_I
-_struct_3B = None
-def _get_struct_3B():
-    global _struct_3B
-    if _struct_3B is None:
-        _struct_3B = struct.Struct("<3B")
-    return _struct_3B
+_struct_3I = None
+def _get_struct_3I():
+    global _struct_3I
+    if _struct_3I is None:
+        _struct_3I = struct.Struct("<3I")
+    return _struct_3I

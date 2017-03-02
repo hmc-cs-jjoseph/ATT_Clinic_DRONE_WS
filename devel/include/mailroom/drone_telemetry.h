@@ -24,14 +24,14 @@ struct drone_telemetry_
   typedef drone_telemetry_<ContainerAllocator> Type;
 
   drone_telemetry_()
-    : longitude(0.0)
-    , latitude(0.0)
+    : local_x(0.0)
+    , local_y(0.0)
     , height(0)
     , az_angle(0)  {
     }
   drone_telemetry_(const ContainerAllocator& _alloc)
-    : longitude(0.0)
-    , latitude(0.0)
+    : local_x(0.0)
+    , local_y(0.0)
     , height(0)
     , az_angle(0)  {
   (void)_alloc;
@@ -39,11 +39,11 @@ struct drone_telemetry_
 
 
 
-   typedef double _longitude_type;
-  _longitude_type longitude;
+   typedef double _local_x_type;
+  _local_x_type local_x;
 
-   typedef double _latitude_type;
-  _latitude_type latitude;
+   typedef double _local_y_type;
+  _local_y_type local_y;
 
    typedef uint8_t _height_type;
   _height_type height;
@@ -128,12 +128,12 @@ struct MD5Sum< ::mailroom::drone_telemetry_<ContainerAllocator> >
 {
   static const char* value()
   {
-    return "67912beb69b5afc3f72f11f99217a1f2";
+    return "792f8e5647216f2868c34781b5225bcb";
   }
 
   static const char* value(const ::mailroom::drone_telemetry_<ContainerAllocator>&) { return value(); }
-  static const uint64_t static_value1 = 0x67912beb69b5afc3ULL;
-  static const uint64_t static_value2 = 0xf72f11f99217a1f2ULL;
+  static const uint64_t static_value1 = 0x792f8e5647216f28ULL;
+  static const uint64_t static_value2 = 0x68c34781b5225bcbULL;
 };
 
 template<class ContainerAllocator>
@@ -152,8 +152,8 @@ struct Definition< ::mailroom::drone_telemetry_<ContainerAllocator> >
 {
   static const char* value()
   {
-    return "float64 longitude\n\
-float64 latitude\n\
+    return "float64 local_x\n\
+float64 local_y\n\
 uint8 height\n\
 uint8 az_angle\n\
 ";
@@ -174,8 +174,8 @@ namespace serialization
   {
     template<typename Stream, typename T> inline static void allInOne(Stream& stream, T m)
     {
-      stream.next(m.longitude);
-      stream.next(m.latitude);
+      stream.next(m.local_x);
+      stream.next(m.local_y);
       stream.next(m.height);
       stream.next(m.az_angle);
     }
@@ -196,10 +196,10 @@ struct Printer< ::mailroom::drone_telemetry_<ContainerAllocator> >
 {
   template<typename Stream> static void stream(Stream& s, const std::string& indent, const ::mailroom::drone_telemetry_<ContainerAllocator>& v)
   {
-    s << indent << "longitude: ";
-    Printer<double>::stream(s, indent + "  ", v.longitude);
-    s << indent << "latitude: ";
-    Printer<double>::stream(s, indent + "  ", v.latitude);
+    s << indent << "local_x: ";
+    Printer<double>::stream(s, indent + "  ", v.local_x);
+    s << indent << "local_y: ";
+    Printer<double>::stream(s, indent + "  ", v.local_y);
     s << indent << "height: ";
     Printer<uint8_t>::stream(s, indent + "  ", v.height);
     s << indent << "az_angle: ";

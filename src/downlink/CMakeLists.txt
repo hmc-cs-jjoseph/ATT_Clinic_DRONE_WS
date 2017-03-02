@@ -127,11 +127,11 @@ include_directories(
 # add_dependencies(downlink ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
 
 ## Declare a C++ executable
-add_executable(downlink src/downlink.cpp src/serialib/serialib.o)
-target_link_libraries(downlink ${catkin_LIBRARIES})
+add_executable(downlink_node src/downlink.cpp src/serialib/serialib.o)
+target_link_libraries(downlink_node ${catkin_LIBRARIES})
 
-add_executable(uplink src/uplink.cpp src/serialib/serialib.o)
-target_link_libraries(uplink ${catkin_LIBRARIES})
+add_executable(uplink_node src/uplink.cpp src/serialib/serialib.o)
+target_link_libraries(uplink_node ${catkin_LIBRARIES})
 
 ## Add cmake target dependencies of the executable
 ## same as for the library above

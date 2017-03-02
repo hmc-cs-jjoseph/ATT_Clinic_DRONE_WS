@@ -1,3 +1,3 @@
-uint8 channel
-uint8 SS
-uint8 SNQ
+uint32 channel
+uint32 SS
+uint32 SNQ

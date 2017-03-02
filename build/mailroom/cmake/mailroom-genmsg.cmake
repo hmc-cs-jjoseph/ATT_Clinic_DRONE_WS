@@ -1,6 +1,6 @@
 # generated from genmsg/cmake/pkg-genmsg.cmake.em
 
-message(STATUS "mailroom: 4 messages, 0 services")
+message(STATUS "mailroom: 5 messages, 0 services")
 
 set(MSG_I_FLAGS "-Imailroom:/home/attclinic/software/drone_ws/src/mailroom/msg;-Istd_msgs:/home/attclinic/ros_catkin_ws_kinetic/install_isolated/share/std_msgs/cmake/../msg")
 
@@ -24,7 +24,7 @@ add_custom_target(_mailroom_generate_messages_check_deps_${_filename}
 
 get_filename_component(_filename "/home/attclinic/software/drone_ws/src/mailroom/msg/drone_cmd.msg" NAME_WE)
 add_custom_target(_mailroom_generate_messages_check_deps_${_filename}
-  COMMAND ${CATKIN_ENV} ${PYTHON_EXECUTABLE} ${GENMSG_CHECK_DEPS_SCRIPT} "mailroom" "/home/attclinic/software/drone_ws/src/mailroom/msg/drone_cmd.msg" "mailroom/drone_telemetry"
+  COMMAND ${CATKIN_ENV} ${PYTHON_EXECUTABLE} ${GENMSG_CHECK_DEPS_SCRIPT} "mailroom" "/home/attclinic/software/drone_ws/src/mailroom/msg/drone_cmd.msg" ""
 )
 
 get_filename_component(_filename "/home/attclinic/software/drone_ws/src/mailroom/msg/drone_move.msg" NAME_WE)
@@ -57,18 +57,6 @@ _generate_msg_cpp(mailroom
 _generate_msg_cpp(mailroom
   "/home/attclinic/software/drone_ws/src/mailroom/msg/drone_cmd.msg"
   "${MSG_I_FLAGS}"
-  "/home/attclinic/software/drone_ws/src/mailroom/msg/drone_telemetry.msg"
-  ${CATKIN_DEVEL_PREFIX}/${gencpp_INSTALL_DIR}/mailroom
-)
-_generate_msg_cpp(mailroom
-  "/home/attclinic/software/drone_ws/src/mailroom/msg/drone_move.msg"
-  "${MSG_I_FLAGS}"
-  ""
-  ${CATKIN_DEVEL_PREFIX}/${gencpp_INSTALL_DIR}/mailroom
-)
-_generate_msg_cpp(mailroom
-  "/home/attclinic/software/drone_ws/src/mailroom/msg/drone_telemetry.msg"
-  "${MSG_I_FLAGS}"
   ""
   ${CATKIN_DEVEL_PREFIX}/${gencpp_INSTALL_DIR}/mailroom
 )
@@ -76,6 +64,18 @@ _generate_msg_cpp(mailroom
   "/home/attclinic/software/drone_ws/src/mailroom/msg/drone_status.msg"
   "${MSG_I_FLAGS}"
   "/home/attclinic/software/drone_ws/src/mailroom/msg/ATSCsignal.msg;/home/attclinic/software/drone_ws/src/mailroom/msg/drone_telemetry.msg"
+  ${CATKIN_DEVEL_PREFIX}/${gencpp_INSTALL_DIR}/mailroom
+)
+_generate_msg_cpp(mailroom
+  "/home/attclinic/software/drone_ws/src/mailroom/msg/drone_telemetry.msg"
+  "${MSG_I_FLAGS}"
+  ""
+  ${CATKIN_DEVEL_PREFIX}/${gencpp_INSTALL_DIR}/mailroom
+)
+_generate_msg_cpp(mailroom
+  "/home/attclinic/software/drone_ws/src/mailroom/msg/drone_move.msg"
+  "${MSG_I_FLAGS}"
+  ""
   ${CATKIN_DEVEL_PREFIX}/${gencpp_INSTALL_DIR}/mailroom
 )
 
@@ -122,18 +122,6 @@ _generate_msg_eus(mailroom
 _generate_msg_eus(mailroom
   "/home/attclinic/software/drone_ws/src/mailroom/msg/drone_cmd.msg"
   "${MSG_I_FLAGS}"
-  "/home/attclinic/software/drone_ws/src/mailroom/msg/drone_telemetry.msg"
-  ${CATKIN_DEVEL_PREFIX}/${geneus_INSTALL_DIR}/mailroom
-)
-_generate_msg_eus(mailroom
-  "/home/attclinic/software/drone_ws/src/mailroom/msg/drone_move.msg"
-  "${MSG_I_FLAGS}"
-  ""
-  ${CATKIN_DEVEL_PREFIX}/${geneus_INSTALL_DIR}/mailroom
-)
-_generate_msg_eus(mailroom
-  "/home/attclinic/software/drone_ws/src/mailroom/msg/drone_telemetry.msg"
-  "${MSG_I_FLAGS}"
   ""
   ${CATKIN_DEVEL_PREFIX}/${geneus_INSTALL_DIR}/mailroom
 )
@@ -141,6 +129,18 @@ _generate_msg_eus(mailroom
   "/home/attclinic/software/drone_ws/src/mailroom/msg/drone_status.msg"
   "${MSG_I_FLAGS}"
   "/home/attclinic/software/drone_ws/src/mailroom/msg/ATSCsignal.msg;/home/attclinic/software/drone_ws/src/mailroom/msg/drone_telemetry.msg"
+  ${CATKIN_DEVEL_PREFIX}/${geneus_INSTALL_DIR}/mailroom
+)
+_generate_msg_eus(mailroom
+  "/home/attclinic/software/drone_ws/src/mailroom/msg/drone_telemetry.msg"
+  "${MSG_I_FLAGS}"
+  ""
+  ${CATKIN_DEVEL_PREFIX}/${geneus_INSTALL_DIR}/mailroom
+)
+_generate_msg_eus(mailroom
+  "/home/attclinic/software/drone_ws/src/mailroom/msg/drone_move.msg"
+  "${MSG_I_FLAGS}"
+  ""
   ${CATKIN_DEVEL_PREFIX}/${geneus_INSTALL_DIR}/mailroom
 )
 
@@ -187,18 +187,6 @@ _generate_msg_lisp(mailroom
 _generate_msg_lisp(mailroom
   "/home/attclinic/software/drone_ws/src/mailroom/msg/drone_cmd.msg"
   "${MSG_I_FLAGS}"
-  "/home/attclinic/software/drone_ws/src/mailroom/msg/drone_telemetry.msg"
-  ${CATKIN_DEVEL_PREFIX}/${genlisp_INSTALL_DIR}/mailroom
-)
-_generate_msg_lisp(mailroom
-  "/home/attclinic/software/drone_ws/src/mailroom/msg/drone_move.msg"
-  "${MSG_I_FLAGS}"
-  ""
-  ${CATKIN_DEVEL_PREFIX}/${genlisp_INSTALL_DIR}/mailroom
-)
-_generate_msg_lisp(mailroom
-  "/home/attclinic/software/drone_ws/src/mailroom/msg/drone_telemetry.msg"
-  "${MSG_I_FLAGS}"
   ""
   ${CATKIN_DEVEL_PREFIX}/${genlisp_INSTALL_DIR}/mailroom
 )
@@ -206,6 +194,18 @@ _generate_msg_lisp(mailroom
   "/home/attclinic/software/drone_ws/src/mailroom/msg/drone_status.msg"
   "${MSG_I_FLAGS}"
   "/home/attclinic/software/drone_ws/src/mailroom/msg/ATSCsignal.msg;/home/attclinic/software/drone_ws/src/mailroom/msg/drone_telemetry.msg"
+  ${CATKIN_DEVEL_PREFIX}/${genlisp_INSTALL_DIR}/mailroom
+)
+_generate_msg_lisp(mailroom
+  "/home/attclinic/software/drone_ws/src/mailroom/msg/drone_telemetry.msg"
+  "${MSG_I_FLAGS}"
+  ""
+  ${CATKIN_DEVEL_PREFIX}/${genlisp_INSTALL_DIR}/mailroom
+)
+_generate_msg_lisp(mailroom
+  "/home/attclinic/software/drone_ws/src/mailroom/msg/drone_move.msg"
+  "${MSG_I_FLAGS}"
+  ""
   ${CATKIN_DEVEL_PREFIX}/${genlisp_INSTALL_DIR}/mailroom
 )
 
@@ -227,9 +227,9 @@ get_filename_component(_filename "/home/attclinic/software/drone_ws/src/mailroom
 add_dependencies(mailroom_generate_messages_lisp _mailroom_generate_messages_check_deps_${_filename})
 get_filename_component(_filename "/home/attclinic/software/drone_ws/src/mailroom/msg/drone_cmd.msg" NAME_WE)
 add_dependencies(mailroom_generate_messages_lisp _mailroom_generate_messages_check_deps_${_filename})
-get_filename_component(_filename "/home/attclinic/software/drone_ws/src/mailroom/msg/drone_telemetry.msg" NAME_WE)
-add_dependencies(mailroom_generate_messages_lisp _mailroom_generate_messages_check_deps_${_filename})
 get_filename_component(_filename "/home/attclinic/software/drone_ws/src/mailroom/msg/drone_move.msg" NAME_WE)
+add_dependencies(mailroom_generate_messages_lisp _mailroom_generate_messages_check_deps_${_filename})
+get_filename_component(_filename "/home/attclinic/software/drone_ws/src/mailroom/msg/drone_telemetry.msg" NAME_WE)
 add_dependencies(mailroom_generate_messages_lisp _mailroom_generate_messages_check_deps_${_filename})
 get_filename_component(_filename "/home/attclinic/software/drone_ws/src/mailroom/msg/drone_status.msg" NAME_WE)
 add_dependencies(mailroom_generate_messages_lisp _mailroom_generate_messages_check_deps_${_filename})
@@ -252,18 +252,6 @@ _generate_msg_nodejs(mailroom
 _generate_msg_nodejs(mailroom
   "/home/attclinic/software/drone_ws/src/mailroom/msg/drone_cmd.msg"
   "${MSG_I_FLAGS}"
-  "/home/attclinic/software/drone_ws/src/mailroom/msg/drone_telemetry.msg"
-  ${CATKIN_DEVEL_PREFIX}/${gennodejs_INSTALL_DIR}/mailroom
-)
-_generate_msg_nodejs(mailroom
-  "/home/attclinic/software/drone_ws/src/mailroom/msg/drone_move.msg"
-  "${MSG_I_FLAGS}"
-  ""
-  ${CATKIN_DEVEL_PREFIX}/${gennodejs_INSTALL_DIR}/mailroom
-)
-_generate_msg_nodejs(mailroom
-  "/home/attclinic/software/drone_ws/src/mailroom/msg/drone_telemetry.msg"
-  "${MSG_I_FLAGS}"
   ""
   ${CATKIN_DEVEL_PREFIX}/${gennodejs_INSTALL_DIR}/mailroom
 )
@@ -271,6 +259,18 @@ _generate_msg_nodejs(mailroom
   "/home/attclinic/software/drone_ws/src/mailroom/msg/drone_status.msg"
   "${MSG_I_FLAGS}"
   "/home/attclinic/software/drone_ws/src/mailroom/msg/ATSCsignal.msg;/home/attclinic/software/drone_ws/src/mailroom/msg/drone_telemetry.msg"
+  ${CATKIN_DEVEL_PREFIX}/${gennodejs_INSTALL_DIR}/mailroom
+)
+_generate_msg_nodejs(mailroom
+  "/home/attclinic/software/drone_ws/src/mailroom/msg/drone_telemetry.msg"
+  "${MSG_I_FLAGS}"
+  ""
+  ${CATKIN_DEVEL_PREFIX}/${gennodejs_INSTALL_DIR}/mailroom
+)
+_generate_msg_nodejs(mailroom
+  "/home/attclinic/software/drone_ws/src/mailroom/msg/drone_move.msg"
+  "${MSG_I_FLAGS}"
+  ""
   ${CATKIN_DEVEL_PREFIX}/${gennodejs_INSTALL_DIR}/mailroom
 )
 
@@ -317,18 +317,6 @@ _generate_msg_py(mailroom
 _generate_msg_py(mailroom
   "/home/attclinic/software/drone_ws/src/mailroom/msg/drone_cmd.msg"
   "${MSG_I_FLAGS}"
-  "/home/attclinic/software/drone_ws/src/mailroom/msg/drone_telemetry.msg"
-  ${CATKIN_DEVEL_PREFIX}/${genpy_INSTALL_DIR}/mailroom
-)
-_generate_msg_py(mailroom
-  "/home/attclinic/software/drone_ws/src/mailroom/msg/drone_move.msg"
-  "${MSG_I_FLAGS}"
-  ""
-  ${CATKIN_DEVEL_PREFIX}/${genpy_INSTALL_DIR}/mailroom
-)
-_generate_msg_py(mailroom
-  "/home/attclinic/software/drone_ws/src/mailroom/msg/drone_telemetry.msg"
-  "${MSG_I_FLAGS}"
   ""
   ${CATKIN_DEVEL_PREFIX}/${genpy_INSTALL_DIR}/mailroom
 )
@@ -336,6 +324,18 @@ _generate_msg_py(mailroom
   "/home/attclinic/software/drone_ws/src/mailroom/msg/drone_status.msg"
   "${MSG_I_FLAGS}"
   "/home/attclinic/software/drone_ws/src/mailroom/msg/ATSCsignal.msg;/home/attclinic/software/drone_ws/src/mailroom/msg/drone_telemetry.msg"
+  ${CATKIN_DEVEL_PREFIX}/${genpy_INSTALL_DIR}/mailroom
+)
+_generate_msg_py(mailroom
+  "/home/attclinic/software/drone_ws/src/mailroom/msg/drone_telemetry.msg"
+  "${MSG_I_FLAGS}"
+  ""
+  ${CATKIN_DEVEL_PREFIX}/${genpy_INSTALL_DIR}/mailroom
+)
+_generate_msg_py(mailroom
+  "/home/attclinic/software/drone_ws/src/mailroom/msg/drone_move.msg"
+  "${MSG_I_FLAGS}"
+  ""
   ${CATKIN_DEVEL_PREFIX}/${genpy_INSTALL_DIR}/mailroom
 )
 

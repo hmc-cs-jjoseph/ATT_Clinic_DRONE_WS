@@ -7,15 +7,15 @@ import struct
 
 
 class drone_telemetry(genpy.Message):
-  _md5sum = "67912beb69b5afc3f72f11f99217a1f2"
+  _md5sum = "792f8e5647216f2868c34781b5225bcb"
   _type = "mailroom/drone_telemetry"
   _has_header = False #flag to mark the presence of a Header object
-  _full_text = """float64 longitude
-float64 latitude
+  _full_text = """float64 local_x
+float64 local_y
 uint8 height
 uint8 az_angle
 """
-  __slots__ = ['longitude','latitude','height','az_angle']
+  __slots__ = ['local_x','local_y','height','az_angle']
   _slot_types = ['float64','float64','uint8','uint8']
 
   def __init__(self, *args, **kwds):
@@ -26,7 +26,7 @@ uint8 az_angle
     changes.  You cannot mix in-order arguments and keyword arguments.
 
     The available fields are:
-       longitude,latitude,height,az_angle
+       local_x,local_y,height,az_angle
 
     :param args: complete set of field values, in .msg order
     :param kwds: use keyword arguments corresponding to message field names
@@ -35,17 +35,17 @@ uint8 az_angle
     if args or kwds:
       super(drone_telemetry, self).__init__(*args, **kwds)
       #message fields cannot be None, assign default values for those that are
-      if self.longitude is None:
-        self.longitude = 0.
-      if self.latitude is None:
-        self.latitude = 0.
+      if self.local_x is None:
+        self.local_x = 0.
+      if self.local_y is None:
+        self.local_y = 0.
       if self.height is None:
         self.height = 0
       if self.az_angle is None:
         self.az_angle = 0
     else:
-      self.longitude = 0.
-      self.latitude = 0.
+      self.local_x = 0.
+      self.local_y = 0.
       self.height = 0
       self.az_angle = 0
 
@@ -62,7 +62,7 @@ uint8 az_angle
     """
     try:
       _x = self
-      buff.write(_get_struct_2d2B().pack(_x.longitude, _x.latitude, _x.height, _x.az_angle))
+      buff.write(_get_struct_2d2B().pack(_x.local_x, _x.local_y, _x.height, _x.az_angle))
     except struct.error as se: self._check_types(struct.error("%s: '%s' when writing '%s'" % (type(se), str(se), str(locals().get('_x', self)))))
     except TypeError as te: self._check_types(ValueError("%s: '%s' when writing '%s'" % (type(te), str(te), str(locals().get('_x', self)))))
 
@@ -76,7 +76,7 @@ uint8 az_angle
       _x = self
       start = end
       end += 18
-      (_x.longitude, _x.latitude, _x.height, _x.az_angle,) = _get_struct_2d2B().unpack(str[start:end])
+      (_x.local_x, _x.local_y, _x.height, _x.az_angle,) = _get_struct_2d2B().unpack(str[start:end])
       return self
     except struct.error as e:
       raise genpy.DeserializationError(e) #most likely buffer underfill
@@ -90,7 +90,7 @@ uint8 az_angle
     """
     try:
       _x = self
-      buff.write(_get_struct_2d2B().pack(_x.longitude, _x.latitude, _x.height, _x.az_angle))
+      buff.write(_get_struct_2d2B().pack(_x.local_x, _x.local_y, _x.height, _x.az_angle))
     except struct.error as se: self._check_types(struct.error("%s: '%s' when writing '%s'" % (type(se), str(se), str(locals().get('_x', self)))))
     except TypeError as te: self._check_types(ValueError("%s: '%s' when writing '%s'" % (type(te), str(te), str(locals().get('_x', self)))))
 
@@ -105,7 +105,7 @@ uint8 az_angle
       _x = self
       start = end
       end += 18
-      (_x.longitude, _x.latitude, _x.height, _x.az_angle,) = _get_struct_2d2B().unpack(str[start:end])
+      (_x.local_x, _x.local_y, _x.height, _x.az_angle,) = _get_struct_2d2B().unpack(str[start:end])
       return self
     except struct.error as e:
       raise genpy.DeserializationError(e) #most likely buffer underfill

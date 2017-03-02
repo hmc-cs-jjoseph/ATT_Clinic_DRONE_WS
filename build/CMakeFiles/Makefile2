@@ -250,7 +250,7 @@ gtest/CMakeFiles/gtest_main.dir/all: gtest/CMakeFiles/gtest.dir/all
 
 # Build rule for subdir invocation for target.
 gtest/CMakeFiles/gtest_main.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/attclinic/software/drone_ws/build/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/attclinic/software/drone_ws/build/CMakeFiles 1
 	$(MAKE) -f CMakeFiles/Makefile2 gtest/CMakeFiles/gtest_main.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/attclinic/software/drone_ws/build/CMakeFiles 0
 .PHONY : gtest/CMakeFiles/gtest_main.dir/rule
@@ -277,12 +277,12 @@ clean: gtest/CMakeFiles/gtest_main.dir/clean
 gtest/CMakeFiles/gtest.dir/all:
 	$(MAKE) -f gtest/CMakeFiles/gtest.dir/build.make gtest/CMakeFiles/gtest.dir/depend
 	$(MAKE) -f gtest/CMakeFiles/gtest.dir/build.make gtest/CMakeFiles/gtest.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/attclinic/software/drone_ws/build/CMakeFiles --progress-num= "Built target gtest"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/attclinic/software/drone_ws/build/CMakeFiles --progress-num=94 "Built target gtest"
 .PHONY : gtest/CMakeFiles/gtest.dir/all
 
 # Build rule for subdir invocation for target.
 gtest/CMakeFiles/gtest.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/attclinic/software/drone_ws/build/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/attclinic/software/drone_ws/build/CMakeFiles 1
 	$(MAKE) -f CMakeFiles/Makefile2 gtest/CMakeFiles/gtest.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/attclinic/software/drone_ws/build/CMakeFiles 0
 .PHONY : gtest/CMakeFiles/gtest.dir/rule
@@ -394,8 +394,8 @@ clean: dji_sdk_lib/CMakeFiles/_catkin_empty_exported_target.dir/clean
 # Directory level rules for directory downlink
 
 # Convenience name for "all" pass in the directory.
-downlink/all: downlink/CMakeFiles/uplink.dir/all
-downlink/all: downlink/CMakeFiles/downlink.dir/all
+downlink/all: downlink/CMakeFiles/downlink_node.dir/all
+downlink/all: downlink/CMakeFiles/uplink_node.dir/all
 
 .PHONY : downlink/all
 
@@ -404,15 +404,15 @@ downlink/clean: downlink/CMakeFiles/rosgraph_msgs_generate_messages_lisp.dir/cle
 downlink/clean: downlink/CMakeFiles/rosgraph_msgs_generate_messages_cpp.dir/clean
 downlink/clean: downlink/CMakeFiles/rosgraph_msgs_generate_messages_eus.dir/clean
 downlink/clean: downlink/CMakeFiles/roscpp_generate_messages_lisp.dir/clean
-downlink/clean: downlink/CMakeFiles/uplink.dir/clean
 downlink/clean: downlink/CMakeFiles/roscpp_generate_messages_eus.dir/clean
+downlink/clean: downlink/CMakeFiles/std_msgs_generate_messages_py.dir/clean
 downlink/clean: downlink/CMakeFiles/roscpp_generate_messages_py.dir/clean
 downlink/clean: downlink/CMakeFiles/rosgraph_msgs_generate_messages_nodejs.dir/clean
 downlink/clean: downlink/CMakeFiles/std_msgs_generate_messages_cpp.dir/clean
-downlink/clean: downlink/CMakeFiles/std_msgs_generate_messages_py.dir/clean
-downlink/clean: downlink/CMakeFiles/downlink.dir/clean
+downlink/clean: downlink/CMakeFiles/downlink_node.dir/clean
 downlink/clean: downlink/CMakeFiles/roscpp_generate_messages_cpp.dir/clean
 downlink/clean: downlink/CMakeFiles/roscpp_generate_messages_nodejs.dir/clean
+downlink/clean: downlink/CMakeFiles/uplink_node.dir/clean
 downlink/clean: downlink/CMakeFiles/std_msgs_generate_messages_eus.dir/clean
 downlink/clean: downlink/CMakeFiles/std_msgs_generate_messages_lisp.dir/clean
 downlink/clean: downlink/CMakeFiles/std_msgs_generate_messages_nodejs.dir/clean
@@ -554,43 +554,6 @@ clean: downlink/CMakeFiles/roscpp_generate_messages_lisp.dir/clean
 .PHONY : clean
 
 #=============================================================================
-# Target rules for target downlink/CMakeFiles/uplink.dir
-
-# All Build rule for target.
-downlink/CMakeFiles/uplink.dir/all:
-	$(MAKE) -f downlink/CMakeFiles/uplink.dir/build.make downlink/CMakeFiles/uplink.dir/depend
-	$(MAKE) -f downlink/CMakeFiles/uplink.dir/build.make downlink/CMakeFiles/uplink.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/attclinic/software/drone_ws/build/CMakeFiles --progress-num= "Built target uplink"
-.PHONY : downlink/CMakeFiles/uplink.dir/all
-
-# Include target in all.
-all: downlink/CMakeFiles/uplink.dir/all
-
-.PHONY : all
-
-# Build rule for subdir invocation for target.
-downlink/CMakeFiles/uplink.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/attclinic/software/drone_ws/build/CMakeFiles 0
-	$(MAKE) -f CMakeFiles/Makefile2 downlink/CMakeFiles/uplink.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/attclinic/software/drone_ws/build/CMakeFiles 0
-.PHONY : downlink/CMakeFiles/uplink.dir/rule
-
-# Convenience name for target.
-uplink: downlink/CMakeFiles/uplink.dir/rule
-
-.PHONY : uplink
-
-# clean rule for target.
-downlink/CMakeFiles/uplink.dir/clean:
-	$(MAKE) -f downlink/CMakeFiles/uplink.dir/build.make downlink/CMakeFiles/uplink.dir/clean
-.PHONY : downlink/CMakeFiles/uplink.dir/clean
-
-# clean rule for target.
-clean: downlink/CMakeFiles/uplink.dir/clean
-
-.PHONY : clean
-
-#=============================================================================
 # Target rules for target downlink/CMakeFiles/roscpp_generate_messages_eus.dir
 
 # All Build rule for target.
@@ -619,6 +582,38 @@ downlink/CMakeFiles/roscpp_generate_messages_eus.dir/clean:
 
 # clean rule for target.
 clean: downlink/CMakeFiles/roscpp_generate_messages_eus.dir/clean
+
+.PHONY : clean
+
+#=============================================================================
+# Target rules for target downlink/CMakeFiles/std_msgs_generate_messages_py.dir
+
+# All Build rule for target.
+downlink/CMakeFiles/std_msgs_generate_messages_py.dir/all:
+	$(MAKE) -f downlink/CMakeFiles/std_msgs_generate_messages_py.dir/build.make downlink/CMakeFiles/std_msgs_generate_messages_py.dir/depend
+	$(MAKE) -f downlink/CMakeFiles/std_msgs_generate_messages_py.dir/build.make downlink/CMakeFiles/std_msgs_generate_messages_py.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/attclinic/software/drone_ws/build/CMakeFiles --progress-num= "Built target std_msgs_generate_messages_py"
+.PHONY : downlink/CMakeFiles/std_msgs_generate_messages_py.dir/all
+
+# Build rule for subdir invocation for target.
+downlink/CMakeFiles/std_msgs_generate_messages_py.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/attclinic/software/drone_ws/build/CMakeFiles 0
+	$(MAKE) -f CMakeFiles/Makefile2 downlink/CMakeFiles/std_msgs_generate_messages_py.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/attclinic/software/drone_ws/build/CMakeFiles 0
+.PHONY : downlink/CMakeFiles/std_msgs_generate_messages_py.dir/rule
+
+# Convenience name for target.
+std_msgs_generate_messages_py: downlink/CMakeFiles/std_msgs_generate_messages_py.dir/rule
+
+.PHONY : std_msgs_generate_messages_py
+
+# clean rule for target.
+downlink/CMakeFiles/std_msgs_generate_messages_py.dir/clean:
+	$(MAKE) -f downlink/CMakeFiles/std_msgs_generate_messages_py.dir/build.make downlink/CMakeFiles/std_msgs_generate_messages_py.dir/clean
+.PHONY : downlink/CMakeFiles/std_msgs_generate_messages_py.dir/clean
+
+# clean rule for target.
+clean: downlink/CMakeFiles/std_msgs_generate_messages_py.dir/clean
 
 .PHONY : clean
 
@@ -719,71 +714,39 @@ clean: downlink/CMakeFiles/std_msgs_generate_messages_cpp.dir/clean
 .PHONY : clean
 
 #=============================================================================
-# Target rules for target downlink/CMakeFiles/std_msgs_generate_messages_py.dir
+# Target rules for target downlink/CMakeFiles/downlink_node.dir
 
 # All Build rule for target.
-downlink/CMakeFiles/std_msgs_generate_messages_py.dir/all:
-	$(MAKE) -f downlink/CMakeFiles/std_msgs_generate_messages_py.dir/build.make downlink/CMakeFiles/std_msgs_generate_messages_py.dir/depend
-	$(MAKE) -f downlink/CMakeFiles/std_msgs_generate_messages_py.dir/build.make downlink/CMakeFiles/std_msgs_generate_messages_py.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/attclinic/software/drone_ws/build/CMakeFiles --progress-num= "Built target std_msgs_generate_messages_py"
-.PHONY : downlink/CMakeFiles/std_msgs_generate_messages_py.dir/all
-
-# Build rule for subdir invocation for target.
-downlink/CMakeFiles/std_msgs_generate_messages_py.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/attclinic/software/drone_ws/build/CMakeFiles 0
-	$(MAKE) -f CMakeFiles/Makefile2 downlink/CMakeFiles/std_msgs_generate_messages_py.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/attclinic/software/drone_ws/build/CMakeFiles 0
-.PHONY : downlink/CMakeFiles/std_msgs_generate_messages_py.dir/rule
-
-# Convenience name for target.
-std_msgs_generate_messages_py: downlink/CMakeFiles/std_msgs_generate_messages_py.dir/rule
-
-.PHONY : std_msgs_generate_messages_py
-
-# clean rule for target.
-downlink/CMakeFiles/std_msgs_generate_messages_py.dir/clean:
-	$(MAKE) -f downlink/CMakeFiles/std_msgs_generate_messages_py.dir/build.make downlink/CMakeFiles/std_msgs_generate_messages_py.dir/clean
-.PHONY : downlink/CMakeFiles/std_msgs_generate_messages_py.dir/clean
-
-# clean rule for target.
-clean: downlink/CMakeFiles/std_msgs_generate_messages_py.dir/clean
-
-.PHONY : clean
-
-#=============================================================================
-# Target rules for target downlink/CMakeFiles/downlink.dir
-
-# All Build rule for target.
-downlink/CMakeFiles/downlink.dir/all:
-	$(MAKE) -f downlink/CMakeFiles/downlink.dir/build.make downlink/CMakeFiles/downlink.dir/depend
-	$(MAKE) -f downlink/CMakeFiles/downlink.dir/build.make downlink/CMakeFiles/downlink.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/attclinic/software/drone_ws/build/CMakeFiles --progress-num=94 "Built target downlink"
-.PHONY : downlink/CMakeFiles/downlink.dir/all
+downlink/CMakeFiles/downlink_node.dir/all:
+	$(MAKE) -f downlink/CMakeFiles/downlink_node.dir/build.make downlink/CMakeFiles/downlink_node.dir/depend
+	$(MAKE) -f downlink/CMakeFiles/downlink_node.dir/build.make downlink/CMakeFiles/downlink_node.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/attclinic/software/drone_ws/build/CMakeFiles --progress-num= "Built target downlink_node"
+.PHONY : downlink/CMakeFiles/downlink_node.dir/all
 
 # Include target in all.
-all: downlink/CMakeFiles/downlink.dir/all
+all: downlink/CMakeFiles/downlink_node.dir/all
 
 .PHONY : all
 
 # Build rule for subdir invocation for target.
-downlink/CMakeFiles/downlink.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/attclinic/software/drone_ws/build/CMakeFiles 1
-	$(MAKE) -f CMakeFiles/Makefile2 downlink/CMakeFiles/downlink.dir/all
+downlink/CMakeFiles/downlink_node.dir/rule: cmake_check_build_system
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/attclinic/software/drone_ws/build/CMakeFiles 0
-.PHONY : downlink/CMakeFiles/downlink.dir/rule
+	$(MAKE) -f CMakeFiles/Makefile2 downlink/CMakeFiles/downlink_node.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/attclinic/software/drone_ws/build/CMakeFiles 0
+.PHONY : downlink/CMakeFiles/downlink_node.dir/rule
 
 # Convenience name for target.
-downlink: downlink/CMakeFiles/downlink.dir/rule
+downlink_node: downlink/CMakeFiles/downlink_node.dir/rule
 
-.PHONY : downlink
-
-# clean rule for target.
-downlink/CMakeFiles/downlink.dir/clean:
-	$(MAKE) -f downlink/CMakeFiles/downlink.dir/build.make downlink/CMakeFiles/downlink.dir/clean
-.PHONY : downlink/CMakeFiles/downlink.dir/clean
+.PHONY : downlink_node
 
 # clean rule for target.
-clean: downlink/CMakeFiles/downlink.dir/clean
+downlink/CMakeFiles/downlink_node.dir/clean:
+	$(MAKE) -f downlink/CMakeFiles/downlink_node.dir/build.make downlink/CMakeFiles/downlink_node.dir/clean
+.PHONY : downlink/CMakeFiles/downlink_node.dir/clean
+
+# clean rule for target.
+clean: downlink/CMakeFiles/downlink_node.dir/clean
 
 .PHONY : clean
 
@@ -848,6 +811,43 @@ downlink/CMakeFiles/roscpp_generate_messages_nodejs.dir/clean:
 
 # clean rule for target.
 clean: downlink/CMakeFiles/roscpp_generate_messages_nodejs.dir/clean
+
+.PHONY : clean
+
+#=============================================================================
+# Target rules for target downlink/CMakeFiles/uplink_node.dir
+
+# All Build rule for target.
+downlink/CMakeFiles/uplink_node.dir/all:
+	$(MAKE) -f downlink/CMakeFiles/uplink_node.dir/build.make downlink/CMakeFiles/uplink_node.dir/depend
+	$(MAKE) -f downlink/CMakeFiles/uplink_node.dir/build.make downlink/CMakeFiles/uplink_node.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/attclinic/software/drone_ws/build/CMakeFiles --progress-num= "Built target uplink_node"
+.PHONY : downlink/CMakeFiles/uplink_node.dir/all
+
+# Include target in all.
+all: downlink/CMakeFiles/uplink_node.dir/all
+
+.PHONY : all
+
+# Build rule for subdir invocation for target.
+downlink/CMakeFiles/uplink_node.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/attclinic/software/drone_ws/build/CMakeFiles 0
+	$(MAKE) -f CMakeFiles/Makefile2 downlink/CMakeFiles/uplink_node.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/attclinic/software/drone_ws/build/CMakeFiles 0
+.PHONY : downlink/CMakeFiles/uplink_node.dir/rule
+
+# Convenience name for target.
+uplink_node: downlink/CMakeFiles/uplink_node.dir/rule
+
+.PHONY : uplink_node
+
+# clean rule for target.
+downlink/CMakeFiles/uplink_node.dir/clean:
+	$(MAKE) -f downlink/CMakeFiles/uplink_node.dir/build.make downlink/CMakeFiles/uplink_node.dir/clean
+.PHONY : downlink/CMakeFiles/uplink_node.dir/clean
+
+# clean rule for target.
+clean: downlink/CMakeFiles/uplink_node.dir/clean
 
 .PHONY : clean
 
@@ -984,25 +984,29 @@ clean: downlink/CMakeFiles/rosgraph_msgs_generate_messages_py.dir/clean
 
 # Convenience name for "all" pass in the directory.
 mailroom/all: mailroom/CMakeFiles/mailroom_generate_messages.dir/all
+mailroom/all: mailroom/CMakeFiles/mailroom_node.dir/all
+mailroom/all: mailroom/CMakeFiles/DroneCommander.dir/all
 
 .PHONY : mailroom/all
 
 # Convenience name for "clean" pass in the directory.
-mailroom/clean: mailroom/CMakeFiles/mailroom_generate_messages_py.dir/clean
-mailroom/clean: mailroom/CMakeFiles/mailroom_gennodejs.dir/clean
-mailroom/clean: mailroom/CMakeFiles/mailroom_genlisp.dir/clean
-mailroom/clean: mailroom/CMakeFiles/mailroom_generate_messages.dir/clean
-mailroom/clean: mailroom/CMakeFiles/mailroom_genpy.dir/clean
-mailroom/clean: mailroom/CMakeFiles/_mailroom_generate_messages_check_deps_drone_cmd.dir/clean
-mailroom/clean: mailroom/CMakeFiles/mailroom_generate_messages_cpp.dir/clean
-mailroom/clean: mailroom/CMakeFiles/_mailroom_generate_messages_check_deps_drone_telemetry.dir/clean
-mailroom/clean: mailroom/CMakeFiles/_mailroom_generate_messages_check_deps_drone_status.dir/clean
-mailroom/clean: mailroom/CMakeFiles/mailroom_gencpp.dir/clean
-mailroom/clean: mailroom/CMakeFiles/mailroom_generate_messages_nodejs.dir/clean
-mailroom/clean: mailroom/CMakeFiles/mailroom_generate_messages_eus.dir/clean
-mailroom/clean: mailroom/CMakeFiles/_mailroom_generate_messages_check_deps_ATSCsignal.dir/clean
-mailroom/clean: mailroom/CMakeFiles/mailroom_geneus.dir/clean
 mailroom/clean: mailroom/CMakeFiles/mailroom_generate_messages_lisp.dir/clean
+mailroom/clean: mailroom/CMakeFiles/_mailroom_generate_messages_check_deps_ATSCsignal.dir/clean
+mailroom/clean: mailroom/CMakeFiles/mailroom_generate_messages_eus.dir/clean
+mailroom/clean: mailroom/CMakeFiles/mailroom_generate_messages_nodejs.dir/clean
+mailroom/clean: mailroom/CMakeFiles/mailroom_gencpp.dir/clean
+mailroom/clean: mailroom/CMakeFiles/_mailroom_generate_messages_check_deps_drone_status.dir/clean
+mailroom/clean: mailroom/CMakeFiles/mailroom_generate_messages_cpp.dir/clean
+mailroom/clean: mailroom/CMakeFiles/_mailroom_generate_messages_check_deps_drone_cmd.dir/clean
+mailroom/clean: mailroom/CMakeFiles/mailroom_generate_messages.dir/clean
+mailroom/clean: mailroom/CMakeFiles/mailroom_genlisp.dir/clean
+mailroom/clean: mailroom/CMakeFiles/mailroom_gennodejs.dir/clean
+mailroom/clean: mailroom/CMakeFiles/_mailroom_generate_messages_check_deps_drone_telemetry.dir/clean
+mailroom/clean: mailroom/CMakeFiles/mailroom_node.dir/clean
+mailroom/clean: mailroom/CMakeFiles/mailroom_generate_messages_py.dir/clean
+mailroom/clean: mailroom/CMakeFiles/DroneCommander.dir/clean
+mailroom/clean: mailroom/CMakeFiles/mailroom_geneus.dir/clean
+mailroom/clean: mailroom/CMakeFiles/mailroom_genpy.dir/clean
 
 .PHONY : mailroom/clean
 
@@ -1012,411 +1016,38 @@ mailroom/preinstall:
 .PHONY : mailroom/preinstall
 
 #=============================================================================
-# Target rules for target mailroom/CMakeFiles/mailroom_generate_messages_py.dir
+# Target rules for target mailroom/CMakeFiles/mailroom_generate_messages_lisp.dir
 
 # All Build rule for target.
-mailroom/CMakeFiles/mailroom_generate_messages_py.dir/all: downlink/CMakeFiles/std_msgs_generate_messages_py.dir/all
-mailroom/CMakeFiles/mailroom_generate_messages_py.dir/all: mailroom/CMakeFiles/_mailroom_generate_messages_check_deps_drone_cmd.dir/all
-mailroom/CMakeFiles/mailroom_generate_messages_py.dir/all: mailroom/CMakeFiles/_mailroom_generate_messages_check_deps_drone_telemetry.dir/all
-mailroom/CMakeFiles/mailroom_generate_messages_py.dir/all: mailroom/CMakeFiles/_mailroom_generate_messages_check_deps_drone_status.dir/all
-mailroom/CMakeFiles/mailroom_generate_messages_py.dir/all: mailroom/CMakeFiles/_mailroom_generate_messages_check_deps_ATSCsignal.dir/all
-	$(MAKE) -f mailroom/CMakeFiles/mailroom_generate_messages_py.dir/build.make mailroom/CMakeFiles/mailroom_generate_messages_py.dir/depend
-	$(MAKE) -f mailroom/CMakeFiles/mailroom_generate_messages_py.dir/build.make mailroom/CMakeFiles/mailroom_generate_messages_py.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/attclinic/software/drone_ws/build/CMakeFiles --progress-num=99 "Built target mailroom_generate_messages_py"
-.PHONY : mailroom/CMakeFiles/mailroom_generate_messages_py.dir/all
+mailroom/CMakeFiles/mailroom_generate_messages_lisp.dir/all: downlink/CMakeFiles/std_msgs_generate_messages_lisp.dir/all
+mailroom/CMakeFiles/mailroom_generate_messages_lisp.dir/all: mailroom/CMakeFiles/_mailroom_generate_messages_check_deps_ATSCsignal.dir/all
+mailroom/CMakeFiles/mailroom_generate_messages_lisp.dir/all: mailroom/CMakeFiles/_mailroom_generate_messages_check_deps_drone_status.dir/all
+mailroom/CMakeFiles/mailroom_generate_messages_lisp.dir/all: mailroom/CMakeFiles/_mailroom_generate_messages_check_deps_drone_cmd.dir/all
+mailroom/CMakeFiles/mailroom_generate_messages_lisp.dir/all: mailroom/CMakeFiles/_mailroom_generate_messages_check_deps_drone_telemetry.dir/all
+	$(MAKE) -f mailroom/CMakeFiles/mailroom_generate_messages_lisp.dir/build.make mailroom/CMakeFiles/mailroom_generate_messages_lisp.dir/depend
+	$(MAKE) -f mailroom/CMakeFiles/mailroom_generate_messages_lisp.dir/build.make mailroom/CMakeFiles/mailroom_generate_messages_lisp.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/attclinic/software/drone_ws/build/CMakeFiles --progress-num=97 "Built target mailroom_generate_messages_lisp"
+.PHONY : mailroom/CMakeFiles/mailroom_generate_messages_lisp.dir/all
 
 # Build rule for subdir invocation for target.
-mailroom/CMakeFiles/mailroom_generate_messages_py.dir/rule: cmake_check_build_system
+mailroom/CMakeFiles/mailroom_generate_messages_lisp.dir/rule: cmake_check_build_system
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/attclinic/software/drone_ws/build/CMakeFiles 1
-	$(MAKE) -f CMakeFiles/Makefile2 mailroom/CMakeFiles/mailroom_generate_messages_py.dir/all
+	$(MAKE) -f CMakeFiles/Makefile2 mailroom/CMakeFiles/mailroom_generate_messages_lisp.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/attclinic/software/drone_ws/build/CMakeFiles 0
-.PHONY : mailroom/CMakeFiles/mailroom_generate_messages_py.dir/rule
+.PHONY : mailroom/CMakeFiles/mailroom_generate_messages_lisp.dir/rule
 
 # Convenience name for target.
-mailroom_generate_messages_py: mailroom/CMakeFiles/mailroom_generate_messages_py.dir/rule
+mailroom_generate_messages_lisp: mailroom/CMakeFiles/mailroom_generate_messages_lisp.dir/rule
 
-.PHONY : mailroom_generate_messages_py
-
-# clean rule for target.
-mailroom/CMakeFiles/mailroom_generate_messages_py.dir/clean:
-	$(MAKE) -f mailroom/CMakeFiles/mailroom_generate_messages_py.dir/build.make mailroom/CMakeFiles/mailroom_generate_messages_py.dir/clean
-.PHONY : mailroom/CMakeFiles/mailroom_generate_messages_py.dir/clean
+.PHONY : mailroom_generate_messages_lisp
 
 # clean rule for target.
-clean: mailroom/CMakeFiles/mailroom_generate_messages_py.dir/clean
-
-.PHONY : clean
-
-#=============================================================================
-# Target rules for target mailroom/CMakeFiles/mailroom_gennodejs.dir
-
-# All Build rule for target.
-mailroom/CMakeFiles/mailroom_gennodejs.dir/all: mailroom/CMakeFiles/mailroom_generate_messages_nodejs.dir/all
-	$(MAKE) -f mailroom/CMakeFiles/mailroom_gennodejs.dir/build.make mailroom/CMakeFiles/mailroom_gennodejs.dir/depend
-	$(MAKE) -f mailroom/CMakeFiles/mailroom_gennodejs.dir/build.make mailroom/CMakeFiles/mailroom_gennodejs.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/attclinic/software/drone_ws/build/CMakeFiles --progress-num= "Built target mailroom_gennodejs"
-.PHONY : mailroom/CMakeFiles/mailroom_gennodejs.dir/all
-
-# Build rule for subdir invocation for target.
-mailroom/CMakeFiles/mailroom_gennodejs.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/attclinic/software/drone_ws/build/CMakeFiles 1
-	$(MAKE) -f CMakeFiles/Makefile2 mailroom/CMakeFiles/mailroom_gennodejs.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/attclinic/software/drone_ws/build/CMakeFiles 0
-.PHONY : mailroom/CMakeFiles/mailroom_gennodejs.dir/rule
-
-# Convenience name for target.
-mailroom_gennodejs: mailroom/CMakeFiles/mailroom_gennodejs.dir/rule
-
-.PHONY : mailroom_gennodejs
+mailroom/CMakeFiles/mailroom_generate_messages_lisp.dir/clean:
+	$(MAKE) -f mailroom/CMakeFiles/mailroom_generate_messages_lisp.dir/build.make mailroom/CMakeFiles/mailroom_generate_messages_lisp.dir/clean
+.PHONY : mailroom/CMakeFiles/mailroom_generate_messages_lisp.dir/clean
 
 # clean rule for target.
-mailroom/CMakeFiles/mailroom_gennodejs.dir/clean:
-	$(MAKE) -f mailroom/CMakeFiles/mailroom_gennodejs.dir/build.make mailroom/CMakeFiles/mailroom_gennodejs.dir/clean
-.PHONY : mailroom/CMakeFiles/mailroom_gennodejs.dir/clean
-
-# clean rule for target.
-clean: mailroom/CMakeFiles/mailroom_gennodejs.dir/clean
-
-.PHONY : clean
-
-#=============================================================================
-# Target rules for target mailroom/CMakeFiles/mailroom_genlisp.dir
-
-# All Build rule for target.
-mailroom/CMakeFiles/mailroom_genlisp.dir/all: mailroom/CMakeFiles/mailroom_generate_messages_lisp.dir/all
-	$(MAKE) -f mailroom/CMakeFiles/mailroom_genlisp.dir/build.make mailroom/CMakeFiles/mailroom_genlisp.dir/depend
-	$(MAKE) -f mailroom/CMakeFiles/mailroom_genlisp.dir/build.make mailroom/CMakeFiles/mailroom_genlisp.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/attclinic/software/drone_ws/build/CMakeFiles --progress-num= "Built target mailroom_genlisp"
-.PHONY : mailroom/CMakeFiles/mailroom_genlisp.dir/all
-
-# Build rule for subdir invocation for target.
-mailroom/CMakeFiles/mailroom_genlisp.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/attclinic/software/drone_ws/build/CMakeFiles 1
-	$(MAKE) -f CMakeFiles/Makefile2 mailroom/CMakeFiles/mailroom_genlisp.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/attclinic/software/drone_ws/build/CMakeFiles 0
-.PHONY : mailroom/CMakeFiles/mailroom_genlisp.dir/rule
-
-# Convenience name for target.
-mailroom_genlisp: mailroom/CMakeFiles/mailroom_genlisp.dir/rule
-
-.PHONY : mailroom_genlisp
-
-# clean rule for target.
-mailroom/CMakeFiles/mailroom_genlisp.dir/clean:
-	$(MAKE) -f mailroom/CMakeFiles/mailroom_genlisp.dir/build.make mailroom/CMakeFiles/mailroom_genlisp.dir/clean
-.PHONY : mailroom/CMakeFiles/mailroom_genlisp.dir/clean
-
-# clean rule for target.
-clean: mailroom/CMakeFiles/mailroom_genlisp.dir/clean
-
-.PHONY : clean
-
-#=============================================================================
-# Target rules for target mailroom/CMakeFiles/mailroom_generate_messages.dir
-
-# All Build rule for target.
-mailroom/CMakeFiles/mailroom_generate_messages.dir/all: mailroom/CMakeFiles/mailroom_generate_messages_py.dir/all
-mailroom/CMakeFiles/mailroom_generate_messages.dir/all: mailroom/CMakeFiles/mailroom_generate_messages_cpp.dir/all
-mailroom/CMakeFiles/mailroom_generate_messages.dir/all: mailroom/CMakeFiles/mailroom_generate_messages_nodejs.dir/all
-mailroom/CMakeFiles/mailroom_generate_messages.dir/all: mailroom/CMakeFiles/mailroom_generate_messages_eus.dir/all
-mailroom/CMakeFiles/mailroom_generate_messages.dir/all: mailroom/CMakeFiles/mailroom_generate_messages_lisp.dir/all
-	$(MAKE) -f mailroom/CMakeFiles/mailroom_generate_messages.dir/build.make mailroom/CMakeFiles/mailroom_generate_messages.dir/depend
-	$(MAKE) -f mailroom/CMakeFiles/mailroom_generate_messages.dir/build.make mailroom/CMakeFiles/mailroom_generate_messages.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/attclinic/software/drone_ws/build/CMakeFiles --progress-num= "Built target mailroom_generate_messages"
-.PHONY : mailroom/CMakeFiles/mailroom_generate_messages.dir/all
-
-# Include target in all.
-all: mailroom/CMakeFiles/mailroom_generate_messages.dir/all
-
-.PHONY : all
-
-# Build rule for subdir invocation for target.
-mailroom/CMakeFiles/mailroom_generate_messages.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/attclinic/software/drone_ws/build/CMakeFiles 5
-	$(MAKE) -f CMakeFiles/Makefile2 mailroom/CMakeFiles/mailroom_generate_messages.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/attclinic/software/drone_ws/build/CMakeFiles 0
-.PHONY : mailroom/CMakeFiles/mailroom_generate_messages.dir/rule
-
-# Convenience name for target.
-mailroom_generate_messages: mailroom/CMakeFiles/mailroom_generate_messages.dir/rule
-
-.PHONY : mailroom_generate_messages
-
-# clean rule for target.
-mailroom/CMakeFiles/mailroom_generate_messages.dir/clean:
-	$(MAKE) -f mailroom/CMakeFiles/mailroom_generate_messages.dir/build.make mailroom/CMakeFiles/mailroom_generate_messages.dir/clean
-.PHONY : mailroom/CMakeFiles/mailroom_generate_messages.dir/clean
-
-# clean rule for target.
-clean: mailroom/CMakeFiles/mailroom_generate_messages.dir/clean
-
-.PHONY : clean
-
-#=============================================================================
-# Target rules for target mailroom/CMakeFiles/mailroom_genpy.dir
-
-# All Build rule for target.
-mailroom/CMakeFiles/mailroom_genpy.dir/all: mailroom/CMakeFiles/mailroom_generate_messages_py.dir/all
-	$(MAKE) -f mailroom/CMakeFiles/mailroom_genpy.dir/build.make mailroom/CMakeFiles/mailroom_genpy.dir/depend
-	$(MAKE) -f mailroom/CMakeFiles/mailroom_genpy.dir/build.make mailroom/CMakeFiles/mailroom_genpy.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/attclinic/software/drone_ws/build/CMakeFiles --progress-num= "Built target mailroom_genpy"
-.PHONY : mailroom/CMakeFiles/mailroom_genpy.dir/all
-
-# Build rule for subdir invocation for target.
-mailroom/CMakeFiles/mailroom_genpy.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/attclinic/software/drone_ws/build/CMakeFiles 1
-	$(MAKE) -f CMakeFiles/Makefile2 mailroom/CMakeFiles/mailroom_genpy.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/attclinic/software/drone_ws/build/CMakeFiles 0
-.PHONY : mailroom/CMakeFiles/mailroom_genpy.dir/rule
-
-# Convenience name for target.
-mailroom_genpy: mailroom/CMakeFiles/mailroom_genpy.dir/rule
-
-.PHONY : mailroom_genpy
-
-# clean rule for target.
-mailroom/CMakeFiles/mailroom_genpy.dir/clean:
-	$(MAKE) -f mailroom/CMakeFiles/mailroom_genpy.dir/build.make mailroom/CMakeFiles/mailroom_genpy.dir/clean
-.PHONY : mailroom/CMakeFiles/mailroom_genpy.dir/clean
-
-# clean rule for target.
-clean: mailroom/CMakeFiles/mailroom_genpy.dir/clean
-
-.PHONY : clean
-
-#=============================================================================
-# Target rules for target mailroom/CMakeFiles/_mailroom_generate_messages_check_deps_drone_cmd.dir
-
-# All Build rule for target.
-mailroom/CMakeFiles/_mailroom_generate_messages_check_deps_drone_cmd.dir/all:
-	$(MAKE) -f mailroom/CMakeFiles/_mailroom_generate_messages_check_deps_drone_cmd.dir/build.make mailroom/CMakeFiles/_mailroom_generate_messages_check_deps_drone_cmd.dir/depend
-	$(MAKE) -f mailroom/CMakeFiles/_mailroom_generate_messages_check_deps_drone_cmd.dir/build.make mailroom/CMakeFiles/_mailroom_generate_messages_check_deps_drone_cmd.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/attclinic/software/drone_ws/build/CMakeFiles --progress-num= "Built target _mailroom_generate_messages_check_deps_drone_cmd"
-.PHONY : mailroom/CMakeFiles/_mailroom_generate_messages_check_deps_drone_cmd.dir/all
-
-# Build rule for subdir invocation for target.
-mailroom/CMakeFiles/_mailroom_generate_messages_check_deps_drone_cmd.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/attclinic/software/drone_ws/build/CMakeFiles 0
-	$(MAKE) -f CMakeFiles/Makefile2 mailroom/CMakeFiles/_mailroom_generate_messages_check_deps_drone_cmd.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/attclinic/software/drone_ws/build/CMakeFiles 0
-.PHONY : mailroom/CMakeFiles/_mailroom_generate_messages_check_deps_drone_cmd.dir/rule
-
-# Convenience name for target.
-_mailroom_generate_messages_check_deps_drone_cmd: mailroom/CMakeFiles/_mailroom_generate_messages_check_deps_drone_cmd.dir/rule
-
-.PHONY : _mailroom_generate_messages_check_deps_drone_cmd
-
-# clean rule for target.
-mailroom/CMakeFiles/_mailroom_generate_messages_check_deps_drone_cmd.dir/clean:
-	$(MAKE) -f mailroom/CMakeFiles/_mailroom_generate_messages_check_deps_drone_cmd.dir/build.make mailroom/CMakeFiles/_mailroom_generate_messages_check_deps_drone_cmd.dir/clean
-.PHONY : mailroom/CMakeFiles/_mailroom_generate_messages_check_deps_drone_cmd.dir/clean
-
-# clean rule for target.
-clean: mailroom/CMakeFiles/_mailroom_generate_messages_check_deps_drone_cmd.dir/clean
-
-.PHONY : clean
-
-#=============================================================================
-# Target rules for target mailroom/CMakeFiles/mailroom_generate_messages_cpp.dir
-
-# All Build rule for target.
-mailroom/CMakeFiles/mailroom_generate_messages_cpp.dir/all: downlink/CMakeFiles/std_msgs_generate_messages_cpp.dir/all
-mailroom/CMakeFiles/mailroom_generate_messages_cpp.dir/all: mailroom/CMakeFiles/_mailroom_generate_messages_check_deps_drone_cmd.dir/all
-mailroom/CMakeFiles/mailroom_generate_messages_cpp.dir/all: mailroom/CMakeFiles/_mailroom_generate_messages_check_deps_drone_telemetry.dir/all
-mailroom/CMakeFiles/mailroom_generate_messages_cpp.dir/all: mailroom/CMakeFiles/_mailroom_generate_messages_check_deps_drone_status.dir/all
-mailroom/CMakeFiles/mailroom_generate_messages_cpp.dir/all: mailroom/CMakeFiles/_mailroom_generate_messages_check_deps_ATSCsignal.dir/all
-	$(MAKE) -f mailroom/CMakeFiles/mailroom_generate_messages_cpp.dir/build.make mailroom/CMakeFiles/mailroom_generate_messages_cpp.dir/depend
-	$(MAKE) -f mailroom/CMakeFiles/mailroom_generate_messages_cpp.dir/build.make mailroom/CMakeFiles/mailroom_generate_messages_cpp.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/attclinic/software/drone_ws/build/CMakeFiles --progress-num=95 "Built target mailroom_generate_messages_cpp"
-.PHONY : mailroom/CMakeFiles/mailroom_generate_messages_cpp.dir/all
-
-# Build rule for subdir invocation for target.
-mailroom/CMakeFiles/mailroom_generate_messages_cpp.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/attclinic/software/drone_ws/build/CMakeFiles 1
-	$(MAKE) -f CMakeFiles/Makefile2 mailroom/CMakeFiles/mailroom_generate_messages_cpp.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/attclinic/software/drone_ws/build/CMakeFiles 0
-.PHONY : mailroom/CMakeFiles/mailroom_generate_messages_cpp.dir/rule
-
-# Convenience name for target.
-mailroom_generate_messages_cpp: mailroom/CMakeFiles/mailroom_generate_messages_cpp.dir/rule
-
-.PHONY : mailroom_generate_messages_cpp
-
-# clean rule for target.
-mailroom/CMakeFiles/mailroom_generate_messages_cpp.dir/clean:
-	$(MAKE) -f mailroom/CMakeFiles/mailroom_generate_messages_cpp.dir/build.make mailroom/CMakeFiles/mailroom_generate_messages_cpp.dir/clean
-.PHONY : mailroom/CMakeFiles/mailroom_generate_messages_cpp.dir/clean
-
-# clean rule for target.
-clean: mailroom/CMakeFiles/mailroom_generate_messages_cpp.dir/clean
-
-.PHONY : clean
-
-#=============================================================================
-# Target rules for target mailroom/CMakeFiles/_mailroom_generate_messages_check_deps_drone_telemetry.dir
-
-# All Build rule for target.
-mailroom/CMakeFiles/_mailroom_generate_messages_check_deps_drone_telemetry.dir/all:
-	$(MAKE) -f mailroom/CMakeFiles/_mailroom_generate_messages_check_deps_drone_telemetry.dir/build.make mailroom/CMakeFiles/_mailroom_generate_messages_check_deps_drone_telemetry.dir/depend
-	$(MAKE) -f mailroom/CMakeFiles/_mailroom_generate_messages_check_deps_drone_telemetry.dir/build.make mailroom/CMakeFiles/_mailroom_generate_messages_check_deps_drone_telemetry.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/attclinic/software/drone_ws/build/CMakeFiles --progress-num= "Built target _mailroom_generate_messages_check_deps_drone_telemetry"
-.PHONY : mailroom/CMakeFiles/_mailroom_generate_messages_check_deps_drone_telemetry.dir/all
-
-# Build rule for subdir invocation for target.
-mailroom/CMakeFiles/_mailroom_generate_messages_check_deps_drone_telemetry.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/attclinic/software/drone_ws/build/CMakeFiles 0
-	$(MAKE) -f CMakeFiles/Makefile2 mailroom/CMakeFiles/_mailroom_generate_messages_check_deps_drone_telemetry.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/attclinic/software/drone_ws/build/CMakeFiles 0
-.PHONY : mailroom/CMakeFiles/_mailroom_generate_messages_check_deps_drone_telemetry.dir/rule
-
-# Convenience name for target.
-_mailroom_generate_messages_check_deps_drone_telemetry: mailroom/CMakeFiles/_mailroom_generate_messages_check_deps_drone_telemetry.dir/rule
-
-.PHONY : _mailroom_generate_messages_check_deps_drone_telemetry
-
-# clean rule for target.
-mailroom/CMakeFiles/_mailroom_generate_messages_check_deps_drone_telemetry.dir/clean:
-	$(MAKE) -f mailroom/CMakeFiles/_mailroom_generate_messages_check_deps_drone_telemetry.dir/build.make mailroom/CMakeFiles/_mailroom_generate_messages_check_deps_drone_telemetry.dir/clean
-.PHONY : mailroom/CMakeFiles/_mailroom_generate_messages_check_deps_drone_telemetry.dir/clean
-
-# clean rule for target.
-clean: mailroom/CMakeFiles/_mailroom_generate_messages_check_deps_drone_telemetry.dir/clean
-
-.PHONY : clean
-
-#=============================================================================
-# Target rules for target mailroom/CMakeFiles/_mailroom_generate_messages_check_deps_drone_status.dir
-
-# All Build rule for target.
-mailroom/CMakeFiles/_mailroom_generate_messages_check_deps_drone_status.dir/all:
-	$(MAKE) -f mailroom/CMakeFiles/_mailroom_generate_messages_check_deps_drone_status.dir/build.make mailroom/CMakeFiles/_mailroom_generate_messages_check_deps_drone_status.dir/depend
-	$(MAKE) -f mailroom/CMakeFiles/_mailroom_generate_messages_check_deps_drone_status.dir/build.make mailroom/CMakeFiles/_mailroom_generate_messages_check_deps_drone_status.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/attclinic/software/drone_ws/build/CMakeFiles --progress-num= "Built target _mailroom_generate_messages_check_deps_drone_status"
-.PHONY : mailroom/CMakeFiles/_mailroom_generate_messages_check_deps_drone_status.dir/all
-
-# Build rule for subdir invocation for target.
-mailroom/CMakeFiles/_mailroom_generate_messages_check_deps_drone_status.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/attclinic/software/drone_ws/build/CMakeFiles 0
-	$(MAKE) -f CMakeFiles/Makefile2 mailroom/CMakeFiles/_mailroom_generate_messages_check_deps_drone_status.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/attclinic/software/drone_ws/build/CMakeFiles 0
-.PHONY : mailroom/CMakeFiles/_mailroom_generate_messages_check_deps_drone_status.dir/rule
-
-# Convenience name for target.
-_mailroom_generate_messages_check_deps_drone_status: mailroom/CMakeFiles/_mailroom_generate_messages_check_deps_drone_status.dir/rule
-
-.PHONY : _mailroom_generate_messages_check_deps_drone_status
-
-# clean rule for target.
-mailroom/CMakeFiles/_mailroom_generate_messages_check_deps_drone_status.dir/clean:
-	$(MAKE) -f mailroom/CMakeFiles/_mailroom_generate_messages_check_deps_drone_status.dir/build.make mailroom/CMakeFiles/_mailroom_generate_messages_check_deps_drone_status.dir/clean
-.PHONY : mailroom/CMakeFiles/_mailroom_generate_messages_check_deps_drone_status.dir/clean
-
-# clean rule for target.
-clean: mailroom/CMakeFiles/_mailroom_generate_messages_check_deps_drone_status.dir/clean
-
-.PHONY : clean
-
-#=============================================================================
-# Target rules for target mailroom/CMakeFiles/mailroom_gencpp.dir
-
-# All Build rule for target.
-mailroom/CMakeFiles/mailroom_gencpp.dir/all: mailroom/CMakeFiles/mailroom_generate_messages_cpp.dir/all
-	$(MAKE) -f mailroom/CMakeFiles/mailroom_gencpp.dir/build.make mailroom/CMakeFiles/mailroom_gencpp.dir/depend
-	$(MAKE) -f mailroom/CMakeFiles/mailroom_gencpp.dir/build.make mailroom/CMakeFiles/mailroom_gencpp.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/attclinic/software/drone_ws/build/CMakeFiles --progress-num= "Built target mailroom_gencpp"
-.PHONY : mailroom/CMakeFiles/mailroom_gencpp.dir/all
-
-# Build rule for subdir invocation for target.
-mailroom/CMakeFiles/mailroom_gencpp.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/attclinic/software/drone_ws/build/CMakeFiles 1
-	$(MAKE) -f CMakeFiles/Makefile2 mailroom/CMakeFiles/mailroom_gencpp.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/attclinic/software/drone_ws/build/CMakeFiles 0
-.PHONY : mailroom/CMakeFiles/mailroom_gencpp.dir/rule
-
-# Convenience name for target.
-mailroom_gencpp: mailroom/CMakeFiles/mailroom_gencpp.dir/rule
-
-.PHONY : mailroom_gencpp
-
-# clean rule for target.
-mailroom/CMakeFiles/mailroom_gencpp.dir/clean:
-	$(MAKE) -f mailroom/CMakeFiles/mailroom_gencpp.dir/build.make mailroom/CMakeFiles/mailroom_gencpp.dir/clean
-.PHONY : mailroom/CMakeFiles/mailroom_gencpp.dir/clean
-
-# clean rule for target.
-clean: mailroom/CMakeFiles/mailroom_gencpp.dir/clean
-
-.PHONY : clean
-
-#=============================================================================
-# Target rules for target mailroom/CMakeFiles/mailroom_generate_messages_nodejs.dir
-
-# All Build rule for target.
-mailroom/CMakeFiles/mailroom_generate_messages_nodejs.dir/all: downlink/CMakeFiles/std_msgs_generate_messages_nodejs.dir/all
-mailroom/CMakeFiles/mailroom_generate_messages_nodejs.dir/all: mailroom/CMakeFiles/_mailroom_generate_messages_check_deps_drone_cmd.dir/all
-mailroom/CMakeFiles/mailroom_generate_messages_nodejs.dir/all: mailroom/CMakeFiles/_mailroom_generate_messages_check_deps_drone_telemetry.dir/all
-mailroom/CMakeFiles/mailroom_generate_messages_nodejs.dir/all: mailroom/CMakeFiles/_mailroom_generate_messages_check_deps_drone_status.dir/all
-mailroom/CMakeFiles/mailroom_generate_messages_nodejs.dir/all: mailroom/CMakeFiles/_mailroom_generate_messages_check_deps_ATSCsignal.dir/all
-	$(MAKE) -f mailroom/CMakeFiles/mailroom_generate_messages_nodejs.dir/build.make mailroom/CMakeFiles/mailroom_generate_messages_nodejs.dir/depend
-	$(MAKE) -f mailroom/CMakeFiles/mailroom_generate_messages_nodejs.dir/build.make mailroom/CMakeFiles/mailroom_generate_messages_nodejs.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/attclinic/software/drone_ws/build/CMakeFiles --progress-num=98 "Built target mailroom_generate_messages_nodejs"
-.PHONY : mailroom/CMakeFiles/mailroom_generate_messages_nodejs.dir/all
-
-# Build rule for subdir invocation for target.
-mailroom/CMakeFiles/mailroom_generate_messages_nodejs.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/attclinic/software/drone_ws/build/CMakeFiles 1
-	$(MAKE) -f CMakeFiles/Makefile2 mailroom/CMakeFiles/mailroom_generate_messages_nodejs.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/attclinic/software/drone_ws/build/CMakeFiles 0
-.PHONY : mailroom/CMakeFiles/mailroom_generate_messages_nodejs.dir/rule
-
-# Convenience name for target.
-mailroom_generate_messages_nodejs: mailroom/CMakeFiles/mailroom_generate_messages_nodejs.dir/rule
-
-.PHONY : mailroom_generate_messages_nodejs
-
-# clean rule for target.
-mailroom/CMakeFiles/mailroom_generate_messages_nodejs.dir/clean:
-	$(MAKE) -f mailroom/CMakeFiles/mailroom_generate_messages_nodejs.dir/build.make mailroom/CMakeFiles/mailroom_generate_messages_nodejs.dir/clean
-.PHONY : mailroom/CMakeFiles/mailroom_generate_messages_nodejs.dir/clean
-
-# clean rule for target.
-clean: mailroom/CMakeFiles/mailroom_generate_messages_nodejs.dir/clean
-
-.PHONY : clean
-
-#=============================================================================
-# Target rules for target mailroom/CMakeFiles/mailroom_generate_messages_eus.dir
-
-# All Build rule for target.
-mailroom/CMakeFiles/mailroom_generate_messages_eus.dir/all: downlink/CMakeFiles/std_msgs_generate_messages_eus.dir/all
-mailroom/CMakeFiles/mailroom_generate_messages_eus.dir/all: mailroom/CMakeFiles/_mailroom_generate_messages_check_deps_drone_cmd.dir/all
-mailroom/CMakeFiles/mailroom_generate_messages_eus.dir/all: mailroom/CMakeFiles/_mailroom_generate_messages_check_deps_drone_telemetry.dir/all
-mailroom/CMakeFiles/mailroom_generate_messages_eus.dir/all: mailroom/CMakeFiles/_mailroom_generate_messages_check_deps_drone_status.dir/all
-mailroom/CMakeFiles/mailroom_generate_messages_eus.dir/all: mailroom/CMakeFiles/_mailroom_generate_messages_check_deps_ATSCsignal.dir/all
-	$(MAKE) -f mailroom/CMakeFiles/mailroom_generate_messages_eus.dir/build.make mailroom/CMakeFiles/mailroom_generate_messages_eus.dir/depend
-	$(MAKE) -f mailroom/CMakeFiles/mailroom_generate_messages_eus.dir/build.make mailroom/CMakeFiles/mailroom_generate_messages_eus.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/attclinic/software/drone_ws/build/CMakeFiles --progress-num=96 "Built target mailroom_generate_messages_eus"
-.PHONY : mailroom/CMakeFiles/mailroom_generate_messages_eus.dir/all
-
-# Build rule for subdir invocation for target.
-mailroom/CMakeFiles/mailroom_generate_messages_eus.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/attclinic/software/drone_ws/build/CMakeFiles 1
-	$(MAKE) -f CMakeFiles/Makefile2 mailroom/CMakeFiles/mailroom_generate_messages_eus.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/attclinic/software/drone_ws/build/CMakeFiles 0
-.PHONY : mailroom/CMakeFiles/mailroom_generate_messages_eus.dir/rule
-
-# Convenience name for target.
-mailroom_generate_messages_eus: mailroom/CMakeFiles/mailroom_generate_messages_eus.dir/rule
-
-.PHONY : mailroom_generate_messages_eus
-
-# clean rule for target.
-mailroom/CMakeFiles/mailroom_generate_messages_eus.dir/clean:
-	$(MAKE) -f mailroom/CMakeFiles/mailroom_generate_messages_eus.dir/build.make mailroom/CMakeFiles/mailroom_generate_messages_eus.dir/clean
-.PHONY : mailroom/CMakeFiles/mailroom_generate_messages_eus.dir/clean
-
-# clean rule for target.
-clean: mailroom/CMakeFiles/mailroom_generate_messages_eus.dir/clean
+clean: mailroom/CMakeFiles/mailroom_generate_messages_lisp.dir/clean
 
 .PHONY : clean
 
@@ -1453,6 +1084,477 @@ clean: mailroom/CMakeFiles/_mailroom_generate_messages_check_deps_ATSCsignal.dir
 .PHONY : clean
 
 #=============================================================================
+# Target rules for target mailroom/CMakeFiles/mailroom_generate_messages_eus.dir
+
+# All Build rule for target.
+mailroom/CMakeFiles/mailroom_generate_messages_eus.dir/all: downlink/CMakeFiles/std_msgs_generate_messages_eus.dir/all
+mailroom/CMakeFiles/mailroom_generate_messages_eus.dir/all: mailroom/CMakeFiles/_mailroom_generate_messages_check_deps_ATSCsignal.dir/all
+mailroom/CMakeFiles/mailroom_generate_messages_eus.dir/all: mailroom/CMakeFiles/_mailroom_generate_messages_check_deps_drone_status.dir/all
+mailroom/CMakeFiles/mailroom_generate_messages_eus.dir/all: mailroom/CMakeFiles/_mailroom_generate_messages_check_deps_drone_cmd.dir/all
+mailroom/CMakeFiles/mailroom_generate_messages_eus.dir/all: mailroom/CMakeFiles/_mailroom_generate_messages_check_deps_drone_telemetry.dir/all
+	$(MAKE) -f mailroom/CMakeFiles/mailroom_generate_messages_eus.dir/build.make mailroom/CMakeFiles/mailroom_generate_messages_eus.dir/depend
+	$(MAKE) -f mailroom/CMakeFiles/mailroom_generate_messages_eus.dir/build.make mailroom/CMakeFiles/mailroom_generate_messages_eus.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/attclinic/software/drone_ws/build/CMakeFiles --progress-num=96 "Built target mailroom_generate_messages_eus"
+.PHONY : mailroom/CMakeFiles/mailroom_generate_messages_eus.dir/all
+
+# Build rule for subdir invocation for target.
+mailroom/CMakeFiles/mailroom_generate_messages_eus.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/attclinic/software/drone_ws/build/CMakeFiles 1
+	$(MAKE) -f CMakeFiles/Makefile2 mailroom/CMakeFiles/mailroom_generate_messages_eus.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/attclinic/software/drone_ws/build/CMakeFiles 0
+.PHONY : mailroom/CMakeFiles/mailroom_generate_messages_eus.dir/rule
+
+# Convenience name for target.
+mailroom_generate_messages_eus: mailroom/CMakeFiles/mailroom_generate_messages_eus.dir/rule
+
+.PHONY : mailroom_generate_messages_eus
+
+# clean rule for target.
+mailroom/CMakeFiles/mailroom_generate_messages_eus.dir/clean:
+	$(MAKE) -f mailroom/CMakeFiles/mailroom_generate_messages_eus.dir/build.make mailroom/CMakeFiles/mailroom_generate_messages_eus.dir/clean
+.PHONY : mailroom/CMakeFiles/mailroom_generate_messages_eus.dir/clean
+
+# clean rule for target.
+clean: mailroom/CMakeFiles/mailroom_generate_messages_eus.dir/clean
+
+.PHONY : clean
+
+#=============================================================================
+# Target rules for target mailroom/CMakeFiles/mailroom_generate_messages_nodejs.dir
+
+# All Build rule for target.
+mailroom/CMakeFiles/mailroom_generate_messages_nodejs.dir/all: downlink/CMakeFiles/std_msgs_generate_messages_nodejs.dir/all
+mailroom/CMakeFiles/mailroom_generate_messages_nodejs.dir/all: mailroom/CMakeFiles/_mailroom_generate_messages_check_deps_ATSCsignal.dir/all
+mailroom/CMakeFiles/mailroom_generate_messages_nodejs.dir/all: mailroom/CMakeFiles/_mailroom_generate_messages_check_deps_drone_status.dir/all
+mailroom/CMakeFiles/mailroom_generate_messages_nodejs.dir/all: mailroom/CMakeFiles/_mailroom_generate_messages_check_deps_drone_cmd.dir/all
+mailroom/CMakeFiles/mailroom_generate_messages_nodejs.dir/all: mailroom/CMakeFiles/_mailroom_generate_messages_check_deps_drone_telemetry.dir/all
+	$(MAKE) -f mailroom/CMakeFiles/mailroom_generate_messages_nodejs.dir/build.make mailroom/CMakeFiles/mailroom_generate_messages_nodejs.dir/depend
+	$(MAKE) -f mailroom/CMakeFiles/mailroom_generate_messages_nodejs.dir/build.make mailroom/CMakeFiles/mailroom_generate_messages_nodejs.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/attclinic/software/drone_ws/build/CMakeFiles --progress-num= "Built target mailroom_generate_messages_nodejs"
+.PHONY : mailroom/CMakeFiles/mailroom_generate_messages_nodejs.dir/all
+
+# Build rule for subdir invocation for target.
+mailroom/CMakeFiles/mailroom_generate_messages_nodejs.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/attclinic/software/drone_ws/build/CMakeFiles 0
+	$(MAKE) -f CMakeFiles/Makefile2 mailroom/CMakeFiles/mailroom_generate_messages_nodejs.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/attclinic/software/drone_ws/build/CMakeFiles 0
+.PHONY : mailroom/CMakeFiles/mailroom_generate_messages_nodejs.dir/rule
+
+# Convenience name for target.
+mailroom_generate_messages_nodejs: mailroom/CMakeFiles/mailroom_generate_messages_nodejs.dir/rule
+
+.PHONY : mailroom_generate_messages_nodejs
+
+# clean rule for target.
+mailroom/CMakeFiles/mailroom_generate_messages_nodejs.dir/clean:
+	$(MAKE) -f mailroom/CMakeFiles/mailroom_generate_messages_nodejs.dir/build.make mailroom/CMakeFiles/mailroom_generate_messages_nodejs.dir/clean
+.PHONY : mailroom/CMakeFiles/mailroom_generate_messages_nodejs.dir/clean
+
+# clean rule for target.
+clean: mailroom/CMakeFiles/mailroom_generate_messages_nodejs.dir/clean
+
+.PHONY : clean
+
+#=============================================================================
+# Target rules for target mailroom/CMakeFiles/mailroom_gencpp.dir
+
+# All Build rule for target.
+mailroom/CMakeFiles/mailroom_gencpp.dir/all: mailroom/CMakeFiles/mailroom_generate_messages_cpp.dir/all
+	$(MAKE) -f mailroom/CMakeFiles/mailroom_gencpp.dir/build.make mailroom/CMakeFiles/mailroom_gencpp.dir/depend
+	$(MAKE) -f mailroom/CMakeFiles/mailroom_gencpp.dir/build.make mailroom/CMakeFiles/mailroom_gencpp.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/attclinic/software/drone_ws/build/CMakeFiles --progress-num= "Built target mailroom_gencpp"
+.PHONY : mailroom/CMakeFiles/mailroom_gencpp.dir/all
+
+# Build rule for subdir invocation for target.
+mailroom/CMakeFiles/mailroom_gencpp.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/attclinic/software/drone_ws/build/CMakeFiles 1
+	$(MAKE) -f CMakeFiles/Makefile2 mailroom/CMakeFiles/mailroom_gencpp.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/attclinic/software/drone_ws/build/CMakeFiles 0
+.PHONY : mailroom/CMakeFiles/mailroom_gencpp.dir/rule
+
+# Convenience name for target.
+mailroom_gencpp: mailroom/CMakeFiles/mailroom_gencpp.dir/rule
+
+.PHONY : mailroom_gencpp
+
+# clean rule for target.
+mailroom/CMakeFiles/mailroom_gencpp.dir/clean:
+	$(MAKE) -f mailroom/CMakeFiles/mailroom_gencpp.dir/build.make mailroom/CMakeFiles/mailroom_gencpp.dir/clean
+.PHONY : mailroom/CMakeFiles/mailroom_gencpp.dir/clean
+
+# clean rule for target.
+clean: mailroom/CMakeFiles/mailroom_gencpp.dir/clean
+
+.PHONY : clean
+
+#=============================================================================
+# Target rules for target mailroom/CMakeFiles/_mailroom_generate_messages_check_deps_drone_status.dir
+
+# All Build rule for target.
+mailroom/CMakeFiles/_mailroom_generate_messages_check_deps_drone_status.dir/all:
+	$(MAKE) -f mailroom/CMakeFiles/_mailroom_generate_messages_check_deps_drone_status.dir/build.make mailroom/CMakeFiles/_mailroom_generate_messages_check_deps_drone_status.dir/depend
+	$(MAKE) -f mailroom/CMakeFiles/_mailroom_generate_messages_check_deps_drone_status.dir/build.make mailroom/CMakeFiles/_mailroom_generate_messages_check_deps_drone_status.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/attclinic/software/drone_ws/build/CMakeFiles --progress-num= "Built target _mailroom_generate_messages_check_deps_drone_status"
+.PHONY : mailroom/CMakeFiles/_mailroom_generate_messages_check_deps_drone_status.dir/all
+
+# Build rule for subdir invocation for target.
+mailroom/CMakeFiles/_mailroom_generate_messages_check_deps_drone_status.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/attclinic/software/drone_ws/build/CMakeFiles 0
+	$(MAKE) -f CMakeFiles/Makefile2 mailroom/CMakeFiles/_mailroom_generate_messages_check_deps_drone_status.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/attclinic/software/drone_ws/build/CMakeFiles 0
+.PHONY : mailroom/CMakeFiles/_mailroom_generate_messages_check_deps_drone_status.dir/rule
+
+# Convenience name for target.
+_mailroom_generate_messages_check_deps_drone_status: mailroom/CMakeFiles/_mailroom_generate_messages_check_deps_drone_status.dir/rule
+
+.PHONY : _mailroom_generate_messages_check_deps_drone_status
+
+# clean rule for target.
+mailroom/CMakeFiles/_mailroom_generate_messages_check_deps_drone_status.dir/clean:
+	$(MAKE) -f mailroom/CMakeFiles/_mailroom_generate_messages_check_deps_drone_status.dir/build.make mailroom/CMakeFiles/_mailroom_generate_messages_check_deps_drone_status.dir/clean
+.PHONY : mailroom/CMakeFiles/_mailroom_generate_messages_check_deps_drone_status.dir/clean
+
+# clean rule for target.
+clean: mailroom/CMakeFiles/_mailroom_generate_messages_check_deps_drone_status.dir/clean
+
+.PHONY : clean
+
+#=============================================================================
+# Target rules for target mailroom/CMakeFiles/mailroom_generate_messages_cpp.dir
+
+# All Build rule for target.
+mailroom/CMakeFiles/mailroom_generate_messages_cpp.dir/all: downlink/CMakeFiles/std_msgs_generate_messages_cpp.dir/all
+mailroom/CMakeFiles/mailroom_generate_messages_cpp.dir/all: mailroom/CMakeFiles/_mailroom_generate_messages_check_deps_ATSCsignal.dir/all
+mailroom/CMakeFiles/mailroom_generate_messages_cpp.dir/all: mailroom/CMakeFiles/_mailroom_generate_messages_check_deps_drone_status.dir/all
+mailroom/CMakeFiles/mailroom_generate_messages_cpp.dir/all: mailroom/CMakeFiles/_mailroom_generate_messages_check_deps_drone_cmd.dir/all
+mailroom/CMakeFiles/mailroom_generate_messages_cpp.dir/all: mailroom/CMakeFiles/_mailroom_generate_messages_check_deps_drone_telemetry.dir/all
+	$(MAKE) -f mailroom/CMakeFiles/mailroom_generate_messages_cpp.dir/build.make mailroom/CMakeFiles/mailroom_generate_messages_cpp.dir/depend
+	$(MAKE) -f mailroom/CMakeFiles/mailroom_generate_messages_cpp.dir/build.make mailroom/CMakeFiles/mailroom_generate_messages_cpp.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/attclinic/software/drone_ws/build/CMakeFiles --progress-num=95 "Built target mailroom_generate_messages_cpp"
+.PHONY : mailroom/CMakeFiles/mailroom_generate_messages_cpp.dir/all
+
+# Build rule for subdir invocation for target.
+mailroom/CMakeFiles/mailroom_generate_messages_cpp.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/attclinic/software/drone_ws/build/CMakeFiles 1
+	$(MAKE) -f CMakeFiles/Makefile2 mailroom/CMakeFiles/mailroom_generate_messages_cpp.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/attclinic/software/drone_ws/build/CMakeFiles 0
+.PHONY : mailroom/CMakeFiles/mailroom_generate_messages_cpp.dir/rule
+
+# Convenience name for target.
+mailroom_generate_messages_cpp: mailroom/CMakeFiles/mailroom_generate_messages_cpp.dir/rule
+
+.PHONY : mailroom_generate_messages_cpp
+
+# clean rule for target.
+mailroom/CMakeFiles/mailroom_generate_messages_cpp.dir/clean:
+	$(MAKE) -f mailroom/CMakeFiles/mailroom_generate_messages_cpp.dir/build.make mailroom/CMakeFiles/mailroom_generate_messages_cpp.dir/clean
+.PHONY : mailroom/CMakeFiles/mailroom_generate_messages_cpp.dir/clean
+
+# clean rule for target.
+clean: mailroom/CMakeFiles/mailroom_generate_messages_cpp.dir/clean
+
+.PHONY : clean
+
+#=============================================================================
+# Target rules for target mailroom/CMakeFiles/_mailroom_generate_messages_check_deps_drone_cmd.dir
+
+# All Build rule for target.
+mailroom/CMakeFiles/_mailroom_generate_messages_check_deps_drone_cmd.dir/all:
+	$(MAKE) -f mailroom/CMakeFiles/_mailroom_generate_messages_check_deps_drone_cmd.dir/build.make mailroom/CMakeFiles/_mailroom_generate_messages_check_deps_drone_cmd.dir/depend
+	$(MAKE) -f mailroom/CMakeFiles/_mailroom_generate_messages_check_deps_drone_cmd.dir/build.make mailroom/CMakeFiles/_mailroom_generate_messages_check_deps_drone_cmd.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/attclinic/software/drone_ws/build/CMakeFiles --progress-num= "Built target _mailroom_generate_messages_check_deps_drone_cmd"
+.PHONY : mailroom/CMakeFiles/_mailroom_generate_messages_check_deps_drone_cmd.dir/all
+
+# Build rule for subdir invocation for target.
+mailroom/CMakeFiles/_mailroom_generate_messages_check_deps_drone_cmd.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/attclinic/software/drone_ws/build/CMakeFiles 0
+	$(MAKE) -f CMakeFiles/Makefile2 mailroom/CMakeFiles/_mailroom_generate_messages_check_deps_drone_cmd.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/attclinic/software/drone_ws/build/CMakeFiles 0
+.PHONY : mailroom/CMakeFiles/_mailroom_generate_messages_check_deps_drone_cmd.dir/rule
+
+# Convenience name for target.
+_mailroom_generate_messages_check_deps_drone_cmd: mailroom/CMakeFiles/_mailroom_generate_messages_check_deps_drone_cmd.dir/rule
+
+.PHONY : _mailroom_generate_messages_check_deps_drone_cmd
+
+# clean rule for target.
+mailroom/CMakeFiles/_mailroom_generate_messages_check_deps_drone_cmd.dir/clean:
+	$(MAKE) -f mailroom/CMakeFiles/_mailroom_generate_messages_check_deps_drone_cmd.dir/build.make mailroom/CMakeFiles/_mailroom_generate_messages_check_deps_drone_cmd.dir/clean
+.PHONY : mailroom/CMakeFiles/_mailroom_generate_messages_check_deps_drone_cmd.dir/clean
+
+# clean rule for target.
+clean: mailroom/CMakeFiles/_mailroom_generate_messages_check_deps_drone_cmd.dir/clean
+
+.PHONY : clean
+
+#=============================================================================
+# Target rules for target mailroom/CMakeFiles/mailroom_generate_messages.dir
+
+# All Build rule for target.
+mailroom/CMakeFiles/mailroom_generate_messages.dir/all: mailroom/CMakeFiles/mailroom_generate_messages_lisp.dir/all
+mailroom/CMakeFiles/mailroom_generate_messages.dir/all: mailroom/CMakeFiles/mailroom_generate_messages_eus.dir/all
+mailroom/CMakeFiles/mailroom_generate_messages.dir/all: mailroom/CMakeFiles/mailroom_generate_messages_nodejs.dir/all
+mailroom/CMakeFiles/mailroom_generate_messages.dir/all: mailroom/CMakeFiles/mailroom_generate_messages_cpp.dir/all
+mailroom/CMakeFiles/mailroom_generate_messages.dir/all: mailroom/CMakeFiles/mailroom_generate_messages_py.dir/all
+	$(MAKE) -f mailroom/CMakeFiles/mailroom_generate_messages.dir/build.make mailroom/CMakeFiles/mailroom_generate_messages.dir/depend
+	$(MAKE) -f mailroom/CMakeFiles/mailroom_generate_messages.dir/build.make mailroom/CMakeFiles/mailroom_generate_messages.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/attclinic/software/drone_ws/build/CMakeFiles --progress-num= "Built target mailroom_generate_messages"
+.PHONY : mailroom/CMakeFiles/mailroom_generate_messages.dir/all
+
+# Include target in all.
+all: mailroom/CMakeFiles/mailroom_generate_messages.dir/all
+
+.PHONY : all
+
+# Build rule for subdir invocation for target.
+mailroom/CMakeFiles/mailroom_generate_messages.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/attclinic/software/drone_ws/build/CMakeFiles 4
+	$(MAKE) -f CMakeFiles/Makefile2 mailroom/CMakeFiles/mailroom_generate_messages.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/attclinic/software/drone_ws/build/CMakeFiles 0
+.PHONY : mailroom/CMakeFiles/mailroom_generate_messages.dir/rule
+
+# Convenience name for target.
+mailroom_generate_messages: mailroom/CMakeFiles/mailroom_generate_messages.dir/rule
+
+.PHONY : mailroom_generate_messages
+
+# clean rule for target.
+mailroom/CMakeFiles/mailroom_generate_messages.dir/clean:
+	$(MAKE) -f mailroom/CMakeFiles/mailroom_generate_messages.dir/build.make mailroom/CMakeFiles/mailroom_generate_messages.dir/clean
+.PHONY : mailroom/CMakeFiles/mailroom_generate_messages.dir/clean
+
+# clean rule for target.
+clean: mailroom/CMakeFiles/mailroom_generate_messages.dir/clean
+
+.PHONY : clean
+
+#=============================================================================
+# Target rules for target mailroom/CMakeFiles/mailroom_genlisp.dir
+
+# All Build rule for target.
+mailroom/CMakeFiles/mailroom_genlisp.dir/all: mailroom/CMakeFiles/mailroom_generate_messages_lisp.dir/all
+	$(MAKE) -f mailroom/CMakeFiles/mailroom_genlisp.dir/build.make mailroom/CMakeFiles/mailroom_genlisp.dir/depend
+	$(MAKE) -f mailroom/CMakeFiles/mailroom_genlisp.dir/build.make mailroom/CMakeFiles/mailroom_genlisp.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/attclinic/software/drone_ws/build/CMakeFiles --progress-num= "Built target mailroom_genlisp"
+.PHONY : mailroom/CMakeFiles/mailroom_genlisp.dir/all
+
+# Build rule for subdir invocation for target.
+mailroom/CMakeFiles/mailroom_genlisp.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/attclinic/software/drone_ws/build/CMakeFiles 1
+	$(MAKE) -f CMakeFiles/Makefile2 mailroom/CMakeFiles/mailroom_genlisp.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/attclinic/software/drone_ws/build/CMakeFiles 0
+.PHONY : mailroom/CMakeFiles/mailroom_genlisp.dir/rule
+
+# Convenience name for target.
+mailroom_genlisp: mailroom/CMakeFiles/mailroom_genlisp.dir/rule
+
+.PHONY : mailroom_genlisp
+
+# clean rule for target.
+mailroom/CMakeFiles/mailroom_genlisp.dir/clean:
+	$(MAKE) -f mailroom/CMakeFiles/mailroom_genlisp.dir/build.make mailroom/CMakeFiles/mailroom_genlisp.dir/clean
+.PHONY : mailroom/CMakeFiles/mailroom_genlisp.dir/clean
+
+# clean rule for target.
+clean: mailroom/CMakeFiles/mailroom_genlisp.dir/clean
+
+.PHONY : clean
+
+#=============================================================================
+# Target rules for target mailroom/CMakeFiles/mailroom_gennodejs.dir
+
+# All Build rule for target.
+mailroom/CMakeFiles/mailroom_gennodejs.dir/all: mailroom/CMakeFiles/mailroom_generate_messages_nodejs.dir/all
+	$(MAKE) -f mailroom/CMakeFiles/mailroom_gennodejs.dir/build.make mailroom/CMakeFiles/mailroom_gennodejs.dir/depend
+	$(MAKE) -f mailroom/CMakeFiles/mailroom_gennodejs.dir/build.make mailroom/CMakeFiles/mailroom_gennodejs.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/attclinic/software/drone_ws/build/CMakeFiles --progress-num= "Built target mailroom_gennodejs"
+.PHONY : mailroom/CMakeFiles/mailroom_gennodejs.dir/all
+
+# Build rule for subdir invocation for target.
+mailroom/CMakeFiles/mailroom_gennodejs.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/attclinic/software/drone_ws/build/CMakeFiles 0
+	$(MAKE) -f CMakeFiles/Makefile2 mailroom/CMakeFiles/mailroom_gennodejs.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/attclinic/software/drone_ws/build/CMakeFiles 0
+.PHONY : mailroom/CMakeFiles/mailroom_gennodejs.dir/rule
+
+# Convenience name for target.
+mailroom_gennodejs: mailroom/CMakeFiles/mailroom_gennodejs.dir/rule
+
+.PHONY : mailroom_gennodejs
+
+# clean rule for target.
+mailroom/CMakeFiles/mailroom_gennodejs.dir/clean:
+	$(MAKE) -f mailroom/CMakeFiles/mailroom_gennodejs.dir/build.make mailroom/CMakeFiles/mailroom_gennodejs.dir/clean
+.PHONY : mailroom/CMakeFiles/mailroom_gennodejs.dir/clean
+
+# clean rule for target.
+clean: mailroom/CMakeFiles/mailroom_gennodejs.dir/clean
+
+.PHONY : clean
+
+#=============================================================================
+# Target rules for target mailroom/CMakeFiles/_mailroom_generate_messages_check_deps_drone_telemetry.dir
+
+# All Build rule for target.
+mailroom/CMakeFiles/_mailroom_generate_messages_check_deps_drone_telemetry.dir/all:
+	$(MAKE) -f mailroom/CMakeFiles/_mailroom_generate_messages_check_deps_drone_telemetry.dir/build.make mailroom/CMakeFiles/_mailroom_generate_messages_check_deps_drone_telemetry.dir/depend
+	$(MAKE) -f mailroom/CMakeFiles/_mailroom_generate_messages_check_deps_drone_telemetry.dir/build.make mailroom/CMakeFiles/_mailroom_generate_messages_check_deps_drone_telemetry.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/attclinic/software/drone_ws/build/CMakeFiles --progress-num= "Built target _mailroom_generate_messages_check_deps_drone_telemetry"
+.PHONY : mailroom/CMakeFiles/_mailroom_generate_messages_check_deps_drone_telemetry.dir/all
+
+# Build rule for subdir invocation for target.
+mailroom/CMakeFiles/_mailroom_generate_messages_check_deps_drone_telemetry.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/attclinic/software/drone_ws/build/CMakeFiles 0
+	$(MAKE) -f CMakeFiles/Makefile2 mailroom/CMakeFiles/_mailroom_generate_messages_check_deps_drone_telemetry.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/attclinic/software/drone_ws/build/CMakeFiles 0
+.PHONY : mailroom/CMakeFiles/_mailroom_generate_messages_check_deps_drone_telemetry.dir/rule
+
+# Convenience name for target.
+_mailroom_generate_messages_check_deps_drone_telemetry: mailroom/CMakeFiles/_mailroom_generate_messages_check_deps_drone_telemetry.dir/rule
+
+.PHONY : _mailroom_generate_messages_check_deps_drone_telemetry
+
+# clean rule for target.
+mailroom/CMakeFiles/_mailroom_generate_messages_check_deps_drone_telemetry.dir/clean:
+	$(MAKE) -f mailroom/CMakeFiles/_mailroom_generate_messages_check_deps_drone_telemetry.dir/build.make mailroom/CMakeFiles/_mailroom_generate_messages_check_deps_drone_telemetry.dir/clean
+.PHONY : mailroom/CMakeFiles/_mailroom_generate_messages_check_deps_drone_telemetry.dir/clean
+
+# clean rule for target.
+clean: mailroom/CMakeFiles/_mailroom_generate_messages_check_deps_drone_telemetry.dir/clean
+
+.PHONY : clean
+
+#=============================================================================
+# Target rules for target mailroom/CMakeFiles/mailroom_node.dir
+
+# All Build rule for target.
+mailroom/CMakeFiles/mailroom_node.dir/all: downlink/CMakeFiles/rosgraph_msgs_generate_messages_cpp.dir/all
+mailroom/CMakeFiles/mailroom_node.dir/all: downlink/CMakeFiles/rosgraph_msgs_generate_messages_eus.dir/all
+mailroom/CMakeFiles/mailroom_node.dir/all: downlink/CMakeFiles/roscpp_generate_messages_lisp.dir/all
+mailroom/CMakeFiles/mailroom_node.dir/all: downlink/CMakeFiles/roscpp_generate_messages_eus.dir/all
+mailroom/CMakeFiles/mailroom_node.dir/all: downlink/CMakeFiles/std_msgs_generate_messages_py.dir/all
+mailroom/CMakeFiles/mailroom_node.dir/all: downlink/CMakeFiles/rosgraph_msgs_generate_messages_lisp.dir/all
+mailroom/CMakeFiles/mailroom_node.dir/all: downlink/CMakeFiles/roscpp_generate_messages_py.dir/all
+mailroom/CMakeFiles/mailroom_node.dir/all: downlink/CMakeFiles/rosgraph_msgs_generate_messages_nodejs.dir/all
+mailroom/CMakeFiles/mailroom_node.dir/all: downlink/CMakeFiles/std_msgs_generate_messages_cpp.dir/all
+mailroom/CMakeFiles/mailroom_node.dir/all: downlink/CMakeFiles/roscpp_generate_messages_cpp.dir/all
+mailroom/CMakeFiles/mailroom_node.dir/all: downlink/CMakeFiles/roscpp_generate_messages_nodejs.dir/all
+mailroom/CMakeFiles/mailroom_node.dir/all: downlink/CMakeFiles/std_msgs_generate_messages_eus.dir/all
+mailroom/CMakeFiles/mailroom_node.dir/all: downlink/CMakeFiles/std_msgs_generate_messages_lisp.dir/all
+mailroom/CMakeFiles/mailroom_node.dir/all: downlink/CMakeFiles/std_msgs_generate_messages_nodejs.dir/all
+mailroom/CMakeFiles/mailroom_node.dir/all: downlink/CMakeFiles/rosgraph_msgs_generate_messages_py.dir/all
+mailroom/CMakeFiles/mailroom_node.dir/all: mailroom/CMakeFiles/mailroom_generate_messages_lisp.dir/all
+mailroom/CMakeFiles/mailroom_node.dir/all: mailroom/CMakeFiles/mailroom_generate_messages_eus.dir/all
+mailroom/CMakeFiles/mailroom_node.dir/all: mailroom/CMakeFiles/mailroom_generate_messages_nodejs.dir/all
+mailroom/CMakeFiles/mailroom_node.dir/all: mailroom/CMakeFiles/mailroom_generate_messages_cpp.dir/all
+mailroom/CMakeFiles/mailroom_node.dir/all: mailroom/CMakeFiles/mailroom_generate_messages_py.dir/all
+mailroom/CMakeFiles/mailroom_node.dir/all: mailroom/CMakeFiles/DroneCommander.dir/all
+	$(MAKE) -f mailroom/CMakeFiles/mailroom_node.dir/build.make mailroom/CMakeFiles/mailroom_node.dir/depend
+	$(MAKE) -f mailroom/CMakeFiles/mailroom_node.dir/build.make mailroom/CMakeFiles/mailroom_node.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/attclinic/software/drone_ws/build/CMakeFiles --progress-num=99 "Built target mailroom_node"
+.PHONY : mailroom/CMakeFiles/mailroom_node.dir/all
+
+# Include target in all.
+all: mailroom/CMakeFiles/mailroom_node.dir/all
+
+.PHONY : all
+
+# Build rule for subdir invocation for target.
+mailroom/CMakeFiles/mailroom_node.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/attclinic/software/drone_ws/build/CMakeFiles 5
+	$(MAKE) -f CMakeFiles/Makefile2 mailroom/CMakeFiles/mailroom_node.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/attclinic/software/drone_ws/build/CMakeFiles 0
+.PHONY : mailroom/CMakeFiles/mailroom_node.dir/rule
+
+# Convenience name for target.
+mailroom_node: mailroom/CMakeFiles/mailroom_node.dir/rule
+
+.PHONY : mailroom_node
+
+# clean rule for target.
+mailroom/CMakeFiles/mailroom_node.dir/clean:
+	$(MAKE) -f mailroom/CMakeFiles/mailroom_node.dir/build.make mailroom/CMakeFiles/mailroom_node.dir/clean
+.PHONY : mailroom/CMakeFiles/mailroom_node.dir/clean
+
+# clean rule for target.
+clean: mailroom/CMakeFiles/mailroom_node.dir/clean
+
+.PHONY : clean
+
+#=============================================================================
+# Target rules for target mailroom/CMakeFiles/mailroom_generate_messages_py.dir
+
+# All Build rule for target.
+mailroom/CMakeFiles/mailroom_generate_messages_py.dir/all: downlink/CMakeFiles/std_msgs_generate_messages_py.dir/all
+mailroom/CMakeFiles/mailroom_generate_messages_py.dir/all: mailroom/CMakeFiles/_mailroom_generate_messages_check_deps_ATSCsignal.dir/all
+mailroom/CMakeFiles/mailroom_generate_messages_py.dir/all: mailroom/CMakeFiles/_mailroom_generate_messages_check_deps_drone_status.dir/all
+mailroom/CMakeFiles/mailroom_generate_messages_py.dir/all: mailroom/CMakeFiles/_mailroom_generate_messages_check_deps_drone_cmd.dir/all
+mailroom/CMakeFiles/mailroom_generate_messages_py.dir/all: mailroom/CMakeFiles/_mailroom_generate_messages_check_deps_drone_telemetry.dir/all
+	$(MAKE) -f mailroom/CMakeFiles/mailroom_generate_messages_py.dir/build.make mailroom/CMakeFiles/mailroom_generate_messages_py.dir/depend
+	$(MAKE) -f mailroom/CMakeFiles/mailroom_generate_messages_py.dir/build.make mailroom/CMakeFiles/mailroom_generate_messages_py.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/attclinic/software/drone_ws/build/CMakeFiles --progress-num=98 "Built target mailroom_generate_messages_py"
+.PHONY : mailroom/CMakeFiles/mailroom_generate_messages_py.dir/all
+
+# Build rule for subdir invocation for target.
+mailroom/CMakeFiles/mailroom_generate_messages_py.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/attclinic/software/drone_ws/build/CMakeFiles 1
+	$(MAKE) -f CMakeFiles/Makefile2 mailroom/CMakeFiles/mailroom_generate_messages_py.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/attclinic/software/drone_ws/build/CMakeFiles 0
+.PHONY : mailroom/CMakeFiles/mailroom_generate_messages_py.dir/rule
+
+# Convenience name for target.
+mailroom_generate_messages_py: mailroom/CMakeFiles/mailroom_generate_messages_py.dir/rule
+
+.PHONY : mailroom_generate_messages_py
+
+# clean rule for target.
+mailroom/CMakeFiles/mailroom_generate_messages_py.dir/clean:
+	$(MAKE) -f mailroom/CMakeFiles/mailroom_generate_messages_py.dir/build.make mailroom/CMakeFiles/mailroom_generate_messages_py.dir/clean
+.PHONY : mailroom/CMakeFiles/mailroom_generate_messages_py.dir/clean
+
+# clean rule for target.
+clean: mailroom/CMakeFiles/mailroom_generate_messages_py.dir/clean
+
+.PHONY : clean
+
+#=============================================================================
+# Target rules for target mailroom/CMakeFiles/DroneCommander.dir
+
+# All Build rule for target.
+mailroom/CMakeFiles/DroneCommander.dir/all:
+	$(MAKE) -f mailroom/CMakeFiles/DroneCommander.dir/build.make mailroom/CMakeFiles/DroneCommander.dir/depend
+	$(MAKE) -f mailroom/CMakeFiles/DroneCommander.dir/build.make mailroom/CMakeFiles/DroneCommander.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/attclinic/software/drone_ws/build/CMakeFiles --progress-num= "Built target DroneCommander"
+.PHONY : mailroom/CMakeFiles/DroneCommander.dir/all
+
+# Include target in all.
+all: mailroom/CMakeFiles/DroneCommander.dir/all
+
+.PHONY : all
+
+# Build rule for subdir invocation for target.
+mailroom/CMakeFiles/DroneCommander.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/attclinic/software/drone_ws/build/CMakeFiles 0
+	$(MAKE) -f CMakeFiles/Makefile2 mailroom/CMakeFiles/DroneCommander.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/attclinic/software/drone_ws/build/CMakeFiles 0
+.PHONY : mailroom/CMakeFiles/DroneCommander.dir/rule
+
+# Convenience name for target.
+DroneCommander: mailroom/CMakeFiles/DroneCommander.dir/rule
+
+.PHONY : DroneCommander
+
+# clean rule for target.
+mailroom/CMakeFiles/DroneCommander.dir/clean:
+	$(MAKE) -f mailroom/CMakeFiles/DroneCommander.dir/build.make mailroom/CMakeFiles/DroneCommander.dir/clean
+.PHONY : mailroom/CMakeFiles/DroneCommander.dir/clean
+
+# clean rule for target.
+clean: mailroom/CMakeFiles/DroneCommander.dir/clean
+
+.PHONY : clean
+
+#=============================================================================
 # Target rules for target mailroom/CMakeFiles/mailroom_geneus.dir
 
 # All Build rule for target.
@@ -1485,38 +1587,34 @@ clean: mailroom/CMakeFiles/mailroom_geneus.dir/clean
 .PHONY : clean
 
 #=============================================================================
-# Target rules for target mailroom/CMakeFiles/mailroom_generate_messages_lisp.dir
+# Target rules for target mailroom/CMakeFiles/mailroom_genpy.dir
 
 # All Build rule for target.
-mailroom/CMakeFiles/mailroom_generate_messages_lisp.dir/all: downlink/CMakeFiles/std_msgs_generate_messages_lisp.dir/all
-mailroom/CMakeFiles/mailroom_generate_messages_lisp.dir/all: mailroom/CMakeFiles/_mailroom_generate_messages_check_deps_drone_cmd.dir/all
-mailroom/CMakeFiles/mailroom_generate_messages_lisp.dir/all: mailroom/CMakeFiles/_mailroom_generate_messages_check_deps_drone_telemetry.dir/all
-mailroom/CMakeFiles/mailroom_generate_messages_lisp.dir/all: mailroom/CMakeFiles/_mailroom_generate_messages_check_deps_drone_status.dir/all
-mailroom/CMakeFiles/mailroom_generate_messages_lisp.dir/all: mailroom/CMakeFiles/_mailroom_generate_messages_check_deps_ATSCsignal.dir/all
-	$(MAKE) -f mailroom/CMakeFiles/mailroom_generate_messages_lisp.dir/build.make mailroom/CMakeFiles/mailroom_generate_messages_lisp.dir/depend
-	$(MAKE) -f mailroom/CMakeFiles/mailroom_generate_messages_lisp.dir/build.make mailroom/CMakeFiles/mailroom_generate_messages_lisp.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/attclinic/software/drone_ws/build/CMakeFiles --progress-num=97 "Built target mailroom_generate_messages_lisp"
-.PHONY : mailroom/CMakeFiles/mailroom_generate_messages_lisp.dir/all
+mailroom/CMakeFiles/mailroom_genpy.dir/all: mailroom/CMakeFiles/mailroom_generate_messages_py.dir/all
+	$(MAKE) -f mailroom/CMakeFiles/mailroom_genpy.dir/build.make mailroom/CMakeFiles/mailroom_genpy.dir/depend
+	$(MAKE) -f mailroom/CMakeFiles/mailroom_genpy.dir/build.make mailroom/CMakeFiles/mailroom_genpy.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/attclinic/software/drone_ws/build/CMakeFiles --progress-num= "Built target mailroom_genpy"
+.PHONY : mailroom/CMakeFiles/mailroom_genpy.dir/all
 
 # Build rule for subdir invocation for target.
-mailroom/CMakeFiles/mailroom_generate_messages_lisp.dir/rule: cmake_check_build_system
+mailroom/CMakeFiles/mailroom_genpy.dir/rule: cmake_check_build_system
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/attclinic/software/drone_ws/build/CMakeFiles 1
-	$(MAKE) -f CMakeFiles/Makefile2 mailroom/CMakeFiles/mailroom_generate_messages_lisp.dir/all
+	$(MAKE) -f CMakeFiles/Makefile2 mailroom/CMakeFiles/mailroom_genpy.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/attclinic/software/drone_ws/build/CMakeFiles 0
-.PHONY : mailroom/CMakeFiles/mailroom_generate_messages_lisp.dir/rule
+.PHONY : mailroom/CMakeFiles/mailroom_genpy.dir/rule
 
 # Convenience name for target.
-mailroom_generate_messages_lisp: mailroom/CMakeFiles/mailroom_generate_messages_lisp.dir/rule
+mailroom_genpy: mailroom/CMakeFiles/mailroom_genpy.dir/rule
 
-.PHONY : mailroom_generate_messages_lisp
-
-# clean rule for target.
-mailroom/CMakeFiles/mailroom_generate_messages_lisp.dir/clean:
-	$(MAKE) -f mailroom/CMakeFiles/mailroom_generate_messages_lisp.dir/build.make mailroom/CMakeFiles/mailroom_generate_messages_lisp.dir/clean
-.PHONY : mailroom/CMakeFiles/mailroom_generate_messages_lisp.dir/clean
+.PHONY : mailroom_genpy
 
 # clean rule for target.
-clean: mailroom/CMakeFiles/mailroom_generate_messages_lisp.dir/clean
+mailroom/CMakeFiles/mailroom_genpy.dir/clean:
+	$(MAKE) -f mailroom/CMakeFiles/mailroom_genpy.dir/build.make mailroom/CMakeFiles/mailroom_genpy.dir/clean
+.PHONY : mailroom/CMakeFiles/mailroom_genpy.dir/clean
+
+# clean rule for target.
+clean: mailroom/CMakeFiles/mailroom_genpy.dir/clean
 
 .PHONY : clean
 
@@ -1677,7 +1775,7 @@ all: dji_sdk/CMakeFiles/dji_sdk_node.dir/all
 
 # Build rule for subdir invocation for target.
 dji_sdk/CMakeFiles/dji_sdk_node.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/attclinic/software/drone_ws/build/CMakeFiles 21
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/attclinic/software/drone_ws/build/CMakeFiles 22
 	$(MAKE) -f CMakeFiles/Makefile2 dji_sdk/CMakeFiles/dji_sdk_node.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/attclinic/software/drone_ws/build/CMakeFiles 0
 .PHONY : dji_sdk/CMakeFiles/dji_sdk_node.dir/rule
@@ -1989,7 +2087,7 @@ dji_sdk/CMakeFiles/dji_sdk_gencpp.dir/all: dji_sdk/CMakeFiles/dji_sdk_generate_m
 
 # Build rule for subdir invocation for target.
 dji_sdk/CMakeFiles/dji_sdk_gencpp.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/attclinic/software/drone_ws/build/CMakeFiles 17
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/attclinic/software/drone_ws/build/CMakeFiles 18
 	$(MAKE) -f CMakeFiles/Makefile2 dji_sdk/CMakeFiles/dji_sdk_gencpp.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/attclinic/software/drone_ws/build/CMakeFiles 0
 .PHONY : dji_sdk/CMakeFiles/dji_sdk_gencpp.dir/rule
@@ -2108,12 +2206,12 @@ dji_sdk/CMakeFiles/dji_sdk_generate_messages_cpp.dir/all: dji_sdk/CMakeFiles/_dj
 dji_sdk/CMakeFiles/dji_sdk_generate_messages_cpp.dir/all: dji_sdk/CMakeFiles/_dji_sdk_generate_messages_check_deps_MissionStatusFollowme.dir/all
 	$(MAKE) -f dji_sdk/CMakeFiles/dji_sdk_generate_messages_cpp.dir/build.make dji_sdk/CMakeFiles/dji_sdk_generate_messages_cpp.dir/depend
 	$(MAKE) -f dji_sdk/CMakeFiles/dji_sdk_generate_messages_cpp.dir/build.make dji_sdk/CMakeFiles/dji_sdk_generate_messages_cpp.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/attclinic/software/drone_ws/build/CMakeFiles --progress-num=1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17 "Built target dji_sdk_generate_messages_cpp"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/attclinic/software/drone_ws/build/CMakeFiles --progress-num=1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18 "Built target dji_sdk_generate_messages_cpp"
 .PHONY : dji_sdk/CMakeFiles/dji_sdk_generate_messages_cpp.dir/all
 
 # Build rule for subdir invocation for target.
 dji_sdk/CMakeFiles/dji_sdk_generate_messages_cpp.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/attclinic/software/drone_ws/build/CMakeFiles 17
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/attclinic/software/drone_ws/build/CMakeFiles 18
 	$(MAKE) -f CMakeFiles/Makefile2 dji_sdk/CMakeFiles/dji_sdk_generate_messages_cpp.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/attclinic/software/drone_ws/build/CMakeFiles 0
 .PHONY : dji_sdk/CMakeFiles/dji_sdk_generate_messages_cpp.dir/rule
@@ -2625,7 +2723,7 @@ dji_sdk/CMakeFiles/dji_sdk_geneus.dir/all: dji_sdk/CMakeFiles/dji_sdk_generate_m
 
 # Build rule for subdir invocation for target.
 dji_sdk/CMakeFiles/dji_sdk_geneus.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/attclinic/software/drone_ws/build/CMakeFiles 18
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/attclinic/software/drone_ws/build/CMakeFiles 17
 	$(MAKE) -f CMakeFiles/Makefile2 dji_sdk/CMakeFiles/dji_sdk_geneus.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/attclinic/software/drone_ws/build/CMakeFiles 0
 .PHONY : dji_sdk/CMakeFiles/dji_sdk_geneus.dir/rule
@@ -2872,12 +2970,12 @@ dji_sdk/CMakeFiles/dji_sdk_generate_messages_eus.dir/all: dji_sdk/CMakeFiles/_dj
 dji_sdk/CMakeFiles/dji_sdk_generate_messages_eus.dir/all: dji_sdk/CMakeFiles/_dji_sdk_generate_messages_check_deps_MissionStatusFollowme.dir/all
 	$(MAKE) -f dji_sdk/CMakeFiles/dji_sdk_generate_messages_eus.dir/build.make dji_sdk/CMakeFiles/dji_sdk_generate_messages_eus.dir/depend
 	$(MAKE) -f dji_sdk/CMakeFiles/dji_sdk_generate_messages_eus.dir/build.make dji_sdk/CMakeFiles/dji_sdk_generate_messages_eus.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/attclinic/software/drone_ws/build/CMakeFiles --progress-num=18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35 "Built target dji_sdk_generate_messages_eus"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/attclinic/software/drone_ws/build/CMakeFiles --progress-num=19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35 "Built target dji_sdk_generate_messages_eus"
 .PHONY : dji_sdk/CMakeFiles/dji_sdk_generate_messages_eus.dir/all
 
 # Build rule for subdir invocation for target.
 dji_sdk/CMakeFiles/dji_sdk_generate_messages_eus.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/attclinic/software/drone_ws/build/CMakeFiles 18
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/attclinic/software/drone_ws/build/CMakeFiles 17
 	$(MAKE) -f CMakeFiles/Makefile2 dji_sdk/CMakeFiles/dji_sdk_generate_messages_eus.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/attclinic/software/drone_ws/build/CMakeFiles 0
 .PHONY : dji_sdk/CMakeFiles/dji_sdk_generate_messages_eus.dir/rule
@@ -6046,26 +6144,52 @@ wheredoigo/preinstall:
 # Target rules for target wheredoigo/CMakeFiles/wheredoigo_node.dir
 
 # All Build rule for target.
-wheredoigo/CMakeFiles/wheredoigo_node.dir/all: downlink/CMakeFiles/rosgraph_msgs_generate_messages_lisp.dir/all
 wheredoigo/CMakeFiles/wheredoigo_node.dir/all: downlink/CMakeFiles/rosgraph_msgs_generate_messages_cpp.dir/all
 wheredoigo/CMakeFiles/wheredoigo_node.dir/all: downlink/CMakeFiles/rosgraph_msgs_generate_messages_eus.dir/all
 wheredoigo/CMakeFiles/wheredoigo_node.dir/all: downlink/CMakeFiles/roscpp_generate_messages_lisp.dir/all
 wheredoigo/CMakeFiles/wheredoigo_node.dir/all: downlink/CMakeFiles/roscpp_generate_messages_eus.dir/all
+wheredoigo/CMakeFiles/wheredoigo_node.dir/all: downlink/CMakeFiles/std_msgs_generate_messages_py.dir/all
+wheredoigo/CMakeFiles/wheredoigo_node.dir/all: dji_sdk_lib/CMakeFiles/dji_sdk_lib.dir/all
+wheredoigo/CMakeFiles/wheredoigo_node.dir/all: downlink/CMakeFiles/rosgraph_msgs_generate_messages_lisp.dir/all
 wheredoigo/CMakeFiles/wheredoigo_node.dir/all: downlink/CMakeFiles/roscpp_generate_messages_py.dir/all
 wheredoigo/CMakeFiles/wheredoigo_node.dir/all: downlink/CMakeFiles/rosgraph_msgs_generate_messages_nodejs.dir/all
 wheredoigo/CMakeFiles/wheredoigo_node.dir/all: downlink/CMakeFiles/std_msgs_generate_messages_cpp.dir/all
-wheredoigo/CMakeFiles/wheredoigo_node.dir/all: downlink/CMakeFiles/std_msgs_generate_messages_py.dir/all
 wheredoigo/CMakeFiles/wheredoigo_node.dir/all: downlink/CMakeFiles/roscpp_generate_messages_cpp.dir/all
 wheredoigo/CMakeFiles/wheredoigo_node.dir/all: downlink/CMakeFiles/roscpp_generate_messages_nodejs.dir/all
 wheredoigo/CMakeFiles/wheredoigo_node.dir/all: downlink/CMakeFiles/std_msgs_generate_messages_eus.dir/all
 wheredoigo/CMakeFiles/wheredoigo_node.dir/all: downlink/CMakeFiles/std_msgs_generate_messages_lisp.dir/all
 wheredoigo/CMakeFiles/wheredoigo_node.dir/all: downlink/CMakeFiles/std_msgs_generate_messages_nodejs.dir/all
 wheredoigo/CMakeFiles/wheredoigo_node.dir/all: downlink/CMakeFiles/rosgraph_msgs_generate_messages_py.dir/all
-wheredoigo/CMakeFiles/wheredoigo_node.dir/all: mailroom/CMakeFiles/mailroom_generate_messages_py.dir/all
-wheredoigo/CMakeFiles/wheredoigo_node.dir/all: mailroom/CMakeFiles/mailroom_generate_messages_cpp.dir/all
-wheredoigo/CMakeFiles/wheredoigo_node.dir/all: mailroom/CMakeFiles/mailroom_generate_messages_nodejs.dir/all
-wheredoigo/CMakeFiles/wheredoigo_node.dir/all: mailroom/CMakeFiles/mailroom_generate_messages_eus.dir/all
 wheredoigo/CMakeFiles/wheredoigo_node.dir/all: mailroom/CMakeFiles/mailroom_generate_messages_lisp.dir/all
+wheredoigo/CMakeFiles/wheredoigo_node.dir/all: mailroom/CMakeFiles/mailroom_generate_messages_eus.dir/all
+wheredoigo/CMakeFiles/wheredoigo_node.dir/all: mailroom/CMakeFiles/mailroom_generate_messages_nodejs.dir/all
+wheredoigo/CMakeFiles/wheredoigo_node.dir/all: mailroom/CMakeFiles/mailroom_generate_messages_cpp.dir/all
+wheredoigo/CMakeFiles/wheredoigo_node.dir/all: mailroom/CMakeFiles/mailroom_generate_messages_py.dir/all
+wheredoigo/CMakeFiles/wheredoigo_node.dir/all: dji_sdk/CMakeFiles/dji_sdk_generate_messages_py.dir/all
+wheredoigo/CMakeFiles/wheredoigo_node.dir/all: dji_sdk/CMakeFiles/dji_sdk_generate_messages_nodejs.dir/all
+wheredoigo/CMakeFiles/wheredoigo_node.dir/all: dji_sdk/CMakeFiles/dji_sdk_generate_messages_cpp.dir/all
+wheredoigo/CMakeFiles/wheredoigo_node.dir/all: dji_sdk/CMakeFiles/dji_sdk_generate_messages_eus.dir/all
+wheredoigo/CMakeFiles/wheredoigo_node.dir/all: dji_sdk/CMakeFiles/nav_msgs_generate_messages_py.dir/all
+wheredoigo/CMakeFiles/wheredoigo_node.dir/all: dji_sdk/CMakeFiles/actionlib_msgs_generate_messages_lisp.dir/all
+wheredoigo/CMakeFiles/wheredoigo_node.dir/all: dji_sdk/CMakeFiles/actionlib_msgs_generate_messages_eus.dir/all
+wheredoigo/CMakeFiles/wheredoigo_node.dir/all: dji_sdk/CMakeFiles/geometry_msgs_generate_messages_py.dir/all
+wheredoigo/CMakeFiles/wheredoigo_node.dir/all: dji_sdk/CMakeFiles/nav_msgs_generate_messages_nodejs.dir/all
+wheredoigo/CMakeFiles/wheredoigo_node.dir/all: dji_sdk/CMakeFiles/geometry_msgs_generate_messages_nodejs.dir/all
+wheredoigo/CMakeFiles/wheredoigo_node.dir/all: dji_sdk/CMakeFiles/geometry_msgs_generate_messages_lisp.dir/all
+wheredoigo/CMakeFiles/wheredoigo_node.dir/all: dji_sdk/CMakeFiles/nav_msgs_generate_messages_eus.dir/all
+wheredoigo/CMakeFiles/wheredoigo_node.dir/all: dji_sdk/CMakeFiles/geometry_msgs_generate_messages_cpp.dir/all
+wheredoigo/CMakeFiles/wheredoigo_node.dir/all: dji_sdk/CMakeFiles/actionlib_generate_messages_nodejs.dir/all
+wheredoigo/CMakeFiles/wheredoigo_node.dir/all: dji_sdk/CMakeFiles/actionlib_generate_messages_py.dir/all
+wheredoigo/CMakeFiles/wheredoigo_node.dir/all: dji_sdk/CMakeFiles/actionlib_generate_messages_eus.dir/all
+wheredoigo/CMakeFiles/wheredoigo_node.dir/all: dji_sdk/CMakeFiles/nav_msgs_generate_messages_lisp.dir/all
+wheredoigo/CMakeFiles/wheredoigo_node.dir/all: dji_sdk/CMakeFiles/dji_sdk_generate_messages_lisp.dir/all
+wheredoigo/CMakeFiles/wheredoigo_node.dir/all: dji_sdk/CMakeFiles/actionlib_generate_messages_lisp.dir/all
+wheredoigo/CMakeFiles/wheredoigo_node.dir/all: dji_sdk/CMakeFiles/actionlib_msgs_generate_messages_py.dir/all
+wheredoigo/CMakeFiles/wheredoigo_node.dir/all: dji_sdk/CMakeFiles/actionlib_msgs_generate_messages_nodejs.dir/all
+wheredoigo/CMakeFiles/wheredoigo_node.dir/all: dji_sdk/CMakeFiles/geometry_msgs_generate_messages_eus.dir/all
+wheredoigo/CMakeFiles/wheredoigo_node.dir/all: dji_sdk/CMakeFiles/actionlib_generate_messages_cpp.dir/all
+wheredoigo/CMakeFiles/wheredoigo_node.dir/all: dji_sdk/CMakeFiles/actionlib_msgs_generate_messages_cpp.dir/all
+wheredoigo/CMakeFiles/wheredoigo_node.dir/all: dji_sdk/CMakeFiles/nav_msgs_generate_messages_cpp.dir/all
 	$(MAKE) -f wheredoigo/CMakeFiles/wheredoigo_node.dir/build.make wheredoigo/CMakeFiles/wheredoigo_node.dir/depend
 	$(MAKE) -f wheredoigo/CMakeFiles/wheredoigo_node.dir/build.make wheredoigo/CMakeFiles/wheredoigo_node.dir/build
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/attclinic/software/drone_ws/build/CMakeFiles --progress-num=100 "Built target wheredoigo_node"
@@ -6078,7 +6202,7 @@ all: wheredoigo/CMakeFiles/wheredoigo_node.dir/all
 
 # Build rule for subdir invocation for target.
 wheredoigo/CMakeFiles/wheredoigo_node.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/attclinic/software/drone_ws/build/CMakeFiles 6
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/attclinic/software/drone_ws/build/CMakeFiles 97
 	$(MAKE) -f CMakeFiles/Makefile2 wheredoigo/CMakeFiles/wheredoigo_node.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/attclinic/software/drone_ws/build/CMakeFiles 0
 .PHONY : wheredoigo/CMakeFiles/wheredoigo_node.dir/rule

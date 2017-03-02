@@ -3,4 +3,6 @@
           TELEMETRY
           SIGNAL-VAL
           SIGNAL
+          BATTERY-VAL
+          BATTERY
 ))

@@ -90,6 +90,7 @@ wheredoigo_node_EXTERNAL_OBJECTS =
 
 /home/attclinic/software/drone_ws/devel/lib/wheredoigo/wheredoigo_node: wheredoigo/CMakeFiles/wheredoigo_node.dir/src/wheredoigo.cpp.o
 /home/attclinic/software/drone_ws/devel/lib/wheredoigo/wheredoigo_node: wheredoigo/CMakeFiles/wheredoigo_node.dir/build.make
+/home/attclinic/software/drone_ws/devel/lib/wheredoigo/wheredoigo_node: /home/attclinic/ros_catkin_ws_kinetic/install_isolated/lib/libactionlib.so
 /home/attclinic/software/drone_ws/devel/lib/wheredoigo/wheredoigo_node: /home/attclinic/ros_catkin_ws_kinetic/install_isolated/lib/libroscpp.so
 /home/attclinic/software/drone_ws/devel/lib/wheredoigo/wheredoigo_node: /usr/lib/arm-linux-gnueabihf/libboost_signals.so
 /home/attclinic/software/drone_ws/devel/lib/wheredoigo/wheredoigo_node: /usr/lib/arm-linux-gnueabihf/libboost_filesystem.so
@@ -109,6 +110,7 @@ wheredoigo_node_EXTERNAL_OBJECTS =
 /home/attclinic/software/drone_ws/devel/lib/wheredoigo/wheredoigo_node: /usr/lib/arm-linux-gnueabihf/libboost_atomic.so
 /home/attclinic/software/drone_ws/devel/lib/wheredoigo/wheredoigo_node: /usr/lib/arm-linux-gnueabihf/libpthread.so
 /home/attclinic/software/drone_ws/devel/lib/wheredoigo/wheredoigo_node: /usr/local/lib/libconsole_bridge.so
+/home/attclinic/software/drone_ws/devel/lib/wheredoigo/wheredoigo_node: /home/attclinic/software/drone_ws/devel/lib/libdji_sdk_lib.a
 /home/attclinic/software/drone_ws/devel/lib/wheredoigo/wheredoigo_node: wheredoigo/CMakeFiles/wheredoigo_node.dir/link.txt
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/attclinic/software/drone_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Linking CXX executable /home/attclinic/software/drone_ws/devel/lib/wheredoigo/wheredoigo_node"
 	cd /home/attclinic/software/drone_ws/build/wheredoigo && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/wheredoigo_node.dir/link.txt --verbose=$(VERBOSE)

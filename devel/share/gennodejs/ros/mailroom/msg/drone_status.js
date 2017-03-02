@@ -17,6 +17,7 @@ class drone_status {
   constructor() {
     this.telemetry = new drone_telemetry();
     this.signal = [];
+    this.battery = 0;
   }
 
   static serialize(obj, bufferInfo) {
@@ -29,6 +30,8 @@ class drone_status {
     obj.signal.forEach((val) => {
       bufferInfo = ATSCsignal.serialize(val, bufferInfo);
     });
+    // Serialize message field [battery]
+    bufferInfo = _serializer.uint32(obj.battery, bufferInfo);
     return bufferInfo;
   }
 
@@ -52,6 +55,10 @@ class drone_status {
       data.signal[i] = tmp.data;
       buffer = tmp.buffer;
     }
+    // Deserialize message field [battery]
+    tmp = _deserializer.uint32(buffer);
+    data.battery = tmp.data;
+    buffer = tmp.buffer;
     return {
       data: data,
       buffer: buffer
@@ -65,7 +72,7 @@ class drone_status {
 
   static md5sum() {
     //Returns md5sum for a message object
-    return 'b484c2ff6abc5985d5ae3dd8f029ac81';
+    return '56e85cfc37e2764b4f83194b846ae01c';
   }
 
   static messageDefinition() {
@@ -73,19 +80,20 @@ class drone_status {
     return `
     mailroom/drone_telemetry telemetry
     mailroom/ATSCsignal[] signal
+    uint32 battery
     
     ================================================================================
     MSG: mailroom/drone_telemetry
-    float64 longitude
-    float64 latitude
+    float64 local_x
+    float64 local_y
     uint8 height
     uint8 az_angle
     
     ================================================================================
     MSG: mailroom/ATSCsignal
-    uint8 channel
-    uint8 SS
-    uint8 SNQ
+    uint32 channel
+    uint32 SS
+    uint32 SNQ
     
     `;
   }

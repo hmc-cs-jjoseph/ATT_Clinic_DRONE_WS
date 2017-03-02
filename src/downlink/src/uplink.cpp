@@ -2,13 +2,13 @@
 
 #define DEVICE_PORT "/dev/ttyS4"
 #define BAUD 9600
-#define SERIAL_TIMEOUT 100
+#define SERIAL_TIMEOUT 1000
 #define READ_BUFFER_SIZE 128
 
 serialib serial;
 
 int main(int argc, char **argv) {
-	ros::init(argc, argv, "uplink");
+	ros::init(argc, argv, "uplink_node");
 	ros::NodeHandle nh;
 	ros::Publisher dlUp = nh.advertise<std_msgs::String>("dl_up", 100);
 
