@@ -49,6 +49,7 @@ add_message_files(
   FILES
   ATSCsignal.msg
   drone_cmd.msg
+  drone_move.msg
   drone_status.msg
   drone_telemetry.msg
 )
