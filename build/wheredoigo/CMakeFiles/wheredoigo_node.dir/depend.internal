@@ -244,7 +244,7 @@ wheredoigo/CMakeFiles/wheredoigo_node.dir/src/wheredoigo.cpp.o
  /home/attclinic/software/drone_ws/devel/include/dji_sdk/WaypointNavigationResult.h
  /home/attclinic/software/drone_ws/devel/include/mailroom/ATSCsignal.h
  /home/attclinic/software/drone_ws/devel/include/mailroom/drone_cmd.h
- /home/attclinic/software/drone_ws/devel/include/mailroom/drone_status.h
+ /home/attclinic/software/drone_ws/devel/include/mailroom/drone_move.h
  /home/attclinic/software/drone_ws/devel/include/mailroom/drone_telemetry.h
  /home/attclinic/software/drone_ws/src/dji_sdk/include/dji_sdk/DJI_HardDriver_Manifold.h
  /home/attclinic/software/drone_ws/src/dji_sdk/include/dji_sdk/DJI_LIB_ROS_Adapter.h

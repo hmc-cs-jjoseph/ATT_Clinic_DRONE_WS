@@ -91,9 +91,9 @@ endif()
 # flag project as catkin-based to distinguish if a find_package()-ed project is a catkin project
 set(downlink_FOUND_CATKIN_PROJECT TRUE)
 
-if(NOT " " STREQUAL " ")
+if(NOT "/home/attclinic/software/drone_ws/src/downlink/include " STREQUAL " ")
   set(downlink_INCLUDE_DIRS "")
-  set(_include_dirs "")
+  set(_include_dirs "/home/attclinic/software/drone_ws/src/downlink/include")
   foreach(idir ${_include_dirs})
     if(IS_ABSOLUTE ${idir} AND IS_DIRECTORY ${idir})
       set(include ${idir})

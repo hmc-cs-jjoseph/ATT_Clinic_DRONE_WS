@@ -24,41 +24,26 @@ struct drone_cmd_
   typedef drone_cmd_<ContainerAllocator> Type;
 
   drone_cmd_()
-    : data()
-    , local_x(0.0)
-    , local_y(0.0)
+    : data(0)
     , heights()
-    , az_angle(0)
     , channels()  {
     }
   drone_cmd_(const ContainerAllocator& _alloc)
-    : data(_alloc)
-    , local_x(0.0)
-    , local_y(0.0)
+    : data(0)
     , heights(_alloc)
-    , az_angle(0)
     , channels(_alloc)  {
   (void)_alloc;
     }
 
 
 
-   typedef std::basic_string<char, std::char_traits<char>, typename ContainerAllocator::template rebind<char>::other >  _data_type;
+   typedef uint32_t _data_type;
   _data_type data;
 
-   typedef double _local_x_type;
-  _local_x_type local_x;
-
-   typedef double _local_y_type;
-  _local_y_type local_y;
-
-   typedef std::vector<uint8_t, typename ContainerAllocator::template rebind<uint8_t>::other >  _heights_type;
+   typedef std::vector<uint32_t, typename ContainerAllocator::template rebind<uint32_t>::other >  _heights_type;
   _heights_type heights;
 
-   typedef uint8_t _az_angle_type;
-  _az_angle_type az_angle;
-
-   typedef std::vector<uint8_t, typename ContainerAllocator::template rebind<uint8_t>::other >  _channels_type;
+   typedef std::vector<uint32_t, typename ContainerAllocator::template rebind<uint32_t>::other >  _channels_type;
   _channels_type channels;
 
 
@@ -95,7 +80,7 @@ namespace message_traits
 
 
 // BOOLTRAITS {'IsFixedSize': False, 'IsMessage': True, 'HasHeader': False}
-// {'mailroom': ['/home/attclinic/software/drone_ws/src/mailroom/msg'], 'std_msgs': ['/home/attclinic/ros_catkin_ws_kinetic/install_isolated/share/std_msgs/cmake/../msg']}
+// {'nav_msgs': ['/home/attclinic/ros_catkin_ws_kinetic/install_isolated/share/nav_msgs/cmake/../msg'], 'dji_sdk': ['/home/attclinic/software/drone_ws/src/dji_sdk/msg', '/home/attclinic/software/drone_ws/devel/share/dji_sdk/msg'], 'mailroom': ['/home/attclinic/software/drone_ws/src/mailroom/msg'], 'actionlib_msgs': ['/home/attclinic/ros_catkin_ws_kinetic/install_isolated/share/actionlib_msgs/cmake/../msg'], 'std_msgs': ['/home/attclinic/ros_catkin_ws_kinetic/install_isolated/share/std_msgs/cmake/../msg'], 'geometry_msgs': ['/home/attclinic/ros_catkin_ws_kinetic/install_isolated/share/geometry_msgs/cmake/../msg']}
 
 // !!!!!!!!!!! ['__class__', '__delattr__', '__dict__', '__doc__', '__eq__', '__format__', '__getattribute__', '__hash__', '__init__', '__module__', '__ne__', '__new__', '__reduce__', '__reduce_ex__', '__repr__', '__setattr__', '__sizeof__', '__str__', '__subclasshook__', '__weakref__', '_parsed_fields', 'constants', 'fields', 'full_name', 'has_header', 'header_present', 'names', 'package', 'parsed_fields', 'short_name', 'text', 'types']
 
@@ -138,12 +123,12 @@ struct MD5Sum< ::mailroom::drone_cmd_<ContainerAllocator> >
 {
   static const char* value()
   {
-    return "7b2b47fd3d9aeb75628a01f6c100e808";
+    return "356e76f7e1df41ac5081a94634ddddce";
   }
 
   static const char* value(const ::mailroom::drone_cmd_<ContainerAllocator>&) { return value(); }
-  static const uint64_t static_value1 = 0x7b2b47fd3d9aeb75ULL;
-  static const uint64_t static_value2 = 0x628a01f6c100e808ULL;
+  static const uint64_t static_value1 = 0x356e76f7e1df41acULL;
+  static const uint64_t static_value2 = 0x5081a94634ddddceULL;
 };
 
 template<class ContainerAllocator>
@@ -162,12 +147,9 @@ struct Definition< ::mailroom::drone_cmd_<ContainerAllocator> >
 {
   static const char* value()
   {
-    return "string data\n\
-float64 local_x\n\
-float64 local_y\n\
-uint8[] heights\n\
-uint8 az_angle\n\
-uint8[] channels\n\
+    return "uint32 data\n\
+uint32[] heights\n\
+uint32[] channels\n\
 ";
   }
 
@@ -187,10 +169,7 @@ namespace serialization
     template<typename Stream, typename T> inline static void allInOne(Stream& stream, T m)
     {
       stream.next(m.data);
-      stream.next(m.local_x);
-      stream.next(m.local_y);
       stream.next(m.heights);
-      stream.next(m.az_angle);
       stream.next(m.channels);
     }
 
@@ -211,24 +190,18 @@ struct Printer< ::mailroom::drone_cmd_<ContainerAllocator> >
   template<typename Stream> static void stream(Stream& s, const std::string& indent, const ::mailroom::drone_cmd_<ContainerAllocator>& v)
   {
     s << indent << "data: ";
-    Printer<std::basic_string<char, std::char_traits<char>, typename ContainerAllocator::template rebind<char>::other > >::stream(s, indent + "  ", v.data);
-    s << indent << "local_x: ";
-    Printer<double>::stream(s, indent + "  ", v.local_x);
-    s << indent << "local_y: ";
-    Printer<double>::stream(s, indent + "  ", v.local_y);
+    Printer<uint32_t>::stream(s, indent + "  ", v.data);
     s << indent << "heights[]" << std::endl;
     for (size_t i = 0; i < v.heights.size(); ++i)
     {
       s << indent << "  heights[" << i << "]: ";
-      Printer<uint8_t>::stream(s, indent + "  ", v.heights[i]);
+      Printer<uint32_t>::stream(s, indent + "  ", v.heights[i]);
     }
-    s << indent << "az_angle: ";
-    Printer<uint8_t>::stream(s, indent + "  ", v.az_angle);
     s << indent << "channels[]" << std::endl;
     for (size_t i = 0; i < v.channels.size(); ++i)
     {
       s << indent << "  channels[" << i << "]: ";
-      Printer<uint8_t>::stream(s, indent + "  ", v.channels[i]);
+      Printer<uint32_t>::stream(s, indent + "  ", v.channels[i]);
     }
   }
 };

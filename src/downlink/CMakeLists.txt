@@ -99,7 +99,7 @@ find_package(catkin REQUIRED COMPONENTS
 ## CATKIN_DEPENDS: catkin_packages dependent projects also need
 ## DEPENDS: system dependencies of this project that dependent projects also need
 catkin_package(
-#  INCLUDE_DIRS include
+INCLUDE_DIRS include
 #  LIBRARIES downlink
 #  CATKIN_DEPENDS roscpp std_msgs
 #  DEPENDS system_lib
@@ -113,13 +113,14 @@ catkin_package(
 ## Your package locations should be listed before other locations
 # include_directories(include)
 include_directories(
+	include/downlink/
   ${catkin_INCLUDE_DIRS}
 )
 
 ## Declare a C++ library
-# add_library(downlink
-#   src/${PROJECT_NAME}/downlink.cpp
-# )
+add_library(serialib
+  src/serialib.cpp
+)
 
 ## Add cmake target dependencies of the library
 ## as an example, code may need to be generated before libraries
@@ -127,11 +128,11 @@ include_directories(
 # add_dependencies(downlink ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
 
 ## Declare a C++ executable
-add_executable(downlink_node src/downlink.cpp src/serialib/serialib.o)
-target_link_libraries(downlink_node ${catkin_LIBRARIES})
+add_executable(downlink_node src/downlink.cpp) 
+target_link_libraries(downlink_node serialib ${catkin_LIBRARIES})
 
-add_executable(uplink_node src/uplink.cpp src/serialib/serialib.o)
-target_link_libraries(uplink_node ${catkin_LIBRARIES})
+add_executable(uplink_node src/uplink.cpp)
+target_link_libraries(uplink_node serialib ${catkin_LIBRARIES})
 
 ## Add cmake target dependencies of the executable
 ## same as for the library above

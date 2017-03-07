@@ -58,7 +58,6 @@ downlink/CMakeFiles/downlink_node.dir/src/downlink.cpp.o: /home/attclinic/ros_ca
 downlink/CMakeFiles/downlink_node.dir/src/downlink.cpp.o: /home/attclinic/ros_catkin_ws_kinetic/install_isolated/include/ros/wall_timer_options.h
 downlink/CMakeFiles/downlink_node.dir/src/downlink.cpp.o: /home/attclinic/ros_catkin_ws_kinetic/install_isolated/include/rosconsole/macros_generated.h
 downlink/CMakeFiles/downlink_node.dir/src/downlink.cpp.o: /home/attclinic/ros_catkin_ws_kinetic/install_isolated/include/std_msgs/String.h
+downlink/CMakeFiles/downlink_node.dir/src/downlink.cpp.o: /home/attclinic/software/drone_ws/src/downlink/include/downlink/serialib.h
 downlink/CMakeFiles/downlink_node.dir/src/downlink.cpp.o: /home/attclinic/software/drone_ws/src/downlink/src/downlink.cpp
-downlink/CMakeFiles/downlink_node.dir/src/downlink.cpp.o: /home/attclinic/software/drone_ws/src/downlink/src/downlink.h
-downlink/CMakeFiles/downlink_node.dir/src/downlink.cpp.o: /home/attclinic/software/drone_ws/src/downlink/src/serialib/serialib.h
 

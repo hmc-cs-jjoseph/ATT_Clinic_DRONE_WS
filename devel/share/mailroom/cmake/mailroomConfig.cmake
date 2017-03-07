@@ -91,9 +91,9 @@ endif()
 # flag project as catkin-based to distinguish if a find_package()-ed project is a catkin project
 set(mailroom_FOUND_CATKIN_PROJECT TRUE)
 
-if(NOT "/home/attclinic/software/drone_ws/devel/include " STREQUAL " ")
+if(NOT "/home/attclinic/software/drone_ws/devel/include;/home/attclinic/software/drone_ws/src/mailroom/include " STREQUAL " ")
   set(mailroom_INCLUDE_DIRS "")
-  set(_include_dirs "/home/attclinic/software/drone_ws/devel/include")
+  set(_include_dirs "/home/attclinic/software/drone_ws/devel/include;/home/attclinic/software/drone_ws/src/mailroom/include")
   foreach(idir ${_include_dirs})
     if(IS_ABSOLUTE ${idir} AND IS_DIRECTORY ${idir})
       set(include ${idir})
@@ -153,7 +153,7 @@ foreach(t ${mailroom_EXPORTED_TARGETS})
   endif()
 endforeach()
 
-set(depends "message_runtime;roscpp;rospy;std_msgs")
+set(depends "message_runtime;roscpp;std_msgs;dji_sdk")
 foreach(depend ${depends})
   string(REPLACE " " ";" depend_list ${depend})
   # the package name of the dependency must be kept in a unique variable so that it is not overwritten in recursive calls

@@ -13,19 +13,31 @@ let _finder = require('../find.js');
 
 class ATSCsignal {
   constructor() {
-    this.channel = 0;
-    this.SS = 0;
-    this.SNQ = 0;
+    this.channel = [];
+    this.SS = [];
+    this.SNQ = [];
   }
 
   static serialize(obj, bufferInfo) {
     // Serializes a message object of type ATSCsignal
+    // Serialize the length for message field [channel]
+    bufferInfo = _serializer.uint32(obj.channel.length, bufferInfo);
     // Serialize message field [channel]
-    bufferInfo = _serializer.uint32(obj.channel, bufferInfo);
+    obj.channel.forEach((val) => {
+      bufferInfo = _serializer.uint32(val, bufferInfo);
+    });
+    // Serialize the length for message field [SS]
+    bufferInfo = _serializer.uint32(obj.SS.length, bufferInfo);
     // Serialize message field [SS]
-    bufferInfo = _serializer.uint32(obj.SS, bufferInfo);
+    obj.SS.forEach((val) => {
+      bufferInfo = _serializer.uint32(val, bufferInfo);
+    });
+    // Serialize the length for message field [SNQ]
+    bufferInfo = _serializer.uint32(obj.SNQ.length, bufferInfo);
     // Serialize message field [SNQ]
-    bufferInfo = _serializer.uint32(obj.SNQ, bufferInfo);
+    obj.SNQ.forEach((val) => {
+      bufferInfo = _serializer.uint32(val, bufferInfo);
+    });
     return bufferInfo;
   }
 
@@ -34,18 +46,39 @@ class ATSCsignal {
     let tmp;
     let len;
     let data = new ATSCsignal();
-    // Deserialize message field [channel]
+    // Deserialize array length for message field [channel]
     tmp = _deserializer.uint32(buffer);
-    data.channel = tmp.data;
+    len = tmp.data;
+    buffer = tmp.buffer;
+    // Deserialize message field [channel]
+    data.channel = new Array(len);
+    for (let i = 0; i < len; ++i) {
+      tmp = _deserializer.uint32(buffer);
+      data.channel[i] = tmp.data;
+      buffer = tmp.buffer;
+    }
+    // Deserialize array length for message field [SS]
+    tmp = _deserializer.uint32(buffer);
+    len = tmp.data;
     buffer = tmp.buffer;
     // Deserialize message field [SS]
+    data.SS = new Array(len);
+    for (let i = 0; i < len; ++i) {
+      tmp = _deserializer.uint32(buffer);
+      data.SS[i] = tmp.data;
+      buffer = tmp.buffer;
+    }
+    // Deserialize array length for message field [SNQ]
     tmp = _deserializer.uint32(buffer);
-    data.SS = tmp.data;
+    len = tmp.data;
     buffer = tmp.buffer;
     // Deserialize message field [SNQ]
-    tmp = _deserializer.uint32(buffer);
-    data.SNQ = tmp.data;
-    buffer = tmp.buffer;
+    data.SNQ = new Array(len);
+    for (let i = 0; i < len; ++i) {
+      tmp = _deserializer.uint32(buffer);
+      data.SNQ[i] = tmp.data;
+      buffer = tmp.buffer;
+    }
     return {
       data: data,
       buffer: buffer
@@ -59,15 +92,15 @@ class ATSCsignal {
 
   static md5sum() {
     //Returns md5sum for a message object
-    return '0a289453f346fcf5fbd110cae2a72009';
+    return '1ccd2ea36ff16d36a5ac9c2f8d4f7377';
   }
 
   static messageDefinition() {
     // Returns full string definition for message
     return `
-    uint32 channel
-    uint32 SS
-    uint32 SNQ
+    uint32[] channel
+    uint32[] SS
+    uint32[] SNQ
     
     `;
   }

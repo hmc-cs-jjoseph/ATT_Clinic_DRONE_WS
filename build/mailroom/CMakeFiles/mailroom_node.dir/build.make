@@ -90,7 +90,7 @@ mailroom_node_EXTERNAL_OBJECTS =
 
 /home/attclinic/software/drone_ws/devel/lib/mailroom/mailroom_node: mailroom/CMakeFiles/mailroom_node.dir/src/mailroom.cpp.o
 /home/attclinic/software/drone_ws/devel/lib/mailroom/mailroom_node: mailroom/CMakeFiles/mailroom_node.dir/build.make
-/home/attclinic/software/drone_ws/devel/lib/mailroom/mailroom_node: /home/attclinic/software/drone_ws/devel/lib/libDroneCommander.so
+/home/attclinic/software/drone_ws/devel/lib/mailroom/mailroom_node: /home/attclinic/ros_catkin_ws_kinetic/install_isolated/lib/libactionlib.so
 /home/attclinic/software/drone_ws/devel/lib/mailroom/mailroom_node: /home/attclinic/ros_catkin_ws_kinetic/install_isolated/lib/libroscpp.so
 /home/attclinic/software/drone_ws/devel/lib/mailroom/mailroom_node: /usr/lib/arm-linux-gnueabihf/libboost_signals.so
 /home/attclinic/software/drone_ws/devel/lib/mailroom/mailroom_node: /usr/lib/arm-linux-gnueabihf/libboost_filesystem.so
@@ -110,6 +110,8 @@ mailroom_node_EXTERNAL_OBJECTS =
 /home/attclinic/software/drone_ws/devel/lib/mailroom/mailroom_node: /usr/lib/arm-linux-gnueabihf/libboost_atomic.so
 /home/attclinic/software/drone_ws/devel/lib/mailroom/mailroom_node: /usr/lib/arm-linux-gnueabihf/libpthread.so
 /home/attclinic/software/drone_ws/devel/lib/mailroom/mailroom_node: /usr/local/lib/libconsole_bridge.so
+/home/attclinic/software/drone_ws/devel/lib/mailroom/mailroom_node: /home/attclinic/software/drone_ws/devel/lib/libdji_sdk_lib.a
+/home/attclinic/software/drone_ws/devel/lib/mailroom/mailroom_node: /home/attclinic/software/drone_ws/devel/lib/libmailroomtypes.so
 /home/attclinic/software/drone_ws/devel/lib/mailroom/mailroom_node: mailroom/CMakeFiles/mailroom_node.dir/link.txt
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/attclinic/software/drone_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Linking CXX executable /home/attclinic/software/drone_ws/devel/lib/mailroom/mailroom_node"
 	cd /home/attclinic/software/drone_ws/build/mailroom && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/mailroom_node.dir/link.txt --verbose=$(VERBOSE)

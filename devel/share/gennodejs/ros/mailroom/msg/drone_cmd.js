@@ -13,34 +13,27 @@ let _finder = require('../find.js');
 
 class drone_cmd {
   constructor() {
-    this.data = '';
-    this.local_x = 0.0;
-    this.local_y = 0.0;
+    this.data = 0;
     this.heights = [];
-    this.az_angle = 0;
     this.channels = [];
   }
 
   static serialize(obj, bufferInfo) {
     // Serializes a message object of type drone_cmd
     // Serialize message field [data]
-    bufferInfo = _serializer.string(obj.data, bufferInfo);
-    // Serialize message field [local_x]
-    bufferInfo = _serializer.float64(obj.local_x, bufferInfo);
-    // Serialize message field [local_y]
-    bufferInfo = _serializer.float64(obj.local_y, bufferInfo);
+    bufferInfo = _serializer.uint32(obj.data, bufferInfo);
     // Serialize the length for message field [heights]
     bufferInfo = _serializer.uint32(obj.heights.length, bufferInfo);
     // Serialize message field [heights]
-    bufferInfo.buffer.push(obj.heights);
-    bufferInfo.length += obj.heights.length;
-    // Serialize message field [az_angle]
-    bufferInfo = _serializer.uint8(obj.az_angle, bufferInfo);
+    obj.heights.forEach((val) => {
+      bufferInfo = _serializer.uint32(val, bufferInfo);
+    });
     // Serialize the length for message field [channels]
     bufferInfo = _serializer.uint32(obj.channels.length, bufferInfo);
     // Serialize message field [channels]
-    bufferInfo.buffer.push(obj.channels);
-    bufferInfo.length += obj.channels.length;
+    obj.channels.forEach((val) => {
+      bufferInfo = _serializer.uint32(val, bufferInfo);
+    });
     return bufferInfo;
   }
 
@@ -50,35 +43,31 @@ class drone_cmd {
     let len;
     let data = new drone_cmd();
     // Deserialize message field [data]
-    tmp = _deserializer.string(buffer);
+    tmp = _deserializer.uint32(buffer);
     data.data = tmp.data;
-    buffer = tmp.buffer;
-    // Deserialize message field [local_x]
-    tmp = _deserializer.float64(buffer);
-    data.local_x = tmp.data;
-    buffer = tmp.buffer;
-    // Deserialize message field [local_y]
-    tmp = _deserializer.float64(buffer);
-    data.local_y = tmp.data;
     buffer = tmp.buffer;
     // Deserialize array length for message field [heights]
     tmp = _deserializer.uint32(buffer);
     len = tmp.data;
     buffer = tmp.buffer;
     // Deserialize message field [heights]
-    data.heights = buffer.slice(0, len);
-    buffer =  buffer.slice(len);
-    // Deserialize message field [az_angle]
-    tmp = _deserializer.uint8(buffer);
-    data.az_angle = tmp.data;
-    buffer = tmp.buffer;
+    data.heights = new Array(len);
+    for (let i = 0; i < len; ++i) {
+      tmp = _deserializer.uint32(buffer);
+      data.heights[i] = tmp.data;
+      buffer = tmp.buffer;
+    }
     // Deserialize array length for message field [channels]
     tmp = _deserializer.uint32(buffer);
     len = tmp.data;
     buffer = tmp.buffer;
     // Deserialize message field [channels]
-    data.channels = buffer.slice(0, len);
-    buffer =  buffer.slice(len);
+    data.channels = new Array(len);
+    for (let i = 0; i < len; ++i) {
+      tmp = _deserializer.uint32(buffer);
+      data.channels[i] = tmp.data;
+      buffer = tmp.buffer;
+    }
     return {
       data: data,
       buffer: buffer
@@ -92,18 +81,15 @@ class drone_cmd {
 
   static md5sum() {
     //Returns md5sum for a message object
-    return '7b2b47fd3d9aeb75628a01f6c100e808';
+    return '356e76f7e1df41ac5081a94634ddddce';
   }
 
   static messageDefinition() {
     // Returns full string definition for message
     return `
-    string data
-    float64 local_x
-    float64 local_y
-    uint8[] heights
-    uint8 az_angle
-    uint8[] channels
+    uint32 data
+    uint32[] heights
+    uint32[] channels
     
     `;
   }

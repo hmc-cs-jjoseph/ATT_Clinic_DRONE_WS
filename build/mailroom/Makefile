@@ -67,17 +67,6 @@ test/fast: test
 
 .PHONY : test/fast
 
-# Special rule for the target edit_cache
-edit_cache:
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "No interactive CMake dialog available..."
-	/usr/bin/cmake -E echo No\ interactive\ CMake\ dialog\ available.
-.PHONY : edit_cache
-
-# Special rule for the target edit_cache
-edit_cache/fast: edit_cache
-
-.PHONY : edit_cache/fast
-
 # Special rule for the target list_install_components
 list_install_components:
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Available install components are: \"Unspecified\""
@@ -87,17 +76,6 @@ list_install_components:
 list_install_components/fast: list_install_components
 
 .PHONY : list_install_components/fast
-
-# Special rule for the target install/local
-install/local: preinstall
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Installing only the local directory..."
-	/usr/bin/cmake -DCMAKE_INSTALL_LOCAL_ONLY=1 -P cmake_install.cmake
-.PHONY : install/local
-
-# Special rule for the target install/local
-install/local/fast: install/local
-
-.PHONY : install/local/fast
 
 # Special rule for the target rebuild_cache
 rebuild_cache:
@@ -109,6 +87,28 @@ rebuild_cache:
 rebuild_cache/fast: rebuild_cache
 
 .PHONY : rebuild_cache/fast
+
+# Special rule for the target edit_cache
+edit_cache:
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "No interactive CMake dialog available..."
+	/usr/bin/cmake -E echo No\ interactive\ CMake\ dialog\ available.
+.PHONY : edit_cache
+
+# Special rule for the target edit_cache
+edit_cache/fast: edit_cache
+
+.PHONY : edit_cache/fast
+
+# Special rule for the target install/local
+install/local: preinstall
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Installing only the local directory..."
+	/usr/bin/cmake -DCMAKE_INSTALL_LOCAL_ONLY=1 -P cmake_install.cmake
+.PHONY : install/local
+
+# Special rule for the target install/local
+install/local/fast: install/local
+
+.PHONY : install/local/fast
 
 # Special rule for the target install
 install: preinstall
@@ -181,6 +181,21 @@ mailroom_generate_messages_lisp/fast:
 .PHONY : mailroom_generate_messages_lisp/fast
 
 # Convenience name for target.
+mailroom/CMakeFiles/_mailroom_generate_messages_check_deps_drone_move.dir/rule:
+	cd /home/attclinic/software/drone_ws/build && $(MAKE) -f CMakeFiles/Makefile2 mailroom/CMakeFiles/_mailroom_generate_messages_check_deps_drone_move.dir/rule
+.PHONY : mailroom/CMakeFiles/_mailroom_generate_messages_check_deps_drone_move.dir/rule
+
+# Convenience name for target.
+_mailroom_generate_messages_check_deps_drone_move: mailroom/CMakeFiles/_mailroom_generate_messages_check_deps_drone_move.dir/rule
+
+.PHONY : _mailroom_generate_messages_check_deps_drone_move
+
+# fast build rule for target.
+_mailroom_generate_messages_check_deps_drone_move/fast:
+	cd /home/attclinic/software/drone_ws/build && $(MAKE) -f mailroom/CMakeFiles/_mailroom_generate_messages_check_deps_drone_move.dir/build.make mailroom/CMakeFiles/_mailroom_generate_messages_check_deps_drone_move.dir/build
+.PHONY : _mailroom_generate_messages_check_deps_drone_move/fast
+
+# Convenience name for target.
 mailroom/CMakeFiles/_mailroom_generate_messages_check_deps_ATSCsignal.dir/rule:
 	cd /home/attclinic/software/drone_ws/build && $(MAKE) -f CMakeFiles/Makefile2 mailroom/CMakeFiles/_mailroom_generate_messages_check_deps_ATSCsignal.dir/rule
 .PHONY : mailroom/CMakeFiles/_mailroom_generate_messages_check_deps_ATSCsignal.dir/rule
@@ -194,6 +209,21 @@ _mailroom_generate_messages_check_deps_ATSCsignal: mailroom/CMakeFiles/_mailroom
 _mailroom_generate_messages_check_deps_ATSCsignal/fast:
 	cd /home/attclinic/software/drone_ws/build && $(MAKE) -f mailroom/CMakeFiles/_mailroom_generate_messages_check_deps_ATSCsignal.dir/build.make mailroom/CMakeFiles/_mailroom_generate_messages_check_deps_ATSCsignal.dir/build
 .PHONY : _mailroom_generate_messages_check_deps_ATSCsignal/fast
+
+# Convenience name for target.
+mailroom/CMakeFiles/mailroomtypes.dir/rule:
+	cd /home/attclinic/software/drone_ws/build && $(MAKE) -f CMakeFiles/Makefile2 mailroom/CMakeFiles/mailroomtypes.dir/rule
+.PHONY : mailroom/CMakeFiles/mailroomtypes.dir/rule
+
+# Convenience name for target.
+mailroomtypes: mailroom/CMakeFiles/mailroomtypes.dir/rule
+
+.PHONY : mailroomtypes
+
+# fast build rule for target.
+mailroomtypes/fast:
+	cd /home/attclinic/software/drone_ws/build && $(MAKE) -f mailroom/CMakeFiles/mailroomtypes.dir/build.make mailroom/CMakeFiles/mailroomtypes.dir/build
+.PHONY : mailroomtypes/fast
 
 # Convenience name for target.
 mailroom/CMakeFiles/mailroom_generate_messages_eus.dir/rule:
@@ -241,21 +271,6 @@ mailroom_gencpp/fast:
 .PHONY : mailroom_gencpp/fast
 
 # Convenience name for target.
-mailroom/CMakeFiles/_mailroom_generate_messages_check_deps_drone_status.dir/rule:
-	cd /home/attclinic/software/drone_ws/build && $(MAKE) -f CMakeFiles/Makefile2 mailroom/CMakeFiles/_mailroom_generate_messages_check_deps_drone_status.dir/rule
-.PHONY : mailroom/CMakeFiles/_mailroom_generate_messages_check_deps_drone_status.dir/rule
-
-# Convenience name for target.
-_mailroom_generate_messages_check_deps_drone_status: mailroom/CMakeFiles/_mailroom_generate_messages_check_deps_drone_status.dir/rule
-
-.PHONY : _mailroom_generate_messages_check_deps_drone_status
-
-# fast build rule for target.
-_mailroom_generate_messages_check_deps_drone_status/fast:
-	cd /home/attclinic/software/drone_ws/build && $(MAKE) -f mailroom/CMakeFiles/_mailroom_generate_messages_check_deps_drone_status.dir/build.make mailroom/CMakeFiles/_mailroom_generate_messages_check_deps_drone_status.dir/build
-.PHONY : _mailroom_generate_messages_check_deps_drone_status/fast
-
-# Convenience name for target.
 mailroom/CMakeFiles/mailroom_generate_messages_cpp.dir/rule:
 	cd /home/attclinic/software/drone_ws/build && $(MAKE) -f CMakeFiles/Makefile2 mailroom/CMakeFiles/mailroom_generate_messages_cpp.dir/rule
 .PHONY : mailroom/CMakeFiles/mailroom_generate_messages_cpp.dir/rule
@@ -286,21 +301,6 @@ _mailroom_generate_messages_check_deps_drone_cmd/fast:
 .PHONY : _mailroom_generate_messages_check_deps_drone_cmd/fast
 
 # Convenience name for target.
-mailroom/CMakeFiles/mailroom_generate_messages.dir/rule:
-	cd /home/attclinic/software/drone_ws/build && $(MAKE) -f CMakeFiles/Makefile2 mailroom/CMakeFiles/mailroom_generate_messages.dir/rule
-.PHONY : mailroom/CMakeFiles/mailroom_generate_messages.dir/rule
-
-# Convenience name for target.
-mailroom_generate_messages: mailroom/CMakeFiles/mailroom_generate_messages.dir/rule
-
-.PHONY : mailroom_generate_messages
-
-# fast build rule for target.
-mailroom_generate_messages/fast:
-	cd /home/attclinic/software/drone_ws/build && $(MAKE) -f mailroom/CMakeFiles/mailroom_generate_messages.dir/build.make mailroom/CMakeFiles/mailroom_generate_messages.dir/build
-.PHONY : mailroom_generate_messages/fast
-
-# Convenience name for target.
 mailroom/CMakeFiles/mailroom_genlisp.dir/rule:
 	cd /home/attclinic/software/drone_ws/build && $(MAKE) -f CMakeFiles/Makefile2 mailroom/CMakeFiles/mailroom_genlisp.dir/rule
 .PHONY : mailroom/CMakeFiles/mailroom_genlisp.dir/rule
@@ -316,6 +316,21 @@ mailroom_genlisp/fast:
 .PHONY : mailroom_genlisp/fast
 
 # Convenience name for target.
+mailroom/CMakeFiles/mailroom_generate_messages.dir/rule:
+	cd /home/attclinic/software/drone_ws/build && $(MAKE) -f CMakeFiles/Makefile2 mailroom/CMakeFiles/mailroom_generate_messages.dir/rule
+.PHONY : mailroom/CMakeFiles/mailroom_generate_messages.dir/rule
+
+# Convenience name for target.
+mailroom_generate_messages: mailroom/CMakeFiles/mailroom_generate_messages.dir/rule
+
+.PHONY : mailroom_generate_messages
+
+# fast build rule for target.
+mailroom_generate_messages/fast:
+	cd /home/attclinic/software/drone_ws/build && $(MAKE) -f mailroom/CMakeFiles/mailroom_generate_messages.dir/build.make mailroom/CMakeFiles/mailroom_generate_messages.dir/build
+.PHONY : mailroom_generate_messages/fast
+
+# Convenience name for target.
 mailroom/CMakeFiles/mailroom_gennodejs.dir/rule:
 	cd /home/attclinic/software/drone_ws/build && $(MAKE) -f CMakeFiles/Makefile2 mailroom/CMakeFiles/mailroom_gennodejs.dir/rule
 .PHONY : mailroom/CMakeFiles/mailroom_gennodejs.dir/rule
@@ -329,21 +344,6 @@ mailroom_gennodejs: mailroom/CMakeFiles/mailroom_gennodejs.dir/rule
 mailroom_gennodejs/fast:
 	cd /home/attclinic/software/drone_ws/build && $(MAKE) -f mailroom/CMakeFiles/mailroom_gennodejs.dir/build.make mailroom/CMakeFiles/mailroom_gennodejs.dir/build
 .PHONY : mailroom_gennodejs/fast
-
-# Convenience name for target.
-mailroom/CMakeFiles/_mailroom_generate_messages_check_deps_drone_telemetry.dir/rule:
-	cd /home/attclinic/software/drone_ws/build && $(MAKE) -f CMakeFiles/Makefile2 mailroom/CMakeFiles/_mailroom_generate_messages_check_deps_drone_telemetry.dir/rule
-.PHONY : mailroom/CMakeFiles/_mailroom_generate_messages_check_deps_drone_telemetry.dir/rule
-
-# Convenience name for target.
-_mailroom_generate_messages_check_deps_drone_telemetry: mailroom/CMakeFiles/_mailroom_generate_messages_check_deps_drone_telemetry.dir/rule
-
-.PHONY : _mailroom_generate_messages_check_deps_drone_telemetry
-
-# fast build rule for target.
-_mailroom_generate_messages_check_deps_drone_telemetry/fast:
-	cd /home/attclinic/software/drone_ws/build && $(MAKE) -f mailroom/CMakeFiles/_mailroom_generate_messages_check_deps_drone_telemetry.dir/build.make mailroom/CMakeFiles/_mailroom_generate_messages_check_deps_drone_telemetry.dir/build
-.PHONY : _mailroom_generate_messages_check_deps_drone_telemetry/fast
 
 # Convenience name for target.
 mailroom/CMakeFiles/mailroom_node.dir/rule:
@@ -374,21 +374,6 @@ mailroom_generate_messages_py: mailroom/CMakeFiles/mailroom_generate_messages_py
 mailroom_generate_messages_py/fast:
 	cd /home/attclinic/software/drone_ws/build && $(MAKE) -f mailroom/CMakeFiles/mailroom_generate_messages_py.dir/build.make mailroom/CMakeFiles/mailroom_generate_messages_py.dir/build
 .PHONY : mailroom_generate_messages_py/fast
-
-# Convenience name for target.
-mailroom/CMakeFiles/DroneCommander.dir/rule:
-	cd /home/attclinic/software/drone_ws/build && $(MAKE) -f CMakeFiles/Makefile2 mailroom/CMakeFiles/DroneCommander.dir/rule
-.PHONY : mailroom/CMakeFiles/DroneCommander.dir/rule
-
-# Convenience name for target.
-DroneCommander: mailroom/CMakeFiles/DroneCommander.dir/rule
-
-.PHONY : DroneCommander
-
-# fast build rule for target.
-DroneCommander/fast:
-	cd /home/attclinic/software/drone_ws/build && $(MAKE) -f mailroom/CMakeFiles/DroneCommander.dir/build.make mailroom/CMakeFiles/DroneCommander.dir/build
-.PHONY : DroneCommander/fast
 
 # Convenience name for target.
 mailroom/CMakeFiles/mailroom_geneus.dir/rule:
@@ -447,32 +432,32 @@ src/mailroom.cpp.s:
 	cd /home/attclinic/software/drone_ws/build && $(MAKE) -f mailroom/CMakeFiles/mailroom_node.dir/build.make mailroom/CMakeFiles/mailroom_node.dir/src/mailroom.cpp.s
 .PHONY : src/mailroom.cpp.s
 
-src/objects/DroneCommander.o: src/objects/DroneCommander.cpp.o
+src/mailroomtypes.o: src/mailroomtypes.cpp.o
 
-.PHONY : src/objects/DroneCommander.o
+.PHONY : src/mailroomtypes.o
 
 # target to build an object file
-src/objects/DroneCommander.cpp.o:
-	cd /home/attclinic/software/drone_ws/build && $(MAKE) -f mailroom/CMakeFiles/DroneCommander.dir/build.make mailroom/CMakeFiles/DroneCommander.dir/src/objects/DroneCommander.cpp.o
-.PHONY : src/objects/DroneCommander.cpp.o
+src/mailroomtypes.cpp.o:
+	cd /home/attclinic/software/drone_ws/build && $(MAKE) -f mailroom/CMakeFiles/mailroomtypes.dir/build.make mailroom/CMakeFiles/mailroomtypes.dir/src/mailroomtypes.cpp.o
+.PHONY : src/mailroomtypes.cpp.o
 
-src/objects/DroneCommander.i: src/objects/DroneCommander.cpp.i
+src/mailroomtypes.i: src/mailroomtypes.cpp.i
 
-.PHONY : src/objects/DroneCommander.i
+.PHONY : src/mailroomtypes.i
 
 # target to preprocess a source file
-src/objects/DroneCommander.cpp.i:
-	cd /home/attclinic/software/drone_ws/build && $(MAKE) -f mailroom/CMakeFiles/DroneCommander.dir/build.make mailroom/CMakeFiles/DroneCommander.dir/src/objects/DroneCommander.cpp.i
-.PHONY : src/objects/DroneCommander.cpp.i
+src/mailroomtypes.cpp.i:
+	cd /home/attclinic/software/drone_ws/build && $(MAKE) -f mailroom/CMakeFiles/mailroomtypes.dir/build.make mailroom/CMakeFiles/mailroomtypes.dir/src/mailroomtypes.cpp.i
+.PHONY : src/mailroomtypes.cpp.i
 
-src/objects/DroneCommander.s: src/objects/DroneCommander.cpp.s
+src/mailroomtypes.s: src/mailroomtypes.cpp.s
 
-.PHONY : src/objects/DroneCommander.s
+.PHONY : src/mailroomtypes.s
 
 # target to generate assembly for a file
-src/objects/DroneCommander.cpp.s:
-	cd /home/attclinic/software/drone_ws/build && $(MAKE) -f mailroom/CMakeFiles/DroneCommander.dir/build.make mailroom/CMakeFiles/DroneCommander.dir/src/objects/DroneCommander.cpp.s
-.PHONY : src/objects/DroneCommander.cpp.s
+src/mailroomtypes.cpp.s:
+	cd /home/attclinic/software/drone_ws/build && $(MAKE) -f mailroom/CMakeFiles/mailroomtypes.dir/build.make mailroom/CMakeFiles/mailroomtypes.dir/src/mailroomtypes.cpp.s
+.PHONY : src/mailroomtypes.cpp.s
 
 # Help Target
 help:
@@ -481,25 +466,24 @@ help:
 	@echo "... clean"
 	@echo "... depend"
 	@echo "... test"
-	@echo "... edit_cache"
 	@echo "... mailroom_generate_messages_lisp"
+	@echo "... _mailroom_generate_messages_check_deps_drone_move"
 	@echo "... _mailroom_generate_messages_check_deps_ATSCsignal"
+	@echo "... mailroomtypes"
 	@echo "... mailroom_generate_messages_eus"
 	@echo "... mailroom_generate_messages_nodejs"
 	@echo "... list_install_components"
 	@echo "... mailroom_gencpp"
-	@echo "... install/local"
-	@echo "... _mailroom_generate_messages_check_deps_drone_status"
 	@echo "... mailroom_generate_messages_cpp"
 	@echo "... rebuild_cache"
 	@echo "... _mailroom_generate_messages_check_deps_drone_cmd"
-	@echo "... mailroom_generate_messages"
 	@echo "... mailroom_genlisp"
+	@echo "... edit_cache"
+	@echo "... mailroom_generate_messages"
 	@echo "... mailroom_gennodejs"
-	@echo "... _mailroom_generate_messages_check_deps_drone_telemetry"
 	@echo "... mailroom_node"
 	@echo "... mailroom_generate_messages_py"
-	@echo "... DroneCommander"
+	@echo "... install/local"
 	@echo "... mailroom_geneus"
 	@echo "... mailroom_genpy"
 	@echo "... install"
@@ -507,9 +491,9 @@ help:
 	@echo "... src/mailroom.o"
 	@echo "... src/mailroom.i"
 	@echo "... src/mailroom.s"
-	@echo "... src/objects/DroneCommander.o"
-	@echo "... src/objects/DroneCommander.i"
-	@echo "... src/objects/DroneCommander.s"
+	@echo "... src/mailroomtypes.o"
+	@echo "... src/mailroomtypes.i"
+	@echo "... src/mailroomtypes.s"
 .PHONY : help
 
 

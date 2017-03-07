@@ -57,11 +57,14 @@ mailroom/CMakeFiles/mailroom_node.dir/src/mailroom.cpp.o: /home/attclinic/ros_ca
 mailroom/CMakeFiles/mailroom_node.dir/src/mailroom.cpp.o: /home/attclinic/ros_catkin_ws_kinetic/install_isolated/include/ros/wall_timer.h
 mailroom/CMakeFiles/mailroom_node.dir/src/mailroom.cpp.o: /home/attclinic/ros_catkin_ws_kinetic/install_isolated/include/ros/wall_timer_options.h
 mailroom/CMakeFiles/mailroom_node.dir/src/mailroom.cpp.o: /home/attclinic/ros_catkin_ws_kinetic/install_isolated/include/rosconsole/macros_generated.h
+mailroom/CMakeFiles/mailroom_node.dir/src/mailroom.cpp.o: /home/attclinic/ros_catkin_ws_kinetic/install_isolated/include/std_msgs/Header.h
 mailroom/CMakeFiles/mailroom_node.dir/src/mailroom.cpp.o: /home/attclinic/ros_catkin_ws_kinetic/install_isolated/include/std_msgs/String.h
+mailroom/CMakeFiles/mailroom_node.dir/src/mailroom.cpp.o: /home/attclinic/software/drone_ws/devel/include/dji_sdk/Compass.h
+mailroom/CMakeFiles/mailroom_node.dir/src/mailroom.cpp.o: /home/attclinic/software/drone_ws/devel/include/dji_sdk/GlobalPosition.h
+mailroom/CMakeFiles/mailroom_node.dir/src/mailroom.cpp.o: /home/attclinic/software/drone_ws/devel/include/dji_sdk/PowerStatus.h
 mailroom/CMakeFiles/mailroom_node.dir/src/mailroom.cpp.o: /home/attclinic/software/drone_ws/devel/include/mailroom/ATSCsignal.h
 mailroom/CMakeFiles/mailroom_node.dir/src/mailroom.cpp.o: /home/attclinic/software/drone_ws/devel/include/mailroom/drone_cmd.h
-mailroom/CMakeFiles/mailroom_node.dir/src/mailroom.cpp.o: /home/attclinic/software/drone_ws/devel/include/mailroom/drone_status.h
-mailroom/CMakeFiles/mailroom_node.dir/src/mailroom.cpp.o: /home/attclinic/software/drone_ws/devel/include/mailroom/drone_telemetry.h
+mailroom/CMakeFiles/mailroom_node.dir/src/mailroom.cpp.o: /home/attclinic/software/drone_ws/src/mailroom/include/mailroom/DroneCommander.h
+mailroom/CMakeFiles/mailroom_node.dir/src/mailroom.cpp.o: /home/attclinic/software/drone_ws/src/mailroom/include/mailroom/DroneListener.h
 mailroom/CMakeFiles/mailroom_node.dir/src/mailroom.cpp.o: /home/attclinic/software/drone_ws/src/mailroom/src/mailroom.cpp
-mailroom/CMakeFiles/mailroom_node.dir/src/mailroom.cpp.o: /home/attclinic/software/drone_ws/src/mailroom/src/mailroom.h
 

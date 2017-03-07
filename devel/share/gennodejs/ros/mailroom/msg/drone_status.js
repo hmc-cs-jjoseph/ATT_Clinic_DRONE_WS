@@ -72,7 +72,7 @@ class drone_status {
 
   static md5sum() {
     //Returns md5sum for a message object
-    return '56e85cfc37e2764b4f83194b846ae01c';
+    return '2c45150abee54e9ecf30b0c56fe46f6e';
   }
 
   static messageDefinition() {
@@ -91,9 +91,9 @@ class drone_status {
     
     ================================================================================
     MSG: mailroom/ATSCsignal
-    uint32 channel
-    uint32 SS
-    uint32 SNQ
+    uint32[] channel
+    uint32[] SS
+    uint32[] SNQ
     
     `;
   }

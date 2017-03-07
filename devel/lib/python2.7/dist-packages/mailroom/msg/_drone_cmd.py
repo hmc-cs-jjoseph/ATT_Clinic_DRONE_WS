@@ -7,18 +7,15 @@ import struct
 
 
 class drone_cmd(genpy.Message):
-  _md5sum = "7b2b47fd3d9aeb75628a01f6c100e808"
+  _md5sum = "356e76f7e1df41ac5081a94634ddddce"
   _type = "mailroom/drone_cmd"
   _has_header = False #flag to mark the presence of a Header object
-  _full_text = """string data
-float64 local_x
-float64 local_y
-uint8[] heights
-uint8 az_angle
-uint8[] channels
+  _full_text = """uint32 data
+uint32[] heights
+uint32[] channels
 """
-  __slots__ = ['data','local_x','local_y','heights','az_angle','channels']
-  _slot_types = ['string','float64','float64','uint8[]','uint8','uint8[]']
+  __slots__ = ['data','heights','channels']
+  _slot_types = ['uint32','uint32[]','uint32[]']
 
   def __init__(self, *args, **kwds):
     """
@@ -28,7 +25,7 @@ uint8[] channels
     changes.  You cannot mix in-order arguments and keyword arguments.
 
     The available fields are:
-       data,local_x,local_y,heights,az_angle,channels
+       data,heights,channels
 
     :param args: complete set of field values, in .msg order
     :param kwds: use keyword arguments corresponding to message field names
@@ -38,24 +35,15 @@ uint8[] channels
       super(drone_cmd, self).__init__(*args, **kwds)
       #message fields cannot be None, assign default values for those that are
       if self.data is None:
-        self.data = ''
-      if self.local_x is None:
-        self.local_x = 0.
-      if self.local_y is None:
-        self.local_y = 0.
+        self.data = 0
       if self.heights is None:
-        self.heights = b''
-      if self.az_angle is None:
-        self.az_angle = 0
+        self.heights = []
       if self.channels is None:
-        self.channels = b''
+        self.channels = []
     else:
-      self.data = ''
-      self.local_x = 0.
-      self.local_y = 0.
-      self.heights = b''
-      self.az_angle = 0
-      self.channels = b''
+      self.data = 0
+      self.heights = []
+      self.channels = []
 
   def _get_types(self):
     """
@@ -69,29 +57,15 @@ uint8[] channels
     :param buff: buffer, ``StringIO``
     """
     try:
-      _x = self.data
-      length = len(_x)
-      if python3 or type(_x) == unicode:
-        _x = _x.encode('utf-8')
-        length = len(_x)
-      buff.write(struct.pack('<I%ss'%length, length, _x))
-      _x = self
-      buff.write(_get_struct_2d().pack(_x.local_x, _x.local_y))
-      _x = self.heights
-      length = len(_x)
-      # - if encoded as a list instead, serialize as bytes instead of string
-      if type(_x) in [list, tuple]:
-        buff.write(struct.pack('<I%sB'%length, length, *_x))
-      else:
-        buff.write(struct.pack('<I%ss'%length, length, _x))
-      buff.write(_get_struct_B().pack(self.az_angle))
-      _x = self.channels
-      length = len(_x)
-      # - if encoded as a list instead, serialize as bytes instead of string
-      if type(_x) in [list, tuple]:
-        buff.write(struct.pack('<I%sB'%length, length, *_x))
-      else:
-        buff.write(struct.pack('<I%ss'%length, length, _x))
+      buff.write(_get_struct_I().pack(self.data))
+      length = len(self.heights)
+      buff.write(_struct_I.pack(length))
+      pattern = '<%sI'%length
+      buff.write(struct.pack(pattern, *self.heights))
+      length = len(self.channels)
+      buff.write(_struct_I.pack(length))
+      pattern = '<%sI'%length
+      buff.write(struct.pack(pattern, *self.channels))
     except struct.error as se: self._check_types(struct.error("%s: '%s' when writing '%s'" % (type(se), str(se), str(locals().get('_x', self)))))
     except TypeError as te: self._check_types(ValueError("%s: '%s' when writing '%s'" % (type(te), str(te), str(locals().get('_x', self)))))
 
@@ -104,32 +78,21 @@ uint8[] channels
       end = 0
       start = end
       end += 4
-      (length,) = _struct_I.unpack(str[start:end])
-      start = end
-      end += length
-      if python3:
-        self.data = str[start:end].decode('utf-8')
-      else:
-        self.data = str[start:end]
-      _x = self
-      start = end
-      end += 16
-      (_x.local_x, _x.local_y,) = _get_struct_2d().unpack(str[start:end])
+      (self.data,) = _get_struct_I().unpack(str[start:end])
       start = end
       end += 4
       (length,) = _struct_I.unpack(str[start:end])
+      pattern = '<%sI'%length
       start = end
-      end += length
-      self.heights = str[start:end]
-      start = end
-      end += 1
-      (self.az_angle,) = _get_struct_B().unpack(str[start:end])
+      end += struct.calcsize(pattern)
+      self.heights = struct.unpack(pattern, str[start:end])
       start = end
       end += 4
       (length,) = _struct_I.unpack(str[start:end])
+      pattern = '<%sI'%length
       start = end
-      end += length
-      self.channels = str[start:end]
+      end += struct.calcsize(pattern)
+      self.channels = struct.unpack(pattern, str[start:end])
       return self
     except struct.error as e:
       raise genpy.DeserializationError(e) #most likely buffer underfill
@@ -142,29 +105,15 @@ uint8[] channels
     :param numpy: numpy python module
     """
     try:
-      _x = self.data
-      length = len(_x)
-      if python3 or type(_x) == unicode:
-        _x = _x.encode('utf-8')
-        length = len(_x)
-      buff.write(struct.pack('<I%ss'%length, length, _x))
-      _x = self
-      buff.write(_get_struct_2d().pack(_x.local_x, _x.local_y))
-      _x = self.heights
-      length = len(_x)
-      # - if encoded as a list instead, serialize as bytes instead of string
-      if type(_x) in [list, tuple]:
-        buff.write(struct.pack('<I%sB'%length, length, *_x))
-      else:
-        buff.write(struct.pack('<I%ss'%length, length, _x))
-      buff.write(_get_struct_B().pack(self.az_angle))
-      _x = self.channels
-      length = len(_x)
-      # - if encoded as a list instead, serialize as bytes instead of string
-      if type(_x) in [list, tuple]:
-        buff.write(struct.pack('<I%sB'%length, length, *_x))
-      else:
-        buff.write(struct.pack('<I%ss'%length, length, _x))
+      buff.write(_get_struct_I().pack(self.data))
+      length = len(self.heights)
+      buff.write(_struct_I.pack(length))
+      pattern = '<%sI'%length
+      buff.write(self.heights.tostring())
+      length = len(self.channels)
+      buff.write(_struct_I.pack(length))
+      pattern = '<%sI'%length
+      buff.write(self.channels.tostring())
     except struct.error as se: self._check_types(struct.error("%s: '%s' when writing '%s'" % (type(se), str(se), str(locals().get('_x', self)))))
     except TypeError as te: self._check_types(ValueError("%s: '%s' when writing '%s'" % (type(te), str(te), str(locals().get('_x', self)))))
 
@@ -178,32 +127,21 @@ uint8[] channels
       end = 0
       start = end
       end += 4
-      (length,) = _struct_I.unpack(str[start:end])
-      start = end
-      end += length
-      if python3:
-        self.data = str[start:end].decode('utf-8')
-      else:
-        self.data = str[start:end]
-      _x = self
-      start = end
-      end += 16
-      (_x.local_x, _x.local_y,) = _get_struct_2d().unpack(str[start:end])
+      (self.data,) = _get_struct_I().unpack(str[start:end])
       start = end
       end += 4
       (length,) = _struct_I.unpack(str[start:end])
+      pattern = '<%sI'%length
       start = end
-      end += length
-      self.heights = str[start:end]
-      start = end
-      end += 1
-      (self.az_angle,) = _get_struct_B().unpack(str[start:end])
+      end += struct.calcsize(pattern)
+      self.heights = numpy.frombuffer(str[start:end], dtype=numpy.uint32, count=length)
       start = end
       end += 4
       (length,) = _struct_I.unpack(str[start:end])
+      pattern = '<%sI'%length
       start = end
-      end += length
-      self.channels = str[start:end]
+      end += struct.calcsize(pattern)
+      self.channels = numpy.frombuffer(str[start:end], dtype=numpy.uint32, count=length)
       return self
     except struct.error as e:
       raise genpy.DeserializationError(e) #most likely buffer underfill
@@ -212,15 +150,3 @@ _struct_I = genpy.struct_I
 def _get_struct_I():
     global _struct_I
     return _struct_I
-_struct_2d = None
-def _get_struct_2d():
-    global _struct_2d
-    if _struct_2d is None:
-        _struct_2d = struct.Struct("<2d")
-    return _struct_2d
-_struct_B = None
-def _get_struct_B():
-    global _struct_B
-    if _struct_B is None:
-        _struct_B = struct.Struct("<B")
-    return _struct_B

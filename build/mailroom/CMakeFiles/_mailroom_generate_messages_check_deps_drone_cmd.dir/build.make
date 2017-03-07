@@ -54,7 +54,7 @@ CMAKE_BINARY_DIR = /home/attclinic/software/drone_ws/build
 include mailroom/CMakeFiles/_mailroom_generate_messages_check_deps_drone_cmd.dir/progress.make
 
 mailroom/CMakeFiles/_mailroom_generate_messages_check_deps_drone_cmd:
-	cd /home/attclinic/software/drone_ws/build/mailroom && ../catkin_generated/env_cached.sh /usr/bin/python /home/attclinic/ros_catkin_ws_kinetic/install_isolated/share/genmsg/cmake/../../../lib/genmsg/genmsg_check_deps.py mailroom /home/attclinic/software/drone_ws/src/mailroom/msg/drone_cmd.msg mailroom/drone_telemetry
+	cd /home/attclinic/software/drone_ws/build/mailroom && ../catkin_generated/env_cached.sh /usr/bin/python /home/attclinic/ros_catkin_ws_kinetic/install_isolated/share/genmsg/cmake/../../../lib/genmsg/genmsg_check_deps.py mailroom /home/attclinic/software/drone_ws/src/mailroom/msg/drone_cmd.msg 
 
 _mailroom_generate_messages_check_deps_drone_cmd: mailroom/CMakeFiles/_mailroom_generate_messages_check_deps_drone_cmd
 _mailroom_generate_messages_check_deps_drone_cmd: mailroom/CMakeFiles/_mailroom_generate_messages_check_deps_drone_cmd.dir/build.make

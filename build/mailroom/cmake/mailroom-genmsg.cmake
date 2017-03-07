@@ -1,8 +1,8 @@
 # generated from genmsg/cmake/pkg-genmsg.cmake.em
 
-message(STATUS "mailroom: 5 messages, 0 services")
+message(STATUS "mailroom: 3 messages, 0 services")
 
-set(MSG_I_FLAGS "-Imailroom:/home/attclinic/software/drone_ws/src/mailroom/msg;-Istd_msgs:/home/attclinic/ros_catkin_ws_kinetic/install_isolated/share/std_msgs/cmake/../msg")
+set(MSG_I_FLAGS "-Imailroom:/home/attclinic/software/drone_ws/src/mailroom/msg;-Istd_msgs:/home/attclinic/ros_catkin_ws_kinetic/install_isolated/share/std_msgs/cmake/../msg;-Idji_sdk:/home/attclinic/software/drone_ws/src/dji_sdk/msg;-Idji_sdk:/home/attclinic/software/drone_ws/devel/share/dji_sdk/msg;-Igeometry_msgs:/home/attclinic/ros_catkin_ws_kinetic/install_isolated/share/geometry_msgs/cmake/../msg;-Inav_msgs:/home/attclinic/ros_catkin_ws_kinetic/install_isolated/share/nav_msgs/cmake/../msg;-Iactionlib_msgs:/home/attclinic/ros_catkin_ws_kinetic/install_isolated/share/actionlib_msgs/cmake/../msg")
 
 # Find all generators
 find_package(gencpp REQUIRED)
@@ -32,16 +32,6 @@ add_custom_target(_mailroom_generate_messages_check_deps_${_filename}
   COMMAND ${CATKIN_ENV} ${PYTHON_EXECUTABLE} ${GENMSG_CHECK_DEPS_SCRIPT} "mailroom" "/home/attclinic/software/drone_ws/src/mailroom/msg/drone_move.msg" ""
 )
 
-get_filename_component(_filename "/home/attclinic/software/drone_ws/src/mailroom/msg/drone_telemetry.msg" NAME_WE)
-add_custom_target(_mailroom_generate_messages_check_deps_${_filename}
-  COMMAND ${CATKIN_ENV} ${PYTHON_EXECUTABLE} ${GENMSG_CHECK_DEPS_SCRIPT} "mailroom" "/home/attclinic/software/drone_ws/src/mailroom/msg/drone_telemetry.msg" ""
-)
-
-get_filename_component(_filename "/home/attclinic/software/drone_ws/src/mailroom/msg/drone_status.msg" NAME_WE)
-add_custom_target(_mailroom_generate_messages_check_deps_${_filename}
-  COMMAND ${CATKIN_ENV} ${PYTHON_EXECUTABLE} ${GENMSG_CHECK_DEPS_SCRIPT} "mailroom" "/home/attclinic/software/drone_ws/src/mailroom/msg/drone_status.msg" "mailroom/ATSCsignal:mailroom/drone_telemetry"
-)
-
 #
 #  langs = gencpp;geneus;genlisp;gennodejs;genpy
 #
@@ -56,18 +46,6 @@ _generate_msg_cpp(mailroom
 )
 _generate_msg_cpp(mailroom
   "/home/attclinic/software/drone_ws/src/mailroom/msg/drone_cmd.msg"
-  "${MSG_I_FLAGS}"
-  ""
-  ${CATKIN_DEVEL_PREFIX}/${gencpp_INSTALL_DIR}/mailroom
-)
-_generate_msg_cpp(mailroom
-  "/home/attclinic/software/drone_ws/src/mailroom/msg/drone_status.msg"
-  "${MSG_I_FLAGS}"
-  "/home/attclinic/software/drone_ws/src/mailroom/msg/ATSCsignal.msg;/home/attclinic/software/drone_ws/src/mailroom/msg/drone_telemetry.msg"
-  ${CATKIN_DEVEL_PREFIX}/${gencpp_INSTALL_DIR}/mailroom
-)
-_generate_msg_cpp(mailroom
-  "/home/attclinic/software/drone_ws/src/mailroom/msg/drone_telemetry.msg"
   "${MSG_I_FLAGS}"
   ""
   ${CATKIN_DEVEL_PREFIX}/${gencpp_INSTALL_DIR}/mailroom
@@ -99,10 +77,6 @@ get_filename_component(_filename "/home/attclinic/software/drone_ws/src/mailroom
 add_dependencies(mailroom_generate_messages_cpp _mailroom_generate_messages_check_deps_${_filename})
 get_filename_component(_filename "/home/attclinic/software/drone_ws/src/mailroom/msg/drone_move.msg" NAME_WE)
 add_dependencies(mailroom_generate_messages_cpp _mailroom_generate_messages_check_deps_${_filename})
-get_filename_component(_filename "/home/attclinic/software/drone_ws/src/mailroom/msg/drone_telemetry.msg" NAME_WE)
-add_dependencies(mailroom_generate_messages_cpp _mailroom_generate_messages_check_deps_${_filename})
-get_filename_component(_filename "/home/attclinic/software/drone_ws/src/mailroom/msg/drone_status.msg" NAME_WE)
-add_dependencies(mailroom_generate_messages_cpp _mailroom_generate_messages_check_deps_${_filename})
 
 # target for backward compatibility
 add_custom_target(mailroom_gencpp)
@@ -121,18 +95,6 @@ _generate_msg_eus(mailroom
 )
 _generate_msg_eus(mailroom
   "/home/attclinic/software/drone_ws/src/mailroom/msg/drone_cmd.msg"
-  "${MSG_I_FLAGS}"
-  ""
-  ${CATKIN_DEVEL_PREFIX}/${geneus_INSTALL_DIR}/mailroom
-)
-_generate_msg_eus(mailroom
-  "/home/attclinic/software/drone_ws/src/mailroom/msg/drone_status.msg"
-  "${MSG_I_FLAGS}"
-  "/home/attclinic/software/drone_ws/src/mailroom/msg/ATSCsignal.msg;/home/attclinic/software/drone_ws/src/mailroom/msg/drone_telemetry.msg"
-  ${CATKIN_DEVEL_PREFIX}/${geneus_INSTALL_DIR}/mailroom
-)
-_generate_msg_eus(mailroom
-  "/home/attclinic/software/drone_ws/src/mailroom/msg/drone_telemetry.msg"
   "${MSG_I_FLAGS}"
   ""
   ${CATKIN_DEVEL_PREFIX}/${geneus_INSTALL_DIR}/mailroom
@@ -164,10 +126,6 @@ get_filename_component(_filename "/home/attclinic/software/drone_ws/src/mailroom
 add_dependencies(mailroom_generate_messages_eus _mailroom_generate_messages_check_deps_${_filename})
 get_filename_component(_filename "/home/attclinic/software/drone_ws/src/mailroom/msg/drone_move.msg" NAME_WE)
 add_dependencies(mailroom_generate_messages_eus _mailroom_generate_messages_check_deps_${_filename})
-get_filename_component(_filename "/home/attclinic/software/drone_ws/src/mailroom/msg/drone_telemetry.msg" NAME_WE)
-add_dependencies(mailroom_generate_messages_eus _mailroom_generate_messages_check_deps_${_filename})
-get_filename_component(_filename "/home/attclinic/software/drone_ws/src/mailroom/msg/drone_status.msg" NAME_WE)
-add_dependencies(mailroom_generate_messages_eus _mailroom_generate_messages_check_deps_${_filename})
 
 # target for backward compatibility
 add_custom_target(mailroom_geneus)
@@ -186,18 +144,6 @@ _generate_msg_lisp(mailroom
 )
 _generate_msg_lisp(mailroom
   "/home/attclinic/software/drone_ws/src/mailroom/msg/drone_cmd.msg"
-  "${MSG_I_FLAGS}"
-  ""
-  ${CATKIN_DEVEL_PREFIX}/${genlisp_INSTALL_DIR}/mailroom
-)
-_generate_msg_lisp(mailroom
-  "/home/attclinic/software/drone_ws/src/mailroom/msg/drone_status.msg"
-  "${MSG_I_FLAGS}"
-  "/home/attclinic/software/drone_ws/src/mailroom/msg/ATSCsignal.msg;/home/attclinic/software/drone_ws/src/mailroom/msg/drone_telemetry.msg"
-  ${CATKIN_DEVEL_PREFIX}/${genlisp_INSTALL_DIR}/mailroom
-)
-_generate_msg_lisp(mailroom
-  "/home/attclinic/software/drone_ws/src/mailroom/msg/drone_telemetry.msg"
   "${MSG_I_FLAGS}"
   ""
   ${CATKIN_DEVEL_PREFIX}/${genlisp_INSTALL_DIR}/mailroom
@@ -229,10 +175,6 @@ get_filename_component(_filename "/home/attclinic/software/drone_ws/src/mailroom
 add_dependencies(mailroom_generate_messages_lisp _mailroom_generate_messages_check_deps_${_filename})
 get_filename_component(_filename "/home/attclinic/software/drone_ws/src/mailroom/msg/drone_move.msg" NAME_WE)
 add_dependencies(mailroom_generate_messages_lisp _mailroom_generate_messages_check_deps_${_filename})
-get_filename_component(_filename "/home/attclinic/software/drone_ws/src/mailroom/msg/drone_telemetry.msg" NAME_WE)
-add_dependencies(mailroom_generate_messages_lisp _mailroom_generate_messages_check_deps_${_filename})
-get_filename_component(_filename "/home/attclinic/software/drone_ws/src/mailroom/msg/drone_status.msg" NAME_WE)
-add_dependencies(mailroom_generate_messages_lisp _mailroom_generate_messages_check_deps_${_filename})
 
 # target for backward compatibility
 add_custom_target(mailroom_genlisp)
@@ -251,18 +193,6 @@ _generate_msg_nodejs(mailroom
 )
 _generate_msg_nodejs(mailroom
   "/home/attclinic/software/drone_ws/src/mailroom/msg/drone_cmd.msg"
-  "${MSG_I_FLAGS}"
-  ""
-  ${CATKIN_DEVEL_PREFIX}/${gennodejs_INSTALL_DIR}/mailroom
-)
-_generate_msg_nodejs(mailroom
-  "/home/attclinic/software/drone_ws/src/mailroom/msg/drone_status.msg"
-  "${MSG_I_FLAGS}"
-  "/home/attclinic/software/drone_ws/src/mailroom/msg/ATSCsignal.msg;/home/attclinic/software/drone_ws/src/mailroom/msg/drone_telemetry.msg"
-  ${CATKIN_DEVEL_PREFIX}/${gennodejs_INSTALL_DIR}/mailroom
-)
-_generate_msg_nodejs(mailroom
-  "/home/attclinic/software/drone_ws/src/mailroom/msg/drone_telemetry.msg"
   "${MSG_I_FLAGS}"
   ""
   ${CATKIN_DEVEL_PREFIX}/${gennodejs_INSTALL_DIR}/mailroom
@@ -294,10 +224,6 @@ get_filename_component(_filename "/home/attclinic/software/drone_ws/src/mailroom
 add_dependencies(mailroom_generate_messages_nodejs _mailroom_generate_messages_check_deps_${_filename})
 get_filename_component(_filename "/home/attclinic/software/drone_ws/src/mailroom/msg/drone_move.msg" NAME_WE)
 add_dependencies(mailroom_generate_messages_nodejs _mailroom_generate_messages_check_deps_${_filename})
-get_filename_component(_filename "/home/attclinic/software/drone_ws/src/mailroom/msg/drone_telemetry.msg" NAME_WE)
-add_dependencies(mailroom_generate_messages_nodejs _mailroom_generate_messages_check_deps_${_filename})
-get_filename_component(_filename "/home/attclinic/software/drone_ws/src/mailroom/msg/drone_status.msg" NAME_WE)
-add_dependencies(mailroom_generate_messages_nodejs _mailroom_generate_messages_check_deps_${_filename})
 
 # target for backward compatibility
 add_custom_target(mailroom_gennodejs)
@@ -316,18 +242,6 @@ _generate_msg_py(mailroom
 )
 _generate_msg_py(mailroom
   "/home/attclinic/software/drone_ws/src/mailroom/msg/drone_cmd.msg"
-  "${MSG_I_FLAGS}"
-  ""
-  ${CATKIN_DEVEL_PREFIX}/${genpy_INSTALL_DIR}/mailroom
-)
-_generate_msg_py(mailroom
-  "/home/attclinic/software/drone_ws/src/mailroom/msg/drone_status.msg"
-  "${MSG_I_FLAGS}"
-  "/home/attclinic/software/drone_ws/src/mailroom/msg/ATSCsignal.msg;/home/attclinic/software/drone_ws/src/mailroom/msg/drone_telemetry.msg"
-  ${CATKIN_DEVEL_PREFIX}/${genpy_INSTALL_DIR}/mailroom
-)
-_generate_msg_py(mailroom
-  "/home/attclinic/software/drone_ws/src/mailroom/msg/drone_telemetry.msg"
   "${MSG_I_FLAGS}"
   ""
   ${CATKIN_DEVEL_PREFIX}/${genpy_INSTALL_DIR}/mailroom
@@ -359,10 +273,6 @@ get_filename_component(_filename "/home/attclinic/software/drone_ws/src/mailroom
 add_dependencies(mailroom_generate_messages_py _mailroom_generate_messages_check_deps_${_filename})
 get_filename_component(_filename "/home/attclinic/software/drone_ws/src/mailroom/msg/drone_move.msg" NAME_WE)
 add_dependencies(mailroom_generate_messages_py _mailroom_generate_messages_check_deps_${_filename})
-get_filename_component(_filename "/home/attclinic/software/drone_ws/src/mailroom/msg/drone_telemetry.msg" NAME_WE)
-add_dependencies(mailroom_generate_messages_py _mailroom_generate_messages_check_deps_${_filename})
-get_filename_component(_filename "/home/attclinic/software/drone_ws/src/mailroom/msg/drone_status.msg" NAME_WE)
-add_dependencies(mailroom_generate_messages_py _mailroom_generate_messages_check_deps_${_filename})
 
 # target for backward compatibility
 add_custom_target(mailroom_genpy)
@@ -383,6 +293,12 @@ endif()
 if(TARGET std_msgs_generate_messages_cpp)
   add_dependencies(mailroom_generate_messages_cpp std_msgs_generate_messages_cpp)
 endif()
+if(TARGET dji_sdk_generate_messages_cpp)
+  add_dependencies(mailroom_generate_messages_cpp dji_sdk_generate_messages_cpp)
+endif()
+if(TARGET tuner_generate_messages_cpp)
+  add_dependencies(mailroom_generate_messages_cpp tuner_generate_messages_cpp)
+endif()
 
 if(geneus_INSTALL_DIR AND EXISTS ${CATKIN_DEVEL_PREFIX}/${geneus_INSTALL_DIR}/mailroom)
   # install generated code
@@ -393,6 +309,12 @@ if(geneus_INSTALL_DIR AND EXISTS ${CATKIN_DEVEL_PREFIX}/${geneus_INSTALL_DIR}/ma
 endif()
 if(TARGET std_msgs_generate_messages_eus)
   add_dependencies(mailroom_generate_messages_eus std_msgs_generate_messages_eus)
+endif()
+if(TARGET dji_sdk_generate_messages_eus)
+  add_dependencies(mailroom_generate_messages_eus dji_sdk_generate_messages_eus)
+endif()
+if(TARGET tuner_generate_messages_eus)
+  add_dependencies(mailroom_generate_messages_eus tuner_generate_messages_eus)
 endif()
 
 if(genlisp_INSTALL_DIR AND EXISTS ${CATKIN_DEVEL_PREFIX}/${genlisp_INSTALL_DIR}/mailroom)
@@ -405,6 +327,12 @@ endif()
 if(TARGET std_msgs_generate_messages_lisp)
   add_dependencies(mailroom_generate_messages_lisp std_msgs_generate_messages_lisp)
 endif()
+if(TARGET dji_sdk_generate_messages_lisp)
+  add_dependencies(mailroom_generate_messages_lisp dji_sdk_generate_messages_lisp)
+endif()
+if(TARGET tuner_generate_messages_lisp)
+  add_dependencies(mailroom_generate_messages_lisp tuner_generate_messages_lisp)
+endif()
 
 if(gennodejs_INSTALL_DIR AND EXISTS ${CATKIN_DEVEL_PREFIX}/${gennodejs_INSTALL_DIR}/mailroom)
   # install generated code
@@ -415,6 +343,12 @@ if(gennodejs_INSTALL_DIR AND EXISTS ${CATKIN_DEVEL_PREFIX}/${gennodejs_INSTALL_D
 endif()
 if(TARGET std_msgs_generate_messages_nodejs)
   add_dependencies(mailroom_generate_messages_nodejs std_msgs_generate_messages_nodejs)
+endif()
+if(TARGET dji_sdk_generate_messages_nodejs)
+  add_dependencies(mailroom_generate_messages_nodejs dji_sdk_generate_messages_nodejs)
+endif()
+if(TARGET tuner_generate_messages_nodejs)
+  add_dependencies(mailroom_generate_messages_nodejs tuner_generate_messages_nodejs)
 endif()
 
 if(genpy_INSTALL_DIR AND EXISTS ${CATKIN_DEVEL_PREFIX}/${genpy_INSTALL_DIR}/mailroom)
@@ -427,4 +361,10 @@ if(genpy_INSTALL_DIR AND EXISTS ${CATKIN_DEVEL_PREFIX}/${genpy_INSTALL_DIR}/mail
 endif()
 if(TARGET std_msgs_generate_messages_py)
   add_dependencies(mailroom_generate_messages_py std_msgs_generate_messages_py)
+endif()
+if(TARGET dji_sdk_generate_messages_py)
+  add_dependencies(mailroom_generate_messages_py dji_sdk_generate_messages_py)
+endif()
+if(TARGET tuner_generate_messages_py)
+  add_dependencies(mailroom_generate_messages_py tuner_generate_messages_py)
 endif()

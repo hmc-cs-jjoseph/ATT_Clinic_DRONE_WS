@@ -3,6 +3,6 @@ prefix=/home/attclinic/software/drone_ws/install
 Name: tuner
 Description: Description of tuner
 Version: 0.0.0
-Cflags: 
-Libs: -L/home/attclinic/software/drone_ws/install/lib 
+Cflags: -I/home/attclinic/software/drone_ws/install/include
+Libs: -L/home/attclinic/software/drone_ws/install/lib -lhdhomerun
 Requires: 

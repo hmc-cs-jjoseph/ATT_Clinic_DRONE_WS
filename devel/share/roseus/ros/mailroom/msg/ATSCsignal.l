@@ -19,14 +19,14 @@
 (defmethod mailroom::ATSCsignal
   (:init
    (&key
-    ((:channel __channel) 0)
-    ((:SS __SS) 0)
-    ((:SNQ __SNQ) 0)
+    ((:channel __channel) (make-array 0 :initial-element 0 :element-type :integer))
+    ((:SS __SS) (make-array 0 :initial-element 0 :element-type :integer))
+    ((:SNQ __SNQ) (make-array 0 :initial-element 0 :element-type :integer))
     )
    (send-super :init)
-   (setq _channel (round __channel))
-   (setq _SS (round __SS))
-   (setq _SNQ (round __SNQ))
+   (setq _channel __channel)
+   (setq _SS __SS)
+   (setq _SNQ __SNQ)
    self)
   (:channel
    (&optional __channel)
@@ -40,48 +40,72 @@
   (:serialization-length
    ()
    (+
-    ;; uint32 _channel
-    4
-    ;; uint32 _SS
-    4
-    ;; uint32 _SNQ
-    4
+    ;; uint32[] _channel
+    (* 4    (length _channel)) 4
+    ;; uint32[] _SS
+    (* 4    (length _SS)) 4
+    ;; uint32[] _SNQ
+    (* 4    (length _SNQ)) 4
     ))
   (:serialize
    (&optional strm)
    (let ((s (if strm strm
               (make-string-output-stream (send self :serialization-length)))))
-     ;; uint32 _channel
-       (write-long _channel s)
-     ;; uint32 _SS
-       (write-long _SS s)
-     ;; uint32 _SNQ
-       (write-long _SNQ s)
+     ;; uint32[] _channel
+     (write-long (length _channel) s)
+     (dotimes (i (length _channel))
+       (write-long (elt _channel i) s)
+       )
+     ;; uint32[] _SS
+     (write-long (length _SS) s)
+     (dotimes (i (length _SS))
+       (write-long (elt _SS i) s)
+       )
+     ;; uint32[] _SNQ
+     (write-long (length _SNQ) s)
+     (dotimes (i (length _SNQ))
+       (write-long (elt _SNQ i) s)
+       )
      ;;
      (if (null strm) (get-output-stream-string s))))
   (:deserialize
    (buf &optional (ptr- 0))
-   ;; uint32 _channel
-     (setq _channel (sys::peek buf ptr- :integer)) (incf ptr- 4)
-   ;; uint32 _SS
-     (setq _SS (sys::peek buf ptr- :integer)) (incf ptr- 4)
-   ;; uint32 _SNQ
-     (setq _SNQ (sys::peek buf ptr- :integer)) (incf ptr- 4)
+   ;; uint32[] _channel
+   (let (n)
+     (setq n (sys::peek buf ptr- :integer)) (incf ptr- 4)
+     (setq _channel (instantiate integer-vector n))
+     (dotimes (i n)
+     (setf (elt _channel i) (sys::peek buf ptr- :integer)) (incf ptr- 4)
+     ))
+   ;; uint32[] _SS
+   (let (n)
+     (setq n (sys::peek buf ptr- :integer)) (incf ptr- 4)
+     (setq _SS (instantiate integer-vector n))
+     (dotimes (i n)
+     (setf (elt _SS i) (sys::peek buf ptr- :integer)) (incf ptr- 4)
+     ))
+   ;; uint32[] _SNQ
+   (let (n)
+     (setq n (sys::peek buf ptr- :integer)) (incf ptr- 4)
+     (setq _SNQ (instantiate integer-vector n))
+     (dotimes (i n)
+     (setf (elt _SNQ i) (sys::peek buf ptr- :integer)) (incf ptr- 4)
+     ))
    ;;
    self)
   )
 
-(setf (get mailroom::ATSCsignal :md5sum-) "0a289453f346fcf5fbd110cae2a72009")
+(setf (get mailroom::ATSCsignal :md5sum-) "1ccd2ea36ff16d36a5ac9c2f8d4f7377")
 (setf (get mailroom::ATSCsignal :datatype-) "mailroom/ATSCsignal")
 (setf (get mailroom::ATSCsignal :definition-)
-      "uint32 channel
-uint32 SS
-uint32 SNQ
+      "uint32[] channel
+uint32[] SS
+uint32[] SNQ
 
 ")
 
 
 
-(provide :mailroom/ATSCsignal "0a289453f346fcf5fbd110cae2a72009")
+(provide :mailroom/ATSCsignal "1ccd2ea36ff16d36a5ac9c2f8d4f7377")
 
 

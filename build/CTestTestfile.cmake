@@ -7,7 +7,7 @@
 subdirs(gtest)
 subdirs(dji_sdk_lib)
 subdirs(downlink)
-subdirs(mailroom)
 subdirs(dji_sdk)
 subdirs(tuner)
+subdirs(mailroom)
 subdirs(wheredoigo)

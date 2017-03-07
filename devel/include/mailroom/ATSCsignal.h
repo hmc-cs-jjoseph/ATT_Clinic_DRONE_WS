@@ -24,26 +24,26 @@ struct ATSCsignal_
   typedef ATSCsignal_<ContainerAllocator> Type;
 
   ATSCsignal_()
-    : channel(0)
-    , SS(0)
-    , SNQ(0)  {
+    : channel()
+    , SS()
+    , SNQ()  {
     }
   ATSCsignal_(const ContainerAllocator& _alloc)
-    : channel(0)
-    , SS(0)
-    , SNQ(0)  {
+    : channel(_alloc)
+    , SS(_alloc)
+    , SNQ(_alloc)  {
   (void)_alloc;
     }
 
 
 
-   typedef uint32_t _channel_type;
+   typedef std::vector<uint32_t, typename ContainerAllocator::template rebind<uint32_t>::other >  _channel_type;
   _channel_type channel;
 
-   typedef uint32_t _SS_type;
+   typedef std::vector<uint32_t, typename ContainerAllocator::template rebind<uint32_t>::other >  _SS_type;
   _SS_type SS;
 
-   typedef uint32_t _SNQ_type;
+   typedef std::vector<uint32_t, typename ContainerAllocator::template rebind<uint32_t>::other >  _SNQ_type;
   _SNQ_type SNQ;
 
 
@@ -79,8 +79,8 @@ namespace message_traits
 
 
 
-// BOOLTRAITS {'IsFixedSize': True, 'IsMessage': True, 'HasHeader': False}
-// {'mailroom': ['/home/attclinic/software/drone_ws/src/mailroom/msg'], 'std_msgs': ['/home/attclinic/ros_catkin_ws_kinetic/install_isolated/share/std_msgs/cmake/../msg']}
+// BOOLTRAITS {'IsFixedSize': False, 'IsMessage': True, 'HasHeader': False}
+// {'nav_msgs': ['/home/attclinic/ros_catkin_ws_kinetic/install_isolated/share/nav_msgs/cmake/../msg'], 'dji_sdk': ['/home/attclinic/software/drone_ws/src/dji_sdk/msg', '/home/attclinic/software/drone_ws/devel/share/dji_sdk/msg'], 'mailroom': ['/home/attclinic/software/drone_ws/src/mailroom/msg'], 'actionlib_msgs': ['/home/attclinic/ros_catkin_ws_kinetic/install_isolated/share/actionlib_msgs/cmake/../msg'], 'std_msgs': ['/home/attclinic/ros_catkin_ws_kinetic/install_isolated/share/std_msgs/cmake/../msg'], 'geometry_msgs': ['/home/attclinic/ros_catkin_ws_kinetic/install_isolated/share/geometry_msgs/cmake/../msg']}
 
 // !!!!!!!!!!! ['__class__', '__delattr__', '__dict__', '__doc__', '__eq__', '__format__', '__getattribute__', '__hash__', '__init__', '__module__', '__ne__', '__new__', '__reduce__', '__reduce_ex__', '__repr__', '__setattr__', '__sizeof__', '__str__', '__subclasshook__', '__weakref__', '_parsed_fields', 'constants', 'fields', 'full_name', 'has_header', 'header_present', 'names', 'package', 'parsed_fields', 'short_name', 'text', 'types']
 
@@ -89,12 +89,12 @@ namespace message_traits
 
 template <class ContainerAllocator>
 struct IsFixedSize< ::mailroom::ATSCsignal_<ContainerAllocator> >
-  : TrueType
+  : FalseType
   { };
 
 template <class ContainerAllocator>
 struct IsFixedSize< ::mailroom::ATSCsignal_<ContainerAllocator> const>
-  : TrueType
+  : FalseType
   { };
 
 template <class ContainerAllocator>
@@ -123,12 +123,12 @@ struct MD5Sum< ::mailroom::ATSCsignal_<ContainerAllocator> >
 {
   static const char* value()
   {
-    return "0a289453f346fcf5fbd110cae2a72009";
+    return "1ccd2ea36ff16d36a5ac9c2f8d4f7377";
   }
 
   static const char* value(const ::mailroom::ATSCsignal_<ContainerAllocator>&) { return value(); }
-  static const uint64_t static_value1 = 0x0a289453f346fcf5ULL;
-  static const uint64_t static_value2 = 0xfbd110cae2a72009ULL;
+  static const uint64_t static_value1 = 0x1ccd2ea36ff16d36ULL;
+  static const uint64_t static_value2 = 0xa5ac9c2f8d4f7377ULL;
 };
 
 template<class ContainerAllocator>
@@ -147,9 +147,9 @@ struct Definition< ::mailroom::ATSCsignal_<ContainerAllocator> >
 {
   static const char* value()
   {
-    return "uint32 channel\n\
-uint32 SS\n\
-uint32 SNQ\n\
+    return "uint32[] channel\n\
+uint32[] SS\n\
+uint32[] SNQ\n\
 ";
   }
 
@@ -189,12 +189,24 @@ struct Printer< ::mailroom::ATSCsignal_<ContainerAllocator> >
 {
   template<typename Stream> static void stream(Stream& s, const std::string& indent, const ::mailroom::ATSCsignal_<ContainerAllocator>& v)
   {
-    s << indent << "channel: ";
-    Printer<uint32_t>::stream(s, indent + "  ", v.channel);
-    s << indent << "SS: ";
-    Printer<uint32_t>::stream(s, indent + "  ", v.SS);
-    s << indent << "SNQ: ";
-    Printer<uint32_t>::stream(s, indent + "  ", v.SNQ);
+    s << indent << "channel[]" << std::endl;
+    for (size_t i = 0; i < v.channel.size(); ++i)
+    {
+      s << indent << "  channel[" << i << "]: ";
+      Printer<uint32_t>::stream(s, indent + "  ", v.channel[i]);
+    }
+    s << indent << "SS[]" << std::endl;
+    for (size_t i = 0; i < v.SS.size(); ++i)
+    {
+      s << indent << "  SS[" << i << "]: ";
+      Printer<uint32_t>::stream(s, indent + "  ", v.SS[i]);
+    }
+    s << indent << "SNQ[]" << std::endl;
+    for (size_t i = 0; i < v.SNQ.size(); ++i)
+    {
+      s << indent << "  SNQ[" << i << "]: ";
+      Printer<uint32_t>::stream(s, indent + "  ", v.SNQ[i]);
+    }
   }
 };
 

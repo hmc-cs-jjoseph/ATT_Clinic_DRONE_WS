@@ -58,10 +58,13 @@ mailroom/CMakeFiles/mailroom_node.dir/src/mailroom.cpp.o
  /home/attclinic/ros_catkin_ws_kinetic/install_isolated/include/ros/wall_timer.h
  /home/attclinic/ros_catkin_ws_kinetic/install_isolated/include/ros/wall_timer_options.h
  /home/attclinic/ros_catkin_ws_kinetic/install_isolated/include/rosconsole/macros_generated.h
+ /home/attclinic/ros_catkin_ws_kinetic/install_isolated/include/std_msgs/Header.h
  /home/attclinic/ros_catkin_ws_kinetic/install_isolated/include/std_msgs/String.h
+ /home/attclinic/software/drone_ws/devel/include/dji_sdk/Compass.h
+ /home/attclinic/software/drone_ws/devel/include/dji_sdk/GlobalPosition.h
+ /home/attclinic/software/drone_ws/devel/include/dji_sdk/PowerStatus.h
  /home/attclinic/software/drone_ws/devel/include/mailroom/ATSCsignal.h
  /home/attclinic/software/drone_ws/devel/include/mailroom/drone_cmd.h
- /home/attclinic/software/drone_ws/devel/include/mailroom/drone_status.h
- /home/attclinic/software/drone_ws/devel/include/mailroom/drone_telemetry.h
+ /home/attclinic/software/drone_ws/src/mailroom/include/mailroom/DroneCommander.h
+ /home/attclinic/software/drone_ws/src/mailroom/include/mailroom/DroneListener.h
  /home/attclinic/software/drone_ws/src/mailroom/src/mailroom.cpp
- /home/attclinic/software/drone_ws/src/mailroom/src/mailroom.h

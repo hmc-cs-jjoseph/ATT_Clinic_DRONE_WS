@@ -7,15 +7,15 @@ import struct
 
 
 class ATSCsignal(genpy.Message):
-  _md5sum = "0a289453f346fcf5fbd110cae2a72009"
+  _md5sum = "1ccd2ea36ff16d36a5ac9c2f8d4f7377"
   _type = "mailroom/ATSCsignal"
   _has_header = False #flag to mark the presence of a Header object
-  _full_text = """uint32 channel
-uint32 SS
-uint32 SNQ
+  _full_text = """uint32[] channel
+uint32[] SS
+uint32[] SNQ
 """
   __slots__ = ['channel','SS','SNQ']
-  _slot_types = ['uint32','uint32','uint32']
+  _slot_types = ['uint32[]','uint32[]','uint32[]']
 
   def __init__(self, *args, **kwds):
     """
@@ -35,15 +35,15 @@ uint32 SNQ
       super(ATSCsignal, self).__init__(*args, **kwds)
       #message fields cannot be None, assign default values for those that are
       if self.channel is None:
-        self.channel = 0
+        self.channel = []
       if self.SS is None:
-        self.SS = 0
+        self.SS = []
       if self.SNQ is None:
-        self.SNQ = 0
+        self.SNQ = []
     else:
-      self.channel = 0
-      self.SS = 0
-      self.SNQ = 0
+      self.channel = []
+      self.SS = []
+      self.SNQ = []
 
   def _get_types(self):
     """
@@ -57,8 +57,18 @@ uint32 SNQ
     :param buff: buffer, ``StringIO``
     """
     try:
-      _x = self
-      buff.write(_get_struct_3I().pack(_x.channel, _x.SS, _x.SNQ))
+      length = len(self.channel)
+      buff.write(_struct_I.pack(length))
+      pattern = '<%sI'%length
+      buff.write(struct.pack(pattern, *self.channel))
+      length = len(self.SS)
+      buff.write(_struct_I.pack(length))
+      pattern = '<%sI'%length
+      buff.write(struct.pack(pattern, *self.SS))
+      length = len(self.SNQ)
+      buff.write(_struct_I.pack(length))
+      pattern = '<%sI'%length
+      buff.write(struct.pack(pattern, *self.SNQ))
     except struct.error as se: self._check_types(struct.error("%s: '%s' when writing '%s'" % (type(se), str(se), str(locals().get('_x', self)))))
     except TypeError as te: self._check_types(ValueError("%s: '%s' when writing '%s'" % (type(te), str(te), str(locals().get('_x', self)))))
 
@@ -69,10 +79,27 @@ uint32 SNQ
     """
     try:
       end = 0
-      _x = self
       start = end
-      end += 12
-      (_x.channel, _x.SS, _x.SNQ,) = _get_struct_3I().unpack(str[start:end])
+      end += 4
+      (length,) = _struct_I.unpack(str[start:end])
+      pattern = '<%sI'%length
+      start = end
+      end += struct.calcsize(pattern)
+      self.channel = struct.unpack(pattern, str[start:end])
+      start = end
+      end += 4
+      (length,) = _struct_I.unpack(str[start:end])
+      pattern = '<%sI'%length
+      start = end
+      end += struct.calcsize(pattern)
+      self.SS = struct.unpack(pattern, str[start:end])
+      start = end
+      end += 4
+      (length,) = _struct_I.unpack(str[start:end])
+      pattern = '<%sI'%length
+      start = end
+      end += struct.calcsize(pattern)
+      self.SNQ = struct.unpack(pattern, str[start:end])
       return self
     except struct.error as e:
       raise genpy.DeserializationError(e) #most likely buffer underfill
@@ -85,8 +112,18 @@ uint32 SNQ
     :param numpy: numpy python module
     """
     try:
-      _x = self
-      buff.write(_get_struct_3I().pack(_x.channel, _x.SS, _x.SNQ))
+      length = len(self.channel)
+      buff.write(_struct_I.pack(length))
+      pattern = '<%sI'%length
+      buff.write(self.channel.tostring())
+      length = len(self.SS)
+      buff.write(_struct_I.pack(length))
+      pattern = '<%sI'%length
+      buff.write(self.SS.tostring())
+      length = len(self.SNQ)
+      buff.write(_struct_I.pack(length))
+      pattern = '<%sI'%length
+      buff.write(self.SNQ.tostring())
     except struct.error as se: self._check_types(struct.error("%s: '%s' when writing '%s'" % (type(se), str(se), str(locals().get('_x', self)))))
     except TypeError as te: self._check_types(ValueError("%s: '%s' when writing '%s'" % (type(te), str(te), str(locals().get('_x', self)))))
 
@@ -98,10 +135,27 @@ uint32 SNQ
     """
     try:
       end = 0
-      _x = self
       start = end
-      end += 12
-      (_x.channel, _x.SS, _x.SNQ,) = _get_struct_3I().unpack(str[start:end])
+      end += 4
+      (length,) = _struct_I.unpack(str[start:end])
+      pattern = '<%sI'%length
+      start = end
+      end += struct.calcsize(pattern)
+      self.channel = numpy.frombuffer(str[start:end], dtype=numpy.uint32, count=length)
+      start = end
+      end += 4
+      (length,) = _struct_I.unpack(str[start:end])
+      pattern = '<%sI'%length
+      start = end
+      end += struct.calcsize(pattern)
+      self.SS = numpy.frombuffer(str[start:end], dtype=numpy.uint32, count=length)
+      start = end
+      end += 4
+      (length,) = _struct_I.unpack(str[start:end])
+      pattern = '<%sI'%length
+      start = end
+      end += struct.calcsize(pattern)
+      self.SNQ = numpy.frombuffer(str[start:end], dtype=numpy.uint32, count=length)
       return self
     except struct.error as e:
       raise genpy.DeserializationError(e) #most likely buffer underfill
@@ -110,9 +164,3 @@ _struct_I = genpy.struct_I
 def _get_struct_I():
     global _struct_I
     return _struct_I
-_struct_3I = None
-def _get_struct_3I():
-    global _struct_3I
-    if _struct_3I is None:
-        _struct_3I = struct.Struct("<3I")
-    return _struct_3I

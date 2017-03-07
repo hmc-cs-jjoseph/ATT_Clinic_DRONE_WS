@@ -82,7 +82,7 @@ namespace message_traits
 
 
 // BOOLTRAITS {'IsFixedSize': False, 'IsMessage': True, 'HasHeader': False}
-// {'mailroom': ['/home/attclinic/software/drone_ws/src/mailroom/msg'], 'std_msgs': ['/home/attclinic/ros_catkin_ws_kinetic/install_isolated/share/std_msgs/cmake/../msg']}
+// {'nav_msgs': ['/home/attclinic/ros_catkin_ws_kinetic/install_isolated/share/nav_msgs/cmake/../msg'], 'dji_sdk': ['/home/attclinic/software/drone_ws/src/dji_sdk/msg', '/home/attclinic/software/drone_ws/devel/share/dji_sdk/msg'], 'mailroom': ['/home/attclinic/software/drone_ws/src/mailroom/msg'], 'actionlib_msgs': ['/home/attclinic/ros_catkin_ws_kinetic/install_isolated/share/actionlib_msgs/cmake/../msg'], 'std_msgs': ['/home/attclinic/ros_catkin_ws_kinetic/install_isolated/share/std_msgs/cmake/../msg'], 'geometry_msgs': ['/home/attclinic/ros_catkin_ws_kinetic/install_isolated/share/geometry_msgs/cmake/../msg']}
 
 // !!!!!!!!!!! ['__class__', '__delattr__', '__dict__', '__doc__', '__eq__', '__format__', '__getattribute__', '__hash__', '__init__', '__module__', '__ne__', '__new__', '__reduce__', '__reduce_ex__', '__repr__', '__setattr__', '__sizeof__', '__str__', '__subclasshook__', '__weakref__', '_parsed_fields', 'constants', 'fields', 'full_name', 'has_header', 'header_present', 'names', 'package', 'parsed_fields', 'short_name', 'text', 'types']
 
@@ -125,12 +125,12 @@ struct MD5Sum< ::mailroom::drone_status_<ContainerAllocator> >
 {
   static const char* value()
   {
-    return "56e85cfc37e2764b4f83194b846ae01c";
+    return "2c45150abee54e9ecf30b0c56fe46f6e";
   }
 
   static const char* value(const ::mailroom::drone_status_<ContainerAllocator>&) { return value(); }
-  static const uint64_t static_value1 = 0x56e85cfc37e2764bULL;
-  static const uint64_t static_value2 = 0x4f83194b846ae01cULL;
+  static const uint64_t static_value1 = 0x2c45150abee54e9eULL;
+  static const uint64_t static_value2 = 0xcf30b0c56fe46f6eULL;
 };
 
 template<class ContainerAllocator>
@@ -162,9 +162,9 @@ uint8 az_angle\n\
 \n\
 ================================================================================\n\
 MSG: mailroom/ATSCsignal\n\
-uint32 channel\n\
-uint32 SS\n\
-uint32 SNQ\n\
+uint32[] channel\n\
+uint32[] SS\n\
+uint32[] SNQ\n\
 ";
   }
 

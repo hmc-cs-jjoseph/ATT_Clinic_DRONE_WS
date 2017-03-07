@@ -18,13 +18,17 @@ set(CMAKE_TARGET_DEFINITIONS_CXX
 # The include file search paths:
 set(CMAKE_CXX_TARGET_INCLUDE_PATH
   "/home/attclinic/software/drone_ws/devel/include"
+  "/home/attclinic/software/drone_ws/src/mailroom/include/mailroom"
+  "/home/attclinic/software/drone_ws/src/dji_sdk/include"
+  "/home/attclinic/software/drone_ws/src/dji_sdk_lib/include"
   "/home/attclinic/ros_catkin_ws_kinetic/install_isolated/include"
   "/usr/local/include"
   )
 
 # Targets to which this target links.
 set(CMAKE_TARGET_LINKED_INFO_FILES
-  "/home/attclinic/software/drone_ws/build/mailroom/CMakeFiles/DroneCommander.dir/DependInfo.cmake"
+  "/home/attclinic/software/drone_ws/build/dji_sdk_lib/CMakeFiles/dji_sdk_lib.dir/DependInfo.cmake"
+  "/home/attclinic/software/drone_ws/build/mailroom/CMakeFiles/mailroomtypes.dir/DependInfo.cmake"
   )
 
 # Fortran module output directory.

@@ -87,7 +87,7 @@
    self)
   )
 
-(setf (get mailroom::drone_status :md5sum-) "56e85cfc37e2764b4f83194b846ae01c")
+(setf (get mailroom::drone_status :md5sum-) "2c45150abee54e9ecf30b0c56fe46f6e")
 (setf (get mailroom::drone_status :datatype-) "mailroom/drone_status")
 (setf (get mailroom::drone_status :definition-)
       "mailroom/drone_telemetry telemetry
@@ -103,14 +103,14 @@ uint8 az_angle
 
 ================================================================================
 MSG: mailroom/ATSCsignal
-uint32 channel
-uint32 SS
-uint32 SNQ
+uint32[] channel
+uint32[] SS
+uint32[] SNQ
 
 ")
 
 
 
-(provide :mailroom/drone_status "56e85cfc37e2764b4f83194b846ae01c")
+(provide :mailroom/drone_status "2c45150abee54e9ecf30b0c56fe46f6e")
 
 

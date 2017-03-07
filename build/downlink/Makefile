@@ -56,17 +56,6 @@ CMAKE_BINARY_DIR = /home/attclinic/software/drone_ws/build
 #=============================================================================
 # Targets provided globally by CMake.
 
-# Special rule for the target test
-test:
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running tests..."
-	/usr/bin/ctest --force-new-ctest-process $(ARGS)
-.PHONY : test
-
-# Special rule for the target test
-test/fast: test
-
-.PHONY : test/fast
-
 # Special rule for the target edit_cache
 edit_cache:
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "No interactive CMake dialog available..."
@@ -99,6 +88,17 @@ install/local/fast: install/local
 
 .PHONY : install/local/fast
 
+# Special rule for the target install/strip
+install/strip: preinstall
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Installing the project stripped..."
+	/usr/bin/cmake -DCMAKE_INSTALL_DO_STRIP=1 -P cmake_install.cmake
+.PHONY : install/strip
+
+# Special rule for the target install/strip
+install/strip/fast: install/strip
+
+.PHONY : install/strip/fast
+
 # Special rule for the target rebuild_cache
 rebuild_cache:
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running CMake to regenerate build system..."
@@ -122,16 +122,16 @@ install/fast: preinstall/fast
 	/usr/bin/cmake -P cmake_install.cmake
 .PHONY : install/fast
 
-# Special rule for the target install/strip
-install/strip: preinstall
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Installing the project stripped..."
-	/usr/bin/cmake -DCMAKE_INSTALL_DO_STRIP=1 -P cmake_install.cmake
-.PHONY : install/strip
+# Special rule for the target test
+test:
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running tests..."
+	/usr/bin/ctest --force-new-ctest-process $(ARGS)
+.PHONY : test
 
-# Special rule for the target install/strip
-install/strip/fast: install/strip
+# Special rule for the target test
+test/fast: test
 
-.PHONY : install/strip/fast
+.PHONY : test/fast
 
 # The main all target
 all: cmake_check_build_system
@@ -254,6 +254,21 @@ std_msgs_generate_messages_py: downlink/CMakeFiles/std_msgs_generate_messages_py
 std_msgs_generate_messages_py/fast:
 	cd /home/attclinic/software/drone_ws/build && $(MAKE) -f downlink/CMakeFiles/std_msgs_generate_messages_py.dir/build.make downlink/CMakeFiles/std_msgs_generate_messages_py.dir/build
 .PHONY : std_msgs_generate_messages_py/fast
+
+# Convenience name for target.
+downlink/CMakeFiles/rosgraph_msgs_generate_messages_py.dir/rule:
+	cd /home/attclinic/software/drone_ws/build && $(MAKE) -f CMakeFiles/Makefile2 downlink/CMakeFiles/rosgraph_msgs_generate_messages_py.dir/rule
+.PHONY : downlink/CMakeFiles/rosgraph_msgs_generate_messages_py.dir/rule
+
+# Convenience name for target.
+rosgraph_msgs_generate_messages_py: downlink/CMakeFiles/rosgraph_msgs_generate_messages_py.dir/rule
+
+.PHONY : rosgraph_msgs_generate_messages_py
+
+# fast build rule for target.
+rosgraph_msgs_generate_messages_py/fast:
+	cd /home/attclinic/software/drone_ws/build && $(MAKE) -f downlink/CMakeFiles/rosgraph_msgs_generate_messages_py.dir/build.make downlink/CMakeFiles/rosgraph_msgs_generate_messages_py.dir/build
+.PHONY : rosgraph_msgs_generate_messages_py/fast
 
 # Convenience name for target.
 downlink/CMakeFiles/roscpp_generate_messages_py.dir/rule:
@@ -406,19 +421,19 @@ std_msgs_generate_messages_nodejs/fast:
 .PHONY : std_msgs_generate_messages_nodejs/fast
 
 # Convenience name for target.
-downlink/CMakeFiles/rosgraph_msgs_generate_messages_py.dir/rule:
-	cd /home/attclinic/software/drone_ws/build && $(MAKE) -f CMakeFiles/Makefile2 downlink/CMakeFiles/rosgraph_msgs_generate_messages_py.dir/rule
-.PHONY : downlink/CMakeFiles/rosgraph_msgs_generate_messages_py.dir/rule
+downlink/CMakeFiles/serialib.dir/rule:
+	cd /home/attclinic/software/drone_ws/build && $(MAKE) -f CMakeFiles/Makefile2 downlink/CMakeFiles/serialib.dir/rule
+.PHONY : downlink/CMakeFiles/serialib.dir/rule
 
 # Convenience name for target.
-rosgraph_msgs_generate_messages_py: downlink/CMakeFiles/rosgraph_msgs_generate_messages_py.dir/rule
+serialib: downlink/CMakeFiles/serialib.dir/rule
 
-.PHONY : rosgraph_msgs_generate_messages_py
+.PHONY : serialib
 
 # fast build rule for target.
-rosgraph_msgs_generate_messages_py/fast:
-	cd /home/attclinic/software/drone_ws/build && $(MAKE) -f downlink/CMakeFiles/rosgraph_msgs_generate_messages_py.dir/build.make downlink/CMakeFiles/rosgraph_msgs_generate_messages_py.dir/build
-.PHONY : rosgraph_msgs_generate_messages_py/fast
+serialib/fast:
+	cd /home/attclinic/software/drone_ws/build && $(MAKE) -f downlink/CMakeFiles/serialib.dir/build.make downlink/CMakeFiles/serialib.dir/build
+.PHONY : serialib/fast
 
 src/downlink.o: src/downlink.cpp.o
 
@@ -446,6 +461,33 @@ src/downlink.s: src/downlink.cpp.s
 src/downlink.cpp.s:
 	cd /home/attclinic/software/drone_ws/build && $(MAKE) -f downlink/CMakeFiles/downlink_node.dir/build.make downlink/CMakeFiles/downlink_node.dir/src/downlink.cpp.s
 .PHONY : src/downlink.cpp.s
+
+src/serialib.o: src/serialib.cpp.o
+
+.PHONY : src/serialib.o
+
+# target to build an object file
+src/serialib.cpp.o:
+	cd /home/attclinic/software/drone_ws/build && $(MAKE) -f downlink/CMakeFiles/serialib.dir/build.make downlink/CMakeFiles/serialib.dir/src/serialib.cpp.o
+.PHONY : src/serialib.cpp.o
+
+src/serialib.i: src/serialib.cpp.i
+
+.PHONY : src/serialib.i
+
+# target to preprocess a source file
+src/serialib.cpp.i:
+	cd /home/attclinic/software/drone_ws/build && $(MAKE) -f downlink/CMakeFiles/serialib.dir/build.make downlink/CMakeFiles/serialib.dir/src/serialib.cpp.i
+.PHONY : src/serialib.cpp.i
+
+src/serialib.s: src/serialib.cpp.s
+
+.PHONY : src/serialib.s
+
+# target to generate assembly for a file
+src/serialib.cpp.s:
+	cd /home/attclinic/software/drone_ws/build && $(MAKE) -f downlink/CMakeFiles/serialib.dir/build.make downlink/CMakeFiles/serialib.dir/src/serialib.cpp.s
+.PHONY : src/serialib.cpp.s
 
 src/uplink.o: src/uplink.cpp.o
 
@@ -480,7 +522,6 @@ help:
 	@echo "... all (the default if no target is provided)"
 	@echo "... clean"
 	@echo "... depend"
-	@echo "... test"
 	@echo "... edit_cache"
 	@echo "... rosgraph_msgs_generate_messages_lisp"
 	@echo "... rosgraph_msgs_generate_messages_cpp"
@@ -490,6 +531,8 @@ help:
 	@echo "... list_install_components"
 	@echo "... std_msgs_generate_messages_py"
 	@echo "... install/local"
+	@echo "... install/strip"
+	@echo "... rosgraph_msgs_generate_messages_py"
 	@echo "... roscpp_generate_messages_py"
 	@echo "... rosgraph_msgs_generate_messages_nodejs"
 	@echo "... std_msgs_generate_messages_cpp"
@@ -502,11 +545,14 @@ help:
 	@echo "... std_msgs_generate_messages_lisp"
 	@echo "... std_msgs_generate_messages_nodejs"
 	@echo "... install"
-	@echo "... rosgraph_msgs_generate_messages_py"
-	@echo "... install/strip"
+	@echo "... test"
+	@echo "... serialib"
 	@echo "... src/downlink.o"
 	@echo "... src/downlink.i"
 	@echo "... src/downlink.s"
+	@echo "... src/serialib.o"
+	@echo "... src/serialib.i"
+	@echo "... src/serialib.s"
 	@echo "... src/uplink.o"
 	@echo "... src/uplink.i"
 	@echo "... src/uplink.s"

@@ -6,5 +6,5 @@ CXX_FLAGS =   -std=c++11
 
 CXX_DEFINES = -DROSCONSOLE_BACKEND_LOG4CXX -DROS_BUILD_SHARED_LIBS=1 -DROS_PACKAGE_NAME=\"downlink\"
 
-CXX_INCLUDES = -I/home/attclinic/ros_catkin_ws_kinetic/install_isolated/include -I/usr/local/include 
+CXX_INCLUDES = -I/home/attclinic/software/drone_ws/src/downlink/include/downlink -I/home/attclinic/ros_catkin_ws_kinetic/install_isolated/include -I/usr/local/include 
 

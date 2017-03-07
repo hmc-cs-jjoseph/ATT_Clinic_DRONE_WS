@@ -668,23 +668,7 @@ ros/builtin_message_traits.h
 ros/message_operations.h
 -
 
-/home/attclinic/software/drone_ws/src/downlink/src/downlink.cpp
-downlink.h
-/home/attclinic/software/drone_ws/src/downlink/src/downlink.h
-
-/home/attclinic/software/drone_ws/src/downlink/src/downlink.h
-stdio.h
--
-cstdlib
--
-ros/ros.h
-/home/attclinic/software/drone_ws/src/downlink/src/ros/ros.h
-std_msgs/String.h
-/home/attclinic/software/drone_ws/src/downlink/src/std_msgs/String.h
-serialib/serialib.h
-/home/attclinic/software/drone_ws/src/downlink/src/serialib/serialib.h
-
-/home/attclinic/software/drone_ws/src/downlink/src/serialib/serialib.h
+/home/attclinic/software/drone_ws/src/downlink/include/downlink/serialib.h
 sys/time.h
 -
 windows.h
@@ -706,5 +690,17 @@ fcntl.h
 unistd.h
 -
 sys/ioctl.h
+-
+
+/home/attclinic/software/drone_ws/src/downlink/src/downlink.cpp
+stdio.h
+-
+cstdlib
+-
+ros/ros.h
+-
+std_msgs/String.h
+-
+serialib.h
 -
 

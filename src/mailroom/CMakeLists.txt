@@ -6,9 +6,9 @@ project(mailroom)
 ## is used, also find other catkin packages
 find_package(catkin REQUIRED COMPONENTS
   roscpp
-  rospy
   std_msgs
   message_generation
+	dji_sdk
 )
 
 ## System dependencies are found with CMake's conventions
@@ -46,12 +46,11 @@ find_package(catkin REQUIRED COMPONENTS
 
 ## Generate messages in the 'msg' folder
 add_message_files(
+	DIRECTORY msg
   FILES
-  ATSCsignal.msg
   drone_cmd.msg
   drone_move.msg
-  drone_status.msg
-  drone_telemetry.msg
+	ATSCsignal.msg
 )
 
 ## Generate services in the 'srv' folder
@@ -72,6 +71,8 @@ add_message_files(
 generate_messages(
   DEPENDENCIES
   std_msgs
+	dji_sdk
+	tuner
 )
 
 ################################################
@@ -104,9 +105,9 @@ generate_messages(
 ## CATKIN_DEPENDS: catkin_packages dependent projects also need
 ## DEPENDS: system dependencies of this project that dependent projects also need
 catkin_package(
-#  INCLUDE_DIRS include
+INCLUDE_DIRS include
 #  LIBRARIES mailroom
-  CATKIN_DEPENDS message_runtime roscpp rospy std_msgs
+CATKIN_DEPENDS message_runtime roscpp std_msgs dji_sdk 
 #  DEPENDS system_lib
 )
 
@@ -118,30 +119,34 @@ catkin_package(
 ## Your package locations should be listed before other locations
 # include_directories(include)
 include_directories(
+	include/mailroom/
   ${catkin_INCLUDE_DIRS}
 )
 
 ## Declare a C++ library
-# add_library(mailroom
-#   src/${PROJECT_NAME}/mailroom.cpp
-# )
+add_library(mailroomtypes
+	src/mailroomtypes.cpp
+)
+add_dependencies(mailroomtypes mailroom_generate_messages_cpp )
 
 ## Add cmake target dependencies of the library
 ## as an example, code may need to be generated before libraries
 ## either from message generation or dynamic reconfigure
-# add_dependencies(mailroom ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
+#add_dependencies(mailroomtypes ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
 
 ## Declare a C++ executable
-# add_executable(mailroom_node src/mailroom_node.cpp)
+add_executable(mailroom_node src/mailroom.cpp)
+add_dependencies(mailroom_node mailroom_generate_messages_cpp )
 
 ## Add cmake target dependencies of the executable
 ## same as for the library above
 # add_dependencies(mailroom_node ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
 
 ## Specify libraries to link a library or executable target against
-# target_link_libraries(mailroom_node
-#   ${catkin_LIBRARIES}
-# )
+target_link_libraries(mailroom_node
+  ${catkin_LIBRARIES}
+	mailroomtypes
+)
 
 #############
 ## Install ##

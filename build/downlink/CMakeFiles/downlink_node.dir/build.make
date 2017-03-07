@@ -86,12 +86,11 @@ downlink_node_OBJECTS = \
 "CMakeFiles/downlink_node.dir/src/downlink.cpp.o"
 
 # External object files for target downlink_node
-downlink_node_EXTERNAL_OBJECTS = \
-"/home/attclinic/software/drone_ws/src/downlink/src/serialib/serialib.o"
+downlink_node_EXTERNAL_OBJECTS =
 
 /home/attclinic/software/drone_ws/devel/lib/downlink/downlink_node: downlink/CMakeFiles/downlink_node.dir/src/downlink.cpp.o
-/home/attclinic/software/drone_ws/devel/lib/downlink/downlink_node: /home/attclinic/software/drone_ws/src/downlink/src/serialib/serialib.o
 /home/attclinic/software/drone_ws/devel/lib/downlink/downlink_node: downlink/CMakeFiles/downlink_node.dir/build.make
+/home/attclinic/software/drone_ws/devel/lib/downlink/downlink_node: /home/attclinic/software/drone_ws/devel/lib/libserialib.so
 /home/attclinic/software/drone_ws/devel/lib/downlink/downlink_node: /home/attclinic/ros_catkin_ws_kinetic/install_isolated/lib/libroscpp.so
 /home/attclinic/software/drone_ws/devel/lib/downlink/downlink_node: /usr/lib/arm-linux-gnueabihf/libboost_signals.so
 /home/attclinic/software/drone_ws/devel/lib/downlink/downlink_node: /usr/lib/arm-linux-gnueabihf/libboost_filesystem.so

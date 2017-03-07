@@ -192,9 +192,6 @@ DEBIAN_JESSIE:BOOL=TRUE
 //Path to a program.
 DOXYGEN_EXECUTABLE:FILEPATH=DOXYGEN_EXECUTABLE-NOTFOUND
 
-//Dependencies for target
-DroneCommander_LIB_DEPENDS:STATIC=
-
 //Path to a program.
 EMPY_EXECUTABLE:FILEPATH=/usr/bin/empy
 
@@ -343,6 +340,9 @@ gtest_force_shared_crt:BOOL=OFF
 //Dependencies for the target
 gtest_main_LIB_DEPENDS:STATIC=general;-lpthread;general;gtest;
 
+//Dependencies for target
+hdhomerun_LIB_DEPENDS:STATIC=
+
 //Path to a library.
 lib:FILEPATH=/home/attclinic/ros_catkin_ws_kinetic/install_isolated/lib/libactionlib.so
 
@@ -354,6 +354,9 @@ mailroom_DIR:PATH=/home/attclinic/software/drone_ws/devel/share/mailroom/cmake
 
 //Value Computed by CMake
 mailroom_SOURCE_DIR:STATIC=/home/attclinic/software/drone_ws/src/mailroom
+
+//Dependencies for target
+mailroomtypes_LIB_DEPENDS:STATIC=
 
 //The directory containing a CMake configuration file for message_generation.
 message_generation_DIR:PATH=/home/attclinic/ros_catkin_ws_kinetic/install_isolated/share/message_generation/cmake
@@ -388,14 +391,22 @@ rostest_DIR:PATH=/home/attclinic/ros_catkin_ws_kinetic/install_isolated/share/ro
 //The directory containing a CMake configuration file for rostime.
 rostime_DIR:PATH=/home/attclinic/ros_catkin_ws_kinetic/install_isolated/share/rostime/cmake
 
+//Dependencies for target
+serialib_LIB_DEPENDS:STATIC=
+
 //The directory containing a CMake configuration file for std_msgs.
 std_msgs_DIR:PATH=/home/attclinic/ros_catkin_ws_kinetic/install_isolated/share/std_msgs/cmake
 
 //Value Computed by CMake
 tuner_BINARY_DIR:STATIC=/home/attclinic/software/drone_ws/build/tuner
 
+tuner_DIR:PATH=
+
 //Value Computed by CMake
 tuner_SOURCE_DIR:STATIC=/home/attclinic/software/drone_ws/src/tuner
+
+//Dependencies for the target
+tunerdevice_LIB_DEPENDS:STATIC=general;hdhomerun;general;/home/attclinic/ros_catkin_ws_kinetic/install_isolated/lib/libactionlib.so;general;/home/attclinic/ros_catkin_ws_kinetic/install_isolated/lib/libroscpp.so;general;/usr/lib/arm-linux-gnueabihf/libboost_signals.so;general;/usr/lib/arm-linux-gnueabihf/libboost_filesystem.so;general;/home/attclinic/ros_catkin_ws_kinetic/install_isolated/lib/librosconsole.so;general;/home/attclinic/ros_catkin_ws_kinetic/install_isolated/lib/librosconsole_log4cxx.so;general;/home/attclinic/ros_catkin_ws_kinetic/install_isolated/lib/librosconsole_backend_interface.so;general;/usr/lib/arm-linux-gnueabihf/liblog4cxx.so;general;/usr/lib/arm-linux-gnueabihf/libboost_regex.so;general;/home/attclinic/ros_catkin_ws_kinetic/install_isolated/lib/libxmlrpcpp.so;general;/home/attclinic/ros_catkin_ws_kinetic/install_isolated/lib/libroscpp_serialization.so;general;/home/attclinic/ros_catkin_ws_kinetic/install_isolated/lib/librostime.so;general;/home/attclinic/ros_catkin_ws_kinetic/install_isolated/lib/libcpp_common.so;general;/usr/lib/arm-linux-gnueabihf/libboost_system.so;general;/usr/lib/arm-linux-gnueabihf/libboost_thread.so;general;/usr/lib/arm-linux-gnueabihf/libboost_chrono.so;general;/usr/lib/arm-linux-gnueabihf/libboost_date_time.so;general;/usr/lib/arm-linux-gnueabihf/libboost_atomic.so;general;/usr/lib/arm-linux-gnueabihf/libpthread.so;general;/usr/local/lib/libconsole_bridge.so;general;dji_sdk_lib;
 
 //Value Computed by CMake
 wheredoigo_BINARY_DIR:STATIC=/home/attclinic/software/drone_ws/build/wheredoigo
@@ -412,7 +423,7 @@ xmlrpcpp_DIR:PATH=/home/attclinic/ros_catkin_ws_kinetic/install_isolated/share/x
 ########################
 
 //catkin environment
-CATKIN_ENV:INTERNAL=
+CATKIN_ENV:INTERNAL=/home/attclinic/software/drone_ws/build/catkin_generated/env_cached.sh
 CATKIN_TEST_RESULTS_DIR:INTERNAL=/home/attclinic/software/drone_ws/build/test_results
 //ADVANCED property for variable: CMAKE_AR
 CMAKE_AR-ADVANCED:INTERNAL=1
@@ -508,7 +519,7 @@ CMAKE_MODULE_LINKER_FLAGS_RELWITHDEBINFO-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: CMAKE_NM
 CMAKE_NM-ADVANCED:INTERNAL=1
 //number of local generators
-CMAKE_NUMBER_OF_MAKEFILES:INTERNAL=2
+CMAKE_NUMBER_OF_MAKEFILES:INTERNAL=8
 //ADVANCED property for variable: CMAKE_OBJCOPY
 CMAKE_OBJCOPY-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: CMAKE_OBJDUMP

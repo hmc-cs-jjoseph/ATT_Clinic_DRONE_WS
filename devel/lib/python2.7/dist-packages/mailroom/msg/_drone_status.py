@@ -8,7 +8,7 @@ import struct
 import mailroom.msg
 
 class drone_status(genpy.Message):
-  _md5sum = "56e85cfc37e2764b4f83194b846ae01c"
+  _md5sum = "2c45150abee54e9ecf30b0c56fe46f6e"
   _type = "mailroom/drone_status"
   _has_header = False #flag to mark the presence of a Header object
   _full_text = """mailroom/drone_telemetry telemetry
@@ -24,9 +24,9 @@ uint8 az_angle
 
 ================================================================================
 MSG: mailroom/ATSCsignal
-uint32 channel
-uint32 SS
-uint32 SNQ
+uint32[] channel
+uint32[] SS
+uint32[] SNQ
 """
   __slots__ = ['telemetry','signal','battery']
   _slot_types = ['mailroom/drone_telemetry','mailroom/ATSCsignal[]','uint32']
@@ -76,8 +76,18 @@ uint32 SNQ
       length = len(self.signal)
       buff.write(_struct_I.pack(length))
       for val1 in self.signal:
-        _x = val1
-        buff.write(_get_struct_3I().pack(_x.channel, _x.SS, _x.SNQ))
+        length = len(val1.channel)
+        buff.write(_struct_I.pack(length))
+        pattern = '<%sI'%length
+        buff.write(struct.pack(pattern, *val1.channel))
+        length = len(val1.SS)
+        buff.write(_struct_I.pack(length))
+        pattern = '<%sI'%length
+        buff.write(struct.pack(pattern, *val1.SS))
+        length = len(val1.SNQ)
+        buff.write(_struct_I.pack(length))
+        pattern = '<%sI'%length
+        buff.write(struct.pack(pattern, *val1.SNQ))
       buff.write(_get_struct_I().pack(self.battery))
     except struct.error as se: self._check_types(struct.error("%s: '%s' when writing '%s'" % (type(se), str(se), str(locals().get('_x', self)))))
     except TypeError as te: self._check_types(ValueError("%s: '%s' when writing '%s'" % (type(te), str(te), str(locals().get('_x', self)))))
@@ -103,10 +113,27 @@ uint32 SNQ
       self.signal = []
       for i in range(0, length):
         val1 = mailroom.msg.ATSCsignal()
-        _x = val1
         start = end
-        end += 12
-        (_x.channel, _x.SS, _x.SNQ,) = _get_struct_3I().unpack(str[start:end])
+        end += 4
+        (length,) = _struct_I.unpack(str[start:end])
+        pattern = '<%sI'%length
+        start = end
+        end += struct.calcsize(pattern)
+        val1.channel = struct.unpack(pattern, str[start:end])
+        start = end
+        end += 4
+        (length,) = _struct_I.unpack(str[start:end])
+        pattern = '<%sI'%length
+        start = end
+        end += struct.calcsize(pattern)
+        val1.SS = struct.unpack(pattern, str[start:end])
+        start = end
+        end += 4
+        (length,) = _struct_I.unpack(str[start:end])
+        pattern = '<%sI'%length
+        start = end
+        end += struct.calcsize(pattern)
+        val1.SNQ = struct.unpack(pattern, str[start:end])
         self.signal.append(val1)
       start = end
       end += 4
@@ -128,8 +155,18 @@ uint32 SNQ
       length = len(self.signal)
       buff.write(_struct_I.pack(length))
       for val1 in self.signal:
-        _x = val1
-        buff.write(_get_struct_3I().pack(_x.channel, _x.SS, _x.SNQ))
+        length = len(val1.channel)
+        buff.write(_struct_I.pack(length))
+        pattern = '<%sI'%length
+        buff.write(val1.channel.tostring())
+        length = len(val1.SS)
+        buff.write(_struct_I.pack(length))
+        pattern = '<%sI'%length
+        buff.write(val1.SS.tostring())
+        length = len(val1.SNQ)
+        buff.write(_struct_I.pack(length))
+        pattern = '<%sI'%length
+        buff.write(val1.SNQ.tostring())
       buff.write(_get_struct_I().pack(self.battery))
     except struct.error as se: self._check_types(struct.error("%s: '%s' when writing '%s'" % (type(se), str(se), str(locals().get('_x', self)))))
     except TypeError as te: self._check_types(ValueError("%s: '%s' when writing '%s'" % (type(te), str(te), str(locals().get('_x', self)))))
@@ -156,10 +193,27 @@ uint32 SNQ
       self.signal = []
       for i in range(0, length):
         val1 = mailroom.msg.ATSCsignal()
-        _x = val1
         start = end
-        end += 12
-        (_x.channel, _x.SS, _x.SNQ,) = _get_struct_3I().unpack(str[start:end])
+        end += 4
+        (length,) = _struct_I.unpack(str[start:end])
+        pattern = '<%sI'%length
+        start = end
+        end += struct.calcsize(pattern)
+        val1.channel = numpy.frombuffer(str[start:end], dtype=numpy.uint32, count=length)
+        start = end
+        end += 4
+        (length,) = _struct_I.unpack(str[start:end])
+        pattern = '<%sI'%length
+        start = end
+        end += struct.calcsize(pattern)
+        val1.SS = numpy.frombuffer(str[start:end], dtype=numpy.uint32, count=length)
+        start = end
+        end += 4
+        (length,) = _struct_I.unpack(str[start:end])
+        pattern = '<%sI'%length
+        start = end
+        end += struct.calcsize(pattern)
+        val1.SNQ = numpy.frombuffer(str[start:end], dtype=numpy.uint32, count=length)
         self.signal.append(val1)
       start = end
       end += 4
@@ -178,9 +232,3 @@ def _get_struct_2d2B():
     if _struct_2d2B is None:
         _struct_2d2B = struct.Struct("<2d2B")
     return _struct_2d2B
-_struct_3I = None
-def _get_struct_3I():
-    global _struct_3I
-    if _struct_3I is None:
-        _struct_3I = struct.Struct("<3I")
-    return _struct_3I

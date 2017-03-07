@@ -78,17 +78,6 @@ edit_cache/fast: edit_cache
 
 .PHONY : edit_cache/fast
 
-# Special rule for the target install/strip
-install/strip: preinstall
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Installing the project stripped..."
-	/usr/bin/cmake -DCMAKE_INSTALL_DO_STRIP=1 -P cmake_install.cmake
-.PHONY : install/strip
-
-# Special rule for the target install/strip
-install/strip/fast: install/strip
-
-.PHONY : install/strip/fast
-
 # Special rule for the target rebuild_cache
 rebuild_cache:
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running CMake to regenerate build system..."
@@ -100,15 +89,27 @@ rebuild_cache/fast: rebuild_cache
 
 .PHONY : rebuild_cache/fast
 
-# Special rule for the target list_install_components
-list_install_components:
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Available install components are: \"Unspecified\""
-.PHONY : list_install_components
+# Special rule for the target install/local
+install/local: preinstall
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Installing only the local directory..."
+	/usr/bin/cmake -DCMAKE_INSTALL_LOCAL_ONLY=1 -P cmake_install.cmake
+.PHONY : install/local
 
-# Special rule for the target list_install_components
-list_install_components/fast: list_install_components
+# Special rule for the target install/local
+install/local/fast: install/local
 
-.PHONY : list_install_components/fast
+.PHONY : install/local/fast
+
+# Special rule for the target install/strip
+install/strip: preinstall
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Installing the project stripped..."
+	/usr/bin/cmake -DCMAKE_INSTALL_DO_STRIP=1 -P cmake_install.cmake
+.PHONY : install/strip
+
+# Special rule for the target install/strip
+install/strip/fast: install/strip
+
+.PHONY : install/strip/fast
 
 # Special rule for the target install
 install: preinstall
@@ -122,16 +123,15 @@ install/fast: preinstall/fast
 	/usr/bin/cmake -P cmake_install.cmake
 .PHONY : install/fast
 
-# Special rule for the target install/local
-install/local: preinstall
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Installing only the local directory..."
-	/usr/bin/cmake -DCMAKE_INSTALL_LOCAL_ONLY=1 -P cmake_install.cmake
-.PHONY : install/local
+# Special rule for the target list_install_components
+list_install_components:
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Available install components are: \"Unspecified\""
+.PHONY : list_install_components
 
-# Special rule for the target install/local
-install/local/fast: install/local
+# Special rule for the target list_install_components
+list_install_components/fast: list_install_components
 
-.PHONY : install/local/fast
+.PHONY : list_install_components/fast
 
 # The main all target
 all: cmake_check_build_system
@@ -165,6 +165,582 @@ depend:
 	cd /home/attclinic/software/drone_ws/build && $(CMAKE_COMMAND) -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
 .PHONY : depend
 
+# Convenience name for target.
+tuner/CMakeFiles/tuner_node.dir/rule:
+	cd /home/attclinic/software/drone_ws/build && $(MAKE) -f CMakeFiles/Makefile2 tuner/CMakeFiles/tuner_node.dir/rule
+.PHONY : tuner/CMakeFiles/tuner_node.dir/rule
+
+# Convenience name for target.
+tuner_node: tuner/CMakeFiles/tuner_node.dir/rule
+
+.PHONY : tuner_node
+
+# fast build rule for target.
+tuner_node/fast:
+	cd /home/attclinic/software/drone_ws/build && $(MAKE) -f tuner/CMakeFiles/tuner_node.dir/build.make tuner/CMakeFiles/tuner_node.dir/build
+.PHONY : tuner_node/fast
+
+# Convenience name for target.
+tuner/CMakeFiles/tunerdevice.dir/rule:
+	cd /home/attclinic/software/drone_ws/build && $(MAKE) -f CMakeFiles/Makefile2 tuner/CMakeFiles/tunerdevice.dir/rule
+.PHONY : tuner/CMakeFiles/tunerdevice.dir/rule
+
+# Convenience name for target.
+tunerdevice: tuner/CMakeFiles/tunerdevice.dir/rule
+
+.PHONY : tunerdevice
+
+# fast build rule for target.
+tunerdevice/fast:
+	cd /home/attclinic/software/drone_ws/build && $(MAKE) -f tuner/CMakeFiles/tunerdevice.dir/build.make tuner/CMakeFiles/tunerdevice.dir/build
+.PHONY : tunerdevice/fast
+
+# Convenience name for target.
+tuner/CMakeFiles/hdhomerun.dir/rule:
+	cd /home/attclinic/software/drone_ws/build && $(MAKE) -f CMakeFiles/Makefile2 tuner/CMakeFiles/hdhomerun.dir/rule
+.PHONY : tuner/CMakeFiles/hdhomerun.dir/rule
+
+# Convenience name for target.
+hdhomerun: tuner/CMakeFiles/hdhomerun.dir/rule
+
+.PHONY : hdhomerun
+
+# fast build rule for target.
+hdhomerun/fast:
+	cd /home/attclinic/software/drone_ws/build && $(MAKE) -f tuner/CMakeFiles/hdhomerun.dir/build.make tuner/CMakeFiles/hdhomerun.dir/build
+.PHONY : hdhomerun/fast
+
+# Convenience name for target.
+tuner/CMakeFiles/tuner_genpy.dir/rule:
+	cd /home/attclinic/software/drone_ws/build && $(MAKE) -f CMakeFiles/Makefile2 tuner/CMakeFiles/tuner_genpy.dir/rule
+.PHONY : tuner/CMakeFiles/tuner_genpy.dir/rule
+
+# Convenience name for target.
+tuner_genpy: tuner/CMakeFiles/tuner_genpy.dir/rule
+
+.PHONY : tuner_genpy
+
+# fast build rule for target.
+tuner_genpy/fast:
+	cd /home/attclinic/software/drone_ws/build && $(MAKE) -f tuner/CMakeFiles/tuner_genpy.dir/build.make tuner/CMakeFiles/tuner_genpy.dir/build
+.PHONY : tuner_genpy/fast
+
+# Convenience name for target.
+tuner/CMakeFiles/tuner_generate_messages_py.dir/rule:
+	cd /home/attclinic/software/drone_ws/build && $(MAKE) -f CMakeFiles/Makefile2 tuner/CMakeFiles/tuner_generate_messages_py.dir/rule
+.PHONY : tuner/CMakeFiles/tuner_generate_messages_py.dir/rule
+
+# Convenience name for target.
+tuner_generate_messages_py: tuner/CMakeFiles/tuner_generate_messages_py.dir/rule
+
+.PHONY : tuner_generate_messages_py
+
+# fast build rule for target.
+tuner_generate_messages_py/fast:
+	cd /home/attclinic/software/drone_ws/build && $(MAKE) -f tuner/CMakeFiles/tuner_generate_messages_py.dir/build.make tuner/CMakeFiles/tuner_generate_messages_py.dir/build
+.PHONY : tuner_generate_messages_py/fast
+
+# Convenience name for target.
+tuner/CMakeFiles/tuner_gennodejs.dir/rule:
+	cd /home/attclinic/software/drone_ws/build && $(MAKE) -f CMakeFiles/Makefile2 tuner/CMakeFiles/tuner_gennodejs.dir/rule
+.PHONY : tuner/CMakeFiles/tuner_gennodejs.dir/rule
+
+# Convenience name for target.
+tuner_gennodejs: tuner/CMakeFiles/tuner_gennodejs.dir/rule
+
+.PHONY : tuner_gennodejs
+
+# fast build rule for target.
+tuner_gennodejs/fast:
+	cd /home/attclinic/software/drone_ws/build && $(MAKE) -f tuner/CMakeFiles/tuner_gennodejs.dir/build.make tuner/CMakeFiles/tuner_gennodejs.dir/build
+.PHONY : tuner_gennodejs/fast
+
+# Convenience name for target.
+tuner/CMakeFiles/_tuner_generate_messages_check_deps_GetSignalStatus.dir/rule:
+	cd /home/attclinic/software/drone_ws/build && $(MAKE) -f CMakeFiles/Makefile2 tuner/CMakeFiles/_tuner_generate_messages_check_deps_GetSignalStatus.dir/rule
+.PHONY : tuner/CMakeFiles/_tuner_generate_messages_check_deps_GetSignalStatus.dir/rule
+
+# Convenience name for target.
+_tuner_generate_messages_check_deps_GetSignalStatus: tuner/CMakeFiles/_tuner_generate_messages_check_deps_GetSignalStatus.dir/rule
+
+.PHONY : _tuner_generate_messages_check_deps_GetSignalStatus
+
+# fast build rule for target.
+_tuner_generate_messages_check_deps_GetSignalStatus/fast:
+	cd /home/attclinic/software/drone_ws/build && $(MAKE) -f tuner/CMakeFiles/_tuner_generate_messages_check_deps_GetSignalStatus.dir/build.make tuner/CMakeFiles/_tuner_generate_messages_check_deps_GetSignalStatus.dir/build
+.PHONY : _tuner_generate_messages_check_deps_GetSignalStatus/fast
+
+# Convenience name for target.
+tuner/CMakeFiles/tuner_generate_messages_cpp.dir/rule:
+	cd /home/attclinic/software/drone_ws/build && $(MAKE) -f CMakeFiles/Makefile2 tuner/CMakeFiles/tuner_generate_messages_cpp.dir/rule
+.PHONY : tuner/CMakeFiles/tuner_generate_messages_cpp.dir/rule
+
+# Convenience name for target.
+tuner_generate_messages_cpp: tuner/CMakeFiles/tuner_generate_messages_cpp.dir/rule
+
+.PHONY : tuner_generate_messages_cpp
+
+# fast build rule for target.
+tuner_generate_messages_cpp/fast:
+	cd /home/attclinic/software/drone_ws/build && $(MAKE) -f tuner/CMakeFiles/tuner_generate_messages_cpp.dir/build.make tuner/CMakeFiles/tuner_generate_messages_cpp.dir/build
+.PHONY : tuner_generate_messages_cpp/fast
+
+# Convenience name for target.
+tuner/CMakeFiles/tuner_gencpp.dir/rule:
+	cd /home/attclinic/software/drone_ws/build && $(MAKE) -f CMakeFiles/Makefile2 tuner/CMakeFiles/tuner_gencpp.dir/rule
+.PHONY : tuner/CMakeFiles/tuner_gencpp.dir/rule
+
+# Convenience name for target.
+tuner_gencpp: tuner/CMakeFiles/tuner_gencpp.dir/rule
+
+.PHONY : tuner_gencpp
+
+# fast build rule for target.
+tuner_gencpp/fast:
+	cd /home/attclinic/software/drone_ws/build && $(MAKE) -f tuner/CMakeFiles/tuner_gencpp.dir/build.make tuner/CMakeFiles/tuner_gencpp.dir/build
+.PHONY : tuner_gencpp/fast
+
+# Convenience name for target.
+tuner/CMakeFiles/tuner_geneus.dir/rule:
+	cd /home/attclinic/software/drone_ws/build && $(MAKE) -f CMakeFiles/Makefile2 tuner/CMakeFiles/tuner_geneus.dir/rule
+.PHONY : tuner/CMakeFiles/tuner_geneus.dir/rule
+
+# Convenience name for target.
+tuner_geneus: tuner/CMakeFiles/tuner_geneus.dir/rule
+
+.PHONY : tuner_geneus
+
+# fast build rule for target.
+tuner_geneus/fast:
+	cd /home/attclinic/software/drone_ws/build && $(MAKE) -f tuner/CMakeFiles/tuner_geneus.dir/build.make tuner/CMakeFiles/tuner_geneus.dir/build
+.PHONY : tuner_geneus/fast
+
+# Convenience name for target.
+tuner/CMakeFiles/tuner_generate_messages_nodejs.dir/rule:
+	cd /home/attclinic/software/drone_ws/build && $(MAKE) -f CMakeFiles/Makefile2 tuner/CMakeFiles/tuner_generate_messages_nodejs.dir/rule
+.PHONY : tuner/CMakeFiles/tuner_generate_messages_nodejs.dir/rule
+
+# Convenience name for target.
+tuner_generate_messages_nodejs: tuner/CMakeFiles/tuner_generate_messages_nodejs.dir/rule
+
+.PHONY : tuner_generate_messages_nodejs
+
+# fast build rule for target.
+tuner_generate_messages_nodejs/fast:
+	cd /home/attclinic/software/drone_ws/build && $(MAKE) -f tuner/CMakeFiles/tuner_generate_messages_nodejs.dir/build.make tuner/CMakeFiles/tuner_generate_messages_nodejs.dir/build
+.PHONY : tuner_generate_messages_nodejs/fast
+
+# Convenience name for target.
+tuner/CMakeFiles/tuner_generate_messages_lisp.dir/rule:
+	cd /home/attclinic/software/drone_ws/build && $(MAKE) -f CMakeFiles/Makefile2 tuner/CMakeFiles/tuner_generate_messages_lisp.dir/rule
+.PHONY : tuner/CMakeFiles/tuner_generate_messages_lisp.dir/rule
+
+# Convenience name for target.
+tuner_generate_messages_lisp: tuner/CMakeFiles/tuner_generate_messages_lisp.dir/rule
+
+.PHONY : tuner_generate_messages_lisp
+
+# fast build rule for target.
+tuner_generate_messages_lisp/fast:
+	cd /home/attclinic/software/drone_ws/build && $(MAKE) -f tuner/CMakeFiles/tuner_generate_messages_lisp.dir/build.make tuner/CMakeFiles/tuner_generate_messages_lisp.dir/build
+.PHONY : tuner_generate_messages_lisp/fast
+
+# Convenience name for target.
+tuner/CMakeFiles/tuner_generate_messages.dir/rule:
+	cd /home/attclinic/software/drone_ws/build && $(MAKE) -f CMakeFiles/Makefile2 tuner/CMakeFiles/tuner_generate_messages.dir/rule
+.PHONY : tuner/CMakeFiles/tuner_generate_messages.dir/rule
+
+# Convenience name for target.
+tuner_generate_messages: tuner/CMakeFiles/tuner_generate_messages.dir/rule
+
+.PHONY : tuner_generate_messages
+
+# fast build rule for target.
+tuner_generate_messages/fast:
+	cd /home/attclinic/software/drone_ws/build && $(MAKE) -f tuner/CMakeFiles/tuner_generate_messages.dir/build.make tuner/CMakeFiles/tuner_generate_messages.dir/build
+.PHONY : tuner_generate_messages/fast
+
+# Convenience name for target.
+tuner/CMakeFiles/tuner_generate_messages_eus.dir/rule:
+	cd /home/attclinic/software/drone_ws/build && $(MAKE) -f CMakeFiles/Makefile2 tuner/CMakeFiles/tuner_generate_messages_eus.dir/rule
+.PHONY : tuner/CMakeFiles/tuner_generate_messages_eus.dir/rule
+
+# Convenience name for target.
+tuner_generate_messages_eus: tuner/CMakeFiles/tuner_generate_messages_eus.dir/rule
+
+.PHONY : tuner_generate_messages_eus
+
+# fast build rule for target.
+tuner_generate_messages_eus/fast:
+	cd /home/attclinic/software/drone_ws/build && $(MAKE) -f tuner/CMakeFiles/tuner_generate_messages_eus.dir/build.make tuner/CMakeFiles/tuner_generate_messages_eus.dir/build
+.PHONY : tuner_generate_messages_eus/fast
+
+# Convenience name for target.
+tuner/CMakeFiles/tuner_genlisp.dir/rule:
+	cd /home/attclinic/software/drone_ws/build && $(MAKE) -f CMakeFiles/Makefile2 tuner/CMakeFiles/tuner_genlisp.dir/rule
+.PHONY : tuner/CMakeFiles/tuner_genlisp.dir/rule
+
+# Convenience name for target.
+tuner_genlisp: tuner/CMakeFiles/tuner_genlisp.dir/rule
+
+.PHONY : tuner_genlisp
+
+# fast build rule for target.
+tuner_genlisp/fast:
+	cd /home/attclinic/software/drone_ws/build && $(MAKE) -f tuner/CMakeFiles/tuner_genlisp.dir/build.make tuner/CMakeFiles/tuner_genlisp.dir/build
+.PHONY : tuner_genlisp/fast
+
+src/TunerDevice.o: src/TunerDevice.cpp.o
+
+.PHONY : src/TunerDevice.o
+
+# target to build an object file
+src/TunerDevice.cpp.o:
+	cd /home/attclinic/software/drone_ws/build && $(MAKE) -f tuner/CMakeFiles/tunerdevice.dir/build.make tuner/CMakeFiles/tunerdevice.dir/src/TunerDevice.cpp.o
+.PHONY : src/TunerDevice.cpp.o
+
+src/TunerDevice.i: src/TunerDevice.cpp.i
+
+.PHONY : src/TunerDevice.i
+
+# target to preprocess a source file
+src/TunerDevice.cpp.i:
+	cd /home/attclinic/software/drone_ws/build && $(MAKE) -f tuner/CMakeFiles/tunerdevice.dir/build.make tuner/CMakeFiles/tunerdevice.dir/src/TunerDevice.cpp.i
+.PHONY : src/TunerDevice.cpp.i
+
+src/TunerDevice.s: src/TunerDevice.cpp.s
+
+.PHONY : src/TunerDevice.s
+
+# target to generate assembly for a file
+src/TunerDevice.cpp.s:
+	cd /home/attclinic/software/drone_ws/build && $(MAKE) -f tuner/CMakeFiles/tunerdevice.dir/build.make tuner/CMakeFiles/tunerdevice.dir/src/TunerDevice.cpp.s
+.PHONY : src/TunerDevice.cpp.s
+
+src/libhdhomerun/hdhomerun_channels.o: src/libhdhomerun/hdhomerun_channels.c.o
+
+.PHONY : src/libhdhomerun/hdhomerun_channels.o
+
+# target to build an object file
+src/libhdhomerun/hdhomerun_channels.c.o:
+	cd /home/attclinic/software/drone_ws/build && $(MAKE) -f tuner/CMakeFiles/hdhomerun.dir/build.make tuner/CMakeFiles/hdhomerun.dir/src/libhdhomerun/hdhomerun_channels.c.o
+.PHONY : src/libhdhomerun/hdhomerun_channels.c.o
+
+src/libhdhomerun/hdhomerun_channels.i: src/libhdhomerun/hdhomerun_channels.c.i
+
+.PHONY : src/libhdhomerun/hdhomerun_channels.i
+
+# target to preprocess a source file
+src/libhdhomerun/hdhomerun_channels.c.i:
+	cd /home/attclinic/software/drone_ws/build && $(MAKE) -f tuner/CMakeFiles/hdhomerun.dir/build.make tuner/CMakeFiles/hdhomerun.dir/src/libhdhomerun/hdhomerun_channels.c.i
+.PHONY : src/libhdhomerun/hdhomerun_channels.c.i
+
+src/libhdhomerun/hdhomerun_channels.s: src/libhdhomerun/hdhomerun_channels.c.s
+
+.PHONY : src/libhdhomerun/hdhomerun_channels.s
+
+# target to generate assembly for a file
+src/libhdhomerun/hdhomerun_channels.c.s:
+	cd /home/attclinic/software/drone_ws/build && $(MAKE) -f tuner/CMakeFiles/hdhomerun.dir/build.make tuner/CMakeFiles/hdhomerun.dir/src/libhdhomerun/hdhomerun_channels.c.s
+.PHONY : src/libhdhomerun/hdhomerun_channels.c.s
+
+src/libhdhomerun/hdhomerun_channelscan.o: src/libhdhomerun/hdhomerun_channelscan.c.o
+
+.PHONY : src/libhdhomerun/hdhomerun_channelscan.o
+
+# target to build an object file
+src/libhdhomerun/hdhomerun_channelscan.c.o:
+	cd /home/attclinic/software/drone_ws/build && $(MAKE) -f tuner/CMakeFiles/hdhomerun.dir/build.make tuner/CMakeFiles/hdhomerun.dir/src/libhdhomerun/hdhomerun_channelscan.c.o
+.PHONY : src/libhdhomerun/hdhomerun_channelscan.c.o
+
+src/libhdhomerun/hdhomerun_channelscan.i: src/libhdhomerun/hdhomerun_channelscan.c.i
+
+.PHONY : src/libhdhomerun/hdhomerun_channelscan.i
+
+# target to preprocess a source file
+src/libhdhomerun/hdhomerun_channelscan.c.i:
+	cd /home/attclinic/software/drone_ws/build && $(MAKE) -f tuner/CMakeFiles/hdhomerun.dir/build.make tuner/CMakeFiles/hdhomerun.dir/src/libhdhomerun/hdhomerun_channelscan.c.i
+.PHONY : src/libhdhomerun/hdhomerun_channelscan.c.i
+
+src/libhdhomerun/hdhomerun_channelscan.s: src/libhdhomerun/hdhomerun_channelscan.c.s
+
+.PHONY : src/libhdhomerun/hdhomerun_channelscan.s
+
+# target to generate assembly for a file
+src/libhdhomerun/hdhomerun_channelscan.c.s:
+	cd /home/attclinic/software/drone_ws/build && $(MAKE) -f tuner/CMakeFiles/hdhomerun.dir/build.make tuner/CMakeFiles/hdhomerun.dir/src/libhdhomerun/hdhomerun_channelscan.c.s
+.PHONY : src/libhdhomerun/hdhomerun_channelscan.c.s
+
+src/libhdhomerun/hdhomerun_control.o: src/libhdhomerun/hdhomerun_control.c.o
+
+.PHONY : src/libhdhomerun/hdhomerun_control.o
+
+# target to build an object file
+src/libhdhomerun/hdhomerun_control.c.o:
+	cd /home/attclinic/software/drone_ws/build && $(MAKE) -f tuner/CMakeFiles/hdhomerun.dir/build.make tuner/CMakeFiles/hdhomerun.dir/src/libhdhomerun/hdhomerun_control.c.o
+.PHONY : src/libhdhomerun/hdhomerun_control.c.o
+
+src/libhdhomerun/hdhomerun_control.i: src/libhdhomerun/hdhomerun_control.c.i
+
+.PHONY : src/libhdhomerun/hdhomerun_control.i
+
+# target to preprocess a source file
+src/libhdhomerun/hdhomerun_control.c.i:
+	cd /home/attclinic/software/drone_ws/build && $(MAKE) -f tuner/CMakeFiles/hdhomerun.dir/build.make tuner/CMakeFiles/hdhomerun.dir/src/libhdhomerun/hdhomerun_control.c.i
+.PHONY : src/libhdhomerun/hdhomerun_control.c.i
+
+src/libhdhomerun/hdhomerun_control.s: src/libhdhomerun/hdhomerun_control.c.s
+
+.PHONY : src/libhdhomerun/hdhomerun_control.s
+
+# target to generate assembly for a file
+src/libhdhomerun/hdhomerun_control.c.s:
+	cd /home/attclinic/software/drone_ws/build && $(MAKE) -f tuner/CMakeFiles/hdhomerun.dir/build.make tuner/CMakeFiles/hdhomerun.dir/src/libhdhomerun/hdhomerun_control.c.s
+.PHONY : src/libhdhomerun/hdhomerun_control.c.s
+
+src/libhdhomerun/hdhomerun_debug.o: src/libhdhomerun/hdhomerun_debug.c.o
+
+.PHONY : src/libhdhomerun/hdhomerun_debug.o
+
+# target to build an object file
+src/libhdhomerun/hdhomerun_debug.c.o:
+	cd /home/attclinic/software/drone_ws/build && $(MAKE) -f tuner/CMakeFiles/hdhomerun.dir/build.make tuner/CMakeFiles/hdhomerun.dir/src/libhdhomerun/hdhomerun_debug.c.o
+.PHONY : src/libhdhomerun/hdhomerun_debug.c.o
+
+src/libhdhomerun/hdhomerun_debug.i: src/libhdhomerun/hdhomerun_debug.c.i
+
+.PHONY : src/libhdhomerun/hdhomerun_debug.i
+
+# target to preprocess a source file
+src/libhdhomerun/hdhomerun_debug.c.i:
+	cd /home/attclinic/software/drone_ws/build && $(MAKE) -f tuner/CMakeFiles/hdhomerun.dir/build.make tuner/CMakeFiles/hdhomerun.dir/src/libhdhomerun/hdhomerun_debug.c.i
+.PHONY : src/libhdhomerun/hdhomerun_debug.c.i
+
+src/libhdhomerun/hdhomerun_debug.s: src/libhdhomerun/hdhomerun_debug.c.s
+
+.PHONY : src/libhdhomerun/hdhomerun_debug.s
+
+# target to generate assembly for a file
+src/libhdhomerun/hdhomerun_debug.c.s:
+	cd /home/attclinic/software/drone_ws/build && $(MAKE) -f tuner/CMakeFiles/hdhomerun.dir/build.make tuner/CMakeFiles/hdhomerun.dir/src/libhdhomerun/hdhomerun_debug.c.s
+.PHONY : src/libhdhomerun/hdhomerun_debug.c.s
+
+src/libhdhomerun/hdhomerun_device.o: src/libhdhomerun/hdhomerun_device.c.o
+
+.PHONY : src/libhdhomerun/hdhomerun_device.o
+
+# target to build an object file
+src/libhdhomerun/hdhomerun_device.c.o:
+	cd /home/attclinic/software/drone_ws/build && $(MAKE) -f tuner/CMakeFiles/hdhomerun.dir/build.make tuner/CMakeFiles/hdhomerun.dir/src/libhdhomerun/hdhomerun_device.c.o
+.PHONY : src/libhdhomerun/hdhomerun_device.c.o
+
+src/libhdhomerun/hdhomerun_device.i: src/libhdhomerun/hdhomerun_device.c.i
+
+.PHONY : src/libhdhomerun/hdhomerun_device.i
+
+# target to preprocess a source file
+src/libhdhomerun/hdhomerun_device.c.i:
+	cd /home/attclinic/software/drone_ws/build && $(MAKE) -f tuner/CMakeFiles/hdhomerun.dir/build.make tuner/CMakeFiles/hdhomerun.dir/src/libhdhomerun/hdhomerun_device.c.i
+.PHONY : src/libhdhomerun/hdhomerun_device.c.i
+
+src/libhdhomerun/hdhomerun_device.s: src/libhdhomerun/hdhomerun_device.c.s
+
+.PHONY : src/libhdhomerun/hdhomerun_device.s
+
+# target to generate assembly for a file
+src/libhdhomerun/hdhomerun_device.c.s:
+	cd /home/attclinic/software/drone_ws/build && $(MAKE) -f tuner/CMakeFiles/hdhomerun.dir/build.make tuner/CMakeFiles/hdhomerun.dir/src/libhdhomerun/hdhomerun_device.c.s
+.PHONY : src/libhdhomerun/hdhomerun_device.c.s
+
+src/libhdhomerun/hdhomerun_device_selector.o: src/libhdhomerun/hdhomerun_device_selector.c.o
+
+.PHONY : src/libhdhomerun/hdhomerun_device_selector.o
+
+# target to build an object file
+src/libhdhomerun/hdhomerun_device_selector.c.o:
+	cd /home/attclinic/software/drone_ws/build && $(MAKE) -f tuner/CMakeFiles/hdhomerun.dir/build.make tuner/CMakeFiles/hdhomerun.dir/src/libhdhomerun/hdhomerun_device_selector.c.o
+.PHONY : src/libhdhomerun/hdhomerun_device_selector.c.o
+
+src/libhdhomerun/hdhomerun_device_selector.i: src/libhdhomerun/hdhomerun_device_selector.c.i
+
+.PHONY : src/libhdhomerun/hdhomerun_device_selector.i
+
+# target to preprocess a source file
+src/libhdhomerun/hdhomerun_device_selector.c.i:
+	cd /home/attclinic/software/drone_ws/build && $(MAKE) -f tuner/CMakeFiles/hdhomerun.dir/build.make tuner/CMakeFiles/hdhomerun.dir/src/libhdhomerun/hdhomerun_device_selector.c.i
+.PHONY : src/libhdhomerun/hdhomerun_device_selector.c.i
+
+src/libhdhomerun/hdhomerun_device_selector.s: src/libhdhomerun/hdhomerun_device_selector.c.s
+
+.PHONY : src/libhdhomerun/hdhomerun_device_selector.s
+
+# target to generate assembly for a file
+src/libhdhomerun/hdhomerun_device_selector.c.s:
+	cd /home/attclinic/software/drone_ws/build && $(MAKE) -f tuner/CMakeFiles/hdhomerun.dir/build.make tuner/CMakeFiles/hdhomerun.dir/src/libhdhomerun/hdhomerun_device_selector.c.s
+.PHONY : src/libhdhomerun/hdhomerun_device_selector.c.s
+
+src/libhdhomerun/hdhomerun_discover.o: src/libhdhomerun/hdhomerun_discover.c.o
+
+.PHONY : src/libhdhomerun/hdhomerun_discover.o
+
+# target to build an object file
+src/libhdhomerun/hdhomerun_discover.c.o:
+	cd /home/attclinic/software/drone_ws/build && $(MAKE) -f tuner/CMakeFiles/hdhomerun.dir/build.make tuner/CMakeFiles/hdhomerun.dir/src/libhdhomerun/hdhomerun_discover.c.o
+.PHONY : src/libhdhomerun/hdhomerun_discover.c.o
+
+src/libhdhomerun/hdhomerun_discover.i: src/libhdhomerun/hdhomerun_discover.c.i
+
+.PHONY : src/libhdhomerun/hdhomerun_discover.i
+
+# target to preprocess a source file
+src/libhdhomerun/hdhomerun_discover.c.i:
+	cd /home/attclinic/software/drone_ws/build && $(MAKE) -f tuner/CMakeFiles/hdhomerun.dir/build.make tuner/CMakeFiles/hdhomerun.dir/src/libhdhomerun/hdhomerun_discover.c.i
+.PHONY : src/libhdhomerun/hdhomerun_discover.c.i
+
+src/libhdhomerun/hdhomerun_discover.s: src/libhdhomerun/hdhomerun_discover.c.s
+
+.PHONY : src/libhdhomerun/hdhomerun_discover.s
+
+# target to generate assembly for a file
+src/libhdhomerun/hdhomerun_discover.c.s:
+	cd /home/attclinic/software/drone_ws/build && $(MAKE) -f tuner/CMakeFiles/hdhomerun.dir/build.make tuner/CMakeFiles/hdhomerun.dir/src/libhdhomerun/hdhomerun_discover.c.s
+.PHONY : src/libhdhomerun/hdhomerun_discover.c.s
+
+src/libhdhomerun/hdhomerun_os_posix.o: src/libhdhomerun/hdhomerun_os_posix.c.o
+
+.PHONY : src/libhdhomerun/hdhomerun_os_posix.o
+
+# target to build an object file
+src/libhdhomerun/hdhomerun_os_posix.c.o:
+	cd /home/attclinic/software/drone_ws/build && $(MAKE) -f tuner/CMakeFiles/hdhomerun.dir/build.make tuner/CMakeFiles/hdhomerun.dir/src/libhdhomerun/hdhomerun_os_posix.c.o
+.PHONY : src/libhdhomerun/hdhomerun_os_posix.c.o
+
+src/libhdhomerun/hdhomerun_os_posix.i: src/libhdhomerun/hdhomerun_os_posix.c.i
+
+.PHONY : src/libhdhomerun/hdhomerun_os_posix.i
+
+# target to preprocess a source file
+src/libhdhomerun/hdhomerun_os_posix.c.i:
+	cd /home/attclinic/software/drone_ws/build && $(MAKE) -f tuner/CMakeFiles/hdhomerun.dir/build.make tuner/CMakeFiles/hdhomerun.dir/src/libhdhomerun/hdhomerun_os_posix.c.i
+.PHONY : src/libhdhomerun/hdhomerun_os_posix.c.i
+
+src/libhdhomerun/hdhomerun_os_posix.s: src/libhdhomerun/hdhomerun_os_posix.c.s
+
+.PHONY : src/libhdhomerun/hdhomerun_os_posix.s
+
+# target to generate assembly for a file
+src/libhdhomerun/hdhomerun_os_posix.c.s:
+	cd /home/attclinic/software/drone_ws/build && $(MAKE) -f tuner/CMakeFiles/hdhomerun.dir/build.make tuner/CMakeFiles/hdhomerun.dir/src/libhdhomerun/hdhomerun_os_posix.c.s
+.PHONY : src/libhdhomerun/hdhomerun_os_posix.c.s
+
+src/libhdhomerun/hdhomerun_pkt.o: src/libhdhomerun/hdhomerun_pkt.c.o
+
+.PHONY : src/libhdhomerun/hdhomerun_pkt.o
+
+# target to build an object file
+src/libhdhomerun/hdhomerun_pkt.c.o:
+	cd /home/attclinic/software/drone_ws/build && $(MAKE) -f tuner/CMakeFiles/hdhomerun.dir/build.make tuner/CMakeFiles/hdhomerun.dir/src/libhdhomerun/hdhomerun_pkt.c.o
+.PHONY : src/libhdhomerun/hdhomerun_pkt.c.o
+
+src/libhdhomerun/hdhomerun_pkt.i: src/libhdhomerun/hdhomerun_pkt.c.i
+
+.PHONY : src/libhdhomerun/hdhomerun_pkt.i
+
+# target to preprocess a source file
+src/libhdhomerun/hdhomerun_pkt.c.i:
+	cd /home/attclinic/software/drone_ws/build && $(MAKE) -f tuner/CMakeFiles/hdhomerun.dir/build.make tuner/CMakeFiles/hdhomerun.dir/src/libhdhomerun/hdhomerun_pkt.c.i
+.PHONY : src/libhdhomerun/hdhomerun_pkt.c.i
+
+src/libhdhomerun/hdhomerun_pkt.s: src/libhdhomerun/hdhomerun_pkt.c.s
+
+.PHONY : src/libhdhomerun/hdhomerun_pkt.s
+
+# target to generate assembly for a file
+src/libhdhomerun/hdhomerun_pkt.c.s:
+	cd /home/attclinic/software/drone_ws/build && $(MAKE) -f tuner/CMakeFiles/hdhomerun.dir/build.make tuner/CMakeFiles/hdhomerun.dir/src/libhdhomerun/hdhomerun_pkt.c.s
+.PHONY : src/libhdhomerun/hdhomerun_pkt.c.s
+
+src/libhdhomerun/hdhomerun_sock_posix.o: src/libhdhomerun/hdhomerun_sock_posix.c.o
+
+.PHONY : src/libhdhomerun/hdhomerun_sock_posix.o
+
+# target to build an object file
+src/libhdhomerun/hdhomerun_sock_posix.c.o:
+	cd /home/attclinic/software/drone_ws/build && $(MAKE) -f tuner/CMakeFiles/hdhomerun.dir/build.make tuner/CMakeFiles/hdhomerun.dir/src/libhdhomerun/hdhomerun_sock_posix.c.o
+.PHONY : src/libhdhomerun/hdhomerun_sock_posix.c.o
+
+src/libhdhomerun/hdhomerun_sock_posix.i: src/libhdhomerun/hdhomerun_sock_posix.c.i
+
+.PHONY : src/libhdhomerun/hdhomerun_sock_posix.i
+
+# target to preprocess a source file
+src/libhdhomerun/hdhomerun_sock_posix.c.i:
+	cd /home/attclinic/software/drone_ws/build && $(MAKE) -f tuner/CMakeFiles/hdhomerun.dir/build.make tuner/CMakeFiles/hdhomerun.dir/src/libhdhomerun/hdhomerun_sock_posix.c.i
+.PHONY : src/libhdhomerun/hdhomerun_sock_posix.c.i
+
+src/libhdhomerun/hdhomerun_sock_posix.s: src/libhdhomerun/hdhomerun_sock_posix.c.s
+
+.PHONY : src/libhdhomerun/hdhomerun_sock_posix.s
+
+# target to generate assembly for a file
+src/libhdhomerun/hdhomerun_sock_posix.c.s:
+	cd /home/attclinic/software/drone_ws/build && $(MAKE) -f tuner/CMakeFiles/hdhomerun.dir/build.make tuner/CMakeFiles/hdhomerun.dir/src/libhdhomerun/hdhomerun_sock_posix.c.s
+.PHONY : src/libhdhomerun/hdhomerun_sock_posix.c.s
+
+src/libhdhomerun/hdhomerun_video.o: src/libhdhomerun/hdhomerun_video.c.o
+
+.PHONY : src/libhdhomerun/hdhomerun_video.o
+
+# target to build an object file
+src/libhdhomerun/hdhomerun_video.c.o:
+	cd /home/attclinic/software/drone_ws/build && $(MAKE) -f tuner/CMakeFiles/hdhomerun.dir/build.make tuner/CMakeFiles/hdhomerun.dir/src/libhdhomerun/hdhomerun_video.c.o
+.PHONY : src/libhdhomerun/hdhomerun_video.c.o
+
+src/libhdhomerun/hdhomerun_video.i: src/libhdhomerun/hdhomerun_video.c.i
+
+.PHONY : src/libhdhomerun/hdhomerun_video.i
+
+# target to preprocess a source file
+src/libhdhomerun/hdhomerun_video.c.i:
+	cd /home/attclinic/software/drone_ws/build && $(MAKE) -f tuner/CMakeFiles/hdhomerun.dir/build.make tuner/CMakeFiles/hdhomerun.dir/src/libhdhomerun/hdhomerun_video.c.i
+.PHONY : src/libhdhomerun/hdhomerun_video.c.i
+
+src/libhdhomerun/hdhomerun_video.s: src/libhdhomerun/hdhomerun_video.c.s
+
+.PHONY : src/libhdhomerun/hdhomerun_video.s
+
+# target to generate assembly for a file
+src/libhdhomerun/hdhomerun_video.c.s:
+	cd /home/attclinic/software/drone_ws/build && $(MAKE) -f tuner/CMakeFiles/hdhomerun.dir/build.make tuner/CMakeFiles/hdhomerun.dir/src/libhdhomerun/hdhomerun_video.c.s
+.PHONY : src/libhdhomerun/hdhomerun_video.c.s
+
+src/tuner.o: src/tuner.cpp.o
+
+.PHONY : src/tuner.o
+
+# target to build an object file
+src/tuner.cpp.o:
+	cd /home/attclinic/software/drone_ws/build && $(MAKE) -f tuner/CMakeFiles/tuner_node.dir/build.make tuner/CMakeFiles/tuner_node.dir/src/tuner.cpp.o
+.PHONY : src/tuner.cpp.o
+
+src/tuner.i: src/tuner.cpp.i
+
+.PHONY : src/tuner.i
+
+# target to preprocess a source file
+src/tuner.cpp.i:
+	cd /home/attclinic/software/drone_ws/build && $(MAKE) -f tuner/CMakeFiles/tuner_node.dir/build.make tuner/CMakeFiles/tuner_node.dir/src/tuner.cpp.i
+.PHONY : src/tuner.cpp.i
+
+src/tuner.s: src/tuner.cpp.s
+
+.PHONY : src/tuner.s
+
+# target to generate assembly for a file
+src/tuner.cpp.s:
+	cd /home/attclinic/software/drone_ws/build && $(MAKE) -f tuner/CMakeFiles/tuner_node.dir/build.make tuner/CMakeFiles/tuner_node.dir/src/tuner.cpp.s
+.PHONY : src/tuner.cpp.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -173,11 +749,65 @@ help:
 	@echo "... depend"
 	@echo "... test"
 	@echo "... edit_cache"
-	@echo "... install/strip"
 	@echo "... rebuild_cache"
-	@echo "... list_install_components"
-	@echo "... install"
 	@echo "... install/local"
+	@echo "... tuner_node"
+	@echo "... install/strip"
+	@echo "... install"
+	@echo "... tunerdevice"
+	@echo "... hdhomerun"
+	@echo "... tuner_genpy"
+	@echo "... tuner_generate_messages_py"
+	@echo "... tuner_gennodejs"
+	@echo "... _tuner_generate_messages_check_deps_GetSignalStatus"
+	@echo "... tuner_generate_messages_cpp"
+	@echo "... tuner_gencpp"
+	@echo "... tuner_geneus"
+	@echo "... list_install_components"
+	@echo "... tuner_generate_messages_nodejs"
+	@echo "... tuner_generate_messages_lisp"
+	@echo "... tuner_generate_messages"
+	@echo "... tuner_generate_messages_eus"
+	@echo "... tuner_genlisp"
+	@echo "... src/TunerDevice.o"
+	@echo "... src/TunerDevice.i"
+	@echo "... src/TunerDevice.s"
+	@echo "... src/libhdhomerun/hdhomerun_channels.o"
+	@echo "... src/libhdhomerun/hdhomerun_channels.i"
+	@echo "... src/libhdhomerun/hdhomerun_channels.s"
+	@echo "... src/libhdhomerun/hdhomerun_channelscan.o"
+	@echo "... src/libhdhomerun/hdhomerun_channelscan.i"
+	@echo "... src/libhdhomerun/hdhomerun_channelscan.s"
+	@echo "... src/libhdhomerun/hdhomerun_control.o"
+	@echo "... src/libhdhomerun/hdhomerun_control.i"
+	@echo "... src/libhdhomerun/hdhomerun_control.s"
+	@echo "... src/libhdhomerun/hdhomerun_debug.o"
+	@echo "... src/libhdhomerun/hdhomerun_debug.i"
+	@echo "... src/libhdhomerun/hdhomerun_debug.s"
+	@echo "... src/libhdhomerun/hdhomerun_device.o"
+	@echo "... src/libhdhomerun/hdhomerun_device.i"
+	@echo "... src/libhdhomerun/hdhomerun_device.s"
+	@echo "... src/libhdhomerun/hdhomerun_device_selector.o"
+	@echo "... src/libhdhomerun/hdhomerun_device_selector.i"
+	@echo "... src/libhdhomerun/hdhomerun_device_selector.s"
+	@echo "... src/libhdhomerun/hdhomerun_discover.o"
+	@echo "... src/libhdhomerun/hdhomerun_discover.i"
+	@echo "... src/libhdhomerun/hdhomerun_discover.s"
+	@echo "... src/libhdhomerun/hdhomerun_os_posix.o"
+	@echo "... src/libhdhomerun/hdhomerun_os_posix.i"
+	@echo "... src/libhdhomerun/hdhomerun_os_posix.s"
+	@echo "... src/libhdhomerun/hdhomerun_pkt.o"
+	@echo "... src/libhdhomerun/hdhomerun_pkt.i"
+	@echo "... src/libhdhomerun/hdhomerun_pkt.s"
+	@echo "... src/libhdhomerun/hdhomerun_sock_posix.o"
+	@echo "... src/libhdhomerun/hdhomerun_sock_posix.i"
+	@echo "... src/libhdhomerun/hdhomerun_sock_posix.s"
+	@echo "... src/libhdhomerun/hdhomerun_video.o"
+	@echo "... src/libhdhomerun/hdhomerun_video.i"
+	@echo "... src/libhdhomerun/hdhomerun_video.s"
+	@echo "... src/tuner.o"
+	@echo "... src/tuner.i"
+	@echo "... src/tuner.s"
 .PHONY : help
 
 

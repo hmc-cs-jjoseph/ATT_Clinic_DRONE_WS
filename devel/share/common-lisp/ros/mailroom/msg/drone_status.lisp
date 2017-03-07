@@ -88,16 +88,16 @@
   "mailroom/drone_status")
 (cl:defmethod roslisp-msg-protocol:md5sum ((type (cl:eql '<drone_status>)))
   "Returns md5sum for a message object of type '<drone_status>"
-  "56e85cfc37e2764b4f83194b846ae01c")
+  "2c45150abee54e9ecf30b0c56fe46f6e")
 (cl:defmethod roslisp-msg-protocol:md5sum ((type (cl:eql 'drone_status)))
   "Returns md5sum for a message object of type 'drone_status"
-  "56e85cfc37e2764b4f83194b846ae01c")
+  "2c45150abee54e9ecf30b0c56fe46f6e")
 (cl:defmethod roslisp-msg-protocol:message-definition ((type (cl:eql '<drone_status>)))
   "Returns full string definition for message of type '<drone_status>"
-  (cl:format cl:nil "mailroom/drone_telemetry telemetry~%mailroom/ATSCsignal[] signal~%uint32 battery~%~%================================================================================~%MSG: mailroom/drone_telemetry~%float64 local_x~%float64 local_y~%uint8 height~%uint8 az_angle~%~%================================================================================~%MSG: mailroom/ATSCsignal~%uint32 channel~%uint32 SS~%uint32 SNQ~%~%~%"))
+  (cl:format cl:nil "mailroom/drone_telemetry telemetry~%mailroom/ATSCsignal[] signal~%uint32 battery~%~%================================================================================~%MSG: mailroom/drone_telemetry~%float64 local_x~%float64 local_y~%uint8 height~%uint8 az_angle~%~%================================================================================~%MSG: mailroom/ATSCsignal~%uint32[] channel~%uint32[] SS~%uint32[] SNQ~%~%~%"))
 (cl:defmethod roslisp-msg-protocol:message-definition ((type (cl:eql 'drone_status)))
   "Returns full string definition for message of type 'drone_status"
-  (cl:format cl:nil "mailroom/drone_telemetry telemetry~%mailroom/ATSCsignal[] signal~%uint32 battery~%~%================================================================================~%MSG: mailroom/drone_telemetry~%float64 local_x~%float64 local_y~%uint8 height~%uint8 az_angle~%~%================================================================================~%MSG: mailroom/ATSCsignal~%uint32 channel~%uint32 SS~%uint32 SNQ~%~%~%"))
+  (cl:format cl:nil "mailroom/drone_telemetry telemetry~%mailroom/ATSCsignal[] signal~%uint32 battery~%~%================================================================================~%MSG: mailroom/drone_telemetry~%float64 local_x~%float64 local_y~%uint8 height~%uint8 az_angle~%~%================================================================================~%MSG: mailroom/ATSCsignal~%uint32[] channel~%uint32[] SS~%uint32[] SNQ~%~%~%"))
 (cl:defmethod roslisp-msg-protocol:serialization-length ((msg <drone_status>))
   (cl:+ 0
      (roslisp-msg-protocol:serialization-length (cl:slot-value msg 'telemetry))

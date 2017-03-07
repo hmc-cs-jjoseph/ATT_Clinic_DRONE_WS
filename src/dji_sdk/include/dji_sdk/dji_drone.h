@@ -17,7 +17,7 @@
 #include <actionlib/client/simple_action_client.h> 
 #include <actionlib/client/terminal_state.h> 
 #include <string>
-
+#include <iostream>
 
 class DJIDrone
 {
@@ -685,9 +685,12 @@ public:
 
 	bool takeoff()
 	{
+		std::cout << "It has taken off" << std::endl;
 		dji_sdk::DroneTaskControl drone_task_control;
 		drone_task_control.request.task = 4;
-		return drone_task_control_service.call(drone_task_control) && drone_task_control.response.result;
+		bool success = drone_task_control_service.call(drone_task_control) && drone_task_control.response.result;
+		std::cout << success << std::endl;
+		return success;
 	}
 
 	bool landing()

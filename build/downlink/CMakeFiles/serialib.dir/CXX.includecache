@@ -1,0 +1,36 @@
+#IncludeRegexLine: ^[ 	]*#[ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/attclinic/software/drone_ws/src/downlink/include/downlink/serialib.h
+sys/time.h
+-
+windows.h
+-
+stdlib.h
+-
+sys/types.h
+-
+sys/shm.h
+-
+termios.h
+-
+string.h
+-
+iostream
+-
+fcntl.h
+-
+unistd.h
+-
+sys/ioctl.h
+-
+
+/home/attclinic/software/drone_ws/src/downlink/src/serialib.cpp
+serialib.h
+/home/attclinic/software/drone_ws/src/downlink/src/serialib.h
+
