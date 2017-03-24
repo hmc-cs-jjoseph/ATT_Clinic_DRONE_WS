@@ -1,5 +1,5 @@
-float64 local_x
-float64 local_y
-uint32 height
-uint32 az_angle
+float32 local_x
+float32 local_y
+float32 height
+float32 az_angle
 uint32[] channels

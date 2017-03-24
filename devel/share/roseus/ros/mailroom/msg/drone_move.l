@@ -21,15 +21,15 @@
    (&key
     ((:local_x __local_x) 0.0)
     ((:local_y __local_y) 0.0)
-    ((:height __height) 0)
-    ((:az_angle __az_angle) 0)
+    ((:height __height) 0.0)
+    ((:az_angle __az_angle) 0.0)
     ((:channels __channels) (make-array 0 :initial-element 0 :element-type :integer))
     )
    (send-super :init)
    (setq _local_x (float __local_x))
    (setq _local_y (float __local_y))
-   (setq _height (round __height))
-   (setq _az_angle (round __az_angle))
+   (setq _height (float __height))
+   (setq _az_angle (float __az_angle))
    (setq _channels __channels)
    self)
   (:local_x
@@ -50,13 +50,13 @@
   (:serialization-length
    ()
    (+
-    ;; float64 _local_x
-    8
-    ;; float64 _local_y
-    8
-    ;; uint32 _height
+    ;; float32 _local_x
     4
-    ;; uint32 _az_angle
+    ;; float32 _local_y
+    4
+    ;; float32 _height
+    4
+    ;; float32 _az_angle
     4
     ;; uint32[] _channels
     (* 4    (length _channels)) 4
@@ -65,14 +65,14 @@
    (&optional strm)
    (let ((s (if strm strm
               (make-string-output-stream (send self :serialization-length)))))
-     ;; float64 _local_x
-       (sys::poke _local_x (send s :buffer) (send s :count) :double) (incf (stream-count s) 8)
-     ;; float64 _local_y
-       (sys::poke _local_y (send s :buffer) (send s :count) :double) (incf (stream-count s) 8)
-     ;; uint32 _height
-       (write-long _height s)
-     ;; uint32 _az_angle
-       (write-long _az_angle s)
+     ;; float32 _local_x
+       (sys::poke _local_x (send s :buffer) (send s :count) :float) (incf (stream-count s) 4)
+     ;; float32 _local_y
+       (sys::poke _local_y (send s :buffer) (send s :count) :float) (incf (stream-count s) 4)
+     ;; float32 _height
+       (sys::poke _height (send s :buffer) (send s :count) :float) (incf (stream-count s) 4)
+     ;; float32 _az_angle
+       (sys::poke _az_angle (send s :buffer) (send s :count) :float) (incf (stream-count s) 4)
      ;; uint32[] _channels
      (write-long (length _channels) s)
      (dotimes (i (length _channels))
@@ -82,14 +82,14 @@
      (if (null strm) (get-output-stream-string s))))
   (:deserialize
    (buf &optional (ptr- 0))
-   ;; float64 _local_x
-     (setq _local_x (sys::peek buf ptr- :double)) (incf ptr- 8)
-   ;; float64 _local_y
-     (setq _local_y (sys::peek buf ptr- :double)) (incf ptr- 8)
-   ;; uint32 _height
-     (setq _height (sys::peek buf ptr- :integer)) (incf ptr- 4)
-   ;; uint32 _az_angle
-     (setq _az_angle (sys::peek buf ptr- :integer)) (incf ptr- 4)
+   ;; float32 _local_x
+     (setq _local_x (sys::peek buf ptr- :float)) (incf ptr- 4)
+   ;; float32 _local_y
+     (setq _local_y (sys::peek buf ptr- :float)) (incf ptr- 4)
+   ;; float32 _height
+     (setq _height (sys::peek buf ptr- :float)) (incf ptr- 4)
+   ;; float32 _az_angle
+     (setq _az_angle (sys::peek buf ptr- :float)) (incf ptr- 4)
    ;; uint32[] _channels
    (let (n)
      (setq n (sys::peek buf ptr- :integer)) (incf ptr- 4)
@@ -101,19 +101,19 @@
    self)
   )
 
-(setf (get mailroom::drone_move :md5sum-) "13cf322e3b3fad8fa26fe5682e2de0bd")
+(setf (get mailroom::drone_move :md5sum-) "d3e5d4bf910ad7e655ded5b4d5eff2ea")
 (setf (get mailroom::drone_move :datatype-) "mailroom/drone_move")
 (setf (get mailroom::drone_move :definition-)
-      "float64 local_x
-float64 local_y
-uint32 height
-uint32 az_angle
+      "float32 local_x
+float32 local_y
+float32 height
+float32 az_angle
 uint32[] channels
 
 ")
 
 
 
-(provide :mailroom/drone_move "13cf322e3b3fad8fa26fe5682e2de0bd")
+(provide :mailroom/drone_move "d3e5d4bf910ad7e655ded5b4d5eff2ea")
 
 

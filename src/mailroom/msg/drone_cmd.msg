@@ -1,3 +1,3 @@
 uint32 data
-uint32[] heights
-uint32[] channels
+int32[] heights
+int32[] channels

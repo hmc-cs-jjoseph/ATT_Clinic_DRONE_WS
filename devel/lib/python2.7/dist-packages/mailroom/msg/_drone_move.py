@@ -7,17 +7,17 @@ import struct
 
 
 class drone_move(genpy.Message):
-  _md5sum = "13cf322e3b3fad8fa26fe5682e2de0bd"
+  _md5sum = "d3e5d4bf910ad7e655ded5b4d5eff2ea"
   _type = "mailroom/drone_move"
   _has_header = False #flag to mark the presence of a Header object
-  _full_text = """float64 local_x
-float64 local_y
-uint32 height
-uint32 az_angle
+  _full_text = """float32 local_x
+float32 local_y
+float32 height
+float32 az_angle
 uint32[] channels
 """
   __slots__ = ['local_x','local_y','height','az_angle','channels']
-  _slot_types = ['float64','float64','uint32','uint32','uint32[]']
+  _slot_types = ['float32','float32','float32','float32','uint32[]']
 
   def __init__(self, *args, **kwds):
     """
@@ -41,16 +41,16 @@ uint32[] channels
       if self.local_y is None:
         self.local_y = 0.
       if self.height is None:
-        self.height = 0
+        self.height = 0.
       if self.az_angle is None:
-        self.az_angle = 0
+        self.az_angle = 0.
       if self.channels is None:
         self.channels = []
     else:
       self.local_x = 0.
       self.local_y = 0.
-      self.height = 0
-      self.az_angle = 0
+      self.height = 0.
+      self.az_angle = 0.
       self.channels = []
 
   def _get_types(self):
@@ -66,7 +66,7 @@ uint32[] channels
     """
     try:
       _x = self
-      buff.write(_get_struct_2d2I().pack(_x.local_x, _x.local_y, _x.height, _x.az_angle))
+      buff.write(_get_struct_4f().pack(_x.local_x, _x.local_y, _x.height, _x.az_angle))
       length = len(self.channels)
       buff.write(_struct_I.pack(length))
       pattern = '<%sI'%length
@@ -83,8 +83,8 @@ uint32[] channels
       end = 0
       _x = self
       start = end
-      end += 24
-      (_x.local_x, _x.local_y, _x.height, _x.az_angle,) = _get_struct_2d2I().unpack(str[start:end])
+      end += 16
+      (_x.local_x, _x.local_y, _x.height, _x.az_angle,) = _get_struct_4f().unpack(str[start:end])
       start = end
       end += 4
       (length,) = _struct_I.unpack(str[start:end])
@@ -105,7 +105,7 @@ uint32[] channels
     """
     try:
       _x = self
-      buff.write(_get_struct_2d2I().pack(_x.local_x, _x.local_y, _x.height, _x.az_angle))
+      buff.write(_get_struct_4f().pack(_x.local_x, _x.local_y, _x.height, _x.az_angle))
       length = len(self.channels)
       buff.write(_struct_I.pack(length))
       pattern = '<%sI'%length
@@ -123,8 +123,8 @@ uint32[] channels
       end = 0
       _x = self
       start = end
-      end += 24
-      (_x.local_x, _x.local_y, _x.height, _x.az_angle,) = _get_struct_2d2I().unpack(str[start:end])
+      end += 16
+      (_x.local_x, _x.local_y, _x.height, _x.az_angle,) = _get_struct_4f().unpack(str[start:end])
       start = end
       end += 4
       (length,) = _struct_I.unpack(str[start:end])
@@ -140,9 +140,9 @@ _struct_I = genpy.struct_I
 def _get_struct_I():
     global _struct_I
     return _struct_I
-_struct_2d2I = None
-def _get_struct_2d2I():
-    global _struct_2d2I
-    if _struct_2d2I is None:
-        _struct_2d2I = struct.Struct("<2d2I")
-    return _struct_2d2I
+_struct_4f = None
+def _get_struct_4f():
+    global _struct_4f
+    if _struct_4f is None:
+        _struct_4f = struct.Struct("<4f")
+    return _struct_4f

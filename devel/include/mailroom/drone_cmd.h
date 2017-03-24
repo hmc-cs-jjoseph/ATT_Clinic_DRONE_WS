@@ -40,10 +40,10 @@ struct drone_cmd_
    typedef uint32_t _data_type;
   _data_type data;
 
-   typedef std::vector<uint32_t, typename ContainerAllocator::template rebind<uint32_t>::other >  _heights_type;
+   typedef std::vector<int32_t, typename ContainerAllocator::template rebind<int32_t>::other >  _heights_type;
   _heights_type heights;
 
-   typedef std::vector<uint32_t, typename ContainerAllocator::template rebind<uint32_t>::other >  _channels_type;
+   typedef std::vector<int32_t, typename ContainerAllocator::template rebind<int32_t>::other >  _channels_type;
   _channels_type channels;
 
 
@@ -123,12 +123,12 @@ struct MD5Sum< ::mailroom::drone_cmd_<ContainerAllocator> >
 {
   static const char* value()
   {
-    return "356e76f7e1df41ac5081a94634ddddce";
+    return "85a674b29af4a3350a621eb7328f4685";
   }
 
   static const char* value(const ::mailroom::drone_cmd_<ContainerAllocator>&) { return value(); }
-  static const uint64_t static_value1 = 0x356e76f7e1df41acULL;
-  static const uint64_t static_value2 = 0x5081a94634ddddceULL;
+  static const uint64_t static_value1 = 0x85a674b29af4a335ULL;
+  static const uint64_t static_value2 = 0x0a621eb7328f4685ULL;
 };
 
 template<class ContainerAllocator>
@@ -148,8 +148,8 @@ struct Definition< ::mailroom::drone_cmd_<ContainerAllocator> >
   static const char* value()
   {
     return "uint32 data\n\
-uint32[] heights\n\
-uint32[] channels\n\
+int32[] heights\n\
+int32[] channels\n\
 ";
   }
 
@@ -195,13 +195,13 @@ struct Printer< ::mailroom::drone_cmd_<ContainerAllocator> >
     for (size_t i = 0; i < v.heights.size(); ++i)
     {
       s << indent << "  heights[" << i << "]: ";
-      Printer<uint32_t>::stream(s, indent + "  ", v.heights[i]);
+      Printer<int32_t>::stream(s, indent + "  ", v.heights[i]);
     }
     s << indent << "channels[]" << std::endl;
     for (size_t i = 0; i < v.channels.size(); ++i)
     {
       s << indent << "  channels[" << i << "]: ";
-      Printer<uint32_t>::stream(s, indent + "  ", v.channels[i]);
+      Printer<int32_t>::stream(s, indent + "  ", v.channels[i]);
     }
   }
 };

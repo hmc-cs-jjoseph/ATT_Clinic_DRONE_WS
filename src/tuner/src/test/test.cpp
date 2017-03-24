@@ -1,13 +1,13 @@
 #include "TunerDevice.h"
 
 int main() {
-  const std::string deviceID = "1034F75C-0";
+  const std::string deviceID = "10487794-0";
   const std::vector<size_t> channels = {7, 11, 36, 43};
   Tuner tuner = Tuner(deviceID, channels);
   tuner.updateStatusOfAllChannels();
   std::cout << "individual channel tests" << std::endl;
   for(size_t i = 0; i < channels.size(); ++i) {
-    std::cout << std::to_string(channels[i]) << '\t';
+    std::cout << channels[i] << '\t';
     std::cout << tuner.getSignalStrengthOfChannel(i) << '\t';
     std::cout << tuner.getSNQOfChannel(i) << std::endl;
   }
@@ -17,7 +17,7 @@ int main() {
   std::vector<size_t> SNQs = tuner.getSNQOfAllChannels(); 
   std::cout << std::endl << "all channels test" << std::endl;
   for(size_t i = 0; i < channelsList.size(); ++i) {
-    std::cout << std::to_string(channelsList[i]) << '\t';
+    std::cout << channelsList[i] << '\t';
     std::cout << sigStrengths[i] << '\t';
     std::cout << SNQs[i] << std::endl;
   }

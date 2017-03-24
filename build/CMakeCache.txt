@@ -277,6 +277,12 @@ dji_sdk_DIR:PATH=/home/attclinic/software/drone_ws/devel/share/dji_sdk/cmake
 dji_sdk_SOURCE_DIR:STATIC=/home/attclinic/software/drone_ws/src/dji_sdk
 
 //Value Computed by CMake
+dji_sdk_demo_BINARY_DIR:STATIC=/home/attclinic/software/drone_ws/build/dji_sdk_demo
+
+//Value Computed by CMake
+dji_sdk_demo_SOURCE_DIR:STATIC=/home/attclinic/software/drone_ws/src/dji_sdk_demo
+
+//Value Computed by CMake
 dji_sdk_lib_BINARY_DIR:STATIC=/home/attclinic/software/drone_ws/build/dji_sdk_lib
 
 //The directory containing a CMake configuration file for dji_sdk_lib.
@@ -519,7 +525,7 @@ CMAKE_MODULE_LINKER_FLAGS_RELWITHDEBINFO-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: CMAKE_NM
 CMAKE_NM-ADVANCED:INTERNAL=1
 //number of local generators
-CMAKE_NUMBER_OF_MAKEFILES:INTERNAL=8
+CMAKE_NUMBER_OF_MAKEFILES:INTERNAL=9
 //ADVANCED property for variable: CMAKE_OBJCOPY
 CMAKE_OBJCOPY-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: CMAKE_OBJDUMP

@@ -685,12 +685,9 @@ public:
 
 	bool takeoff()
 	{
-		std::cout << "It has taken off" << std::endl;
 		dji_sdk::DroneTaskControl drone_task_control;
 		drone_task_control.request.task = 4;
-		bool success = drone_task_control_service.call(drone_task_control) && drone_task_control.response.result;
-		std::cout << success << std::endl;
-		return success;
+		return drone_task_control_service.call(drone_task_control) && drone_task_control.response.result;
 	}
 
 	bool landing()
@@ -867,8 +864,10 @@ public:
 		local_position_control.request.z = z;
 		local_position_control.request.yaw = yaw;
 		
-		return local_position_control_service.call(local_position_control) && local_position_control.response.result;
-
+		bool success = local_position_control_service.call(local_position_control) && local_position_control.response.result;
+		std::cout<< "Call Complete" << std::endl;
+		std::cout << success << std::endl;
+		return success;
 	}
 
 	bool global_position_control(double latitude, double longitude, float altitude, float yaw)

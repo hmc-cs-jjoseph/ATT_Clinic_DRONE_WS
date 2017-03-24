@@ -20,13 +20,13 @@
    (height
     :reader height
     :initarg :height
-    :type cl:integer
-    :initform 0)
+    :type cl:float
+    :initform 0.0)
    (az_angle
     :reader az_angle
     :initarg :az_angle
-    :type cl:integer
-    :initform 0)
+    :type cl:float
+    :initform 0.0)
    (channels
     :reader channels
     :initarg :channels
@@ -68,32 +68,26 @@
   (channels m))
 (cl:defmethod roslisp-msg-protocol:serialize ((msg <drone_move>) ostream)
   "Serializes a message object of type '<drone_move>"
-  (cl:let ((bits (roslisp-utils:encode-double-float-bits (cl:slot-value msg 'local_x))))
+  (cl:let ((bits (roslisp-utils:encode-single-float-bits (cl:slot-value msg 'local_x))))
     (cl:write-byte (cl:ldb (cl:byte 8 0) bits) ostream)
     (cl:write-byte (cl:ldb (cl:byte 8 8) bits) ostream)
     (cl:write-byte (cl:ldb (cl:byte 8 16) bits) ostream)
-    (cl:write-byte (cl:ldb (cl:byte 8 24) bits) ostream)
-    (cl:write-byte (cl:ldb (cl:byte 8 32) bits) ostream)
-    (cl:write-byte (cl:ldb (cl:byte 8 40) bits) ostream)
-    (cl:write-byte (cl:ldb (cl:byte 8 48) bits) ostream)
-    (cl:write-byte (cl:ldb (cl:byte 8 56) bits) ostream))
-  (cl:let ((bits (roslisp-utils:encode-double-float-bits (cl:slot-value msg 'local_y))))
+    (cl:write-byte (cl:ldb (cl:byte 8 24) bits) ostream))
+  (cl:let ((bits (roslisp-utils:encode-single-float-bits (cl:slot-value msg 'local_y))))
     (cl:write-byte (cl:ldb (cl:byte 8 0) bits) ostream)
     (cl:write-byte (cl:ldb (cl:byte 8 8) bits) ostream)
     (cl:write-byte (cl:ldb (cl:byte 8 16) bits) ostream)
-    (cl:write-byte (cl:ldb (cl:byte 8 24) bits) ostream)
-    (cl:write-byte (cl:ldb (cl:byte 8 32) bits) ostream)
-    (cl:write-byte (cl:ldb (cl:byte 8 40) bits) ostream)
-    (cl:write-byte (cl:ldb (cl:byte 8 48) bits) ostream)
-    (cl:write-byte (cl:ldb (cl:byte 8 56) bits) ostream))
-  (cl:write-byte (cl:ldb (cl:byte 8 0) (cl:slot-value msg 'height)) ostream)
-  (cl:write-byte (cl:ldb (cl:byte 8 8) (cl:slot-value msg 'height)) ostream)
-  (cl:write-byte (cl:ldb (cl:byte 8 16) (cl:slot-value msg 'height)) ostream)
-  (cl:write-byte (cl:ldb (cl:byte 8 24) (cl:slot-value msg 'height)) ostream)
-  (cl:write-byte (cl:ldb (cl:byte 8 0) (cl:slot-value msg 'az_angle)) ostream)
-  (cl:write-byte (cl:ldb (cl:byte 8 8) (cl:slot-value msg 'az_angle)) ostream)
-  (cl:write-byte (cl:ldb (cl:byte 8 16) (cl:slot-value msg 'az_angle)) ostream)
-  (cl:write-byte (cl:ldb (cl:byte 8 24) (cl:slot-value msg 'az_angle)) ostream)
+    (cl:write-byte (cl:ldb (cl:byte 8 24) bits) ostream))
+  (cl:let ((bits (roslisp-utils:encode-single-float-bits (cl:slot-value msg 'height))))
+    (cl:write-byte (cl:ldb (cl:byte 8 0) bits) ostream)
+    (cl:write-byte (cl:ldb (cl:byte 8 8) bits) ostream)
+    (cl:write-byte (cl:ldb (cl:byte 8 16) bits) ostream)
+    (cl:write-byte (cl:ldb (cl:byte 8 24) bits) ostream))
+  (cl:let ((bits (roslisp-utils:encode-single-float-bits (cl:slot-value msg 'az_angle))))
+    (cl:write-byte (cl:ldb (cl:byte 8 0) bits) ostream)
+    (cl:write-byte (cl:ldb (cl:byte 8 8) bits) ostream)
+    (cl:write-byte (cl:ldb (cl:byte 8 16) bits) ostream)
+    (cl:write-byte (cl:ldb (cl:byte 8 24) bits) ostream))
   (cl:let ((__ros_arr_len (cl:length (cl:slot-value msg 'channels))))
     (cl:write-byte (cl:ldb (cl:byte 8 0) __ros_arr_len) ostream)
     (cl:write-byte (cl:ldb (cl:byte 8 8) __ros_arr_len) ostream)
@@ -112,29 +106,25 @@
       (cl:setf (cl:ldb (cl:byte 8 8) bits) (cl:read-byte istream))
       (cl:setf (cl:ldb (cl:byte 8 16) bits) (cl:read-byte istream))
       (cl:setf (cl:ldb (cl:byte 8 24) bits) (cl:read-byte istream))
-      (cl:setf (cl:ldb (cl:byte 8 32) bits) (cl:read-byte istream))
-      (cl:setf (cl:ldb (cl:byte 8 40) bits) (cl:read-byte istream))
-      (cl:setf (cl:ldb (cl:byte 8 48) bits) (cl:read-byte istream))
-      (cl:setf (cl:ldb (cl:byte 8 56) bits) (cl:read-byte istream))
-    (cl:setf (cl:slot-value msg 'local_x) (roslisp-utils:decode-double-float-bits bits)))
+    (cl:setf (cl:slot-value msg 'local_x) (roslisp-utils:decode-single-float-bits bits)))
     (cl:let ((bits 0))
       (cl:setf (cl:ldb (cl:byte 8 0) bits) (cl:read-byte istream))
       (cl:setf (cl:ldb (cl:byte 8 8) bits) (cl:read-byte istream))
       (cl:setf (cl:ldb (cl:byte 8 16) bits) (cl:read-byte istream))
       (cl:setf (cl:ldb (cl:byte 8 24) bits) (cl:read-byte istream))
-      (cl:setf (cl:ldb (cl:byte 8 32) bits) (cl:read-byte istream))
-      (cl:setf (cl:ldb (cl:byte 8 40) bits) (cl:read-byte istream))
-      (cl:setf (cl:ldb (cl:byte 8 48) bits) (cl:read-byte istream))
-      (cl:setf (cl:ldb (cl:byte 8 56) bits) (cl:read-byte istream))
-    (cl:setf (cl:slot-value msg 'local_y) (roslisp-utils:decode-double-float-bits bits)))
-    (cl:setf (cl:ldb (cl:byte 8 0) (cl:slot-value msg 'height)) (cl:read-byte istream))
-    (cl:setf (cl:ldb (cl:byte 8 8) (cl:slot-value msg 'height)) (cl:read-byte istream))
-    (cl:setf (cl:ldb (cl:byte 8 16) (cl:slot-value msg 'height)) (cl:read-byte istream))
-    (cl:setf (cl:ldb (cl:byte 8 24) (cl:slot-value msg 'height)) (cl:read-byte istream))
-    (cl:setf (cl:ldb (cl:byte 8 0) (cl:slot-value msg 'az_angle)) (cl:read-byte istream))
-    (cl:setf (cl:ldb (cl:byte 8 8) (cl:slot-value msg 'az_angle)) (cl:read-byte istream))
-    (cl:setf (cl:ldb (cl:byte 8 16) (cl:slot-value msg 'az_angle)) (cl:read-byte istream))
-    (cl:setf (cl:ldb (cl:byte 8 24) (cl:slot-value msg 'az_angle)) (cl:read-byte istream))
+    (cl:setf (cl:slot-value msg 'local_y) (roslisp-utils:decode-single-float-bits bits)))
+    (cl:let ((bits 0))
+      (cl:setf (cl:ldb (cl:byte 8 0) bits) (cl:read-byte istream))
+      (cl:setf (cl:ldb (cl:byte 8 8) bits) (cl:read-byte istream))
+      (cl:setf (cl:ldb (cl:byte 8 16) bits) (cl:read-byte istream))
+      (cl:setf (cl:ldb (cl:byte 8 24) bits) (cl:read-byte istream))
+    (cl:setf (cl:slot-value msg 'height) (roslisp-utils:decode-single-float-bits bits)))
+    (cl:let ((bits 0))
+      (cl:setf (cl:ldb (cl:byte 8 0) bits) (cl:read-byte istream))
+      (cl:setf (cl:ldb (cl:byte 8 8) bits) (cl:read-byte istream))
+      (cl:setf (cl:ldb (cl:byte 8 16) bits) (cl:read-byte istream))
+      (cl:setf (cl:ldb (cl:byte 8 24) bits) (cl:read-byte istream))
+    (cl:setf (cl:slot-value msg 'az_angle) (roslisp-utils:decode-single-float-bits bits)))
   (cl:let ((__ros_arr_len 0))
     (cl:setf (cl:ldb (cl:byte 8 0) __ros_arr_len) (cl:read-byte istream))
     (cl:setf (cl:ldb (cl:byte 8 8) __ros_arr_len) (cl:read-byte istream))
@@ -157,20 +147,20 @@
   "mailroom/drone_move")
 (cl:defmethod roslisp-msg-protocol:md5sum ((type (cl:eql '<drone_move>)))
   "Returns md5sum for a message object of type '<drone_move>"
-  "13cf322e3b3fad8fa26fe5682e2de0bd")
+  "d3e5d4bf910ad7e655ded5b4d5eff2ea")
 (cl:defmethod roslisp-msg-protocol:md5sum ((type (cl:eql 'drone_move)))
   "Returns md5sum for a message object of type 'drone_move"
-  "13cf322e3b3fad8fa26fe5682e2de0bd")
+  "d3e5d4bf910ad7e655ded5b4d5eff2ea")
 (cl:defmethod roslisp-msg-protocol:message-definition ((type (cl:eql '<drone_move>)))
   "Returns full string definition for message of type '<drone_move>"
-  (cl:format cl:nil "float64 local_x~%float64 local_y~%uint32 height~%uint32 az_angle~%uint32[] channels~%~%~%"))
+  (cl:format cl:nil "float32 local_x~%float32 local_y~%float32 height~%float32 az_angle~%uint32[] channels~%~%~%"))
 (cl:defmethod roslisp-msg-protocol:message-definition ((type (cl:eql 'drone_move)))
   "Returns full string definition for message of type 'drone_move"
-  (cl:format cl:nil "float64 local_x~%float64 local_y~%uint32 height~%uint32 az_angle~%uint32[] channels~%~%~%"))
+  (cl:format cl:nil "float32 local_x~%float32 local_y~%float32 height~%float32 az_angle~%uint32[] channels~%~%~%"))
 (cl:defmethod roslisp-msg-protocol:serialization-length ((msg <drone_move>))
   (cl:+ 0
-     8
-     8
+     4
+     4
      4
      4
      4 (cl:reduce #'cl:+ (cl:slot-value msg 'channels) :key #'(cl:lambda (ele) (cl:declare (cl:ignorable ele)) (cl:+ 4)))

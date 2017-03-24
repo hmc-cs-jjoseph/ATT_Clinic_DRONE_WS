@@ -2090,6 +2090,19 @@ _dji_sdk_generate_messages_check_deps_MissionStatusFollowme/fast:
 .PHONY : _dji_sdk_generate_messages_check_deps_MissionStatusFollowme/fast
 
 #=============================================================================
+# Target rules for targets named dji_sdk_client
+
+# Build rule for target.
+dji_sdk_client: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 dji_sdk_client
+.PHONY : dji_sdk_client
+
+# fast build rule for target.
+dji_sdk_client/fast:
+	$(MAKE) -f dji_sdk_demo/CMakeFiles/dji_sdk_client.dir/build.make dji_sdk_demo/CMakeFiles/dji_sdk_client.dir/build
+.PHONY : dji_sdk_client/fast
+
+#=============================================================================
 # Target rules for targets named tuner_node
 
 # Build rule for target.
@@ -2666,6 +2679,7 @@ help:
 	@echo "... _dji_sdk_generate_messages_check_deps_GimbalAngleControl"
 	@echo "... _dji_sdk_generate_messages_check_deps_GlobalPositionNavigationActionFeedback"
 	@echo "... _dji_sdk_generate_messages_check_deps_MissionStatusFollowme"
+	@echo "... dji_sdk_client"
 	@echo "... tuner_node"
 	@echo "... tunerdevice"
 	@echo "... hdhomerun"

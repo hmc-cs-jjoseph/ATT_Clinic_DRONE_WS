@@ -181,6 +181,14 @@
 /home/attclinic/software/drone_ws/build/dji_sdk/CMakeFiles/_dji_sdk_generate_messages_check_deps_GimbalAngleControl.dir
 /home/attclinic/software/drone_ws/build/dji_sdk/CMakeFiles/_dji_sdk_generate_messages_check_deps_GlobalPositionNavigationActionFeedback.dir
 /home/attclinic/software/drone_ws/build/dji_sdk/CMakeFiles/_dji_sdk_generate_messages_check_deps_MissionStatusFollowme.dir
+/home/attclinic/software/drone_ws/build/dji_sdk_demo/CMakeFiles/test.dir
+/home/attclinic/software/drone_ws/build/dji_sdk_demo/CMakeFiles/edit_cache.dir
+/home/attclinic/software/drone_ws/build/dji_sdk_demo/CMakeFiles/install/strip.dir
+/home/attclinic/software/drone_ws/build/dji_sdk_demo/CMakeFiles/rebuild_cache.dir
+/home/attclinic/software/drone_ws/build/dji_sdk_demo/CMakeFiles/list_install_components.dir
+/home/attclinic/software/drone_ws/build/dji_sdk_demo/CMakeFiles/install.dir
+/home/attclinic/software/drone_ws/build/dji_sdk_demo/CMakeFiles/install/local.dir
+/home/attclinic/software/drone_ws/build/dji_sdk_demo/CMakeFiles/dji_sdk_client.dir
 /home/attclinic/software/drone_ws/build/tuner/CMakeFiles/test.dir
 /home/attclinic/software/drone_ws/build/tuner/CMakeFiles/edit_cache.dir
 /home/attclinic/software/drone_ws/build/tuner/CMakeFiles/rebuild_cache.dir

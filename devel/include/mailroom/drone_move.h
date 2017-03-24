@@ -26,31 +26,31 @@ struct drone_move_
   drone_move_()
     : local_x(0.0)
     , local_y(0.0)
-    , height(0)
-    , az_angle(0)
+    , height(0.0)
+    , az_angle(0.0)
     , channels()  {
     }
   drone_move_(const ContainerAllocator& _alloc)
     : local_x(0.0)
     , local_y(0.0)
-    , height(0)
-    , az_angle(0)
+    , height(0.0)
+    , az_angle(0.0)
     , channels(_alloc)  {
   (void)_alloc;
     }
 
 
 
-   typedef double _local_x_type;
+   typedef float _local_x_type;
   _local_x_type local_x;
 
-   typedef double _local_y_type;
+   typedef float _local_y_type;
   _local_y_type local_y;
 
-   typedef uint32_t _height_type;
+   typedef float _height_type;
   _height_type height;
 
-   typedef uint32_t _az_angle_type;
+   typedef float _az_angle_type;
   _az_angle_type az_angle;
 
    typedef std::vector<uint32_t, typename ContainerAllocator::template rebind<uint32_t>::other >  _channels_type;
@@ -133,12 +133,12 @@ struct MD5Sum< ::mailroom::drone_move_<ContainerAllocator> >
 {
   static const char* value()
   {
-    return "13cf322e3b3fad8fa26fe5682e2de0bd";
+    return "d3e5d4bf910ad7e655ded5b4d5eff2ea";
   }
 
   static const char* value(const ::mailroom::drone_move_<ContainerAllocator>&) { return value(); }
-  static const uint64_t static_value1 = 0x13cf322e3b3fad8fULL;
-  static const uint64_t static_value2 = 0xa26fe5682e2de0bdULL;
+  static const uint64_t static_value1 = 0xd3e5d4bf910ad7e6ULL;
+  static const uint64_t static_value2 = 0x55ded5b4d5eff2eaULL;
 };
 
 template<class ContainerAllocator>
@@ -157,10 +157,10 @@ struct Definition< ::mailroom::drone_move_<ContainerAllocator> >
 {
   static const char* value()
   {
-    return "float64 local_x\n\
-float64 local_y\n\
-uint32 height\n\
-uint32 az_angle\n\
+    return "float32 local_x\n\
+float32 local_y\n\
+float32 height\n\
+float32 az_angle\n\
 uint32[] channels\n\
 ";
   }
@@ -204,13 +204,13 @@ struct Printer< ::mailroom::drone_move_<ContainerAllocator> >
   template<typename Stream> static void stream(Stream& s, const std::string& indent, const ::mailroom::drone_move_<ContainerAllocator>& v)
   {
     s << indent << "local_x: ";
-    Printer<double>::stream(s, indent + "  ", v.local_x);
+    Printer<float>::stream(s, indent + "  ", v.local_x);
     s << indent << "local_y: ";
-    Printer<double>::stream(s, indent + "  ", v.local_y);
+    Printer<float>::stream(s, indent + "  ", v.local_y);
     s << indent << "height: ";
-    Printer<uint32_t>::stream(s, indent + "  ", v.height);
+    Printer<float>::stream(s, indent + "  ", v.height);
     s << indent << "az_angle: ";
-    Printer<uint32_t>::stream(s, indent + "  ", v.az_angle);
+    Printer<float>::stream(s, indent + "  ", v.az_angle);
     s << indent << "channels[]" << std::endl;
     for (size_t i = 0; i < v.channels.size(); ++i)
     {
