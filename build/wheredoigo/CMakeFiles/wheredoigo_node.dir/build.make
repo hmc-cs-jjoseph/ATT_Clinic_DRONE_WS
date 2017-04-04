@@ -90,6 +90,7 @@ wheredoigo_node_EXTERNAL_OBJECTS =
 
 /home/attclinic/software/drone_ws/devel/lib/wheredoigo/wheredoigo_node: wheredoigo/CMakeFiles/wheredoigo_node.dir/src/wheredoigo.cpp.o
 /home/attclinic/software/drone_ws/devel/lib/wheredoigo/wheredoigo_node: wheredoigo/CMakeFiles/wheredoigo_node.dir/build.make
+/home/attclinic/software/drone_ws/devel/lib/wheredoigo/wheredoigo_node: /home/attclinic/software/drone_ws/devel/lib/libhdhomerun.so
 /home/attclinic/software/drone_ws/devel/lib/wheredoigo/wheredoigo_node: /home/attclinic/ros_catkin_ws_kinetic/install_isolated/lib/libactionlib.so
 /home/attclinic/software/drone_ws/devel/lib/wheredoigo/wheredoigo_node: /home/attclinic/ros_catkin_ws_kinetic/install_isolated/lib/libroscpp.so
 /home/attclinic/software/drone_ws/devel/lib/wheredoigo/wheredoigo_node: /usr/lib/arm-linux-gnueabihf/libboost_signals.so

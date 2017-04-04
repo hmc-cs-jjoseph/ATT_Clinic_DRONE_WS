@@ -157,6 +157,8 @@ target_link_libraries(tuner_node
   ${catkin_LIBRARIES}
 )
 
+add_dependencies(tuner_node tuner_gencpp)
+
 #############
 ## Install ##
 #############

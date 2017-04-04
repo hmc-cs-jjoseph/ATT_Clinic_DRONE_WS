@@ -31,10 +31,10 @@ class DroneListener {
 		size_t SNQ;
 	} signaldata_t;
 
-	float latitude_;
-	float longitude_;
+	double latitude_;
+	double longitude_;
 	int orientation_;
-	size_t height_;
+	float height_;
 	size_t battery_;
 	size_t dataIsNew_;
 	std::vector<signaldata_t> signaldata_;

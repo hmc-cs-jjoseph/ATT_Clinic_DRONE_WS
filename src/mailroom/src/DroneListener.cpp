@@ -40,6 +40,7 @@ void DroneListener::publishAllData() {
 			data += std::to_string(channeldata.SNQ);
 			data += ',';
 		}
+		dataIsNew_ = 0;
 	}
 	data += '\n';
 	std_msgs::String msg;
@@ -59,7 +60,7 @@ void DroneListener::recordBattery(const dji_sdk::PowerStatus::ConstPtr& msg) {
 }
 
 void DroneListener::recordOrientation(const dji_sdk::Compass::ConstPtr& msg) {
-	orientation_ = msg->x;
+	orientation_ = atan2(msg->y, msg->x);
 }
 
 void DroneListener::recordSignalStatus(const mailroom::ATSCsignal::ConstPtr& msg) {
@@ -68,5 +69,6 @@ void DroneListener::recordSignalStatus(const mailroom::ATSCsignal::ConstPtr& msg
 		signaldata_t signal = {msg->channel[i], msg->SS[i], msg->SNQ[i]};
 		signaldata_.push_back(signal);
 	}
+	dataIsNew_ = 1;
 }
 

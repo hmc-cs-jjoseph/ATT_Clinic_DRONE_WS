@@ -26,13 +26,13 @@ class drone_cmd {
     bufferInfo = _serializer.uint32(obj.heights.length, bufferInfo);
     // Serialize message field [heights]
     obj.heights.forEach((val) => {
-      bufferInfo = _serializer.int32(val, bufferInfo);
+      bufferInfo = _serializer.uint32(val, bufferInfo);
     });
     // Serialize the length for message field [channels]
     bufferInfo = _serializer.uint32(obj.channels.length, bufferInfo);
     // Serialize message field [channels]
     obj.channels.forEach((val) => {
-      bufferInfo = _serializer.int32(val, bufferInfo);
+      bufferInfo = _serializer.uint32(val, bufferInfo);
     });
     return bufferInfo;
   }
@@ -53,7 +53,7 @@ class drone_cmd {
     // Deserialize message field [heights]
     data.heights = new Array(len);
     for (let i = 0; i < len; ++i) {
-      tmp = _deserializer.int32(buffer);
+      tmp = _deserializer.uint32(buffer);
       data.heights[i] = tmp.data;
       buffer = tmp.buffer;
     }
@@ -64,7 +64,7 @@ class drone_cmd {
     // Deserialize message field [channels]
     data.channels = new Array(len);
     for (let i = 0; i < len; ++i) {
-      tmp = _deserializer.int32(buffer);
+      tmp = _deserializer.uint32(buffer);
       data.channels[i] = tmp.data;
       buffer = tmp.buffer;
     }
@@ -81,15 +81,15 @@ class drone_cmd {
 
   static md5sum() {
     //Returns md5sum for a message object
-    return '85a674b29af4a3350a621eb7328f4685';
+    return '356e76f7e1df41ac5081a94634ddddce';
   }
 
   static messageDefinition() {
     // Returns full string definition for message
     return `
     uint32 data
-    int32[] heights
-    int32[] channels
+    uint32[] heights
+    uint32[] channels
     
     `;
   }

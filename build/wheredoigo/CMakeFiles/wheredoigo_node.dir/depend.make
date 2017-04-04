@@ -245,6 +245,9 @@ wheredoigo/CMakeFiles/wheredoigo_node.dir/src/wheredoigo.cpp.o: /home/attclinic/
 wheredoigo/CMakeFiles/wheredoigo_node.dir/src/wheredoigo.cpp.o: /home/attclinic/software/drone_ws/devel/include/mailroom/drone_cmd.h
 wheredoigo/CMakeFiles/wheredoigo_node.dir/src/wheredoigo.cpp.o: /home/attclinic/software/drone_ws/devel/include/mailroom/drone_move.h
 wheredoigo/CMakeFiles/wheredoigo_node.dir/src/wheredoigo.cpp.o: /home/attclinic/software/drone_ws/devel/include/mailroom/drone_telemetry.h
+wheredoigo/CMakeFiles/wheredoigo_node.dir/src/wheredoigo.cpp.o: /home/attclinic/software/drone_ws/devel/include/tuner/GetSignalStatus.h
+wheredoigo/CMakeFiles/wheredoigo_node.dir/src/wheredoigo.cpp.o: /home/attclinic/software/drone_ws/devel/include/tuner/GetSignalStatusRequest.h
+wheredoigo/CMakeFiles/wheredoigo_node.dir/src/wheredoigo.cpp.o: /home/attclinic/software/drone_ws/devel/include/tuner/GetSignalStatusResponse.h
 wheredoigo/CMakeFiles/wheredoigo_node.dir/src/wheredoigo.cpp.o: /home/attclinic/software/drone_ws/src/dji_sdk/include/dji_sdk/DJI_HardDriver_Manifold.h
 wheredoigo/CMakeFiles/wheredoigo_node.dir/src/wheredoigo.cpp.o: /home/attclinic/software/drone_ws/src/dji_sdk/include/dji_sdk/DJI_LIB_ROS_Adapter.h
 wheredoigo/CMakeFiles/wheredoigo_node.dir/src/wheredoigo.cpp.o: /home/attclinic/software/drone_ws/src/dji_sdk/include/dji_sdk/dji_drone.h

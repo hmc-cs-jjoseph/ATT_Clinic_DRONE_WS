@@ -9,4 +9,14 @@
 		<param name="enc_key" type="string" value="14321205cbe54e4c1d3b9ed229e28da68b86f90b85b62e6d03cf73bf9999c80a"/>
 		<param name="groundstation_enable" type="int" value="1"/>
 	</node>
+
+	<node pkg="wheredoigo" type="wheredoigo_node" name="wheredoigo" />
+
+	<node pkg="mailroom" type="mailroom_node" name="mailroom" />
+
+	<node pkg="downlink" type="downlink_node" name="downlink" />
+
+	<node pkg="downlink" type="uplink_node" name="uplink" />
+
+	<node pkg="tuner" type="tuner_node" name="tuner" />
 </launch>

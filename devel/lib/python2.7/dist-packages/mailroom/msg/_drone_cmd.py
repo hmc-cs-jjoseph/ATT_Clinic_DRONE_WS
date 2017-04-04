@@ -7,15 +7,15 @@ import struct
 
 
 class drone_cmd(genpy.Message):
-  _md5sum = "85a674b29af4a3350a621eb7328f4685"
+  _md5sum = "356e76f7e1df41ac5081a94634ddddce"
   _type = "mailroom/drone_cmd"
   _has_header = False #flag to mark the presence of a Header object
   _full_text = """uint32 data
-int32[] heights
-int32[] channels
+uint32[] heights
+uint32[] channels
 """
   __slots__ = ['data','heights','channels']
-  _slot_types = ['uint32','int32[]','int32[]']
+  _slot_types = ['uint32','uint32[]','uint32[]']
 
   def __init__(self, *args, **kwds):
     """
@@ -60,11 +60,11 @@ int32[] channels
       buff.write(_get_struct_I().pack(self.data))
       length = len(self.heights)
       buff.write(_struct_I.pack(length))
-      pattern = '<%si'%length
+      pattern = '<%sI'%length
       buff.write(struct.pack(pattern, *self.heights))
       length = len(self.channels)
       buff.write(_struct_I.pack(length))
-      pattern = '<%si'%length
+      pattern = '<%sI'%length
       buff.write(struct.pack(pattern, *self.channels))
     except struct.error as se: self._check_types(struct.error("%s: '%s' when writing '%s'" % (type(se), str(se), str(locals().get('_x', self)))))
     except TypeError as te: self._check_types(ValueError("%s: '%s' when writing '%s'" % (type(te), str(te), str(locals().get('_x', self)))))
@@ -82,14 +82,14 @@ int32[] channels
       start = end
       end += 4
       (length,) = _struct_I.unpack(str[start:end])
-      pattern = '<%si'%length
+      pattern = '<%sI'%length
       start = end
       end += struct.calcsize(pattern)
       self.heights = struct.unpack(pattern, str[start:end])
       start = end
       end += 4
       (length,) = _struct_I.unpack(str[start:end])
-      pattern = '<%si'%length
+      pattern = '<%sI'%length
       start = end
       end += struct.calcsize(pattern)
       self.channels = struct.unpack(pattern, str[start:end])
@@ -108,11 +108,11 @@ int32[] channels
       buff.write(_get_struct_I().pack(self.data))
       length = len(self.heights)
       buff.write(_struct_I.pack(length))
-      pattern = '<%si'%length
+      pattern = '<%sI'%length
       buff.write(self.heights.tostring())
       length = len(self.channels)
       buff.write(_struct_I.pack(length))
-      pattern = '<%si'%length
+      pattern = '<%sI'%length
       buff.write(self.channels.tostring())
     except struct.error as se: self._check_types(struct.error("%s: '%s' when writing '%s'" % (type(se), str(se), str(locals().get('_x', self)))))
     except TypeError as te: self._check_types(ValueError("%s: '%s' when writing '%s'" % (type(te), str(te), str(locals().get('_x', self)))))
@@ -131,17 +131,17 @@ int32[] channels
       start = end
       end += 4
       (length,) = _struct_I.unpack(str[start:end])
-      pattern = '<%si'%length
+      pattern = '<%sI'%length
       start = end
       end += struct.calcsize(pattern)
-      self.heights = numpy.frombuffer(str[start:end], dtype=numpy.int32, count=length)
+      self.heights = numpy.frombuffer(str[start:end], dtype=numpy.uint32, count=length)
       start = end
       end += 4
       (length,) = _struct_I.unpack(str[start:end])
-      pattern = '<%si'%length
+      pattern = '<%sI'%length
       start = end
       end += struct.calcsize(pattern)
-      self.channels = numpy.frombuffer(str[start:end], dtype=numpy.int32, count=length)
+      self.channels = numpy.frombuffer(str[start:end], dtype=numpy.uint32, count=length)
       return self
     except struct.error as e:
       raise genpy.DeserializationError(e) #most likely buffer underfill

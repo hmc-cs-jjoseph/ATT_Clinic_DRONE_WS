@@ -5602,6 +5602,7 @@ tuner/preinstall:
 tuner/CMakeFiles/tuner_node.dir/all: dji_sdk_lib/CMakeFiles/dji_sdk_lib.dir/all
 tuner/CMakeFiles/tuner_node.dir/all: tuner/CMakeFiles/tunerdevice.dir/all
 tuner/CMakeFiles/tuner_node.dir/all: tuner/CMakeFiles/hdhomerun.dir/all
+tuner/CMakeFiles/tuner_node.dir/all: tuner/CMakeFiles/tuner_gencpp.dir/all
 	$(MAKE) -f tuner/CMakeFiles/tuner_node.dir/build.make tuner/CMakeFiles/tuner_node.dir/depend
 	$(MAKE) -f tuner/CMakeFiles/tuner_node.dir/build.make tuner/CMakeFiles/tuner_node.dir/build
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/attclinic/software/drone_ws/build/CMakeFiles --progress-num= "Built target tuner_node"
@@ -6717,9 +6718,14 @@ wheredoigo/preinstall:
 # Target rules for target wheredoigo/CMakeFiles/wheredoigo_node.dir
 
 # All Build rule for target.
+wheredoigo/CMakeFiles/wheredoigo_node.dir/all: downlink/CMakeFiles/rosgraph_msgs_generate_messages_py.dir/all
+wheredoigo/CMakeFiles/wheredoigo_node.dir/all: downlink/CMakeFiles/roscpp_generate_messages_py.dir/all
+wheredoigo/CMakeFiles/wheredoigo_node.dir/all: downlink/CMakeFiles/rosgraph_msgs_generate_messages_nodejs.dir/all
+wheredoigo/CMakeFiles/wheredoigo_node.dir/all: downlink/CMakeFiles/std_msgs_generate_messages_cpp.dir/all
 wheredoigo/CMakeFiles/wheredoigo_node.dir/all: downlink/CMakeFiles/roscpp_generate_messages_eus.dir/all
 wheredoigo/CMakeFiles/wheredoigo_node.dir/all: downlink/CMakeFiles/std_msgs_generate_messages_py.dir/all
-wheredoigo/CMakeFiles/wheredoigo_node.dir/all: downlink/CMakeFiles/rosgraph_msgs_generate_messages_py.dir/all
+wheredoigo/CMakeFiles/wheredoigo_node.dir/all: downlink/CMakeFiles/std_msgs_generate_messages_nodejs.dir/all
+wheredoigo/CMakeFiles/wheredoigo_node.dir/all: dji_sdk_lib/CMakeFiles/dji_sdk_lib.dir/all
 wheredoigo/CMakeFiles/wheredoigo_node.dir/all: downlink/CMakeFiles/rosgraph_msgs_generate_messages_lisp.dir/all
 wheredoigo/CMakeFiles/wheredoigo_node.dir/all: downlink/CMakeFiles/rosgraph_msgs_generate_messages_cpp.dir/all
 wheredoigo/CMakeFiles/wheredoigo_node.dir/all: downlink/CMakeFiles/rosgraph_msgs_generate_messages_eus.dir/all
@@ -6728,11 +6734,6 @@ wheredoigo/CMakeFiles/wheredoigo_node.dir/all: downlink/CMakeFiles/roscpp_genera
 wheredoigo/CMakeFiles/wheredoigo_node.dir/all: downlink/CMakeFiles/roscpp_generate_messages_nodejs.dir/all
 wheredoigo/CMakeFiles/wheredoigo_node.dir/all: downlink/CMakeFiles/std_msgs_generate_messages_eus.dir/all
 wheredoigo/CMakeFiles/wheredoigo_node.dir/all: downlink/CMakeFiles/std_msgs_generate_messages_lisp.dir/all
-wheredoigo/CMakeFiles/wheredoigo_node.dir/all: downlink/CMakeFiles/std_msgs_generate_messages_nodejs.dir/all
-wheredoigo/CMakeFiles/wheredoigo_node.dir/all: dji_sdk_lib/CMakeFiles/dji_sdk_lib.dir/all
-wheredoigo/CMakeFiles/wheredoigo_node.dir/all: downlink/CMakeFiles/roscpp_generate_messages_py.dir/all
-wheredoigo/CMakeFiles/wheredoigo_node.dir/all: downlink/CMakeFiles/rosgraph_msgs_generate_messages_nodejs.dir/all
-wheredoigo/CMakeFiles/wheredoigo_node.dir/all: downlink/CMakeFiles/std_msgs_generate_messages_cpp.dir/all
 wheredoigo/CMakeFiles/wheredoigo_node.dir/all: dji_sdk/CMakeFiles/dji_sdk_generate_messages_py.dir/all
 wheredoigo/CMakeFiles/wheredoigo_node.dir/all: dji_sdk/CMakeFiles/dji_sdk_generate_messages_nodejs.dir/all
 wheredoigo/CMakeFiles/wheredoigo_node.dir/all: dji_sdk/CMakeFiles/dji_sdk_generate_messages_cpp.dir/all
@@ -6758,6 +6759,12 @@ wheredoigo/CMakeFiles/wheredoigo_node.dir/all: dji_sdk/CMakeFiles/geometry_msgs_
 wheredoigo/CMakeFiles/wheredoigo_node.dir/all: dji_sdk/CMakeFiles/actionlib_generate_messages_cpp.dir/all
 wheredoigo/CMakeFiles/wheredoigo_node.dir/all: dji_sdk/CMakeFiles/actionlib_msgs_generate_messages_cpp.dir/all
 wheredoigo/CMakeFiles/wheredoigo_node.dir/all: dji_sdk/CMakeFiles/nav_msgs_generate_messages_cpp.dir/all
+wheredoigo/CMakeFiles/wheredoigo_node.dir/all: tuner/CMakeFiles/hdhomerun.dir/all
+wheredoigo/CMakeFiles/wheredoigo_node.dir/all: tuner/CMakeFiles/tuner_generate_messages_py.dir/all
+wheredoigo/CMakeFiles/wheredoigo_node.dir/all: tuner/CMakeFiles/tuner_generate_messages_cpp.dir/all
+wheredoigo/CMakeFiles/wheredoigo_node.dir/all: tuner/CMakeFiles/tuner_generate_messages_nodejs.dir/all
+wheredoigo/CMakeFiles/wheredoigo_node.dir/all: tuner/CMakeFiles/tuner_generate_messages_lisp.dir/all
+wheredoigo/CMakeFiles/wheredoigo_node.dir/all: tuner/CMakeFiles/tuner_generate_messages_eus.dir/all
 wheredoigo/CMakeFiles/wheredoigo_node.dir/all: mailroom/CMakeFiles/mailroom_generate_messages_lisp.dir/all
 wheredoigo/CMakeFiles/wheredoigo_node.dir/all: mailroom/CMakeFiles/mailroom_generate_messages_eus.dir/all
 wheredoigo/CMakeFiles/wheredoigo_node.dir/all: mailroom/CMakeFiles/mailroom_generate_messages_nodejs.dir/all
@@ -6775,7 +6782,7 @@ all: wheredoigo/CMakeFiles/wheredoigo_node.dir/all
 
 # Build rule for subdir invocation for target.
 wheredoigo/CMakeFiles/wheredoigo_node.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/attclinic/software/drone_ws/build/CMakeFiles 94
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/attclinic/software/drone_ws/build/CMakeFiles 96
 	$(MAKE) -f CMakeFiles/Makefile2 wheredoigo/CMakeFiles/wheredoigo_node.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/attclinic/software/drone_ws/build/CMakeFiles 0
 .PHONY : wheredoigo/CMakeFiles/wheredoigo_node.dir/rule

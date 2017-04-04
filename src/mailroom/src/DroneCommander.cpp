@@ -36,6 +36,7 @@ void DroneCommander::publishCommand() {
 	if(commandIsNew_) {
 		mailroom::drone_cmd cmd;
 		cmd.data = lastButton_;
+		ROS_INFO("Sending command: %d\n", cmd.data);
 		if(lastButton_ == START_MEASUREMENT_PROCEDURE) {
 			cmd.heights = heights_;
 			cmd.channels = channels_;

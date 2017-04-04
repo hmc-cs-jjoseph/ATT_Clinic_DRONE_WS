@@ -18,6 +18,7 @@ set(CMAKE_TARGET_DEFINITIONS_CXX
 # The include file search paths:
 set(CMAKE_CXX_TARGET_INCLUDE_PATH
   "/home/attclinic/software/drone_ws/devel/include"
+  "/home/attclinic/software/drone_ws/src/tuner/include"
   "/home/attclinic/software/drone_ws/src/mailroom/include"
   "/home/attclinic/software/drone_ws/src/dji_sdk/include"
   "/home/attclinic/software/drone_ws/src/dji_sdk_lib/include"
@@ -27,6 +28,7 @@ set(CMAKE_CXX_TARGET_INCLUDE_PATH
 
 # Targets to which this target links.
 set(CMAKE_TARGET_LINKED_INFO_FILES
+  "/home/attclinic/software/drone_ws/build/tuner/CMakeFiles/hdhomerun.dir/DependInfo.cmake"
   "/home/attclinic/software/drone_ws/build/dji_sdk_lib/CMakeFiles/dji_sdk_lib.dir/DependInfo.cmake"
   )
 

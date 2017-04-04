@@ -55,7 +55,7 @@ class Tuner {
     * \brief sample data for the given channel 
     * \param channelIndex, the index of the channel in channel list
     */
-    void updateStatusOfChannel(const size_t channelIndex);
+    void updateStatusOfChannel(size_t channelIndex);
 
     /**
     * \brief sample data for all 4 channels in the channel list 
@@ -66,7 +66,7 @@ class Tuner {
     * \brief get signal strength of given channel 
     * \param channelIndex, the index of the chennal in channel list 
     */
-    size_t getSignalStrengthOfChannel(const size_t channelIndex) ;
+    size_t getSignalStrengthOfChannel(size_t channelIndex) ;
 
     /**
     * \brief get signal strength of all channels
@@ -77,8 +77,7 @@ class Tuner {
     * \brief get signal to noise quality of given channel 
     * \param channelIndex, the index of the channel in channel list
     */
-    size_t getSNQOfChannel(const size_t channelIndex);
-
+    size_t getSNQOfChannel(size_t channelIndex);
     /**
     * \brief get signal to noise quality of all channels
     */

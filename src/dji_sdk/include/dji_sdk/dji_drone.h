@@ -865,8 +865,6 @@ public:
 		local_position_control.request.yaw = yaw;
 		
 		bool success = local_position_control_service.call(local_position_control) && local_position_control.response.result;
-		std::cout<< "Call Complete" << std::endl;
-		std::cout << success << std::endl;
 		return success;
 	}
 

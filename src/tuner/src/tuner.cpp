@@ -11,10 +11,25 @@ bool getSignalStatus(tuner::GetSignalStatus::Request& req, tuner::GetSignalStatu
 	Tuner tunerdevice(DEVICEID, reqChannels);
 	tunerdevice.updateStatusOfAllChannels();
 	std::vector<size_t> channels = tunerdevice.getChannelsList();
+	std::cout << "Channels: ";
+	for(auto channel : channels) {
+		std::cout << channel << ", ";
+	}
+	std::cout << std::endl;
 	res.signaldata.channel = channels;
 	std::vector<size_t> SS = tunerdevice.getSignalStrengthOfAllChannels();
+	std::cout << "SS: ";
+	for(auto sigstrength : SS) {
+		std::cout << sigstrength << ", ";
+	}
+	std::cout << std::endl;
 	res.signaldata.SS = SS;
 	std::vector<size_t> SNQ = tunerdevice.getSNQOfAllChannels();
+	std::cout << "SNQ: ";
+	for(auto quality : SNQ) {
+		std::cout << quality << ", ";
+	}
+	std::cout << std::endl;
 	res.signaldata.SNQ = SNQ;
 	return true;
 }
@@ -23,7 +38,6 @@ bool getSignalStatus(tuner::GetSignalStatus::Request& req, tuner::GetSignalStatu
 int main(int argc, char **argv) {
 	ros::init(argc, argv, "tuner_node");
 	ros::NodeHandle n;
-	const std::string deviceID = DEVICEID;
 	ros::ServiceServer service = n.advertiseService("/tuner/get_signal_status", getSignalStatus);
 
 	ros::spin();

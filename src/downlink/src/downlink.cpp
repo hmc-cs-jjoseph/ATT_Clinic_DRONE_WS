@@ -14,6 +14,7 @@
 serialib serial;
 
 void sendToBase(const std_msgs::String::ConstPtr& msg) {
+	ROS_INFO("%s", msg->data.c_str());
 	serial.WriteString(msg->data.c_str());
 }
 

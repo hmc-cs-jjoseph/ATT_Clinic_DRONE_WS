@@ -42,9 +42,9 @@
    (+
     ;; uint32 _data
     4
-    ;; int32[] _heights
+    ;; uint32[] _heights
     (* 4    (length _heights)) 4
-    ;; int32[] _channels
+    ;; uint32[] _channels
     (* 4    (length _channels)) 4
     ))
   (:serialize
@@ -53,12 +53,12 @@
               (make-string-output-stream (send self :serialization-length)))))
      ;; uint32 _data
        (write-long _data s)
-     ;; int32[] _heights
+     ;; uint32[] _heights
      (write-long (length _heights) s)
      (dotimes (i (length _heights))
        (write-long (elt _heights i) s)
        )
-     ;; int32[] _channels
+     ;; uint32[] _channels
      (write-long (length _channels) s)
      (dotimes (i (length _channels))
        (write-long (elt _channels i) s)
@@ -69,14 +69,14 @@
    (buf &optional (ptr- 0))
    ;; uint32 _data
      (setq _data (sys::peek buf ptr- :integer)) (incf ptr- 4)
-   ;; int32[] _heights
+   ;; uint32[] _heights
    (let (n)
      (setq n (sys::peek buf ptr- :integer)) (incf ptr- 4)
      (setq _heights (instantiate integer-vector n))
      (dotimes (i n)
      (setf (elt _heights i) (sys::peek buf ptr- :integer)) (incf ptr- 4)
      ))
-   ;; int32[] _channels
+   ;; uint32[] _channels
    (let (n)
      (setq n (sys::peek buf ptr- :integer)) (incf ptr- 4)
      (setq _channels (instantiate integer-vector n))
@@ -87,17 +87,17 @@
    self)
   )
 
-(setf (get mailroom::drone_cmd :md5sum-) "85a674b29af4a3350a621eb7328f4685")
+(setf (get mailroom::drone_cmd :md5sum-) "356e76f7e1df41ac5081a94634ddddce")
 (setf (get mailroom::drone_cmd :datatype-) "mailroom/drone_cmd")
 (setf (get mailroom::drone_cmd :definition-)
       "uint32 data
-int32[] heights
-int32[] channels
+uint32[] heights
+uint32[] channels
 
 ")
 
 
 
-(provide :mailroom/drone_cmd "85a674b29af4a3350a621eb7328f4685")
+(provide :mailroom/drone_cmd "356e76f7e1df41ac5081a94634ddddce")
 
 

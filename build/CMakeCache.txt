@@ -406,7 +406,8 @@ std_msgs_DIR:PATH=/home/attclinic/ros_catkin_ws_kinetic/install_isolated/share/s
 //Value Computed by CMake
 tuner_BINARY_DIR:STATIC=/home/attclinic/software/drone_ws/build/tuner
 
-tuner_DIR:PATH=
+//The directory containing a CMake configuration file for tuner.
+tuner_DIR:PATH=/home/attclinic/software/drone_ws/devel/share/tuner/cmake
 
 //Value Computed by CMake
 tuner_SOURCE_DIR:STATIC=/home/attclinic/software/drone_ws/src/tuner

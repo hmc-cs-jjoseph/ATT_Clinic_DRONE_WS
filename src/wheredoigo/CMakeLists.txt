@@ -7,6 +7,7 @@ project(wheredoigo)
 find_package(catkin REQUIRED COMPONENTS
   roscpp
   std_msgs
+	tuner
 	mailroom
 	dji_sdk
 	dji_sdk_lib

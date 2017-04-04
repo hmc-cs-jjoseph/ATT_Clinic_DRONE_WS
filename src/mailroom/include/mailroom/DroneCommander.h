@@ -17,6 +17,11 @@
 #define DOWN 12
 #define RIGHT_SPIN 13
 #define KILL_MOTORS 14
+#define UP 15
+#define REQ_SDK_CONT 16
+#define REL_SDK_CONT 17
+#define ARM 18
+#define DISARM 19
 
 class DroneCommander {
  public:
