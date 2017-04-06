@@ -139,6 +139,7 @@ add_dependencies(wheredoigo_node ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EX
 
 ## Specify libraries to link a library or executable target against
 target_link_libraries(wheredoigo_node
+	pthread
   ${catkin_LIBRARIES}
 )
 

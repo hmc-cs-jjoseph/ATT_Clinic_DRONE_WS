@@ -3803,6 +3803,8 @@ dji_sdk/dji_drone.h
 -
 std_msgs/String.h
 -
+pthread.h
+-
 mailroom/ATSCsignal.h
 -
 mailroom/drone_cmd.h

@@ -26,19 +26,26 @@ void DroneListener::publishAllData() {
 	data += std::to_string(orientation_);
 	if(dataIsNew_) {
 		data += "|channels=";
+		signaldata_t lastchannel = signaldata_[signaldata_.size() - 1];
 		for(auto channeldata : signaldata_) {
 			data += std::to_string(channeldata.channel);
-			data += ',';
+			if(channeldata.channel != lastchannel.channel) {
+				data += ',';
+			}
 		}
 		data += "|ss=";
 		for(auto channeldata : signaldata_) {
 			data += std::to_string(channeldata.SS);
-			data += ',';
+			if(channeldata.channel != lastchannel.channel) {
+				data += ',';
+			}
 		}
 		data += "|snq=";
 		for(auto channeldata : signaldata_) {
 			data += std::to_string(channeldata.SNQ);
-			data += ',';
+			if(channeldata.channel != lastchannel.channel) {
+				data += ',';
+			}
 		}
 		dataIsNew_ = 0;
 	}
@@ -60,7 +67,8 @@ void DroneListener::recordBattery(const dji_sdk::PowerStatus::ConstPtr& msg) {
 }
 
 void DroneListener::recordOrientation(const dji_sdk::Compass::ConstPtr& msg) {
-	orientation_ = atan2(msg->y, msg->x);
+	double rads = atan2(msg->y, msg->x);
+	orientation_ = rads*180/3.14159;
 }
 
 void DroneListener::recordSignalStatus(const mailroom::ATSCsignal::ConstPtr& msg) {
