@@ -1,5 +1,6 @@
 #include <ros/ros.h>
 #include <std_msgs/String.h>
+#include <std_msgs/UInt32.h>
 #include <mailroom/ATSCsignal.h>
 #include <dji_sdk/GlobalPosition.h>
 #include <dji_sdk/Compass.h>
@@ -20,6 +21,8 @@ class DroneListener {
 
 	void recordSignalStatus(const mailroom::ATSCsignal::ConstPtr& msg);
 
+	void recordDroneState(const std_msgs::UInt32::ConstPtr& msg);
+
 	void publishAllData();
 
  private:
@@ -37,6 +40,7 @@ class DroneListener {
 	float height_;
 	size_t battery_;
 	size_t dataIsNew_;
+	size_t state_;
 	std::vector<signaldata_t> signaldata_;
 
 };

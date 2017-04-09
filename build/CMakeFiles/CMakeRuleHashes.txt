@@ -94,6 +94,9 @@ a65135d896cfeefdb2617f9983014da8 /home/attclinic/software/drone_ws/devel/include
 86eb59cc9c3f2d4934b8b3a40e0fadfa /home/attclinic/software/drone_ws/devel/include/mailroom/drone_status.h
 7425159b5e9ff522295e8a3872dbd420 /home/attclinic/software/drone_ws/devel/include/mailroom/drone_telemetry.h
 f19fd4613b55fbb886eeaa2680a17c00 /home/attclinic/software/drone_ws/devel/include/tuner/GetSignalStatus.h
+3c6cb5d0e0dca498afa3de85fe7b8ef4 /home/attclinic/software/drone_ws/devel/include/wheredoigo/ATSCsignal.h
+1775a0f27a9ceb7532fcd8cb36602b8c /home/attclinic/software/drone_ws/devel/include/wheredoigo/State.h
+06a9205b525dadae3230ecbaf926e70d /home/attclinic/software/drone_ws/devel/include/wheredoigo/drone_cmd.h
 6b975fbb846b6190147e36dd9a2b0f13 /home/attclinic/software/drone_ws/devel/lib/python2.7/dist-packages/dji_sdk/msg/_A3GPS.py
 f411fbc92b356f692fe2e512162fdff0 /home/attclinic/software/drone_ws/devel/lib/python2.7/dist-packages/dji_sdk/msg/_A3RTK.py
 9d57a3d4724290c10b1a14dd942f18b2 /home/attclinic/software/drone_ws/devel/lib/python2.7/dist-packages/dji_sdk/msg/_Acceleration.py
@@ -193,6 +196,10 @@ bdaa0b68ace78042109388467ae9a49d /home/attclinic/software/drone_ws/devel/lib/pyt
 e1ecf0c7b8248b62634fc2b3f984dacc /home/attclinic/software/drone_ws/devel/lib/python2.7/dist-packages/mailroom/msg/_drone_telemetry.py
 1f0e9556b5dd63692f9d46ec4819b2a6 /home/attclinic/software/drone_ws/devel/lib/python2.7/dist-packages/tuner/srv/_GetSignalStatus.py
 b53b3a1c2ee78d41373c1847479d442e /home/attclinic/software/drone_ws/devel/lib/python2.7/dist-packages/tuner/srv/__init__.py
+434d9113ebe46139a0ee54f7ef576cf6 /home/attclinic/software/drone_ws/devel/lib/python2.7/dist-packages/wheredoigo/msg/_ATSCsignal.py
+98e6c5d40af9985c7fd771025a36ff1f /home/attclinic/software/drone_ws/devel/lib/python2.7/dist-packages/wheredoigo/msg/_State.py
+775667b2cadfb4de938a42fb30a40fb2 /home/attclinic/software/drone_ws/devel/lib/python2.7/dist-packages/wheredoigo/msg/__init__.py
+21b23b835a7b17414bbf3aa49e09877e /home/attclinic/software/drone_ws/devel/lib/python2.7/dist-packages/wheredoigo/msg/_drone_cmd.py
 9e8720b97e00ccf5e7c551bcb35359e4 /home/attclinic/software/drone_ws/devel/share/common-lisp/ros/dji_sdk/msg/A3GPS.lisp
 7139a673d5fa5c900bc47c7dad5fd971 /home/attclinic/software/drone_ws/devel/share/common-lisp/ros/dji_sdk/msg/A3RTK.lisp
 cf1bce0747012ab810dc9f1c05c04005 /home/attclinic/software/drone_ws/devel/share/common-lisp/ros/dji_sdk/msg/Acceleration.lisp
@@ -288,6 +295,9 @@ fc9048fbebcfe14ab418f1f998b2cb4f /home/attclinic/software/drone_ws/devel/share/c
 251332b76a0c0786f56bfbc3ddc7f4c2 /home/attclinic/software/drone_ws/devel/share/common-lisp/ros/mailroom/msg/drone_status.lisp
 f84ef47d2f3e39b43b5b24a5b7c4efd5 /home/attclinic/software/drone_ws/devel/share/common-lisp/ros/mailroom/msg/drone_telemetry.lisp
 4a907b3f1a0e1774816b1f1a577018b4 /home/attclinic/software/drone_ws/devel/share/common-lisp/ros/tuner/srv/GetSignalStatus.lisp
+2e757aab778cbdf1d547aea141d9a1e9 /home/attclinic/software/drone_ws/devel/share/common-lisp/ros/wheredoigo/msg/ATSCsignal.lisp
+c87ae1c8a42e263e18c24ab0bd3736e8 /home/attclinic/software/drone_ws/devel/share/common-lisp/ros/wheredoigo/msg/State.lisp
+f48fb67cfddda5c461c28f5e040bbce2 /home/attclinic/software/drone_ws/devel/share/common-lisp/ros/wheredoigo/msg/drone_cmd.lisp
 c74fc784d35f952af3712c13d65f8851 /home/attclinic/software/drone_ws/devel/share/gennodejs/ros/dji_sdk/msg/A3GPS.js
 606037b1a7637e0b55eeab76f0319a92 /home/attclinic/software/drone_ws/devel/share/gennodejs/ros/dji_sdk/msg/A3RTK.js
 7bad65fcb9d2f4c722d99a683c53facd /home/attclinic/software/drone_ws/devel/share/gennodejs/ros/dji_sdk/msg/Acceleration.js
@@ -383,6 +393,9 @@ a8566a649999395ee404266a137153d8 /home/attclinic/software/drone_ws/devel/share/g
 442e5169a91fdf676a1e21fcff37a55a /home/attclinic/software/drone_ws/devel/share/gennodejs/ros/mailroom/msg/drone_status.js
 8386875c3271349e32e0ed16ec6157a0 /home/attclinic/software/drone_ws/devel/share/gennodejs/ros/mailroom/msg/drone_telemetry.js
 d51abb6861501e990e7d8552774ba4d8 /home/attclinic/software/drone_ws/devel/share/gennodejs/ros/tuner/srv/GetSignalStatus.js
+8224de07bc13575fcb719bc2e46918d1 /home/attclinic/software/drone_ws/devel/share/gennodejs/ros/wheredoigo/msg/ATSCsignal.js
+52af029d92d895c31aee378ebeea5ad0 /home/attclinic/software/drone_ws/devel/share/gennodejs/ros/wheredoigo/msg/State.js
+4e70b2c426bba3d24424c03d069329d5 /home/attclinic/software/drone_ws/devel/share/gennodejs/ros/wheredoigo/msg/drone_cmd.js
 93c1c0409ecb867e07fbb138dce99863 /home/attclinic/software/drone_ws/devel/share/roseus/ros/dji_sdk/manifest.l
 f7d56dd3321fa1009e96563304cdd946 /home/attclinic/software/drone_ws/devel/share/roseus/ros/dji_sdk/msg/A3GPS.l
 fdfe5aa97b7fa16aae3abb9a070857f1 /home/attclinic/software/drone_ws/devel/share/roseus/ros/dji_sdk/msg/A3RTK.l
@@ -481,6 +494,10 @@ dbfe3abd089d3c1a706778886ed60f32 /home/attclinic/software/drone_ws/devel/share/r
 05ccc978aacece9aa5390b88dfcb2c20 /home/attclinic/software/drone_ws/devel/share/roseus/ros/mailroom/msg/drone_telemetry.l
 8ee7fec015990ade5e49fcf47b2965d8 /home/attclinic/software/drone_ws/devel/share/roseus/ros/tuner/manifest.l
 eaef69a84749642e907892ebfe62cc91 /home/attclinic/software/drone_ws/devel/share/roseus/ros/tuner/srv/GetSignalStatus.l
+27c61940d390309adf38b4658a84e4bc /home/attclinic/software/drone_ws/devel/share/roseus/ros/wheredoigo/manifest.l
+08b1d8b93d9ec3be5dd87215527066ba /home/attclinic/software/drone_ws/devel/share/roseus/ros/wheredoigo/msg/ATSCsignal.l
+e6d2e60aed7b6b938b6c52dcbcc6878d /home/attclinic/software/drone_ws/devel/share/roseus/ros/wheredoigo/msg/State.l
+b5349680235aeb1b1af37e35b41530ff /home/attclinic/software/drone_ws/devel/share/roseus/ros/wheredoigo/msg/drone_cmd.l
 c421e55bf6b13bb6bb1cd6019fa399ff CMakeFiles/clean_test_results
 e15b19018e60f9442364d6a6ab1471e2 dji_sdk/CMakeFiles/_dji_sdk_generate_messages_check_deps_A3GPS
 bbef044e70874e6de93350096e0394e3 dji_sdk/CMakeFiles/_dji_sdk_generate_messages_check_deps_A3RTK
@@ -578,7 +595,6 @@ ecf607c2553f472fcc81d776a8f1e30a dji_sdk/CMakeFiles/_dji_sdk_generate_messages_c
 73018d00a2edcc504455007ce3f936c5 dji_sdk/CMakeFiles/dji_sdk_generate_messages_py
 15f19acd0f2900c0c9489f3f38dcc80a mailroom/CMakeFiles/_mailroom_generate_messages_check_deps_ATSCsignal
 d9b4366ed685f9828a22a0ef1ceaa54e mailroom/CMakeFiles/_mailroom_generate_messages_check_deps_drone_cmd
-cc07fb24895e44ca1ab030cedc92ca2e mailroom/CMakeFiles/_mailroom_generate_messages_check_deps_drone_move
 e81f01d5b17e5ec22168452965feb7c9 mailroom/CMakeFiles/mailroom_generate_messages_cpp
 e81f01d5b17e5ec22168452965feb7c9 mailroom/CMakeFiles/mailroom_generate_messages_eus
 e81f01d5b17e5ec22168452965feb7c9 mailroom/CMakeFiles/mailroom_generate_messages_lisp

@@ -8,10 +8,9 @@
 #include <pthread.h>
  
 // include custom messages
+#include <std_msgs/UInt32.h>
 #include <mailroom/ATSCsignal.h> // channel[], SS[], SNQ[]
 #include <mailroom/drone_cmd.h> // data, heights[], channels[]
-#include <mailroom/drone_telemetry.h> // local_x, local_y, h, angle
-#include <mailroom/drone_move.h> // local_x, local_y, h, angle, height, channels[]
 
 // include header file generated from srv file
 #include <tuner/GetSignalStatus.h> // channels[] ; ATSCsignal[]
@@ -33,13 +32,13 @@ pthread_cond_t pauseCondition;
 pthread_t measureThread;
 measure_thread_args_t args;
 
-ros::Publisher actionPub;
 ros::Publisher signalPub;
+ros::Publisher statePub;
+ros::Subscriber stateSub;
 ros::Subscriber actionSub;
-ros::Subscriber signalSub;
+
 
 ros::ServiceClient client;
-ros::ServiceServer service;
 
 DJIDrone* drone;
 
@@ -158,6 +157,7 @@ void signalCallback(const mailroom::ATSCsignal::ConstPtr& msg) {
 
 void actionCallback(const mailroom::drone_cmd::ConstPtr& msg) {
 	// x - north, y - east, z - up
+	std_msgs::UInt32 state;
 
 	float x = drone->local_position.x;
 	float y = drone->local_position.y;
@@ -166,79 +166,149 @@ void actionCallback(const mailroom::drone_cmd::ConstPtr& msg) {
 
 	uint32_t id = msg->data;
 	if (id == 0) { // idle
+		state.data = id;
+		statePub.publish(state);
 		std::cout << "Command: Idle" << std::endl;
+		state.data = 0;
+		statePub.publish(state);
 	} else if (id == 1) { // up and down
+		state.data = id;
+		statePub.publish(state);
 		std::cout << "Command: Whole Measurement Sequence" << std::endl;
 		args.heights = msg->heights;
 		args.channels = msg->channels;
+		
+		state.data = 0;
+		statePub.publish(state);
+
 		pthread_create(&measureThread, NULL, measurementSequence, &args);
 	} else if (id == 2) { // pause
+		state.data = id;
+		statePub.publish(state);
 		std::cout << "Command: Pause" << std::endl;
+		state.data = 0;
+		statePub.publish(state);
 		resume = MEASURE_PAUSE;
 	} else if (id == 3) { // resume
+		state.data = id;
+		statePub.publish(state);
 		std::cout << "Command: Resume" << std::endl;
+		state.data = 0;
+		statePub.publish(state);
 		resume = MEASURE_RESUME;
 		pthread_cond_signal(&pauseCondition);
 	} else if (id == 4) { // take off
-		pthread_mutex_lock(&droneLock);
+		// pthread_mutex_lock(&droneLock);
+
+		state.data = id;
+		statePub.publish(state);
+
 		std::cout << "Command: Take Off" << std::endl;
 		drone->takeoff();
-
+		std::cout<<"Have you taken off??" << std::endl;
 		for (int i = 0; i < 1050; i++) {
 			z = z + 0.01;
 			drone->local_position_control(x,y,z,yaw);
 			usleep(20000);
 		}
 		std::cout << "Reached 10 meters" << std::endl;
+
+		state.data = 0;
+		statePub.publish(state);
+
 		pthread_mutex_unlock(&droneLock);
 	} else if (id == 5) { // return home
 		pthread_mutex_lock(&droneLock);
+		state.data = id;
+		statePub.publish(state);
 		std::cout << "Command: Return home" << std::endl;
 		drone->gohome();
+		state.data = 0;
+		statePub.publish(state);
 		pthread_mutex_unlock(&droneLock);
 	} else if (id == 6) { // land
 		pthread_mutex_lock(&droneLock);
+		state.data = id;
+		statePub.publish(state);
 		std::cout << "Command: Land" << std::endl;
 		drone->landing();
+		state.data = 0;
+		statePub.publish(state);
 		pthread_mutex_unlock(&droneLock);
 	} else if (id == 7) { // forward - +~5% error
 		pthread_mutex_lock(&droneLock);
+
+		state.data = id;
+		statePub.publish(state);
+
 		std::cout << "Command: Move Forward 1 Meter" << std::endl;
 		for (int j = 0; j < 100; j++) {
 			x = x + 0.01;
 			drone->local_position_control(x, y, z, yaw);
 			usleep(20000);
 		}
+
+		state.data = 0;
+		statePub.publish(state);
+
 		pthread_mutex_unlock(&droneLock);
 	} else if (id == 8) { // left - +~10% error
 		pthread_mutex_lock(&droneLock);
+
+		state.data = id;
+		statePub.publish(state);
+
 		std::cout << "Command: Move Left 1 Meter" << std::endl;
 		for (int j = 0; j < 100; j++) {
 			y = y - 0.01;
 			drone->local_position_control(x, y, z, yaw);
 			usleep(20000);
 		}
+
+		state.data = 0;
+		statePub.publish(state);
+
 		pthread_mutex_unlock(&droneLock);
 	} else if (id == 9) { // backward - +~5%
 		pthread_mutex_lock(&droneLock);
+
+		state.data = id;
+		statePub.publish(state);
+
 		std::cout << "Command: Move Backward 1 Meter" << std::endl;
 		for (int j = 0; j < 100; j++) {
 			x = x - 0.01;
 			drone->local_position_control(x, y, z, yaw);
 			usleep(20000);
 		}
+
+		state.data = 0;
+		statePub.publish(state);
+
 		pthread_mutex_lock(&droneLock);
 	} else if (id == 10) { // right - +10% error
 		pthread_mutex_lock(&droneLock);
+
+		state.data = id;
+		statePub.publish(state);
+
 		std::cout << "Command: Move Right 1 Meter" << std::endl;
 		for (int j = 0; j < 100; j++) {
 			y = y + 0.01;
 			drone->local_position_control(x, y, z, yaw);
 			usleep(20000);
 		}
+
+		state.data = 0;
+		statePub.publish(state);
+
 		pthread_mutex_unlock(&droneLock);
 	} else if (id == 11) { // left spin - -0.2% error
 		pthread_mutex_lock(&droneLock);
+
+		state.data = id;
+		statePub.publish(state);
+
 		std::cout << "Command: Spin Left 30 Degrees" << std::endl;
 		for (int j = 0; j < 15; j++) {
 			yaw = yaw - 2;
@@ -247,9 +317,17 @@ void actionCallback(const mailroom::drone_cmd::ConstPtr& msg) {
 				usleep(20000);
 			}
 		}
+
+		state.data = 0;
+		statePub.publish(state);
+
 		pthread_mutex_unlock(&droneLock);
 	} else if (id == 12) { // down - -35.5% error; -~2% error
 		pthread_mutex_lock(&droneLock);
+
+		state.data = id;
+		statePub.publish(state);
+
 		std::cout << "Command: Move Down 1 Meter" << std::endl;
 		if (z-1 > 1) {
 			for (int i = 0; i < 132; i++) {
@@ -258,9 +336,17 @@ void actionCallback(const mailroom::drone_cmd::ConstPtr& msg) {
 				usleep(20000);
 			}
 		}
+
+		state.data = 0;
+		statePub.publish(state);
+
 		pthread_mutex_unlock(&droneLock);
 	} else if (id == 13) { // right spin - -0.85% error
 		pthread_mutex_lock(&droneLock);
+
+		state.data = id;
+		statePub.publish(state);
+
 		std::cout << "Command: Spin Right 30 Degrees" << std::endl;
 		for (int j = 0; j < 15; j++) {
 			yaw = yaw + 2;
@@ -269,28 +355,55 @@ void actionCallback(const mailroom::drone_cmd::ConstPtr& msg) {
 				usleep(20000);
 			}
 		}
+
+		state.data = 0;
+		statePub.publish(state);
+
 		pthread_mutex_unlock(&droneLock);
 	} else if (id == 14) { // kill motors
 		pthread_mutex_lock(&droneLock);
+
+		state.data = id;
+		statePub.publish(state);
+
 		std::cout << "Command: Kill Motors" << std::endl;
+
+		state.data = 0;
+		statePub.publish(state);
+
 		pthread_mutex_unlock(&droneLock);
 	} else if (id == 15) { // up -  -35.27% error; -~5% error
+		state.data = id;
+		statePub.publish(state);
+
 		std::cout << "Command: Move Up 1 Meter" << std::endl;
 		for (int i = 0; i < 149; i++) {
 			z = z + 0.01;
 			drone->local_position_control(x, y, z, yaw);
 			usleep(20000);
 		}
+
+		state.data = 0;
+		statePub.publish(state);
+
 		pthread_mutex_unlock(&droneLock);
 	} else if (id == 16) { // request sdk permission control
 		pthread_mutex_lock(&droneLock);
+		state.data = id;
+		statePub.publish(state);
 		std::cout << "Command: Request SDK Permission Control" << std::endl;
 		drone->request_sdk_permission_control();
+		state.data = 0;
+		statePub.publish(state);
 		pthread_mutex_unlock(&droneLock);
 	} else if (id == 17) {
 		pthread_mutex_lock(&droneLock);
+		state.data = id;
+		statePub.publish(state);
 		std::cout << "Command: Release SDK Permission Control" << std::endl;
 		drone->release_sdk_permission_control();
+		state.data = 0;
+		statePub.publish(state);
 		pthread_mutex_unlock(&droneLock);
 	}
 }
@@ -300,12 +413,9 @@ int main(int argc, char **argv) {
 	ros::NodeHandle n;
 	drone = new DJIDrone(n);
 
-	actionPub = n.advertise<mailroom::drone_cmd>("wheredoigo/action", 1000);
 	actionSub = n.subscribe("wheredoigo/action", 1000, actionCallback);
-
 	signalPub = n.advertise<mailroom::ATSCsignal>("wheredoigo/signal", 1000);
-	signalSub = n.subscribe("wheredoigo/signal", 1000, signalCallback);
-
+	statePub = n.advertise<std_msgs::UInt32>("wheredoigo/state", 1000);
 	client = n.serviceClient<tuner::GetSignalStatus>("/tuner/get_signal_status");
 
 	ros::Rate loop_rate(1);

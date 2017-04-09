@@ -55,7 +55,6 @@ include mailroom/CMakeFiles/mailroom_generate_messages_lisp.dir/progress.make
 
 mailroom/CMakeFiles/mailroom_generate_messages_lisp: /home/attclinic/software/drone_ws/devel/share/common-lisp/ros/mailroom/msg/ATSCsignal.lisp
 mailroom/CMakeFiles/mailroom_generate_messages_lisp: /home/attclinic/software/drone_ws/devel/share/common-lisp/ros/mailroom/msg/drone_cmd.lisp
-mailroom/CMakeFiles/mailroom_generate_messages_lisp: /home/attclinic/software/drone_ws/devel/share/common-lisp/ros/mailroom/msg/drone_move.lisp
 
 
 /home/attclinic/software/drone_ws/devel/share/common-lisp/ros/mailroom/msg/ATSCsignal.lisp: /home/attclinic/ros_catkin_ws_kinetic/install_isolated/lib/genlisp/gen_lisp.py
@@ -68,15 +67,9 @@ mailroom/CMakeFiles/mailroom_generate_messages_lisp: /home/attclinic/software/dr
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/attclinic/software/drone_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Generating Lisp code from mailroom/drone_cmd.msg"
 	cd /home/attclinic/software/drone_ws/build/mailroom && ../catkin_generated/env_cached.sh /usr/bin/python /home/attclinic/ros_catkin_ws_kinetic/install_isolated/share/genlisp/cmake/../../../lib/genlisp/gen_lisp.py /home/attclinic/software/drone_ws/src/mailroom/msg/drone_cmd.msg -Imailroom:/home/attclinic/software/drone_ws/src/mailroom/msg -Istd_msgs:/home/attclinic/ros_catkin_ws_kinetic/install_isolated/share/std_msgs/cmake/../msg -Idji_sdk:/home/attclinic/software/drone_ws/src/dji_sdk/msg -Idji_sdk:/home/attclinic/software/drone_ws/devel/share/dji_sdk/msg -Igeometry_msgs:/home/attclinic/ros_catkin_ws_kinetic/install_isolated/share/geometry_msgs/cmake/../msg -Inav_msgs:/home/attclinic/ros_catkin_ws_kinetic/install_isolated/share/nav_msgs/cmake/../msg -Iactionlib_msgs:/home/attclinic/ros_catkin_ws_kinetic/install_isolated/share/actionlib_msgs/cmake/../msg -p mailroom -o /home/attclinic/software/drone_ws/devel/share/common-lisp/ros/mailroom/msg
 
-/home/attclinic/software/drone_ws/devel/share/common-lisp/ros/mailroom/msg/drone_move.lisp: /home/attclinic/ros_catkin_ws_kinetic/install_isolated/lib/genlisp/gen_lisp.py
-/home/attclinic/software/drone_ws/devel/share/common-lisp/ros/mailroom/msg/drone_move.lisp: /home/attclinic/software/drone_ws/src/mailroom/msg/drone_move.msg
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/attclinic/software/drone_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Generating Lisp code from mailroom/drone_move.msg"
-	cd /home/attclinic/software/drone_ws/build/mailroom && ../catkin_generated/env_cached.sh /usr/bin/python /home/attclinic/ros_catkin_ws_kinetic/install_isolated/share/genlisp/cmake/../../../lib/genlisp/gen_lisp.py /home/attclinic/software/drone_ws/src/mailroom/msg/drone_move.msg -Imailroom:/home/attclinic/software/drone_ws/src/mailroom/msg -Istd_msgs:/home/attclinic/ros_catkin_ws_kinetic/install_isolated/share/std_msgs/cmake/../msg -Idji_sdk:/home/attclinic/software/drone_ws/src/dji_sdk/msg -Idji_sdk:/home/attclinic/software/drone_ws/devel/share/dji_sdk/msg -Igeometry_msgs:/home/attclinic/ros_catkin_ws_kinetic/install_isolated/share/geometry_msgs/cmake/../msg -Inav_msgs:/home/attclinic/ros_catkin_ws_kinetic/install_isolated/share/nav_msgs/cmake/../msg -Iactionlib_msgs:/home/attclinic/ros_catkin_ws_kinetic/install_isolated/share/actionlib_msgs/cmake/../msg -p mailroom -o /home/attclinic/software/drone_ws/devel/share/common-lisp/ros/mailroom/msg
-
 mailroom_generate_messages_lisp: mailroom/CMakeFiles/mailroom_generate_messages_lisp
 mailroom_generate_messages_lisp: /home/attclinic/software/drone_ws/devel/share/common-lisp/ros/mailroom/msg/ATSCsignal.lisp
 mailroom_generate_messages_lisp: /home/attclinic/software/drone_ws/devel/share/common-lisp/ros/mailroom/msg/drone_cmd.lisp
-mailroom_generate_messages_lisp: /home/attclinic/software/drone_ws/devel/share/common-lisp/ros/mailroom/msg/drone_move.lisp
 mailroom_generate_messages_lisp: mailroom/CMakeFiles/mailroom_generate_messages_lisp.dir/build.make
 
 .PHONY : mailroom_generate_messages_lisp

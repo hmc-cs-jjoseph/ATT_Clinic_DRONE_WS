@@ -153,7 +153,7 @@ foreach(t ${mailroom_EXPORTED_TARGETS})
   endif()
 endforeach()
 
-set(depends "message_runtime;roscpp;std_msgs;dji_sdk")
+set(depends "roscpp;std_msgs;dji_sdk")
 foreach(depend ${depends})
   string(REPLACE " " ";" depend_list ${depend})
   # the package name of the dependency must be kept in a unique variable so that it is not overwritten in recursive calls

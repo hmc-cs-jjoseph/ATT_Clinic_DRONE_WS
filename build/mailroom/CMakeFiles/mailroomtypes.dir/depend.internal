@@ -60,6 +60,7 @@ mailroom/CMakeFiles/mailroomtypes.dir/src/mailroomtypes.cpp.o
  /home/attclinic/ros_catkin_ws_kinetic/install_isolated/include/rosconsole/macros_generated.h
  /home/attclinic/ros_catkin_ws_kinetic/install_isolated/include/std_msgs/Header.h
  /home/attclinic/ros_catkin_ws_kinetic/install_isolated/include/std_msgs/String.h
+ /home/attclinic/ros_catkin_ws_kinetic/install_isolated/include/std_msgs/UInt32.h
  /home/attclinic/software/drone_ws/devel/include/dji_sdk/Compass.h
  /home/attclinic/software/drone_ws/devel/include/dji_sdk/GlobalPosition.h
  /home/attclinic/software/drone_ws/devel/include/dji_sdk/PowerStatus.h

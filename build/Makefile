@@ -2298,30 +2298,134 @@ tuner_genlisp/fast:
 .PHONY : tuner_genlisp/fast
 
 #=============================================================================
-# Target rules for targets named mailroom_generate_messages_lisp
+# Target rules for targets named mailroom_generate_messages_py
 
 # Build rule for target.
-mailroom_generate_messages_lisp: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 mailroom_generate_messages_lisp
-.PHONY : mailroom_generate_messages_lisp
+mailroom_generate_messages_py: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 mailroom_generate_messages_py
+.PHONY : mailroom_generate_messages_py
 
 # fast build rule for target.
-mailroom_generate_messages_lisp/fast:
-	$(MAKE) -f mailroom/CMakeFiles/mailroom_generate_messages_lisp.dir/build.make mailroom/CMakeFiles/mailroom_generate_messages_lisp.dir/build
-.PHONY : mailroom_generate_messages_lisp/fast
+mailroom_generate_messages_py/fast:
+	$(MAKE) -f mailroom/CMakeFiles/mailroom_generate_messages_py.dir/build.make mailroom/CMakeFiles/mailroom_generate_messages_py.dir/build
+.PHONY : mailroom_generate_messages_py/fast
 
 #=============================================================================
-# Target rules for targets named _mailroom_generate_messages_check_deps_drone_move
+# Target rules for targets named mailroom_gennodejs
 
 # Build rule for target.
-_mailroom_generate_messages_check_deps_drone_move: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 _mailroom_generate_messages_check_deps_drone_move
-.PHONY : _mailroom_generate_messages_check_deps_drone_move
+mailroom_gennodejs: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 mailroom_gennodejs
+.PHONY : mailroom_gennodejs
 
 # fast build rule for target.
-_mailroom_generate_messages_check_deps_drone_move/fast:
-	$(MAKE) -f mailroom/CMakeFiles/_mailroom_generate_messages_check_deps_drone_move.dir/build.make mailroom/CMakeFiles/_mailroom_generate_messages_check_deps_drone_move.dir/build
-.PHONY : _mailroom_generate_messages_check_deps_drone_move/fast
+mailroom_gennodejs/fast:
+	$(MAKE) -f mailroom/CMakeFiles/mailroom_gennodejs.dir/build.make mailroom/CMakeFiles/mailroom_gennodejs.dir/build
+.PHONY : mailroom_gennodejs/fast
+
+#=============================================================================
+# Target rules for targets named mailroom_generate_messages
+
+# Build rule for target.
+mailroom_generate_messages: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 mailroom_generate_messages
+.PHONY : mailroom_generate_messages
+
+# fast build rule for target.
+mailroom_generate_messages/fast:
+	$(MAKE) -f mailroom/CMakeFiles/mailroom_generate_messages.dir/build.make mailroom/CMakeFiles/mailroom_generate_messages.dir/build
+.PHONY : mailroom_generate_messages/fast
+
+#=============================================================================
+# Target rules for targets named mailroom_genlisp
+
+# Build rule for target.
+mailroom_genlisp: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 mailroom_genlisp
+.PHONY : mailroom_genlisp
+
+# fast build rule for target.
+mailroom_genlisp/fast:
+	$(MAKE) -f mailroom/CMakeFiles/mailroom_genlisp.dir/build.make mailroom/CMakeFiles/mailroom_genlisp.dir/build
+.PHONY : mailroom_genlisp/fast
+
+#=============================================================================
+# Target rules for targets named mailroom_node
+
+# Build rule for target.
+mailroom_node: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 mailroom_node
+.PHONY : mailroom_node
+
+# fast build rule for target.
+mailroom_node/fast:
+	$(MAKE) -f mailroom/CMakeFiles/mailroom_node.dir/build.make mailroom/CMakeFiles/mailroom_node.dir/build
+.PHONY : mailroom_node/fast
+
+#=============================================================================
+# Target rules for targets named mailroom_genpy
+
+# Build rule for target.
+mailroom_genpy: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 mailroom_genpy
+.PHONY : mailroom_genpy
+
+# fast build rule for target.
+mailroom_genpy/fast:
+	$(MAKE) -f mailroom/CMakeFiles/mailroom_genpy.dir/build.make mailroom/CMakeFiles/mailroom_genpy.dir/build
+.PHONY : mailroom_genpy/fast
+
+#=============================================================================
+# Target rules for targets named _mailroom_generate_messages_check_deps_drone_cmd
+
+# Build rule for target.
+_mailroom_generate_messages_check_deps_drone_cmd: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 _mailroom_generate_messages_check_deps_drone_cmd
+.PHONY : _mailroom_generate_messages_check_deps_drone_cmd
+
+# fast build rule for target.
+_mailroom_generate_messages_check_deps_drone_cmd/fast:
+	$(MAKE) -f mailroom/CMakeFiles/_mailroom_generate_messages_check_deps_drone_cmd.dir/build.make mailroom/CMakeFiles/_mailroom_generate_messages_check_deps_drone_cmd.dir/build
+.PHONY : _mailroom_generate_messages_check_deps_drone_cmd/fast
+
+#=============================================================================
+# Target rules for targets named mailroom_generate_messages_cpp
+
+# Build rule for target.
+mailroom_generate_messages_cpp: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 mailroom_generate_messages_cpp
+.PHONY : mailroom_generate_messages_cpp
+
+# fast build rule for target.
+mailroom_generate_messages_cpp/fast:
+	$(MAKE) -f mailroom/CMakeFiles/mailroom_generate_messages_cpp.dir/build.make mailroom/CMakeFiles/mailroom_generate_messages_cpp.dir/build
+.PHONY : mailroom_generate_messages_cpp/fast
+
+#=============================================================================
+# Target rules for targets named mailroom_gencpp
+
+# Build rule for target.
+mailroom_gencpp: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 mailroom_gencpp
+.PHONY : mailroom_gencpp
+
+# fast build rule for target.
+mailroom_gencpp/fast:
+	$(MAKE) -f mailroom/CMakeFiles/mailroom_gencpp.dir/build.make mailroom/CMakeFiles/mailroom_gencpp.dir/build
+.PHONY : mailroom_gencpp/fast
+
+#=============================================================================
+# Target rules for targets named mailroomtypes
+
+# Build rule for target.
+mailroomtypes: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 mailroomtypes
+.PHONY : mailroomtypes
+
+# fast build rule for target.
+mailroomtypes/fast:
+	$(MAKE) -f mailroom/CMakeFiles/mailroomtypes.dir/build.make mailroom/CMakeFiles/mailroomtypes.dir/build
+.PHONY : mailroomtypes/fast
 
 #=============================================================================
 # Target rules for targets named _mailroom_generate_messages_check_deps_ATSCsignal
@@ -2337,17 +2441,30 @@ _mailroom_generate_messages_check_deps_ATSCsignal/fast:
 .PHONY : _mailroom_generate_messages_check_deps_ATSCsignal/fast
 
 #=============================================================================
-# Target rules for targets named mailroomtypes
+# Target rules for targets named mailroom_geneus
 
 # Build rule for target.
-mailroomtypes: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 mailroomtypes
-.PHONY : mailroomtypes
+mailroom_geneus: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 mailroom_geneus
+.PHONY : mailroom_geneus
 
 # fast build rule for target.
-mailroomtypes/fast:
-	$(MAKE) -f mailroom/CMakeFiles/mailroomtypes.dir/build.make mailroom/CMakeFiles/mailroomtypes.dir/build
-.PHONY : mailroomtypes/fast
+mailroom_geneus/fast:
+	$(MAKE) -f mailroom/CMakeFiles/mailroom_geneus.dir/build.make mailroom/CMakeFiles/mailroom_geneus.dir/build
+.PHONY : mailroom_geneus/fast
+
+#=============================================================================
+# Target rules for targets named mailroom_generate_messages_lisp
+
+# Build rule for target.
+mailroom_generate_messages_lisp: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 mailroom_generate_messages_lisp
+.PHONY : mailroom_generate_messages_lisp
+
+# fast build rule for target.
+mailroom_generate_messages_lisp/fast:
+	$(MAKE) -f mailroom/CMakeFiles/mailroom_generate_messages_lisp.dir/build.make mailroom/CMakeFiles/mailroom_generate_messages_lisp.dir/build
+.PHONY : mailroom_generate_messages_lisp/fast
 
 #=============================================================================
 # Target rules for targets named mailroom_generate_messages_eus
@@ -2374,136 +2491,6 @@ mailroom_generate_messages_nodejs: cmake_check_build_system
 mailroom_generate_messages_nodejs/fast:
 	$(MAKE) -f mailroom/CMakeFiles/mailroom_generate_messages_nodejs.dir/build.make mailroom/CMakeFiles/mailroom_generate_messages_nodejs.dir/build
 .PHONY : mailroom_generate_messages_nodejs/fast
-
-#=============================================================================
-# Target rules for targets named mailroom_gencpp
-
-# Build rule for target.
-mailroom_gencpp: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 mailroom_gencpp
-.PHONY : mailroom_gencpp
-
-# fast build rule for target.
-mailroom_gencpp/fast:
-	$(MAKE) -f mailroom/CMakeFiles/mailroom_gencpp.dir/build.make mailroom/CMakeFiles/mailroom_gencpp.dir/build
-.PHONY : mailroom_gencpp/fast
-
-#=============================================================================
-# Target rules for targets named mailroom_generate_messages_cpp
-
-# Build rule for target.
-mailroom_generate_messages_cpp: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 mailroom_generate_messages_cpp
-.PHONY : mailroom_generate_messages_cpp
-
-# fast build rule for target.
-mailroom_generate_messages_cpp/fast:
-	$(MAKE) -f mailroom/CMakeFiles/mailroom_generate_messages_cpp.dir/build.make mailroom/CMakeFiles/mailroom_generate_messages_cpp.dir/build
-.PHONY : mailroom_generate_messages_cpp/fast
-
-#=============================================================================
-# Target rules for targets named _mailroom_generate_messages_check_deps_drone_cmd
-
-# Build rule for target.
-_mailroom_generate_messages_check_deps_drone_cmd: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 _mailroom_generate_messages_check_deps_drone_cmd
-.PHONY : _mailroom_generate_messages_check_deps_drone_cmd
-
-# fast build rule for target.
-_mailroom_generate_messages_check_deps_drone_cmd/fast:
-	$(MAKE) -f mailroom/CMakeFiles/_mailroom_generate_messages_check_deps_drone_cmd.dir/build.make mailroom/CMakeFiles/_mailroom_generate_messages_check_deps_drone_cmd.dir/build
-.PHONY : _mailroom_generate_messages_check_deps_drone_cmd/fast
-
-#=============================================================================
-# Target rules for targets named mailroom_genlisp
-
-# Build rule for target.
-mailroom_genlisp: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 mailroom_genlisp
-.PHONY : mailroom_genlisp
-
-# fast build rule for target.
-mailroom_genlisp/fast:
-	$(MAKE) -f mailroom/CMakeFiles/mailroom_genlisp.dir/build.make mailroom/CMakeFiles/mailroom_genlisp.dir/build
-.PHONY : mailroom_genlisp/fast
-
-#=============================================================================
-# Target rules for targets named mailroom_generate_messages
-
-# Build rule for target.
-mailroom_generate_messages: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 mailroom_generate_messages
-.PHONY : mailroom_generate_messages
-
-# fast build rule for target.
-mailroom_generate_messages/fast:
-	$(MAKE) -f mailroom/CMakeFiles/mailroom_generate_messages.dir/build.make mailroom/CMakeFiles/mailroom_generate_messages.dir/build
-.PHONY : mailroom_generate_messages/fast
-
-#=============================================================================
-# Target rules for targets named mailroom_gennodejs
-
-# Build rule for target.
-mailroom_gennodejs: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 mailroom_gennodejs
-.PHONY : mailroom_gennodejs
-
-# fast build rule for target.
-mailroom_gennodejs/fast:
-	$(MAKE) -f mailroom/CMakeFiles/mailroom_gennodejs.dir/build.make mailroom/CMakeFiles/mailroom_gennodejs.dir/build
-.PHONY : mailroom_gennodejs/fast
-
-#=============================================================================
-# Target rules for targets named mailroom_node
-
-# Build rule for target.
-mailroom_node: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 mailroom_node
-.PHONY : mailroom_node
-
-# fast build rule for target.
-mailroom_node/fast:
-	$(MAKE) -f mailroom/CMakeFiles/mailroom_node.dir/build.make mailroom/CMakeFiles/mailroom_node.dir/build
-.PHONY : mailroom_node/fast
-
-#=============================================================================
-# Target rules for targets named mailroom_generate_messages_py
-
-# Build rule for target.
-mailroom_generate_messages_py: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 mailroom_generate_messages_py
-.PHONY : mailroom_generate_messages_py
-
-# fast build rule for target.
-mailroom_generate_messages_py/fast:
-	$(MAKE) -f mailroom/CMakeFiles/mailroom_generate_messages_py.dir/build.make mailroom/CMakeFiles/mailroom_generate_messages_py.dir/build
-.PHONY : mailroom_generate_messages_py/fast
-
-#=============================================================================
-# Target rules for targets named mailroom_geneus
-
-# Build rule for target.
-mailroom_geneus: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 mailroom_geneus
-.PHONY : mailroom_geneus
-
-# fast build rule for target.
-mailroom_geneus/fast:
-	$(MAKE) -f mailroom/CMakeFiles/mailroom_geneus.dir/build.make mailroom/CMakeFiles/mailroom_geneus.dir/build
-.PHONY : mailroom_geneus/fast
-
-#=============================================================================
-# Target rules for targets named mailroom_genpy
-
-# Build rule for target.
-mailroom_genpy: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 mailroom_genpy
-.PHONY : mailroom_genpy
-
-# fast build rule for target.
-mailroom_genpy/fast:
-	$(MAKE) -f mailroom/CMakeFiles/mailroom_genpy.dir/build.make mailroom/CMakeFiles/mailroom_genpy.dir/build
-.PHONY : mailroom_genpy/fast
 
 #=============================================================================
 # Target rules for targets named wheredoigo_node
@@ -2695,22 +2682,21 @@ help:
 	@echo "... tuner_generate_messages"
 	@echo "... tuner_generate_messages_eus"
 	@echo "... tuner_genlisp"
-	@echo "... mailroom_generate_messages_lisp"
-	@echo "... _mailroom_generate_messages_check_deps_drone_move"
-	@echo "... _mailroom_generate_messages_check_deps_ATSCsignal"
+	@echo "... mailroom_generate_messages_py"
+	@echo "... mailroom_gennodejs"
+	@echo "... mailroom_generate_messages"
+	@echo "... mailroom_genlisp"
+	@echo "... mailroom_node"
+	@echo "... mailroom_genpy"
+	@echo "... _mailroom_generate_messages_check_deps_drone_cmd"
+	@echo "... mailroom_generate_messages_cpp"
+	@echo "... mailroom_gencpp"
 	@echo "... mailroomtypes"
+	@echo "... _mailroom_generate_messages_check_deps_ATSCsignal"
+	@echo "... mailroom_geneus"
+	@echo "... mailroom_generate_messages_lisp"
 	@echo "... mailroom_generate_messages_eus"
 	@echo "... mailroom_generate_messages_nodejs"
-	@echo "... mailroom_gencpp"
-	@echo "... mailroom_generate_messages_cpp"
-	@echo "... _mailroom_generate_messages_check_deps_drone_cmd"
-	@echo "... mailroom_genlisp"
-	@echo "... mailroom_generate_messages"
-	@echo "... mailroom_gennodejs"
-	@echo "... mailroom_node"
-	@echo "... mailroom_generate_messages_py"
-	@echo "... mailroom_geneus"
-	@echo "... mailroom_genpy"
 	@echo "... wheredoigo_node"
 .PHONY : help
 

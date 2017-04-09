@@ -684,6 +684,22 @@ ros/builtin_message_traits.h
 ros/message_operations.h
 -
 
+/home/attclinic/ros_catkin_ws_kinetic/install_isolated/include/std_msgs/UInt32.h
+string
+-
+vector
+-
+map
+-
+ros/types.h
+-
+ros/serialization.h
+-
+ros/builtin_message_traits.h
+-
+ros/message_operations.h
+-
+
 /home/attclinic/software/drone_ws/devel/include/dji_sdk/Compass.h
 string
 -
@@ -780,6 +796,8 @@ mailroom/drone_cmd.h
 ros/ros.h
 -
 std_msgs/String.h
+-
+std_msgs/UInt32.h
 -
 mailroom/ATSCsignal.h
 -

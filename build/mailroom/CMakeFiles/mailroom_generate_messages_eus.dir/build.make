@@ -55,7 +55,6 @@ include mailroom/CMakeFiles/mailroom_generate_messages_eus.dir/progress.make
 
 mailroom/CMakeFiles/mailroom_generate_messages_eus: /home/attclinic/software/drone_ws/devel/share/roseus/ros/mailroom/msg/ATSCsignal.l
 mailroom/CMakeFiles/mailroom_generate_messages_eus: /home/attclinic/software/drone_ws/devel/share/roseus/ros/mailroom/msg/drone_cmd.l
-mailroom/CMakeFiles/mailroom_generate_messages_eus: /home/attclinic/software/drone_ws/devel/share/roseus/ros/mailroom/msg/drone_move.l
 mailroom/CMakeFiles/mailroom_generate_messages_eus: /home/attclinic/software/drone_ws/devel/share/roseus/ros/mailroom/manifest.l
 
 
@@ -69,19 +68,13 @@ mailroom/CMakeFiles/mailroom_generate_messages_eus: /home/attclinic/software/dro
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/attclinic/software/drone_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Generating EusLisp code from mailroom/drone_cmd.msg"
 	cd /home/attclinic/software/drone_ws/build/mailroom && ../catkin_generated/env_cached.sh /usr/bin/python /home/attclinic/ros_catkin_ws_kinetic/install_isolated/share/geneus/cmake/../../../lib/geneus/gen_eus.py /home/attclinic/software/drone_ws/src/mailroom/msg/drone_cmd.msg -Imailroom:/home/attclinic/software/drone_ws/src/mailroom/msg -Istd_msgs:/home/attclinic/ros_catkin_ws_kinetic/install_isolated/share/std_msgs/cmake/../msg -Idji_sdk:/home/attclinic/software/drone_ws/src/dji_sdk/msg -Idji_sdk:/home/attclinic/software/drone_ws/devel/share/dji_sdk/msg -Igeometry_msgs:/home/attclinic/ros_catkin_ws_kinetic/install_isolated/share/geometry_msgs/cmake/../msg -Inav_msgs:/home/attclinic/ros_catkin_ws_kinetic/install_isolated/share/nav_msgs/cmake/../msg -Iactionlib_msgs:/home/attclinic/ros_catkin_ws_kinetic/install_isolated/share/actionlib_msgs/cmake/../msg -p mailroom -o /home/attclinic/software/drone_ws/devel/share/roseus/ros/mailroom/msg
 
-/home/attclinic/software/drone_ws/devel/share/roseus/ros/mailroom/msg/drone_move.l: /home/attclinic/ros_catkin_ws_kinetic/install_isolated/lib/geneus/gen_eus.py
-/home/attclinic/software/drone_ws/devel/share/roseus/ros/mailroom/msg/drone_move.l: /home/attclinic/software/drone_ws/src/mailroom/msg/drone_move.msg
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/attclinic/software/drone_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Generating EusLisp code from mailroom/drone_move.msg"
-	cd /home/attclinic/software/drone_ws/build/mailroom && ../catkin_generated/env_cached.sh /usr/bin/python /home/attclinic/ros_catkin_ws_kinetic/install_isolated/share/geneus/cmake/../../../lib/geneus/gen_eus.py /home/attclinic/software/drone_ws/src/mailroom/msg/drone_move.msg -Imailroom:/home/attclinic/software/drone_ws/src/mailroom/msg -Istd_msgs:/home/attclinic/ros_catkin_ws_kinetic/install_isolated/share/std_msgs/cmake/../msg -Idji_sdk:/home/attclinic/software/drone_ws/src/dji_sdk/msg -Idji_sdk:/home/attclinic/software/drone_ws/devel/share/dji_sdk/msg -Igeometry_msgs:/home/attclinic/ros_catkin_ws_kinetic/install_isolated/share/geometry_msgs/cmake/../msg -Inav_msgs:/home/attclinic/ros_catkin_ws_kinetic/install_isolated/share/nav_msgs/cmake/../msg -Iactionlib_msgs:/home/attclinic/ros_catkin_ws_kinetic/install_isolated/share/actionlib_msgs/cmake/../msg -p mailroom -o /home/attclinic/software/drone_ws/devel/share/roseus/ros/mailroom/msg
-
 /home/attclinic/software/drone_ws/devel/share/roseus/ros/mailroom/manifest.l: /home/attclinic/ros_catkin_ws_kinetic/install_isolated/lib/geneus/gen_eus.py
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/attclinic/software/drone_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Generating EusLisp manifest code for mailroom"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/attclinic/software/drone_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Generating EusLisp manifest code for mailroom"
 	cd /home/attclinic/software/drone_ws/build/mailroom && ../catkin_generated/env_cached.sh /usr/bin/python /home/attclinic/ros_catkin_ws_kinetic/install_isolated/share/geneus/cmake/../../../lib/geneus/gen_eus.py -m -o /home/attclinic/software/drone_ws/devel/share/roseus/ros/mailroom mailroom std_msgs dji_sdk tuner
 
 mailroom_generate_messages_eus: mailroom/CMakeFiles/mailroom_generate_messages_eus
 mailroom_generate_messages_eus: /home/attclinic/software/drone_ws/devel/share/roseus/ros/mailroom/msg/ATSCsignal.l
 mailroom_generate_messages_eus: /home/attclinic/software/drone_ws/devel/share/roseus/ros/mailroom/msg/drone_cmd.l
-mailroom_generate_messages_eus: /home/attclinic/software/drone_ws/devel/share/roseus/ros/mailroom/msg/drone_move.l
 mailroom_generate_messages_eus: /home/attclinic/software/drone_ws/devel/share/roseus/ros/mailroom/manifest.l
 mailroom_generate_messages_eus: mailroom/CMakeFiles/mailroom_generate_messages_eus.dir/build.make
 

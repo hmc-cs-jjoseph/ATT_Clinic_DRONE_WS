@@ -19,7 +19,6 @@ set(CMAKE_TARGET_DEFINITIONS_CXX
 set(CMAKE_CXX_TARGET_INCLUDE_PATH
   "/home/attclinic/software/drone_ws/devel/include"
   "/home/attclinic/software/drone_ws/src/tuner/include"
-  "/home/attclinic/software/drone_ws/src/mailroom/include"
   "/home/attclinic/software/drone_ws/src/dji_sdk/include"
   "/home/attclinic/software/drone_ws/src/dji_sdk_lib/include"
   "/home/attclinic/ros_catkin_ws_kinetic/install_isolated/include"

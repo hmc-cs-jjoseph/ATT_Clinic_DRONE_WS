@@ -26,6 +26,7 @@ int main(int argc, char **argv) {
 	ros::Subscriber powerData = nh.subscribe("dji_sdk/power_status", 1, &DroneListener::recordBattery, &lstn);
 	ros::Subscriber signalData = nh.subscribe("wheredoigo/signal", 10, &DroneListener::recordSignalStatus, &lstn); 
 	ros::Subscriber userInputData = nh.subscribe("downlink/dl_up", 100, &DroneCommander::parseMessage, &cmd);
+	ros::Subscriber stateData = nh.subscribe("wheredoigo/state", 10, &DroneListener::recordDroneState, &lstn);
 
 	ros::Rate loop_rate(1);
 	while(ros::ok()) {

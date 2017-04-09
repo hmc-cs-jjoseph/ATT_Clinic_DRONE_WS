@@ -1,6 +1,6 @@
 # generated from genmsg/cmake/pkg-genmsg.context.in
 
-messages_str = "/home/attclinic/software/drone_ws/src/mailroom/msg/drone_cmd.msg;/home/attclinic/software/drone_ws/src/mailroom/msg/drone_move.msg;/home/attclinic/software/drone_ws/src/mailroom/msg/ATSCsignal.msg"
+messages_str = "/home/attclinic/software/drone_ws/src/mailroom/msg/drone_cmd.msg;/home/attclinic/software/drone_ws/src/mailroom/msg/ATSCsignal.msg"
 services_str = ""
 pkg_name = "mailroom"
 dependencies_str = "std_msgs;dji_sdk;tuner"

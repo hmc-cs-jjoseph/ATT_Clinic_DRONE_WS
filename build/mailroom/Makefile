@@ -67,48 +67,16 @@ test/fast: test
 
 .PHONY : test/fast
 
-# Special rule for the target list_install_components
-list_install_components:
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Available install components are: \"Unspecified\""
-.PHONY : list_install_components
+# Special rule for the target install/strip
+install/strip: preinstall
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Installing the project stripped..."
+	/usr/bin/cmake -DCMAKE_INSTALL_DO_STRIP=1 -P cmake_install.cmake
+.PHONY : install/strip
 
-# Special rule for the target list_install_components
-list_install_components/fast: list_install_components
+# Special rule for the target install/strip
+install/strip/fast: install/strip
 
-.PHONY : list_install_components/fast
-
-# Special rule for the target rebuild_cache
-rebuild_cache:
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running CMake to regenerate build system..."
-	/usr/bin/cmake -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR)
-.PHONY : rebuild_cache
-
-# Special rule for the target rebuild_cache
-rebuild_cache/fast: rebuild_cache
-
-.PHONY : rebuild_cache/fast
-
-# Special rule for the target edit_cache
-edit_cache:
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "No interactive CMake dialog available..."
-	/usr/bin/cmake -E echo No\ interactive\ CMake\ dialog\ available.
-.PHONY : edit_cache
-
-# Special rule for the target edit_cache
-edit_cache/fast: edit_cache
-
-.PHONY : edit_cache/fast
-
-# Special rule for the target install/local
-install/local: preinstall
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Installing only the local directory..."
-	/usr/bin/cmake -DCMAKE_INSTALL_LOCAL_ONLY=1 -P cmake_install.cmake
-.PHONY : install/local
-
-# Special rule for the target install/local
-install/local/fast: install/local
-
-.PHONY : install/local/fast
+.PHONY : install/strip/fast
 
 # Special rule for the target install
 install: preinstall
@@ -122,16 +90,48 @@ install/fast: preinstall/fast
 	/usr/bin/cmake -P cmake_install.cmake
 .PHONY : install/fast
 
-# Special rule for the target install/strip
-install/strip: preinstall
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Installing the project stripped..."
-	/usr/bin/cmake -DCMAKE_INSTALL_DO_STRIP=1 -P cmake_install.cmake
-.PHONY : install/strip
+# Special rule for the target install/local
+install/local: preinstall
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Installing only the local directory..."
+	/usr/bin/cmake -DCMAKE_INSTALL_LOCAL_ONLY=1 -P cmake_install.cmake
+.PHONY : install/local
 
-# Special rule for the target install/strip
-install/strip/fast: install/strip
+# Special rule for the target install/local
+install/local/fast: install/local
 
-.PHONY : install/strip/fast
+.PHONY : install/local/fast
+
+# Special rule for the target edit_cache
+edit_cache:
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "No interactive CMake dialog available..."
+	/usr/bin/cmake -E echo No\ interactive\ CMake\ dialog\ available.
+.PHONY : edit_cache
+
+# Special rule for the target edit_cache
+edit_cache/fast: edit_cache
+
+.PHONY : edit_cache/fast
+
+# Special rule for the target rebuild_cache
+rebuild_cache:
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running CMake to regenerate build system..."
+	/usr/bin/cmake -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR)
+.PHONY : rebuild_cache
+
+# Special rule for the target rebuild_cache
+rebuild_cache/fast: rebuild_cache
+
+.PHONY : rebuild_cache/fast
+
+# Special rule for the target list_install_components
+list_install_components:
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Available install components are: \"Unspecified\""
+.PHONY : list_install_components
+
+# Special rule for the target list_install_components
+list_install_components/fast: list_install_components
+
+.PHONY : list_install_components/fast
 
 # The main all target
 all: cmake_check_build_system
@@ -166,34 +166,154 @@ depend:
 .PHONY : depend
 
 # Convenience name for target.
-mailroom/CMakeFiles/mailroom_generate_messages_lisp.dir/rule:
-	cd /home/attclinic/software/drone_ws/build && $(MAKE) -f CMakeFiles/Makefile2 mailroom/CMakeFiles/mailroom_generate_messages_lisp.dir/rule
-.PHONY : mailroom/CMakeFiles/mailroom_generate_messages_lisp.dir/rule
+mailroom/CMakeFiles/mailroom_generate_messages_py.dir/rule:
+	cd /home/attclinic/software/drone_ws/build && $(MAKE) -f CMakeFiles/Makefile2 mailroom/CMakeFiles/mailroom_generate_messages_py.dir/rule
+.PHONY : mailroom/CMakeFiles/mailroom_generate_messages_py.dir/rule
 
 # Convenience name for target.
-mailroom_generate_messages_lisp: mailroom/CMakeFiles/mailroom_generate_messages_lisp.dir/rule
+mailroom_generate_messages_py: mailroom/CMakeFiles/mailroom_generate_messages_py.dir/rule
 
-.PHONY : mailroom_generate_messages_lisp
+.PHONY : mailroom_generate_messages_py
 
 # fast build rule for target.
-mailroom_generate_messages_lisp/fast:
-	cd /home/attclinic/software/drone_ws/build && $(MAKE) -f mailroom/CMakeFiles/mailroom_generate_messages_lisp.dir/build.make mailroom/CMakeFiles/mailroom_generate_messages_lisp.dir/build
-.PHONY : mailroom_generate_messages_lisp/fast
+mailroom_generate_messages_py/fast:
+	cd /home/attclinic/software/drone_ws/build && $(MAKE) -f mailroom/CMakeFiles/mailroom_generate_messages_py.dir/build.make mailroom/CMakeFiles/mailroom_generate_messages_py.dir/build
+.PHONY : mailroom_generate_messages_py/fast
 
 # Convenience name for target.
-mailroom/CMakeFiles/_mailroom_generate_messages_check_deps_drone_move.dir/rule:
-	cd /home/attclinic/software/drone_ws/build && $(MAKE) -f CMakeFiles/Makefile2 mailroom/CMakeFiles/_mailroom_generate_messages_check_deps_drone_move.dir/rule
-.PHONY : mailroom/CMakeFiles/_mailroom_generate_messages_check_deps_drone_move.dir/rule
+mailroom/CMakeFiles/mailroom_gennodejs.dir/rule:
+	cd /home/attclinic/software/drone_ws/build && $(MAKE) -f CMakeFiles/Makefile2 mailroom/CMakeFiles/mailroom_gennodejs.dir/rule
+.PHONY : mailroom/CMakeFiles/mailroom_gennodejs.dir/rule
 
 # Convenience name for target.
-_mailroom_generate_messages_check_deps_drone_move: mailroom/CMakeFiles/_mailroom_generate_messages_check_deps_drone_move.dir/rule
+mailroom_gennodejs: mailroom/CMakeFiles/mailroom_gennodejs.dir/rule
 
-.PHONY : _mailroom_generate_messages_check_deps_drone_move
+.PHONY : mailroom_gennodejs
 
 # fast build rule for target.
-_mailroom_generate_messages_check_deps_drone_move/fast:
-	cd /home/attclinic/software/drone_ws/build && $(MAKE) -f mailroom/CMakeFiles/_mailroom_generate_messages_check_deps_drone_move.dir/build.make mailroom/CMakeFiles/_mailroom_generate_messages_check_deps_drone_move.dir/build
-.PHONY : _mailroom_generate_messages_check_deps_drone_move/fast
+mailroom_gennodejs/fast:
+	cd /home/attclinic/software/drone_ws/build && $(MAKE) -f mailroom/CMakeFiles/mailroom_gennodejs.dir/build.make mailroom/CMakeFiles/mailroom_gennodejs.dir/build
+.PHONY : mailroom_gennodejs/fast
+
+# Convenience name for target.
+mailroom/CMakeFiles/mailroom_generate_messages.dir/rule:
+	cd /home/attclinic/software/drone_ws/build && $(MAKE) -f CMakeFiles/Makefile2 mailroom/CMakeFiles/mailroom_generate_messages.dir/rule
+.PHONY : mailroom/CMakeFiles/mailroom_generate_messages.dir/rule
+
+# Convenience name for target.
+mailroom_generate_messages: mailroom/CMakeFiles/mailroom_generate_messages.dir/rule
+
+.PHONY : mailroom_generate_messages
+
+# fast build rule for target.
+mailroom_generate_messages/fast:
+	cd /home/attclinic/software/drone_ws/build && $(MAKE) -f mailroom/CMakeFiles/mailroom_generate_messages.dir/build.make mailroom/CMakeFiles/mailroom_generate_messages.dir/build
+.PHONY : mailroom_generate_messages/fast
+
+# Convenience name for target.
+mailroom/CMakeFiles/mailroom_genlisp.dir/rule:
+	cd /home/attclinic/software/drone_ws/build && $(MAKE) -f CMakeFiles/Makefile2 mailroom/CMakeFiles/mailroom_genlisp.dir/rule
+.PHONY : mailroom/CMakeFiles/mailroom_genlisp.dir/rule
+
+# Convenience name for target.
+mailroom_genlisp: mailroom/CMakeFiles/mailroom_genlisp.dir/rule
+
+.PHONY : mailroom_genlisp
+
+# fast build rule for target.
+mailroom_genlisp/fast:
+	cd /home/attclinic/software/drone_ws/build && $(MAKE) -f mailroom/CMakeFiles/mailroom_genlisp.dir/build.make mailroom/CMakeFiles/mailroom_genlisp.dir/build
+.PHONY : mailroom_genlisp/fast
+
+# Convenience name for target.
+mailroom/CMakeFiles/mailroom_node.dir/rule:
+	cd /home/attclinic/software/drone_ws/build && $(MAKE) -f CMakeFiles/Makefile2 mailroom/CMakeFiles/mailroom_node.dir/rule
+.PHONY : mailroom/CMakeFiles/mailroom_node.dir/rule
+
+# Convenience name for target.
+mailroom_node: mailroom/CMakeFiles/mailroom_node.dir/rule
+
+.PHONY : mailroom_node
+
+# fast build rule for target.
+mailroom_node/fast:
+	cd /home/attclinic/software/drone_ws/build && $(MAKE) -f mailroom/CMakeFiles/mailroom_node.dir/build.make mailroom/CMakeFiles/mailroom_node.dir/build
+.PHONY : mailroom_node/fast
+
+# Convenience name for target.
+mailroom/CMakeFiles/mailroom_genpy.dir/rule:
+	cd /home/attclinic/software/drone_ws/build && $(MAKE) -f CMakeFiles/Makefile2 mailroom/CMakeFiles/mailroom_genpy.dir/rule
+.PHONY : mailroom/CMakeFiles/mailroom_genpy.dir/rule
+
+# Convenience name for target.
+mailroom_genpy: mailroom/CMakeFiles/mailroom_genpy.dir/rule
+
+.PHONY : mailroom_genpy
+
+# fast build rule for target.
+mailroom_genpy/fast:
+	cd /home/attclinic/software/drone_ws/build && $(MAKE) -f mailroom/CMakeFiles/mailroom_genpy.dir/build.make mailroom/CMakeFiles/mailroom_genpy.dir/build
+.PHONY : mailroom_genpy/fast
+
+# Convenience name for target.
+mailroom/CMakeFiles/_mailroom_generate_messages_check_deps_drone_cmd.dir/rule:
+	cd /home/attclinic/software/drone_ws/build && $(MAKE) -f CMakeFiles/Makefile2 mailroom/CMakeFiles/_mailroom_generate_messages_check_deps_drone_cmd.dir/rule
+.PHONY : mailroom/CMakeFiles/_mailroom_generate_messages_check_deps_drone_cmd.dir/rule
+
+# Convenience name for target.
+_mailroom_generate_messages_check_deps_drone_cmd: mailroom/CMakeFiles/_mailroom_generate_messages_check_deps_drone_cmd.dir/rule
+
+.PHONY : _mailroom_generate_messages_check_deps_drone_cmd
+
+# fast build rule for target.
+_mailroom_generate_messages_check_deps_drone_cmd/fast:
+	cd /home/attclinic/software/drone_ws/build && $(MAKE) -f mailroom/CMakeFiles/_mailroom_generate_messages_check_deps_drone_cmd.dir/build.make mailroom/CMakeFiles/_mailroom_generate_messages_check_deps_drone_cmd.dir/build
+.PHONY : _mailroom_generate_messages_check_deps_drone_cmd/fast
+
+# Convenience name for target.
+mailroom/CMakeFiles/mailroom_generate_messages_cpp.dir/rule:
+	cd /home/attclinic/software/drone_ws/build && $(MAKE) -f CMakeFiles/Makefile2 mailroom/CMakeFiles/mailroom_generate_messages_cpp.dir/rule
+.PHONY : mailroom/CMakeFiles/mailroom_generate_messages_cpp.dir/rule
+
+# Convenience name for target.
+mailroom_generate_messages_cpp: mailroom/CMakeFiles/mailroom_generate_messages_cpp.dir/rule
+
+.PHONY : mailroom_generate_messages_cpp
+
+# fast build rule for target.
+mailroom_generate_messages_cpp/fast:
+	cd /home/attclinic/software/drone_ws/build && $(MAKE) -f mailroom/CMakeFiles/mailroom_generate_messages_cpp.dir/build.make mailroom/CMakeFiles/mailroom_generate_messages_cpp.dir/build
+.PHONY : mailroom_generate_messages_cpp/fast
+
+# Convenience name for target.
+mailroom/CMakeFiles/mailroom_gencpp.dir/rule:
+	cd /home/attclinic/software/drone_ws/build && $(MAKE) -f CMakeFiles/Makefile2 mailroom/CMakeFiles/mailroom_gencpp.dir/rule
+.PHONY : mailroom/CMakeFiles/mailroom_gencpp.dir/rule
+
+# Convenience name for target.
+mailroom_gencpp: mailroom/CMakeFiles/mailroom_gencpp.dir/rule
+
+.PHONY : mailroom_gencpp
+
+# fast build rule for target.
+mailroom_gencpp/fast:
+	cd /home/attclinic/software/drone_ws/build && $(MAKE) -f mailroom/CMakeFiles/mailroom_gencpp.dir/build.make mailroom/CMakeFiles/mailroom_gencpp.dir/build
+.PHONY : mailroom_gencpp/fast
+
+# Convenience name for target.
+mailroom/CMakeFiles/mailroomtypes.dir/rule:
+	cd /home/attclinic/software/drone_ws/build && $(MAKE) -f CMakeFiles/Makefile2 mailroom/CMakeFiles/mailroomtypes.dir/rule
+.PHONY : mailroom/CMakeFiles/mailroomtypes.dir/rule
+
+# Convenience name for target.
+mailroomtypes: mailroom/CMakeFiles/mailroomtypes.dir/rule
+
+.PHONY : mailroomtypes
+
+# fast build rule for target.
+mailroomtypes/fast:
+	cd /home/attclinic/software/drone_ws/build && $(MAKE) -f mailroom/CMakeFiles/mailroomtypes.dir/build.make mailroom/CMakeFiles/mailroomtypes.dir/build
+.PHONY : mailroomtypes/fast
 
 # Convenience name for target.
 mailroom/CMakeFiles/_mailroom_generate_messages_check_deps_ATSCsignal.dir/rule:
@@ -211,19 +331,34 @@ _mailroom_generate_messages_check_deps_ATSCsignal/fast:
 .PHONY : _mailroom_generate_messages_check_deps_ATSCsignal/fast
 
 # Convenience name for target.
-mailroom/CMakeFiles/mailroomtypes.dir/rule:
-	cd /home/attclinic/software/drone_ws/build && $(MAKE) -f CMakeFiles/Makefile2 mailroom/CMakeFiles/mailroomtypes.dir/rule
-.PHONY : mailroom/CMakeFiles/mailroomtypes.dir/rule
+mailroom/CMakeFiles/mailroom_geneus.dir/rule:
+	cd /home/attclinic/software/drone_ws/build && $(MAKE) -f CMakeFiles/Makefile2 mailroom/CMakeFiles/mailroom_geneus.dir/rule
+.PHONY : mailroom/CMakeFiles/mailroom_geneus.dir/rule
 
 # Convenience name for target.
-mailroomtypes: mailroom/CMakeFiles/mailroomtypes.dir/rule
+mailroom_geneus: mailroom/CMakeFiles/mailroom_geneus.dir/rule
 
-.PHONY : mailroomtypes
+.PHONY : mailroom_geneus
 
 # fast build rule for target.
-mailroomtypes/fast:
-	cd /home/attclinic/software/drone_ws/build && $(MAKE) -f mailroom/CMakeFiles/mailroomtypes.dir/build.make mailroom/CMakeFiles/mailroomtypes.dir/build
-.PHONY : mailroomtypes/fast
+mailroom_geneus/fast:
+	cd /home/attclinic/software/drone_ws/build && $(MAKE) -f mailroom/CMakeFiles/mailroom_geneus.dir/build.make mailroom/CMakeFiles/mailroom_geneus.dir/build
+.PHONY : mailroom_geneus/fast
+
+# Convenience name for target.
+mailroom/CMakeFiles/mailroom_generate_messages_lisp.dir/rule:
+	cd /home/attclinic/software/drone_ws/build && $(MAKE) -f CMakeFiles/Makefile2 mailroom/CMakeFiles/mailroom_generate_messages_lisp.dir/rule
+.PHONY : mailroom/CMakeFiles/mailroom_generate_messages_lisp.dir/rule
+
+# Convenience name for target.
+mailroom_generate_messages_lisp: mailroom/CMakeFiles/mailroom_generate_messages_lisp.dir/rule
+
+.PHONY : mailroom_generate_messages_lisp
+
+# fast build rule for target.
+mailroom_generate_messages_lisp/fast:
+	cd /home/attclinic/software/drone_ws/build && $(MAKE) -f mailroom/CMakeFiles/mailroom_generate_messages_lisp.dir/build.make mailroom/CMakeFiles/mailroom_generate_messages_lisp.dir/build
+.PHONY : mailroom_generate_messages_lisp/fast
 
 # Convenience name for target.
 mailroom/CMakeFiles/mailroom_generate_messages_eus.dir/rule:
@@ -254,156 +389,6 @@ mailroom_generate_messages_nodejs: mailroom/CMakeFiles/mailroom_generate_message
 mailroom_generate_messages_nodejs/fast:
 	cd /home/attclinic/software/drone_ws/build && $(MAKE) -f mailroom/CMakeFiles/mailroom_generate_messages_nodejs.dir/build.make mailroom/CMakeFiles/mailroom_generate_messages_nodejs.dir/build
 .PHONY : mailroom_generate_messages_nodejs/fast
-
-# Convenience name for target.
-mailroom/CMakeFiles/mailroom_gencpp.dir/rule:
-	cd /home/attclinic/software/drone_ws/build && $(MAKE) -f CMakeFiles/Makefile2 mailroom/CMakeFiles/mailroom_gencpp.dir/rule
-.PHONY : mailroom/CMakeFiles/mailroom_gencpp.dir/rule
-
-# Convenience name for target.
-mailroom_gencpp: mailroom/CMakeFiles/mailroom_gencpp.dir/rule
-
-.PHONY : mailroom_gencpp
-
-# fast build rule for target.
-mailroom_gencpp/fast:
-	cd /home/attclinic/software/drone_ws/build && $(MAKE) -f mailroom/CMakeFiles/mailroom_gencpp.dir/build.make mailroom/CMakeFiles/mailroom_gencpp.dir/build
-.PHONY : mailroom_gencpp/fast
-
-# Convenience name for target.
-mailroom/CMakeFiles/mailroom_generate_messages_cpp.dir/rule:
-	cd /home/attclinic/software/drone_ws/build && $(MAKE) -f CMakeFiles/Makefile2 mailroom/CMakeFiles/mailroom_generate_messages_cpp.dir/rule
-.PHONY : mailroom/CMakeFiles/mailroom_generate_messages_cpp.dir/rule
-
-# Convenience name for target.
-mailroom_generate_messages_cpp: mailroom/CMakeFiles/mailroom_generate_messages_cpp.dir/rule
-
-.PHONY : mailroom_generate_messages_cpp
-
-# fast build rule for target.
-mailroom_generate_messages_cpp/fast:
-	cd /home/attclinic/software/drone_ws/build && $(MAKE) -f mailroom/CMakeFiles/mailroom_generate_messages_cpp.dir/build.make mailroom/CMakeFiles/mailroom_generate_messages_cpp.dir/build
-.PHONY : mailroom_generate_messages_cpp/fast
-
-# Convenience name for target.
-mailroom/CMakeFiles/_mailroom_generate_messages_check_deps_drone_cmd.dir/rule:
-	cd /home/attclinic/software/drone_ws/build && $(MAKE) -f CMakeFiles/Makefile2 mailroom/CMakeFiles/_mailroom_generate_messages_check_deps_drone_cmd.dir/rule
-.PHONY : mailroom/CMakeFiles/_mailroom_generate_messages_check_deps_drone_cmd.dir/rule
-
-# Convenience name for target.
-_mailroom_generate_messages_check_deps_drone_cmd: mailroom/CMakeFiles/_mailroom_generate_messages_check_deps_drone_cmd.dir/rule
-
-.PHONY : _mailroom_generate_messages_check_deps_drone_cmd
-
-# fast build rule for target.
-_mailroom_generate_messages_check_deps_drone_cmd/fast:
-	cd /home/attclinic/software/drone_ws/build && $(MAKE) -f mailroom/CMakeFiles/_mailroom_generate_messages_check_deps_drone_cmd.dir/build.make mailroom/CMakeFiles/_mailroom_generate_messages_check_deps_drone_cmd.dir/build
-.PHONY : _mailroom_generate_messages_check_deps_drone_cmd/fast
-
-# Convenience name for target.
-mailroom/CMakeFiles/mailroom_genlisp.dir/rule:
-	cd /home/attclinic/software/drone_ws/build && $(MAKE) -f CMakeFiles/Makefile2 mailroom/CMakeFiles/mailroom_genlisp.dir/rule
-.PHONY : mailroom/CMakeFiles/mailroom_genlisp.dir/rule
-
-# Convenience name for target.
-mailroom_genlisp: mailroom/CMakeFiles/mailroom_genlisp.dir/rule
-
-.PHONY : mailroom_genlisp
-
-# fast build rule for target.
-mailroom_genlisp/fast:
-	cd /home/attclinic/software/drone_ws/build && $(MAKE) -f mailroom/CMakeFiles/mailroom_genlisp.dir/build.make mailroom/CMakeFiles/mailroom_genlisp.dir/build
-.PHONY : mailroom_genlisp/fast
-
-# Convenience name for target.
-mailroom/CMakeFiles/mailroom_generate_messages.dir/rule:
-	cd /home/attclinic/software/drone_ws/build && $(MAKE) -f CMakeFiles/Makefile2 mailroom/CMakeFiles/mailroom_generate_messages.dir/rule
-.PHONY : mailroom/CMakeFiles/mailroom_generate_messages.dir/rule
-
-# Convenience name for target.
-mailroom_generate_messages: mailroom/CMakeFiles/mailroom_generate_messages.dir/rule
-
-.PHONY : mailroom_generate_messages
-
-# fast build rule for target.
-mailroom_generate_messages/fast:
-	cd /home/attclinic/software/drone_ws/build && $(MAKE) -f mailroom/CMakeFiles/mailroom_generate_messages.dir/build.make mailroom/CMakeFiles/mailroom_generate_messages.dir/build
-.PHONY : mailroom_generate_messages/fast
-
-# Convenience name for target.
-mailroom/CMakeFiles/mailroom_gennodejs.dir/rule:
-	cd /home/attclinic/software/drone_ws/build && $(MAKE) -f CMakeFiles/Makefile2 mailroom/CMakeFiles/mailroom_gennodejs.dir/rule
-.PHONY : mailroom/CMakeFiles/mailroom_gennodejs.dir/rule
-
-# Convenience name for target.
-mailroom_gennodejs: mailroom/CMakeFiles/mailroom_gennodejs.dir/rule
-
-.PHONY : mailroom_gennodejs
-
-# fast build rule for target.
-mailroom_gennodejs/fast:
-	cd /home/attclinic/software/drone_ws/build && $(MAKE) -f mailroom/CMakeFiles/mailroom_gennodejs.dir/build.make mailroom/CMakeFiles/mailroom_gennodejs.dir/build
-.PHONY : mailroom_gennodejs/fast
-
-# Convenience name for target.
-mailroom/CMakeFiles/mailroom_node.dir/rule:
-	cd /home/attclinic/software/drone_ws/build && $(MAKE) -f CMakeFiles/Makefile2 mailroom/CMakeFiles/mailroom_node.dir/rule
-.PHONY : mailroom/CMakeFiles/mailroom_node.dir/rule
-
-# Convenience name for target.
-mailroom_node: mailroom/CMakeFiles/mailroom_node.dir/rule
-
-.PHONY : mailroom_node
-
-# fast build rule for target.
-mailroom_node/fast:
-	cd /home/attclinic/software/drone_ws/build && $(MAKE) -f mailroom/CMakeFiles/mailroom_node.dir/build.make mailroom/CMakeFiles/mailroom_node.dir/build
-.PHONY : mailroom_node/fast
-
-# Convenience name for target.
-mailroom/CMakeFiles/mailroom_generate_messages_py.dir/rule:
-	cd /home/attclinic/software/drone_ws/build && $(MAKE) -f CMakeFiles/Makefile2 mailroom/CMakeFiles/mailroom_generate_messages_py.dir/rule
-.PHONY : mailroom/CMakeFiles/mailroom_generate_messages_py.dir/rule
-
-# Convenience name for target.
-mailroom_generate_messages_py: mailroom/CMakeFiles/mailroom_generate_messages_py.dir/rule
-
-.PHONY : mailroom_generate_messages_py
-
-# fast build rule for target.
-mailroom_generate_messages_py/fast:
-	cd /home/attclinic/software/drone_ws/build && $(MAKE) -f mailroom/CMakeFiles/mailroom_generate_messages_py.dir/build.make mailroom/CMakeFiles/mailroom_generate_messages_py.dir/build
-.PHONY : mailroom_generate_messages_py/fast
-
-# Convenience name for target.
-mailroom/CMakeFiles/mailroom_geneus.dir/rule:
-	cd /home/attclinic/software/drone_ws/build && $(MAKE) -f CMakeFiles/Makefile2 mailroom/CMakeFiles/mailroom_geneus.dir/rule
-.PHONY : mailroom/CMakeFiles/mailroom_geneus.dir/rule
-
-# Convenience name for target.
-mailroom_geneus: mailroom/CMakeFiles/mailroom_geneus.dir/rule
-
-.PHONY : mailroom_geneus
-
-# fast build rule for target.
-mailroom_geneus/fast:
-	cd /home/attclinic/software/drone_ws/build && $(MAKE) -f mailroom/CMakeFiles/mailroom_geneus.dir/build.make mailroom/CMakeFiles/mailroom_geneus.dir/build
-.PHONY : mailroom_geneus/fast
-
-# Convenience name for target.
-mailroom/CMakeFiles/mailroom_genpy.dir/rule:
-	cd /home/attclinic/software/drone_ws/build && $(MAKE) -f CMakeFiles/Makefile2 mailroom/CMakeFiles/mailroom_genpy.dir/rule
-.PHONY : mailroom/CMakeFiles/mailroom_genpy.dir/rule
-
-# Convenience name for target.
-mailroom_genpy: mailroom/CMakeFiles/mailroom_genpy.dir/rule
-
-.PHONY : mailroom_genpy
-
-# fast build rule for target.
-mailroom_genpy/fast:
-	cd /home/attclinic/software/drone_ws/build && $(MAKE) -f mailroom/CMakeFiles/mailroom_genpy.dir/build.make mailroom/CMakeFiles/mailroom_genpy.dir/build
-.PHONY : mailroom_genpy/fast
 
 src/mailroom.o: src/mailroom.cpp.o
 
@@ -466,28 +451,27 @@ help:
 	@echo "... clean"
 	@echo "... depend"
 	@echo "... test"
-	@echo "... mailroom_generate_messages_lisp"
-	@echo "... _mailroom_generate_messages_check_deps_drone_move"
-	@echo "... _mailroom_generate_messages_check_deps_ATSCsignal"
+	@echo "... install/strip"
+	@echo "... install"
+	@echo "... install/local"
+	@echo "... mailroom_generate_messages_py"
+	@echo "... mailroom_gennodejs"
+	@echo "... mailroom_generate_messages"
+	@echo "... edit_cache"
+	@echo "... mailroom_genlisp"
+	@echo "... mailroom_node"
+	@echo "... mailroom_genpy"
+	@echo "... _mailroom_generate_messages_check_deps_drone_cmd"
+	@echo "... rebuild_cache"
+	@echo "... mailroom_generate_messages_cpp"
+	@echo "... mailroom_gencpp"
 	@echo "... mailroomtypes"
+	@echo "... _mailroom_generate_messages_check_deps_ATSCsignal"
+	@echo "... mailroom_geneus"
+	@echo "... mailroom_generate_messages_lisp"
+	@echo "... list_install_components"
 	@echo "... mailroom_generate_messages_eus"
 	@echo "... mailroom_generate_messages_nodejs"
-	@echo "... list_install_components"
-	@echo "... mailroom_gencpp"
-	@echo "... mailroom_generate_messages_cpp"
-	@echo "... rebuild_cache"
-	@echo "... _mailroom_generate_messages_check_deps_drone_cmd"
-	@echo "... mailroom_genlisp"
-	@echo "... edit_cache"
-	@echo "... mailroom_generate_messages"
-	@echo "... mailroom_gennodejs"
-	@echo "... mailroom_node"
-	@echo "... mailroom_generate_messages_py"
-	@echo "... install/local"
-	@echo "... mailroom_geneus"
-	@echo "... mailroom_genpy"
-	@echo "... install"
-	@echo "... install/strip"
 	@echo "... src/mailroom.o"
 	@echo "... src/mailroom.i"
 	@echo "... src/mailroom.s"

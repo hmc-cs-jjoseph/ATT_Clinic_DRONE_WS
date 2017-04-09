@@ -89,6 +89,7 @@ wheredoigo/CMakeFiles/wheredoigo_node.dir/src/wheredoigo.cpp.o: /home/attclinic/
 wheredoigo/CMakeFiles/wheredoigo_node.dir/src/wheredoigo.cpp.o: /home/attclinic/ros_catkin_ws_kinetic/install_isolated/include/rosconsole/macros_generated.h
 wheredoigo/CMakeFiles/wheredoigo_node.dir/src/wheredoigo.cpp.o: /home/attclinic/ros_catkin_ws_kinetic/install_isolated/include/std_msgs/Header.h
 wheredoigo/CMakeFiles/wheredoigo_node.dir/src/wheredoigo.cpp.o: /home/attclinic/ros_catkin_ws_kinetic/install_isolated/include/std_msgs/String.h
+wheredoigo/CMakeFiles/wheredoigo_node.dir/src/wheredoigo.cpp.o: /home/attclinic/ros_catkin_ws_kinetic/install_isolated/include/std_msgs/UInt32.h
 wheredoigo/CMakeFiles/wheredoigo_node.dir/src/wheredoigo.cpp.o: /home/attclinic/ros_catkin_ws_kinetic/install_isolated/include/std_msgs/UInt8.h
 wheredoigo/CMakeFiles/wheredoigo_node.dir/src/wheredoigo.cpp.o: /home/attclinic/software/drone_ws/devel/include/dji_sdk/A3GPS.h
 wheredoigo/CMakeFiles/wheredoigo_node.dir/src/wheredoigo.cpp.o: /home/attclinic/software/drone_ws/devel/include/dji_sdk/A3RTK.h
@@ -243,8 +244,6 @@ wheredoigo/CMakeFiles/wheredoigo_node.dir/src/wheredoigo.cpp.o: /home/attclinic/
 wheredoigo/CMakeFiles/wheredoigo_node.dir/src/wheredoigo.cpp.o: /home/attclinic/software/drone_ws/devel/include/dji_sdk/WaypointNavigationResult.h
 wheredoigo/CMakeFiles/wheredoigo_node.dir/src/wheredoigo.cpp.o: /home/attclinic/software/drone_ws/devel/include/mailroom/ATSCsignal.h
 wheredoigo/CMakeFiles/wheredoigo_node.dir/src/wheredoigo.cpp.o: /home/attclinic/software/drone_ws/devel/include/mailroom/drone_cmd.h
-wheredoigo/CMakeFiles/wheredoigo_node.dir/src/wheredoigo.cpp.o: /home/attclinic/software/drone_ws/devel/include/mailroom/drone_move.h
-wheredoigo/CMakeFiles/wheredoigo_node.dir/src/wheredoigo.cpp.o: /home/attclinic/software/drone_ws/devel/include/mailroom/drone_telemetry.h
 wheredoigo/CMakeFiles/wheredoigo_node.dir/src/wheredoigo.cpp.o: /home/attclinic/software/drone_ws/devel/include/tuner/GetSignalStatus.h
 wheredoigo/CMakeFiles/wheredoigo_node.dir/src/wheredoigo.cpp.o: /home/attclinic/software/drone_ws/devel/include/tuner/GetSignalStatusRequest.h
 wheredoigo/CMakeFiles/wheredoigo_node.dir/src/wheredoigo.cpp.o: /home/attclinic/software/drone_ws/devel/include/tuner/GetSignalStatusResponse.h

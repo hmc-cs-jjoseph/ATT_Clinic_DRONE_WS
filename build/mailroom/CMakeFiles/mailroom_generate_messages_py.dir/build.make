@@ -55,7 +55,6 @@ include mailroom/CMakeFiles/mailroom_generate_messages_py.dir/progress.make
 
 mailroom/CMakeFiles/mailroom_generate_messages_py: /home/attclinic/software/drone_ws/devel/lib/python2.7/dist-packages/mailroom/msg/_ATSCsignal.py
 mailroom/CMakeFiles/mailroom_generate_messages_py: /home/attclinic/software/drone_ws/devel/lib/python2.7/dist-packages/mailroom/msg/_drone_cmd.py
-mailroom/CMakeFiles/mailroom_generate_messages_py: /home/attclinic/software/drone_ws/devel/lib/python2.7/dist-packages/mailroom/msg/_drone_move.py
 mailroom/CMakeFiles/mailroom_generate_messages_py: /home/attclinic/software/drone_ws/devel/lib/python2.7/dist-packages/mailroom/msg/__init__.py
 
 
@@ -69,22 +68,15 @@ mailroom/CMakeFiles/mailroom_generate_messages_py: /home/attclinic/software/dron
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/attclinic/software/drone_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Generating Python from MSG mailroom/drone_cmd"
 	cd /home/attclinic/software/drone_ws/build/mailroom && ../catkin_generated/env_cached.sh /usr/bin/python /home/attclinic/ros_catkin_ws_kinetic/install_isolated/share/genpy/cmake/../../../lib/genpy/genmsg_py.py /home/attclinic/software/drone_ws/src/mailroom/msg/drone_cmd.msg -Imailroom:/home/attclinic/software/drone_ws/src/mailroom/msg -Istd_msgs:/home/attclinic/ros_catkin_ws_kinetic/install_isolated/share/std_msgs/cmake/../msg -Idji_sdk:/home/attclinic/software/drone_ws/src/dji_sdk/msg -Idji_sdk:/home/attclinic/software/drone_ws/devel/share/dji_sdk/msg -Igeometry_msgs:/home/attclinic/ros_catkin_ws_kinetic/install_isolated/share/geometry_msgs/cmake/../msg -Inav_msgs:/home/attclinic/ros_catkin_ws_kinetic/install_isolated/share/nav_msgs/cmake/../msg -Iactionlib_msgs:/home/attclinic/ros_catkin_ws_kinetic/install_isolated/share/actionlib_msgs/cmake/../msg -p mailroom -o /home/attclinic/software/drone_ws/devel/lib/python2.7/dist-packages/mailroom/msg
 
-/home/attclinic/software/drone_ws/devel/lib/python2.7/dist-packages/mailroom/msg/_drone_move.py: /home/attclinic/ros_catkin_ws_kinetic/install_isolated/lib/genpy/genmsg_py.py
-/home/attclinic/software/drone_ws/devel/lib/python2.7/dist-packages/mailroom/msg/_drone_move.py: /home/attclinic/software/drone_ws/src/mailroom/msg/drone_move.msg
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/attclinic/software/drone_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Generating Python from MSG mailroom/drone_move"
-	cd /home/attclinic/software/drone_ws/build/mailroom && ../catkin_generated/env_cached.sh /usr/bin/python /home/attclinic/ros_catkin_ws_kinetic/install_isolated/share/genpy/cmake/../../../lib/genpy/genmsg_py.py /home/attclinic/software/drone_ws/src/mailroom/msg/drone_move.msg -Imailroom:/home/attclinic/software/drone_ws/src/mailroom/msg -Istd_msgs:/home/attclinic/ros_catkin_ws_kinetic/install_isolated/share/std_msgs/cmake/../msg -Idji_sdk:/home/attclinic/software/drone_ws/src/dji_sdk/msg -Idji_sdk:/home/attclinic/software/drone_ws/devel/share/dji_sdk/msg -Igeometry_msgs:/home/attclinic/ros_catkin_ws_kinetic/install_isolated/share/geometry_msgs/cmake/../msg -Inav_msgs:/home/attclinic/ros_catkin_ws_kinetic/install_isolated/share/nav_msgs/cmake/../msg -Iactionlib_msgs:/home/attclinic/ros_catkin_ws_kinetic/install_isolated/share/actionlib_msgs/cmake/../msg -p mailroom -o /home/attclinic/software/drone_ws/devel/lib/python2.7/dist-packages/mailroom/msg
-
 /home/attclinic/software/drone_ws/devel/lib/python2.7/dist-packages/mailroom/msg/__init__.py: /home/attclinic/ros_catkin_ws_kinetic/install_isolated/lib/genpy/genmsg_py.py
 /home/attclinic/software/drone_ws/devel/lib/python2.7/dist-packages/mailroom/msg/__init__.py: /home/attclinic/software/drone_ws/devel/lib/python2.7/dist-packages/mailroom/msg/_ATSCsignal.py
 /home/attclinic/software/drone_ws/devel/lib/python2.7/dist-packages/mailroom/msg/__init__.py: /home/attclinic/software/drone_ws/devel/lib/python2.7/dist-packages/mailroom/msg/_drone_cmd.py
-/home/attclinic/software/drone_ws/devel/lib/python2.7/dist-packages/mailroom/msg/__init__.py: /home/attclinic/software/drone_ws/devel/lib/python2.7/dist-packages/mailroom/msg/_drone_move.py
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/attclinic/software/drone_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Generating Python msg __init__.py for mailroom"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/attclinic/software/drone_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Generating Python msg __init__.py for mailroom"
 	cd /home/attclinic/software/drone_ws/build/mailroom && ../catkin_generated/env_cached.sh /usr/bin/python /home/attclinic/ros_catkin_ws_kinetic/install_isolated/share/genpy/cmake/../../../lib/genpy/genmsg_py.py -o /home/attclinic/software/drone_ws/devel/lib/python2.7/dist-packages/mailroom/msg --initpy
 
 mailroom_generate_messages_py: mailroom/CMakeFiles/mailroom_generate_messages_py
 mailroom_generate_messages_py: /home/attclinic/software/drone_ws/devel/lib/python2.7/dist-packages/mailroom/msg/_ATSCsignal.py
 mailroom_generate_messages_py: /home/attclinic/software/drone_ws/devel/lib/python2.7/dist-packages/mailroom/msg/_drone_cmd.py
-mailroom_generate_messages_py: /home/attclinic/software/drone_ws/devel/lib/python2.7/dist-packages/mailroom/msg/_drone_move.py
 mailroom_generate_messages_py: /home/attclinic/software/drone_ws/devel/lib/python2.7/dist-packages/mailroom/msg/__init__.py
 mailroom_generate_messages_py: mailroom/CMakeFiles/mailroom_generate_messages_py.dir/build.make
 

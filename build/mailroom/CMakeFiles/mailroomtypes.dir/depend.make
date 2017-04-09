@@ -59,6 +59,7 @@ mailroom/CMakeFiles/mailroomtypes.dir/src/mailroomtypes.cpp.o: /home/attclinic/r
 mailroom/CMakeFiles/mailroomtypes.dir/src/mailroomtypes.cpp.o: /home/attclinic/ros_catkin_ws_kinetic/install_isolated/include/rosconsole/macros_generated.h
 mailroom/CMakeFiles/mailroomtypes.dir/src/mailroomtypes.cpp.o: /home/attclinic/ros_catkin_ws_kinetic/install_isolated/include/std_msgs/Header.h
 mailroom/CMakeFiles/mailroomtypes.dir/src/mailroomtypes.cpp.o: /home/attclinic/ros_catkin_ws_kinetic/install_isolated/include/std_msgs/String.h
+mailroom/CMakeFiles/mailroomtypes.dir/src/mailroomtypes.cpp.o: /home/attclinic/ros_catkin_ws_kinetic/install_isolated/include/std_msgs/UInt32.h
 mailroom/CMakeFiles/mailroomtypes.dir/src/mailroomtypes.cpp.o: /home/attclinic/software/drone_ws/devel/include/dji_sdk/Compass.h
 mailroom/CMakeFiles/mailroomtypes.dir/src/mailroomtypes.cpp.o: /home/attclinic/software/drone_ws/devel/include/dji_sdk/GlobalPosition.h
 mailroom/CMakeFiles/mailroomtypes.dir/src/mailroomtypes.cpp.o: /home/attclinic/software/drone_ws/devel/include/dji_sdk/PowerStatus.h

@@ -7,6 +7,7 @@ DroneListener::DroneListener(ros::Publisher& publisher) :
 	orientation_(0),
 	height_(0),
 	battery_(0),
+	state_(0),
 	dataIsNew_(0) {
 	/* nothin else goin on here boyo */
 }
@@ -24,6 +25,8 @@ void DroneListener::publishAllData() {
 	data += std::to_string(height_);
 	data += "|orientation=";
 	data += std::to_string(orientation_);
+	data += "|state=";
+	data += std::to_string(state_);
 	if(dataIsNew_) {
 		data += "|channels=";
 		signaldata_t lastchannel = signaldata_[signaldata_.size() - 1];
@@ -80,3 +83,6 @@ void DroneListener::recordSignalStatus(const mailroom::ATSCsignal::ConstPtr& msg
 	dataIsNew_ = 1;
 }
 
+void DroneListener::recordDroneState(const std_msgs::UInt32::ConstPtr& msg) {
+	state_ = msg->data;
+}

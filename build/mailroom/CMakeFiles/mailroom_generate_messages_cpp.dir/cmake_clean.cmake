@@ -2,7 +2,6 @@ file(REMOVE_RECURSE
   "CMakeFiles/mailroom_generate_messages_cpp"
   "/home/attclinic/software/drone_ws/devel/include/mailroom/ATSCsignal.h"
   "/home/attclinic/software/drone_ws/devel/include/mailroom/drone_cmd.h"
-  "/home/attclinic/software/drone_ws/devel/include/mailroom/drone_move.h"
 )
 
 # Per-language clean rules from dependency scanning.

@@ -5,4 +5,4 @@ Description: Description of mailroom
 Version: 0.0.0
 Cflags: -I/home/attclinic/software/drone_ws/install/include
 Libs: -L/home/attclinic/software/drone_ws/install/lib 
-Requires: message_runtime roscpp std_msgs dji_sdk
+Requires: roscpp std_msgs dji_sdk

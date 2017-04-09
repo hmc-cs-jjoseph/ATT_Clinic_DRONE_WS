@@ -55,7 +55,6 @@ include mailroom/CMakeFiles/mailroom_generate_messages_cpp.dir/progress.make
 
 mailroom/CMakeFiles/mailroom_generate_messages_cpp: /home/attclinic/software/drone_ws/devel/include/mailroom/ATSCsignal.h
 mailroom/CMakeFiles/mailroom_generate_messages_cpp: /home/attclinic/software/drone_ws/devel/include/mailroom/drone_cmd.h
-mailroom/CMakeFiles/mailroom_generate_messages_cpp: /home/attclinic/software/drone_ws/devel/include/mailroom/drone_move.h
 
 
 /home/attclinic/software/drone_ws/devel/include/mailroom/ATSCsignal.h: /home/attclinic/ros_catkin_ws_kinetic/install_isolated/lib/gencpp/gen_cpp.py
@@ -70,16 +69,9 @@ mailroom/CMakeFiles/mailroom_generate_messages_cpp: /home/attclinic/software/dro
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/attclinic/software/drone_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Generating C++ code from mailroom/drone_cmd.msg"
 	cd /home/attclinic/software/drone_ws/build/mailroom && ../catkin_generated/env_cached.sh /usr/bin/python /home/attclinic/ros_catkin_ws_kinetic/install_isolated/share/gencpp/cmake/../../../lib/gencpp/gen_cpp.py /home/attclinic/software/drone_ws/src/mailroom/msg/drone_cmd.msg -Imailroom:/home/attclinic/software/drone_ws/src/mailroom/msg -Istd_msgs:/home/attclinic/ros_catkin_ws_kinetic/install_isolated/share/std_msgs/cmake/../msg -Idji_sdk:/home/attclinic/software/drone_ws/src/dji_sdk/msg -Idji_sdk:/home/attclinic/software/drone_ws/devel/share/dji_sdk/msg -Igeometry_msgs:/home/attclinic/ros_catkin_ws_kinetic/install_isolated/share/geometry_msgs/cmake/../msg -Inav_msgs:/home/attclinic/ros_catkin_ws_kinetic/install_isolated/share/nav_msgs/cmake/../msg -Iactionlib_msgs:/home/attclinic/ros_catkin_ws_kinetic/install_isolated/share/actionlib_msgs/cmake/../msg -p mailroom -o /home/attclinic/software/drone_ws/devel/include/mailroom -e /home/attclinic/ros_catkin_ws_kinetic/install_isolated/share/gencpp/cmake/..
 
-/home/attclinic/software/drone_ws/devel/include/mailroom/drone_move.h: /home/attclinic/ros_catkin_ws_kinetic/install_isolated/lib/gencpp/gen_cpp.py
-/home/attclinic/software/drone_ws/devel/include/mailroom/drone_move.h: /home/attclinic/software/drone_ws/src/mailroom/msg/drone_move.msg
-/home/attclinic/software/drone_ws/devel/include/mailroom/drone_move.h: /home/attclinic/ros_catkin_ws_kinetic/install_isolated/share/gencpp/msg.h.template
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/attclinic/software/drone_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Generating C++ code from mailroom/drone_move.msg"
-	cd /home/attclinic/software/drone_ws/build/mailroom && ../catkin_generated/env_cached.sh /usr/bin/python /home/attclinic/ros_catkin_ws_kinetic/install_isolated/share/gencpp/cmake/../../../lib/gencpp/gen_cpp.py /home/attclinic/software/drone_ws/src/mailroom/msg/drone_move.msg -Imailroom:/home/attclinic/software/drone_ws/src/mailroom/msg -Istd_msgs:/home/attclinic/ros_catkin_ws_kinetic/install_isolated/share/std_msgs/cmake/../msg -Idji_sdk:/home/attclinic/software/drone_ws/src/dji_sdk/msg -Idji_sdk:/home/attclinic/software/drone_ws/devel/share/dji_sdk/msg -Igeometry_msgs:/home/attclinic/ros_catkin_ws_kinetic/install_isolated/share/geometry_msgs/cmake/../msg -Inav_msgs:/home/attclinic/ros_catkin_ws_kinetic/install_isolated/share/nav_msgs/cmake/../msg -Iactionlib_msgs:/home/attclinic/ros_catkin_ws_kinetic/install_isolated/share/actionlib_msgs/cmake/../msg -p mailroom -o /home/attclinic/software/drone_ws/devel/include/mailroom -e /home/attclinic/ros_catkin_ws_kinetic/install_isolated/share/gencpp/cmake/..
-
 mailroom_generate_messages_cpp: mailroom/CMakeFiles/mailroom_generate_messages_cpp
 mailroom_generate_messages_cpp: /home/attclinic/software/drone_ws/devel/include/mailroom/ATSCsignal.h
 mailroom_generate_messages_cpp: /home/attclinic/software/drone_ws/devel/include/mailroom/drone_cmd.h
-mailroom_generate_messages_cpp: /home/attclinic/software/drone_ws/devel/include/mailroom/drone_move.h
 mailroom_generate_messages_cpp: mailroom/CMakeFiles/mailroom_generate_messages_cpp.dir/build.make
 
 .PHONY : mailroom_generate_messages_cpp

@@ -7,8 +7,8 @@ project(mailroom)
 find_package(catkin REQUIRED COMPONENTS
   roscpp
   std_msgs
-  message_generation
 	dji_sdk
+	message_generation
 )
 
 ## System dependencies are found with CMake's conventions
@@ -47,10 +47,9 @@ find_package(catkin REQUIRED COMPONENTS
 ## Generate messages in the 'msg' folder
 add_message_files(
 	DIRECTORY msg
-  FILES
-  drone_cmd.msg
-  drone_move.msg
-	ATSCsignal.msg
+		FILES
+		drone_cmd.msg
+		ATSCsignal.msg
 )
 
 ## Generate services in the 'srv' folder
@@ -69,10 +68,10 @@ add_message_files(
 
 ## Generate added messages and services with any dependencies listed here
 generate_messages(
-  DEPENDENCIES
-  std_msgs
-	dji_sdk
-	tuner
+DEPENDENCIES
+std_msgs
+dji_sdk
+tuner
 )
 
 ################################################
@@ -107,7 +106,7 @@ generate_messages(
 catkin_package(
 INCLUDE_DIRS include
 #  LIBRARIES mailroom
-CATKIN_DEPENDS message_runtime roscpp std_msgs dji_sdk 
+CATKIN_DEPENDS roscpp std_msgs dji_sdk 
 #  DEPENDS system_lib
 )
 
