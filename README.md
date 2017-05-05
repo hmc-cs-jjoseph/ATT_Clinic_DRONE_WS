@@ -5,9 +5,11 @@
 This ROS workspace implements our onboard drone control software. 
 
 ### Packages
-/wheredoigo
-/downlink
-/mailroom
-/dji_sdk
-/dji_sdk_lib
+wheredoigo
+downlink
+mailroom
+dji_sdk
+dji_sdk_lib
+
+If you clone this, you should delete the build and devel spaces of the workspace and all packages and run a full catkin_make in the workspace directory.
 
